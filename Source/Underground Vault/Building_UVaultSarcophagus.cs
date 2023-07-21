@@ -24,71 +24,151 @@ namespace UndergroundVault
             }
             isFree();
             ThingDef bd = ThingDefOfLocal.UVaultedSarcophagus;
-            Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(bd);
+            //Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignatorRoot(bd, false) as Designator_Build;
             List<ThingDef> selectStuff = base.Map.resourceCounter.AllCountedAmounts.Keys.OrderByDescending((ThingDef td) => td.stuffProps?.commonality ?? float.PositiveInfinity).ThenBy((ThingDef td) => td.BaseMarketValue).Where((ThingDef td) => (td.IsStuff && td.stuffProps.CanMake(bd) && (DebugSettings.godMode || base.Map.listerThings.ThingsOfDef(td).Count > 0))).ToList();
-            Log.Message("1");
-            Command_Action command_Action = new Command_Action
+            //Log.Message("0");
+            //yield return new Command_Action
+            //{
+            //    action = delegate
+            //    {
+            //        des.DesignateSingleCell(this.Position);
+            //        //Find.WindowStack.Add(new FloatMenu(GetExtraOptions().Select(delegate (Faction f)
+            //        //{
+            //        //    return new FloatMenuOption("VOEAdditionalOutposts.NegotiateWith".Translate(NegotiationGoodwill(f).ToString(), f.Name).RawText, delegate
+            //        //    {
+            //        //        choiceFaction = f;
+            //        //    }, itemIcon: f.def.FactionIcon, iconColor: f.def.DefaultColor);
+            //        //})
+            //        //    .ToList()));
+            //    },
+            //    defaultLabel = "L",
+            //    defaultDesc = "D"
+            //};
+            //Log.Message("1");
+            yield return new Command_Action
             {
                 action = delegate
                 {
+                    //Log.Message("1-a");
+                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
                     Find.WindowStack.Add(new FloatMenu(selectStuff.Select(delegate (ThingDef td)
                     {
                         FloatMenuOption floatMenuOption = new FloatMenuOption((GenLabel.ThingLabel(bd, td)).CapitalizeFirst(), delegate
                         {
-                            SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                            des.SetStuffDef(td);
-                            des.DesignateSingleCell(this.Position);
+                            Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd, this.Position, this.Map, Rot4.North, this.Faction, td);
+                            //des.SetTemporaryVars(td, false);
+                            //des.SetStuffDef(td);
+                            //des.DesignateSingleCell(this.Position);
                         }, shownItemForIcon: td);
                         floatMenuOption.tutorTag = "SelectStuff-" + bd.defName + "-" + td.defName;
                         return floatMenuOption;
                     })
                         .ToList()));
+                    //Log.Message("1-b");
                 },
-                defaultLabel = des.Label,
-                defaultDesc = des.Desc,
+                defaultLabel = bd.label,
+                defaultDesc = bd.description,
+                icon = bd.uiIcon,
+                iconDrawScale = GenUI.IconDrawScale(bd),
+                defaultIconColor = bd.defaultStuff.uiIconColor,
+                //iconProportions = bd.icon
                 disabled = selectStuff.NullOrEmpty(),
                 disabledReason = "NoStuffsToBuildWith".Translate()
             };
-            ThingDef stuffDefRaw = des.StuffDefRaw;
-            command_Action.icon = des.ResolvedIcon(null);
-            command_Action.iconProportions = des.iconProportions;
-            command_Action.iconDrawScale = des.iconDrawScale;
-            command_Action.iconTexCoords = des.iconTexCoords;
-            command_Action.iconAngle = des.iconAngle;
-            command_Action.iconOffset = des.iconOffset;
-            command_Action.Order = 10f;
-            command_Action.SetColorOverride(des.IconDrawColor);
-            des.SetStuffDef(stuffDefRaw);
-            command_Action.defaultIconColor = bd.uiIconColor;
-            yield return command_Action;
-            Log.Message("2");
+            //Log.Message("1-1");
+            //ThingDef stuffDefRaw = des.StuffDefRaw;
+            //Log.Message("1-2");
+            //command_Action.icon = des.ResolvedIcon(null);
+            //command_Action.iconProportions = des.iconProportions;
+            //command_Action.iconDrawScale = des.iconDrawScale;
+            //command_Action.iconTexCoords = des.iconTexCoords;
+            //Log.Message("1-3");
+            //command_Action.iconAngle = des.iconAngle;
+            //command_Action.iconOffset = des.iconOffset;
+            //command_Action.Order = 10f;
+            //command_Action.SetColorOverride(des.IconDrawColor);
+            //Log.Message("1-4");
+            //des.SetStuffDef(stuffDefRaw);
+            //command_Action.defaultIconColor = bd.uiIconColor;
+            //Log.Message("1-5");
+            //yield return command_Action;
+            //Log.Message("1-6");
+            //Log.Message("2");
             if (!isUpgradeCRInstalled)
             {
-                bd = ThingDefOfLocal.UVaultCrematoriumUpgrade;
-                des = BuildCopyCommandUtility.FindAllowedDesignator(bd);
-                command_Action = new Command_Action
+                //Log.Message("3");
+                ThingDef bd1 = ThingDefOfLocal.UVaultCrematoriumUpgrade;
+                //des = BuildCopyCommandUtility.FindAllowedDesignator(bd1);
+                yield return new Command_Action
                 {
                     action = delegate
                     {
                         SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                        des.DesignateSingleCell(this.Position + IntVec3.SouthEast);
+                        Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.East, this.Map, Rot4.North, this.Faction, null);
+                        //des.DesignateSingleCell(this.Position + IntVec3.East);
                     },
-                    defaultLabel = des.Label,
-                    defaultDesc = des.Desc,
+                    defaultLabel = bd1.label,
+                    defaultDesc = bd1.description,
                     disabled = isUpgradeCRInstalled,
-                    disabledReason = "Already installed".Translate()
+                    disabledReason = "Already installed".Translate(),
+                    icon = TextureOfLocal.UpgradeCRIconTex,
+                    Order = 20f
                 };
-                command_Action.icon = des.ResolvedIcon(null);
-                command_Action.iconProportions = des.iconProportions;
-                command_Action.iconDrawScale = des.iconDrawScale;
-                command_Action.iconTexCoords = des.iconTexCoords;
-                command_Action.iconAngle = des.iconAngle;
-                command_Action.iconOffset = des.iconOffset;
-                //command_Action.Order = 20f;
-                command_Action.SetColorOverride(des.IconDrawColor);
-                command_Action.defaultIconColor = bd.uiIconColor;
-                yield return command_Action;
-                Log.Message("3");
+                //Log.Message("4");
+            }
+            if (!isUpgradeDDInstalled)
+            {
+                ThingDef bd1 = ThingDefOfLocal.UVaultDeepDrillUpgrade;
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                        Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.NorthEast, this.Map, Rot4.North, this.Faction, null);
+                    },
+                    defaultLabel = bd1.label,
+                    defaultDesc = bd1.description,
+                    disabled = isUpgradeCRInstalled,
+                    disabledReason = "Already installed".Translate(),
+                    icon = TextureOfLocal.UpgradeDDIconTex,
+                    Order = 21f
+                };
+            }
+            if (!isUpgradeSEInstalled)
+            {
+                ThingDef bd1 = ThingDefOfLocal.UVaultStorageEfficiencyUpgrade;
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                        Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.NorthWest, this.Map, Rot4.North, this.Faction, null);
+                    },
+                    defaultLabel = bd1.label,
+                    defaultDesc = bd1.description,
+                    disabled = isUpgradeCRInstalled,
+                    disabledReason = "Already installed".Translate(),
+                    icon = TextureOfLocal.UpgradeCRIconTex,
+                    Order = 22f
+                };
+            }
+            if (!isUpgradeAIInstalled)
+            {
+                ThingDef bd1 = ThingDefOfLocal.UVaultAIUpgrade;
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                        Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.West, this.Map, Rot4.North, this.Faction, null);
+                    },
+                    defaultLabel = bd1.label,
+                    defaultDesc = bd1.description,
+                    disabled = isUpgradeCRInstalled,
+                    disabledReason = "Already installed".Translate(),
+                    icon = TextureOfLocal.UpgradeCRIconTex,
+                    Order = 23f
+                };
             }
         }
 
