@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1758
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Underground Vault", "Underground Vault\Underground Vault.csproj", "{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		1.3|Any CPU = 1.3|Any CPU
+		1.4|Any CPU = 1.4|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.1.3|Any CPU.ActiveCfg = 1.3|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.1.3|Any CPU.Build.0 = 1.3|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.1.4|Any CPU.ActiveCfg = 1.4|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.1.4|Any CPU.Build.0 = 1.4|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE171D07-E135-4AF1-B1D0-1A2743E0D079}
+	EndGlobalSection
+EndGlobal

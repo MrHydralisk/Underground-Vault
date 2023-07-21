@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>UVaultSarcophagus</defName>
+    <label>sarcophagus vault</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <thingClass>UndergroundVault.Building_UVaultSarcophagus</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVaultSarcophagus</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(5,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <tickerType>Rare</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <building>
+      <!-- <ai_chillDestination>false</ai_chillDestination> -->
+      <!-- <preventDeteriorationInside>true</preventDeteriorationInside> -->
+      <!-- <haulToContainerDuration>500</haulToContainerDuration> -->
+      <!-- <fullGraveGraphicData> -->
+        <!-- <texPath>Things/Building/Misc/UVaultSarcophagusFull</texPath> -->
+        <!-- <graphicClass>Graphic_Multi</graphicClass> -->
+        <!-- <drawSize>(5,4)</drawSize> -->
+      <!-- </fullGraveGraphicData> -->
+      <!-- <fixedStorageSettings> -->
+        <!-- <filter> -->
+          <!-- <categories> -->
+            <!-- <li>Corpses</li> -->
+          <!-- </categories> -->
+        <!-- </filter> -->
+      <!-- </fixedStorageSettings> -->
+      <!-- <defaultStorageSettings> -->
+        <!-- <priority>Important</priority> -->
+        <!-- <filter> -->
+          <!-- <categories> -->
+            <!-- <li>CorpsesHumanlike</li> -->
+          <!-- </categories> -->
+          <!-- <specialFiltersToDisallow> -->
+            <!-- <li>AllowCorpsesStranger</li> -->
+          <!-- </specialFiltersToDisallow> -->
+        <!-- </filter> -->
+      <!-- </defaultStorageSettings> -->
+      <!-- <buildingTags> -->
+        <!-- <li>RitualFocus</li> -->
+      <!-- </buildingTags> -->
+    </building>
+    <inspectorTabs>
+      <!-- <li>ITab_Storage</li> -->
+    </inspectorTabs>
+    <!-- <comps> -->
+      <!-- <li Class="CompProperties_AssignableToPawn"> -->
+        <!-- <drawAssignmentOverlay>false</drawAssignmentOverlay> -->
+        <!-- <compClass>CompAssignableToPawn_Grave</compClass> -->
+      <!-- </li> -->
+      <!-- <li Class="CompProperties_MeditationFocus"> -->
+        <!-- <statDef>MeditationFocusStrength</statDef> -->
+        <!-- <focusTypes> -->
+          <!-- <li>Morbid</li> -->
+        <!-- </focusTypes> -->
+        <!-- <offsets> -->
+          <!-- <li Class="FocusStrengthOffset_GraveFull"> -->
+            <!-- <offset>0.10</offset> -->
+          <!-- </li> -->
+          <!-- <li Class="FocusStrengthOffset_GraveCorpseRelationship"> -->
+            <!-- <offset>0.10</offset> -->
+          <!-- </li> -->
+          <!-- <li Class="FocusStrengthOffset_NearbyGraves"> -->
+            <!-- <defs> -->
+              <!-- <li>Grave</li> -->
+              <!-- <li>Sarcophagus</li> -->
+            <!-- </defs> -->
+            <!-- <offsetPerBuilding>0.01</offsetPerBuilding> -->
+            <!-- <radius>9.9</radius> -->
+            <!-- <maxBuildings>4</maxBuildings> -->
+            <!-- <focusPerFullGrave>0.01</focusPerFullGrave> -->
+            <!-- <explanationKey>MeditationFocusPerGrave</explanationKey> -->
+            <!-- <explanationKeyAbstract>MeditationFocusPerGraveAbstract</explanationKeyAbstract> -->
+          <!-- </li> -->
+        <!-- </offsets> -->
+      <!-- </li> -->
+    <!-- </comps> -->
+    <!-- <costStuffCount>60</costStuffCount> -->
+    <altitudeLayer>Building</altitudeLayer>
+    <!-- <passability>Impassable</passability> -->
+    <blockWind>false</blockWind>
+    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <designationCategory>Misc</designationCategory>
+    <researchPrerequisites>
+      <li>ComplexFurniture</li>
+    </researchPrerequisites>
+    <!-- <placeWorkers> -->
+      <!-- <li>PlaceWorker_MeditationOffsetBuildingsNear</li> -->
+    <!-- </placeWorkers> -->
+    <!-- <ritualFocus> -->
+      <!-- <spectateDistance>1</spectateDistance> -->
+      <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
+    <!-- </ritualFocus> -->
+  </ThingDef>
+  
+  <ThingDef ParentName="BuildingBase">
+    <defName>UVaultedSarcophagus</defName>
+    <label>sarcophagus</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <thingClass>Building_Sarcophagus</thingClass>
+    <containedPawnsSelectable>true</containedPawnsSelectable>
+    <graphicData>
+      <texPath>Things/Building/UVaultedSarcophagus</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(1,2)</size>
+    <pathCost>42</pathCost>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+    <tickerType>Rare</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isEdifice>false</isEdifice>
+      <preventDeteriorationInside>true</preventDeteriorationInside>
+      <haulToContainerDuration>500</haulToContainerDuration>
+      <fullGraveGraphicData>
+        <texPath>Things/Building/UVaultedSarcophagusFull</texPath>
+        <graphicClass>Graphic_Multi</graphicClass>
+        <drawSize>(3,4)</drawSize>
+      </fullGraveGraphicData>
+      <fixedStorageSettings>
+        <filter>
+          <categories>
+            <li>Corpses</li>
+          </categories>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Important</priority>
+        <filter>
+          <categories>
+            <li>CorpsesHumanlike</li>
+          </categories>
+          <specialFiltersToDisallow>
+            <li>AllowCorpsesStranger</li>
+          </specialFiltersToDisallow>
+        </filter>
+      </defaultStorageSettings>
+      <buildingTags>
+        <li>RitualFocus</li>
+      </buildingTags>
+      <paintable>true</paintable>
+    </building>
+    <statBases>
+      <WorkToBuild>2400</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>1.0</Flammability>
+      <MeditationFocusStrength>0.10</MeditationFocusStrength>
+      <Beauty>0</Beauty>
+    </statBases>
+    <stuffCategories>
+      <li>Woody</li>
+      <li>Metallic</li>
+      <li>Stony</li>
+    </stuffCategories>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+      <li>ITab_Art</li>
+      <li>ITab_ContentsCasket</li>
+    </inspectorTabs>
+    <comps>
+      <li>
+        <compClass>CompQuality</compClass>
+      </li>
+      <li Class="CompProperties_Art">
+        <nameMaker>NamerArtSarcophagusPlate</nameMaker>
+        <descriptionMaker>ArtDescription_SarcophagusPlate</descriptionMaker>
+        <mustBeFullGrave>true</mustBeFullGrave>
+      </li>
+      <li Class="CompProperties_AssignableToPawn">
+        <drawAssignmentOverlay>false</drawAssignmentOverlay>
+        <compClass>CompAssignableToPawn_Grave</compClass>
+      </li>
+      <li Class="CompProperties_MeditationFocus">
+        <statDef>MeditationFocusStrength</statDef>
+        <focusTypes>
+          <li>Morbid</li>
+        </focusTypes>
+        <offsets>
+          <li Class="FocusStrengthOffset_GraveFull">
+            <offset>0.10</offset>
+          </li>
+          <li Class="FocusStrengthOffset_GraveCorpseRelationship">
+            <offset>0.10</offset>
+          </li>
+          <li Class="FocusStrengthOffset_NearbyGraves">
+            <defs>
+              <li>Grave</li>
+              <li>Sarcophagus</li>
+            </defs>
+            <offsetPerBuilding>0.01</offsetPerBuilding>
+            <radius>9.9</radius>
+            <maxBuildings>4</maxBuildings>
+            <focusPerFullGrave>0.01</focusPerFullGrave>
+            <explanationKey>MeditationFocusPerGrave</explanationKey>
+            <explanationKeyAbstract>MeditationFocusPerGraveAbstract</explanationKeyAbstract>
+          </li>
+        </offsets>
+      </li>
+    </comps>
+    <costStuffCount>60</costStuffCount>
+    <altitudeLayer>BuildingBelowTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <clearBuildingArea>false</clearBuildingArea>
+    <blockWind>false</blockWind>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+    <!-- <designationCategory>Misc</designationCategory> -->
+    <researchPrerequisites>
+      <li>ComplexFurniture</li>
+    </researchPrerequisites>
+    <placeWorkers>
+      <li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+    </placeWorkers>
+    <ritualFocus>
+      <spectateDistance>1</spectateDistance>
+      <allowedSpectateSides>Vertical</allowedSpectateSides>
+    </ritualFocus>
+  </ThingDef>
+
+  <ThingDef Name="UVaultUpgrade" ParentName="BuildingBase" Abstract="True">
+    <graphicData>
+      <texPath>Things/Building/UVaultedSarcophagus</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,1)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(1,1)</size>
+    <pathCost>42</pathCost>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>0.1</fillPercent>
+    <tickerType>Never</tickerType>
+    <canOverlapZones>false</canOverlapZones>
+    <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isEdifice>false</isEdifice>
+    </building>
+    <altitudeLayer>BuildingBelowTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <clearBuildingArea>false</clearBuildingArea>
+    <blockWind>false</blockWind>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <!-- <designationCategory>Misc</designationCategory> -->
+    <!-- <researchPrerequisites>
+      <li>ComplexFurniture</li>
+    </researchPrerequisites> -->
+  </ThingDef>
+
+  <ThingDef ParentName="UVaultUpgrade">
+    <defName>UVaultCrematoriumUpgrade</defName>
+    <label>crematorium module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVaultCrematoriumUpgrade</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVaultUpgrade">
+    <defName>UVaultDeepDrillUpgrade</defName>
+    <label>deep drill module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVaultDeepDrillUpgrade</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVaultUpgrade">
+    <defName>UVaultStorageEfficiencyUpgrade</defName>
+    <label>storage efficiency module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVaultStorageEfficiencyUpgrade</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVaultUpgrade">
+    <defName>UVaultAIUpgrade</defName>
+    <label>AI module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVaultAIUpgrade</texPath>
+    </graphicData>
+  </ThingDef>
+
+</Defs>
