@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RimWorld;
-using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -12,10 +11,6 @@ namespace UndergroundVault
 {
     class Building_UVaultSarcophagus : Building
     {
-        private bool isUpgradeCRInstalled = false;
-        private bool isUpgradeDDInstalled = false;
-        private bool isUpgradeSEInstalled = false;
-        private bool isUpgradeAIInstalled = false;
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())
@@ -26,7 +21,6 @@ namespace UndergroundVault
             ThingDef bd = ThingDefOfLocal.UVaultedSarcophagus;
             Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(bd);
             List<ThingDef> selectStuff = base.Map.resourceCounter.AllCountedAmounts.Keys.OrderByDescending((ThingDef td) => td.stuffProps?.commonality ?? float.PositiveInfinity).ThenBy((ThingDef td) => td.BaseMarketValue).Where((ThingDef td) => (td.IsStuff && td.stuffProps.CanMake(bd) && (DebugSettings.godMode || base.Map.listerThings.ThingsOfDef(td).Count > 0))).ToList();
-            Log.Message("1");
             Command_Action command_Action = new Command_Action
             {
                 action = delegate
@@ -61,35 +55,6 @@ namespace UndergroundVault
             des.SetStuffDef(stuffDefRaw);
             command_Action.defaultIconColor = bd.uiIconColor;
             yield return command_Action;
-            Log.Message("2");
-            if (!isUpgradeCRInstalled)
-            {
-                bd = ThingDefOfLocal.UVaultCrematoriumUpgrade;
-                des = BuildCopyCommandUtility.FindAllowedDesignator(bd);
-                command_Action = new Command_Action
-                {
-                    action = delegate
-                    {
-                        SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                        des.DesignateSingleCell(this.Position + IntVec3.SouthEast);
-                    },
-                    defaultLabel = des.Label,
-                    defaultDesc = des.Desc,
-                    disabled = isUpgradeCRInstalled,
-                    disabledReason = "Already installed".Translate()
-                };
-                command_Action.icon = des.ResolvedIcon(null);
-                command_Action.iconProportions = des.iconProportions;
-                command_Action.iconDrawScale = des.iconDrawScale;
-                command_Action.iconTexCoords = des.iconTexCoords;
-                command_Action.iconAngle = des.iconAngle;
-                command_Action.iconOffset = des.iconOffset;
-                //command_Action.Order = 20f;
-                command_Action.SetColorOverride(des.IconDrawColor);
-                command_Action.defaultIconColor = bd.uiIconColor;
-                yield return command_Action;
-                Log.Message("3");
-            }
         }
 
         public bool isFree()
@@ -102,26 +67,6 @@ namespace UndergroundVault
             return true;
         }
 
-        public override Graphic Graphic => base.Graphic;
-
-        //public override void Draw()
-        //{
-        //    base.Draw();
-        //    Graphic.Draw((this.Position + new IntVec3(3, 5, 0)).ToVector3(), this.Rotation, this);
-        //}
-
-        //public override void DrawAt(Vector3 drawLoc, bool flip = false)
-        //{
-        //    base.DrawAt(drawLoc, flip);
-        //    Graphic.Draw((this.Position - new IntVec3(3, 5, 0)).ToVector3(), this.Rotation, this);
-        //}
-
-        //public override void Print(SectionLayer layer)
-        //{
-        //    Graphic.Draw((this.Position + new IntVec3(-3, 5, 0)).ToVector3(), this.Rotation, this);
-        //    base.Print(layer);
-
-        //}
         //public int ticksPerAttack => 68;
         //private int ticksTillAttack = 0;
         //private int attackCount = 0;
