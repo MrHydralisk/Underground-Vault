@@ -91,7 +91,7 @@
     <!-- </comps> -->
     <!-- <costStuffCount>60</costStuffCount> -->
     <altitudeLayer>Building</altitudeLayer>
-    <!-- <passability>Impassable</passability> -->
+    <passability>Impassable</passability>
     <blockWind>false</blockWind>
     <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
@@ -229,7 +229,7 @@
     <blockWind>false</blockWind>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
-    <!-- <designationCategory>Misc</designationCategory> -->
+    <designationCategory>Misc</designationCategory>
     <researchPrerequisites>
       <li>ComplexFurniture</li>
     </researchPrerequisites>
@@ -262,16 +262,22 @@
     <canOverlapZones>false</canOverlapZones>
     <selectable>false</selectable>
     <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+    <statBases>
+      <WorkToBuild>100</WorkToBuild>
+    </statBases>
     <building>
       <ai_chillDestination>false</ai_chillDestination>
       <isEdifice>false</isEdifice>
     </building>
+    <placeWorkers>
+      <li>UndergroundVault.PlaceWorker_UVaultUpgrade</li>
+    </placeWorkers>
     <altitudeLayer>BuildingBelowTop</altitudeLayer>
     <passability>PassThroughOnly</passability>
     <clearBuildingArea>false</clearBuildingArea>
     <blockWind>false</blockWind>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <!-- <designationCategory>Misc</designationCategory> -->
+    <designationCategory>Misc</designationCategory>
     <!-- <researchPrerequisites>
       <li>ComplexFurniture</li>
     </researchPrerequisites> -->
@@ -312,5 +318,12 @@
       <texPath>Things/Building/UVaultAIUpgrade</texPath>
     </graphicData>
   </ThingDef>
+
+  <DesignationCategoryDef>
+    <defName>Hidden</defName>
+    <label>hidden</label>
+    <order>1000</order>
+    <Visible>false</Visible>
+  </DesignationCategoryDef>
 
 </Defs>

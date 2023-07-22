@@ -12,19 +12,28 @@ namespace UndergroundVault
 {
     class Building_UVaultSarcophagus : Building
     {
-        private bool isUpgradeCRInstalled = false;
-        private bool isUpgradeDDInstalled = false;
-        private bool isUpgradeSEInstalled = false;
-        private bool isUpgradeAIInstalled = false;
+        private bool isFree => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVaultedSarcophagus);
+        private Thing UVaultCrematoriumUpgrade => uVaultCrematoriumUpgradeCached ?? (uVaultCrematoriumUpgradeCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).First((Thing t) => t.def == ThingDefOfLocal.UVaultCrematoriumUpgrade));
+        private Thing UVaultDeepDrillUpgrade => uVaultDeepDrillUpgradeCached ?? (uVaultDeepDrillUpgradeCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).First((Thing t) => t.def == ThingDefOfLocal.UVaultDeepDrillUpgrade));
+        private Thing UVaultStorageEfficiencyUpgrade => uVaultStorageEfficiencyUpgradeCached ?? (uVaultStorageEfficiencyUpgradeCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).First((Thing t) => t.def == ThingDefOfLocal.UVaultStorageEfficiencyUpgrade));
+        private Thing UVaultAIUpgrade => uVaultAIUpgradeCached ?? (uVaultAIUpgradeCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).First((Thing t) => t.def == ThingDefOfLocal.UVaultAIUpgrade));
+        private Thing uVaultCrematoriumUpgradeCached;
+        private Thing uVaultDeepDrillUpgradeCached;
+        private Thing uVaultStorageEfficiencyUpgradeCached;
+        private Thing uVaultAIUpgradeCached;
+        private bool isUpgradeCRInstalled => UVaultCrematoriumUpgrade != null;
+        private bool isUpgradeDDInstalled => UVaultDeepDrillUpgrade != null;
+        private bool isUpgradeSEInstalled => UVaultStorageEfficiencyUpgrade != null;
+        private bool isUpgradeAIInstalled => UVaultAIUpgrade != null;
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())
             {
                 yield return gizmo;
             }
-            isFree();
+            //isFree();
             ThingDef bd = ThingDefOfLocal.UVaultedSarcophagus;
-            //Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignatorRoot(bd, false) as Designator_Build;
+            Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(bd, false);
             List<ThingDef> selectStuff = base.Map.resourceCounter.AllCountedAmounts.Keys.OrderByDescending((ThingDef td) => td.stuffProps?.commonality ?? float.PositiveInfinity).ThenBy((ThingDef td) => td.BaseMarketValue).Where((ThingDef td) => (td.IsStuff && td.stuffProps.CanMake(bd) && (DebugSettings.godMode || base.Map.listerThings.ThingsOfDef(td).Count > 0))).ToList();
             //Log.Message("0");
             //yield return new Command_Action
@@ -45,36 +54,36 @@ namespace UndergroundVault
             //    defaultDesc = "D"
             //};
             //Log.Message("1");
-            yield return new Command_Action
-            {
-                action = delegate
-                {
-                    //Log.Message("1-a");
-                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                    Find.WindowStack.Add(new FloatMenu(selectStuff.Select(delegate (ThingDef td)
-                    {
-                        FloatMenuOption floatMenuOption = new FloatMenuOption((GenLabel.ThingLabel(bd, td)).CapitalizeFirst(), delegate
-                        {
-                            Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd, this.Position, this.Map, Rot4.North, this.Faction, td);
-                            //des.SetTemporaryVars(td, false);
-                            //des.SetStuffDef(td);
-                            //des.DesignateSingleCell(this.Position);
-                        }, shownItemForIcon: td);
-                        floatMenuOption.tutorTag = "SelectStuff-" + bd.defName + "-" + td.defName;
-                        return floatMenuOption;
-                    })
-                        .ToList()));
-                    //Log.Message("1-b");
-                },
-                defaultLabel = bd.label,
-                defaultDesc = bd.description,
-                icon = bd.uiIcon,
-                iconDrawScale = GenUI.IconDrawScale(bd),
-                defaultIconColor = bd.defaultStuff.uiIconColor,
-                //iconProportions = bd.icon
-                disabled = selectStuff.NullOrEmpty(),
-                disabledReason = "NoStuffsToBuildWith".Translate()
-            };
+            //yield return new Command_Action
+            //{
+            //    action = delegate
+            //    {
+            //        //Log.Message("1-a");
+            //        SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+            //        Find.WindowStack.Add(new FloatMenu(selectStuff.Select(delegate (ThingDef td)
+            //        {
+            //            FloatMenuOption floatMenuOption = new FloatMenuOption((GenLabel.ThingLabel(bd, td)).CapitalizeFirst(), delegate
+            //            {
+            //                Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd, this.Position, this.Map, Rot4.North, this.Faction, td);
+            //                //des.SetTemporaryVars(td, false);
+            //                //des.SetStuffDef(td);
+            //                //des.DesignateSingleCell(this.Position);
+            //            }, shownItemForIcon: td);
+            //            floatMenuOption.tutorTag = "SelectStuff-" + bd.defName + "-" + td.defName;
+            //            return floatMenuOption;
+            //        })
+            //            .ToList()));
+            //        //Log.Message("1-b");
+            //    },
+            //    defaultLabel = bd.label,
+            //    defaultDesc = bd.description,
+            //    icon = bd.uiIcon, 
+            //    iconDrawScale = GenUI.IconDrawScale(bd),
+            //    defaultIconColor = bd.defaultStuff.uiIconColor,
+            //    iconProportions = bd.graphicData.drawSize.RotatedBy(bd.defaultPlacingRot),
+            //    disabled = selectStuff.NullOrEmpty(),
+            //    disabledReason = "NoStuffsToBuildWith".Translate()
+            //};
             //Log.Message("1-1");
             //ThingDef stuffDefRaw = des.StuffDefRaw;
             //Log.Message("1-2");
@@ -104,6 +113,8 @@ namespace UndergroundVault
                     action = delegate
                     {
                         SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                        NewBlueprintDef_Thing(bd1);
+                        NewFrameDef_Thing(bd1);
                         Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.East, this.Map, Rot4.North, this.Faction, null);
                         //des.DesignateSingleCell(this.Position + IntVec3.East);
                     },
@@ -124,6 +135,8 @@ namespace UndergroundVault
                     action = delegate
                     {
                         SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                        NewBlueprintDef_Thing(bd1);
+                        NewFrameDef_Thing(bd1);
                         Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.NorthEast, this.Map, Rot4.North, this.Faction, null);
                     },
                     defaultLabel = bd1.label,
@@ -142,6 +155,8 @@ namespace UndergroundVault
                     action = delegate
                     {
                         SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                        NewBlueprintDef_Thing(bd1);
+                        NewFrameDef_Thing(bd1);
                         Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.NorthWest, this.Map, Rot4.North, this.Faction, null);
                     },
                     defaultLabel = bd1.label,
@@ -160,7 +175,9 @@ namespace UndergroundVault
                     action = delegate
                     {
                         SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                        Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.West, this.Map, Rot4.North, this.Faction, null);
+                        NewBlueprintDef_Thing(bd1);
+                        NewFrameDef_Thing(bd1);
+                        Blueprint_Build blueprint_Build = GenConstruct.PlaceBlueprintForBuild(bd1, this.Position + IntVec3.West + IntVec3.West, this.Map, Rot4.North, this.Faction, null);
                     },
                     defaultLabel = bd1.label,
                     defaultDesc = bd1.description,
@@ -172,17 +189,145 @@ namespace UndergroundVault
             }
         }
 
-        public bool isFree()
+        private static ThingDef NewBlueprintDef_Thing(ThingDef def)
         {
-            List<Thing> things = this.Map.thingGrid.ThingsListAtFast(this.Position);
-            foreach(Thing t in things)
+            ThingDef thingDef = new ThingDef
             {
-                Log.Message(t.Label);
+                category = ThingCategory.Ethereal,
+                label = "Unspecified blueprint",
+                altitudeLayer = AltitudeLayer.Blueprint,
+                useHitPoints = false,
+                selectable = true,
+                seeThroughFog = true,
+                comps =
+                {
+                    (CompProperties)new CompProperties_Forbiddable(),
+                    (CompProperties)new CompProperties_Styleable()
+                },
+                drawerType = DrawerType.MapMeshOnly
+            };
+            thingDef.defName = "Blueprint_" + def.defName;
+            thingDef.label = def.label + "BlueprintLabelExtra".Translate();
+            thingDef.size = def.size;
+            thingDef.clearBuildingArea = def.clearBuildingArea;
+            thingDef.modContentPack = def.modContentPack;
+            thingDef.rotatable = def.rotatable;
+
+            thingDef.constructionSkillPrerequisite = def.constructionSkillPrerequisite;
+            thingDef.artisticSkillPrerequisite = def.artisticSkillPrerequisite;
+            thingDef.drawPlaceWorkersWhileSelected = def.drawPlaceWorkersWhileSelected;
+            if (def.placeWorkers != null)
+            {
+                thingDef.placeWorkers = new List<Type>(def.placeWorkers);
             }
-            return true;
+
+            thingDef.graphicData = new GraphicData();
+            thingDef.graphicData.CopyFrom(def.graphicData);
+            thingDef.graphicData.graphicClass = typeof(Graphic_Single);
+            //thingDef.graphicData.shaderType = ShaderTypeDefOf.Transparent;
+            thingDef.graphicData.shaderType = ShaderTypeDefOf.EdgeDetect;
+            //thingDef.graphicData.shaderType = ShaderTypeDefOf.MetaOverlay;
+            //thingDef.graphicData.color = new Color(0.8235294f, 47f / 51f, 1f, 0.6f);
+            //thingDef.graphicData.colorTwo = Color.white;
+            thingDef.graphicData.shadowData = null;
+            thingDef.graphicData.renderQueue = 2950;
+
+            //thingDef.graphicData = new GraphicData();
+            //thingDef.graphicData.CopyFrom(def.building.blueprintGraphicData);
+            //if (thingDef.graphicData.graphicClass == null)
+            //{
+            //    thingDef.graphicData.graphicClass = typeof(Graphic_Single);
+            //}
+            //if (thingDef.graphicData.shaderType == null)
+            //{
+            //    thingDef.graphicData.shaderType = ShaderTypeDefOf.Transparent;
+            //}
+            //if (def.graphicData != null)
+            //{
+            //    thingDef.graphicData.drawSize = def.graphicData.drawSize;
+            //    thingDef.graphicData.linkFlags = def.graphicData.linkFlags;
+            //    thingDef.graphicData.linkType = def.graphicData.linkType;
+            //    thingDef.graphicData.asymmetricLink = def.graphicData.asymmetricLink;
+            //}
+            //thingDef.graphicData.color = new Color(0.8235294f, 47f / 51f, 1f, 0.6f);
+            //thingDef.graphicData.renderQueue = 2950;
+
+            if (def.building != null)
+            {
+                thingDef.thingClass = def.building.blueprintClass;
+            }
+            else
+            {
+                Log.Error("Tried creating build blueprint for thing that has no blueprint class assigned!");
+            }
+            thingDef.drawerType = def.drawerType;
+            thingDef.entityDefToBuild = def;
+            def.blueprintDef = thingDef;
+            return thingDef;
         }
 
-        public override Graphic Graphic => base.Graphic;
+        private static ThingDef NewFrameDef_Thing(ThingDef def)
+        {
+            ThingDef thingDef = new ThingDef
+            {
+                isFrameInt = true,
+                category = ThingCategory.Building,
+                label = "Unspecified building frame",
+                thingClass = typeof(Frame),
+                altitudeLayer = AltitudeLayer.Building,
+                useHitPoints = true,
+                selectable = true,
+                drawerType = DrawerType.RealtimeOnly,
+                building = new BuildingProperties(),
+                comps =
+            {
+                (CompProperties)new CompProperties_Forbiddable(),
+                (CompProperties)new CompProperties_Styleable()
+            },
+                scatterableOnMapGen = false,
+                leaveResourcesWhenKilled = true
+            };
+            thingDef.defName = "Frame_" + def.defName;
+            thingDef.label = def.label + "FrameLabelExtra".Translate();
+            thingDef.size = def.size;
+            thingDef.SetStatBaseValue(StatDefOf.MaxHitPoints, (float)def.BaseMaxHitPoints * 0.25f);
+            thingDef.SetStatBaseValue(StatDefOf.Beauty, -8f);
+            thingDef.SetStatBaseValue(StatDefOf.Flammability, def.BaseFlammability);
+            thingDef.fillPercent = 0.2f;
+            thingDef.pathCost = DefGenerator.StandardItemPathCost;
+            thingDef.description = def.description;
+            thingDef.passability = def.passability;
+            thingDef.altitudeLayer = def.altitudeLayer;
+            if ((int)thingDef.passability > 1)
+            {
+                thingDef.passability = Traversability.PassThroughOnly;
+            }
+            thingDef.selectable = def.selectable;
+            thingDef.constructEffect = def.constructEffect;
+            thingDef.building.isEdifice = def.building.isEdifice;
+            thingDef.building.watchBuildingInSameRoom = def.building.watchBuildingInSameRoom;
+            thingDef.building.watchBuildingStandDistanceRange = def.building.watchBuildingStandDistanceRange;
+            thingDef.building.watchBuildingStandRectWidth = def.building.watchBuildingStandRectWidth;
+            thingDef.building.artificialForMeditationPurposes = def.building.artificialForMeditationPurposes;
+            thingDef.constructionSkillPrerequisite = def.constructionSkillPrerequisite;
+            thingDef.artisticSkillPrerequisite = def.artisticSkillPrerequisite;
+            thingDef.clearBuildingArea = def.clearBuildingArea;
+            thingDef.modContentPack = def.modContentPack;
+            thingDef.blocksAltitudes = def.blocksAltitudes;
+            thingDef.drawPlaceWorkersWhileSelected = def.drawPlaceWorkersWhileSelected;
+            if (def.placeWorkers != null)
+            {
+                thingDef.placeWorkers = new List<Type>(def.placeWorkers);
+            }
+            if (def.BuildableByPlayer)
+            {
+                thingDef.stuffCategories = def.stuffCategories;
+                thingDef.costListForDifficulty = def.costListForDifficulty;
+            }
+            thingDef.entityDefToBuild = def;
+            def.frameDef = thingDef;
+            return thingDef;
+        }
 
         //public override void Draw()
         //{
@@ -301,5 +446,13 @@ namespace UndergroundVault
         //        }
         //    }
         //}
+
+
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_References.Look(ref uVaultCrematoriumUpgradeCached, "uVaultCrematoriumUpgradeCached");
+        }
     }
 }
