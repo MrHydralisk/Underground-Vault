@@ -235,6 +235,7 @@
     </researchPrerequisites>
     <placeWorkers>
       <li>PlaceWorker_MeditationOffsetBuildingsNear</li>
+      <li>UndergroundVault.PlaceWorker_UVaultUpgrade</li>
     </placeWorkers>
     <ritualFocus>
       <spectateDistance>1</spectateDistance>
@@ -319,11 +320,11 @@
     </graphicData>
   </ThingDef>
 
-  <DesignationCategoryDef>
+  <!-- <DesignationCategoryDef>
     <defName>Hidden</defName>
     <label>hidden</label>
     <order>1000</order>
     <Visible>false</Visible>
-  </DesignationCategoryDef>
+  </DesignationCategoryDef> -->
 
 </Defs>
