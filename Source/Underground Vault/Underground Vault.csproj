@@ -75,12 +75,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Building_UVaultSarcophagus.cs" />
-    <Compile Include="PlaceWorker_UVaultUpgrade.cs" />
+    <Compile Include="Building_UVCemetery.cs" />
+    <Compile Include="Building_UVCemeteryVault.cs" />
+    <Compile Include="PlaceWorker_UVUpgrade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextureOfLocal.cs" />
     <Compile Include="ThingDefOfLocal.cs" />
-    <Compile Include="UVaultUtility.cs" />
+    <Compile Include="UVUtility.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

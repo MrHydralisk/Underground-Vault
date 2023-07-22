@@ -2,12 +2,12 @@
 <Defs>
   
   <ThingDef ParentName="BuildingBase">
-    <defName>UVaultSarcophagus</defName>
-    <label>sarcophagus vault</label>
+    <defName>UVCemetery</defName>
+    <label>cemetery vault panel</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
-    <thingClass>UndergroundVault.Building_UVaultSarcophagus</thingClass>
+    <thingClass>UndergroundVault.Building_UVCemetery</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVaultSarcophagus</texPath>
+      <texPath>Things/Building/UVCemetery</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(5,4)</drawSize>
       <damageData>
@@ -25,69 +25,11 @@
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <building>
       <!-- <ai_chillDestination>false</ai_chillDestination> -->
-      <!-- <preventDeteriorationInside>true</preventDeteriorationInside> -->
-      <!-- <haulToContainerDuration>500</haulToContainerDuration> -->
-      <!-- <fullGraveGraphicData> -->
-        <!-- <texPath>Things/Building/Misc/UVaultSarcophagusFull</texPath> -->
-        <!-- <graphicClass>Graphic_Multi</graphicClass> -->
-        <!-- <drawSize>(5,4)</drawSize> -->
-      <!-- </fullGraveGraphicData> -->
-      <!-- <fixedStorageSettings> -->
-        <!-- <filter> -->
-          <!-- <categories> -->
-            <!-- <li>Corpses</li> -->
-          <!-- </categories> -->
-        <!-- </filter> -->
-      <!-- </fixedStorageSettings> -->
-      <!-- <defaultStorageSettings> -->
-        <!-- <priority>Important</priority> -->
-        <!-- <filter> -->
-          <!-- <categories> -->
-            <!-- <li>CorpsesHumanlike</li> -->
-          <!-- </categories> -->
-          <!-- <specialFiltersToDisallow> -->
-            <!-- <li>AllowCorpsesStranger</li> -->
-          <!-- </specialFiltersToDisallow> -->
-        <!-- </filter> -->
-      <!-- </defaultStorageSettings> -->
-      <!-- <buildingTags> -->
-        <!-- <li>RitualFocus</li> -->
-      <!-- </buildingTags> -->
     </building>
     <inspectorTabs>
       <!-- <li>ITab_Storage</li> -->
     </inspectorTabs>
     <!-- <comps> -->
-      <!-- <li Class="CompProperties_AssignableToPawn"> -->
-        <!-- <drawAssignmentOverlay>false</drawAssignmentOverlay> -->
-        <!-- <compClass>CompAssignableToPawn_Grave</compClass> -->
-      <!-- </li> -->
-      <!-- <li Class="CompProperties_MeditationFocus"> -->
-        <!-- <statDef>MeditationFocusStrength</statDef> -->
-        <!-- <focusTypes> -->
-          <!-- <li>Morbid</li> -->
-        <!-- </focusTypes> -->
-        <!-- <offsets> -->
-          <!-- <li Class="FocusStrengthOffset_GraveFull"> -->
-            <!-- <offset>0.10</offset> -->
-          <!-- </li> -->
-          <!-- <li Class="FocusStrengthOffset_GraveCorpseRelationship"> -->
-            <!-- <offset>0.10</offset> -->
-          <!-- </li> -->
-          <!-- <li Class="FocusStrengthOffset_NearbyGraves"> -->
-            <!-- <defs> -->
-              <!-- <li>Grave</li> -->
-              <!-- <li>Sarcophagus</li> -->
-            <!-- </defs> -->
-            <!-- <offsetPerBuilding>0.01</offsetPerBuilding> -->
-            <!-- <radius>9.9</radius> -->
-            <!-- <maxBuildings>4</maxBuildings> -->
-            <!-- <focusPerFullGrave>0.01</focusPerFullGrave> -->
-            <!-- <explanationKey>MeditationFocusPerGrave</explanationKey> -->
-            <!-- <explanationKeyAbstract>MeditationFocusPerGraveAbstract</explanationKeyAbstract> -->
-          <!-- </li> -->
-        <!-- </offsets> -->
-      <!-- </li> -->
     <!-- </comps> -->
     <!-- <costStuffCount>60</costStuffCount> -->
     <altitudeLayer>Building</altitudeLayer>
@@ -107,15 +49,50 @@
       <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
     <!-- </ritualFocus> -->
   </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>UVCemeteryVault</defName>
+    <label>cemetery vault</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <thingClass>UndergroundVault.Building_UVCemeteryVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVCemeteryVault</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <!-- <uiIconScale>0.5</uiIconScale> -->
+    <altitudeLayer>Floor</altitudeLayer>
+    <rotatable>false</rotatable>
+    <destroyable>false</destroyable>
+    <useHitPoints>false</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+    <neverOverlapFloors>true</neverOverlapFloors>
+    <blockPlants>true</blockPlants>
+    <building>
+      <isEdifice>false</isEdifice>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+    </building>
+    <!-- <designationCategory>Misc</designationCategory> -->
+  </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
-    <defName>UVaultedSarcophagus</defName>
+    <defName>UVSarcophagus</defName>
     <label>sarcophagus</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <thingClass>Building_Sarcophagus</thingClass>
     <containedPawnsSelectable>true</containedPawnsSelectable>
     <graphicData>
-      <texPath>Things/Building/UVaultedSarcophagus</texPath>
+      <texPath>Things/Building/UVSarcophagusEmpty</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(3,4)</drawSize>
       <damageData>
@@ -138,7 +115,7 @@
       <preventDeteriorationInside>true</preventDeteriorationInside>
       <haulToContainerDuration>500</haulToContainerDuration>
       <fullGraveGraphicData>
-        <texPath>Things/Building/UVaultedSarcophagusFull</texPath>
+        <texPath>Things/Building/UVSarcophagusFull</texPath>
         <graphicClass>Graphic_Multi</graphicClass>
         <drawSize>(3,4)</drawSize>
       </fullGraveGraphicData>
@@ -235,7 +212,7 @@
     </researchPrerequisites>
     <placeWorkers>
       <li>PlaceWorker_MeditationOffsetBuildingsNear</li>
-      <li>UndergroundVault.PlaceWorker_UVaultUpgrade</li>
+      <li>UndergroundVault.PlaceWorker_UVUpgrade</li>
     </placeWorkers>
     <ritualFocus>
       <spectateDistance>1</spectateDistance>
@@ -243,9 +220,9 @@
     </ritualFocus>
   </ThingDef>
 
-  <ThingDef Name="UVaultUpgrade" ParentName="BuildingBase" Abstract="True">
+  <ThingDef Name="UVUpgrade" ParentName="BuildingBase" Abstract="True">
     <graphicData>
-      <texPath>Things/Building/UVaultedSarcophagus</texPath>
+      <texPath>Things/Building/UVStorageEfficiencyUpgrade</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(1,3)</drawSize>
       <damageData>
@@ -271,7 +248,7 @@
       <isEdifice>false</isEdifice>
     </building>
     <placeWorkers>
-      <li>UndergroundVault.PlaceWorker_UVaultUpgrade</li>
+      <li>UndergroundVault.PlaceWorker_UVUpgrade</li>
     </placeWorkers>
     <altitudeLayer>BuildingBelowTop</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -284,39 +261,39 @@
     </researchPrerequisites> -->
   </ThingDef>
 
-  <ThingDef ParentName="UVaultUpgrade">
-    <defName>UVaultCrematoriumUpgrade</defName>
+  <ThingDef ParentName="UVUpgrade">
+    <defName>UVCrematoriumUpgrade</defName>
     <label>crematorium module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVaultCrematoriumUpgrade</texPath>
+      <texPath>Things/Building/UVCrematoriumUpgrade</texPath>
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVaultUpgrade">
-    <defName>UVaultDeepDrillUpgrade</defName>
+  <ThingDef ParentName="UVUpgrade">
+    <defName>UVDeepDrillUpgrade</defName>
     <label>deep drill module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVaultDeepDrillUpgrade</texPath>
+      <texPath>Things/Building/UVDeepDrillUpgrade</texPath>
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVaultUpgrade">
-    <defName>UVaultStorageEfficiencyUpgrade</defName>
+  <ThingDef ParentName="UVUpgrade">
+    <defName>UVStorageEfficiencyUpgrade</defName>
     <label>storage efficiency module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVaultStorageEfficiencyUpgrade</texPath>
+      <texPath>Things/Building/UVStorageEfficiencyUpgrade</texPath>
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVaultUpgrade">
-    <defName>UVaultAIUpgrade</defName>
+  <ThingDef ParentName="UVUpgrade">
+    <defName>UVAIUpgrade</defName>
     <label>AI module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVaultAIUpgrade</texPath>
+      <texPath>Things/Building/UVAIUpgrade</texPath>
     </graphicData>
   </ThingDef>
 

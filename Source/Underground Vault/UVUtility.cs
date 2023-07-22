@@ -10,7 +10,7 @@ using Verse.Sound;
 
 namespace UndergroundVault
 {
-    public static class UVaultUtility
+    public static class UVUtility
     {
         public static Command InstallUpgrade(ThingDef bd, IntVec3 position, Texture icon, float order)
         {
