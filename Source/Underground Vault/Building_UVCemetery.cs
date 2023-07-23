@@ -25,7 +25,7 @@ namespace UndergroundVault
         private Thing uVAIUpgradeCached;
         private Building_UVCemeteryVault uVCemeteryVaultCached;
 
-        private bool isPlatformFree => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus || t is Blueprint);
+        public bool isPlatformFree => !this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus || t.def.IsBlueprint || t.def.IsFrame);
         private bool isUpgradeCRInstalled => UVCrematoriumUpgrade != null;
         private bool isUpgradeDDInstalled => UVDeepDrillUpgrade != null;
         private bool isUpgradeSEInstalled => UVStorageEfficiencyUpgrade != null;
@@ -41,6 +41,11 @@ namespace UndergroundVault
             {
                 GenSpawn.Spawn(ThingDefOfLocal.UVCemeteryVault, this.Position, this.Map);
             }
+        }
+        public void TakeItem(Thing thing)
+        {
+            Thing t = UVCemeteryVault.TakeItem(thing);
+            GenSpawn.Spawn(t, this.Position, this.Map);
         }
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -58,7 +63,7 @@ namespace UndergroundVault
                 },
                 defaultLabel = "storecontainer".Translate(),
                 defaultDesc = "storecontainerdesc".Translate(),
-                icon = TextureOfLocal.UpgradeDDIconTex,
+                icon = TextureOfLocal.StoreIconTex,
                 disabled = !isCemeteryVaultAvailable || isPlatformFree,
                 Order = 10f
             };
@@ -66,12 +71,11 @@ namespace UndergroundVault
             {
                 action = delegate
                 {
-                    Thing t = UVCemeteryVault.TakeItem(UVCemeteryVault.InnerContainer.First());
-                    GenSpawn.Spawn(t, this.Position, this.Map);
+                    TakeItem(UVCemeteryVault.InnerContainer.First());
                 },
                 defaultLabel = "takecontainer".Translate(),
                 defaultDesc = "takecontainerdesc".Translate(),
-                icon = TextureOfLocal.UpgradeDDIconTex,
+                icon = TextureOfLocal.TakeIconTex,
                 disabled = !isCemeteryVaultAvailable || !isPlatformFree,
                 Order = 10f
             };

@@ -58,6 +58,129 @@ namespace UndergroundVault
 		    }
 	    }
 
+        protected override void DoItemsLists(Rect inRect, ref float curY)
+        {
+            Widgets.BeginGroup(inRect);
+            Widgets.ListSeparator(ref curY, inRect.width, containedItemsKey.Translate());
+            IList<Thing> list = container;
+            bool flag = false;
+            for (int i = 0; i < list.Count; i++)
+            {
+                Thing t = list[i];
+                if (t != null)
+                {
+                    flag = true;
+                    tmpSingleThing.Clear();
+                    tmpSingleThing.Add(t);
+                    DoThingRow(t.def, t.stackCount, tmpSingleThing, inRect.width, ref curY, delegate ()
+                    {
+                        building.TakeItem(t);
+                    });
+                    tmpSingleThing.Clear();
+                }
+            }
+            if (!flag)
+            {
+                Widgets.NoneLabel(ref curY, inRect.width);
+            }
+            Widgets.EndGroup();
+        }
+
+        protected void DoThingRow(ThingDef thingDef, int count, List<Thing> things, float width, ref float curY, Action discardAction)
+        {
+            Rect rect = new Rect(0f, curY, width, 28f);
+            if (building.isPlatformFree)
+            {
+                //if (count != 1 && Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeCountIconTex))
+                //{
+                //    Find.WindowStack.Add(new Dialog_Slider("RemoveSliderText".Translate(thingDef.label), 1, count, discardAction));
+                //}
+                rect.width -= 24f;
+                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
+                {
+                    if (UseDiscardMessage)
+                    {
+                        string text = thingDef.label;
+                        if (things.Count == 1 && things[0] is Pawn)
+                        {
+                            text = ((Pawn)things[0]).LabelShortCap;
+                        }
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmRemoveItemDialog".Translate(text), delegate
+                        {
+                            discardAction();
+                        }));
+                    }
+                    else
+                    {
+                        discardAction();
+                    }
+                }
+                rect.width -= 24f;
+            }
+            if (things.Count == 1)
+            {
+                Widgets.InfoCardButton(rect.width - 24f, curY, things[0]);
+            }
+            else
+            {
+                Widgets.InfoCardButton(rect.width - 24f, curY, thingDef);
+            }
+            rect.width -= 24f;
+            if (Mouse.IsOver(rect))
+            {
+                GUI.color = ThingHighlightColor;
+                GUI.DrawTexture(rect, TexUI.HighlightTex);
+            }
+            if (thingDef.DrawMatSingle != null && thingDef.DrawMatSingle.mainTexture != null)
+            {
+                Rect rect2 = new Rect(4f, curY, 28f, 28f);
+                if (things.Count == 1)
+                {
+                    Widgets.ThingIcon(rect2, things[0]);
+                }
+                else
+                {
+                    Widgets.ThingIcon(rect2, thingDef);
+                }
+            }
+            Text.Anchor = TextAnchor.MiddleLeft;
+            GUI.color = ThingLabelColor;
+            Rect rect3 = new Rect(36f, curY, rect.width - 36f, rect.height);
+            //TaggedString text2 = RowText(thingDef, count, things);
+            string text2 = ((things.Count != 1 || count != things[0].stackCount) ? GenLabel.ThingLabel(thingDef, null, count).CapitalizeFirst() : things[0].LabelCap);
+            Text.WordWrap = false;
+            //Widgets.Label(rect3, text2.Truncate(rect3.width));
+            Widgets.Label(rect3, text2.StripTags().Truncate(rect3.width));
+            Text.WordWrap = true;
+            Text.Anchor = TextAnchor.UpperLeft;
+            TooltipHandler.TipRegion(rect, text2);
+            //if (Widgets.ButtonInvisible(rect))
+            //{
+            //    SelectLater(things);
+            //}
+            if (Mouse.IsOver(rect))
+            {
+                for (int i = 0; i < things.Count; i++)
+                {
+                    TargetHighlighter.Highlight(things[i]);
+                }
+            }
+            curY += 28f;
+        }
+
+        //public string RowText(ThingDef thingDef, int count, List<Thing> things)
+        //{
+        //    TaggedString text1 = ((things.Count != 1 || count != things[0].stackCount) ? GenLabel.ThingLabel(thingDef, null, count).CapitalizeFirst() : things[0].LabelCap).StripTags();
+        //    text1 += ((things.Count != 1 || count != things[0].stackCount) ? new TaggedString("") : (" " + ((things[0] as Building_Casket).ContainedThing as Pawn).NameFullColored));
+        //    return text1;
+        //}
+
+        //private void SelectLater(List<Thing> things)
+        //{
+        //    thingsToSelect.Clear();
+        //    thingsToSelect.AddRange(things);
+        //}
+
         //protected override void FillTab()
         //{
         //    building = base.SelThing as Building_UVCemetery;
@@ -103,50 +226,50 @@ namespace UndergroundVault
         //    GUI.color = Color.white;
         //    Text.Anchor = TextAnchor.UpperLeft;
         //}
-            ////protected override void FillTab()
-            ////{
-            ////    buildingStorage = base.SelThing as Building_Storage;
-            ////    Text.Font = GameFont.Small;
-            ////    Rect position = new Rect(10f, 10f, size.x - 10f, size.y - 10f);
-            ////    GUI.BeginGroup(position);
-            ////    Text.Font = GameFont.Small;
-            ////    GUI.color = Color.white;
-            ////    float curY = 0f;
-            ////    Widgets.ListSeparator(ref curY, position.width, labelKey.Translate());
-            ////    curY += 5f;
-            ////    CompDeepStorage comp = buildingStorage.GetComp<CompDeepStorage>();
-            ////    List<Thing> source = ((comp == null) ? CompDeepStorage.genericContentsHeader(buildingStorage, out var header, out var tooltip) : comp.getContentsHeader(out header, out tooltip));
-            ////    Rect rect = new Rect(8f, curY, position.width - 16f, Text.CalcHeight(header, position.width - 16f));
-            ////    Widgets.Label(rect, header);
-            ////    curY += rect.height;
-            ////    source = source.OrderBy((Thing x) => x.def.defName).ThenByDescending(delegate (Thing x)
-            ////    {
-            ////        x.TryGetQuality(out var qc);
-            ////        return (int)qc;
-            ////    }).ThenByDescending((Thing x) => x.HitPoints / x.MaxHitPoints)
-            ////        .ToList();
-            ////    Rect outRect = new Rect(0f, 10f + curY, position.width, position.height - curY);
-            ////    Rect rect2 = new Rect(0f, 0f, position.width - 16f, scrollViewHeight);
-            ////    Widgets.BeginScrollView(outRect, ref scrollPosition, rect2);
-            ////    curY = 0f;
-            ////    if (source.Count < 1)
-            ////    {
-            ////        Widgets.Label(rect2, "NoItemsAreStoredHere".Translate());
-            ////        curY += 22f;
-            ////    }
-            ////    for (int i = 0; i < source.Count; i++)
-            ////    {
-            ////        DrawThingRow(ref curY, rect2.width, source[i]);
-            ////    }
-            ////    if (Event.current.type == EventType.Layout)
-            ////    {
-            ////        scrollViewHeight = curY + 25f;
-            ////    }
-            ////    Widgets.EndScrollView();
-            ////    GUI.EndGroup();
-            ////    GUI.color = Color.white;
-            ////    Text.Anchor = TextAnchor.UpperLeft;
-            ////}
+        ////protected override void FillTab()
+        ////{
+        ////    buildingStorage = base.SelThing as Building_Storage;
+        ////    Text.Font = GameFont.Small;
+        ////    Rect position = new Rect(10f, 10f, size.x - 10f, size.y - 10f);
+        ////    GUI.BeginGroup(position);
+        ////    Text.Font = GameFont.Small;
+        ////    GUI.color = Color.white;
+        ////    float curY = 0f;
+        ////    Widgets.ListSeparator(ref curY, position.width, labelKey.Translate());
+        ////    curY += 5f;
+        ////    CompDeepStorage comp = buildingStorage.GetComp<CompDeepStorage>();
+        ////    List<Thing> source = ((comp == null) ? CompDeepStorage.genericContentsHeader(buildingStorage, out var header, out var tooltip) : comp.getContentsHeader(out header, out tooltip));
+        ////    Rect rect = new Rect(8f, curY, position.width - 16f, Text.CalcHeight(header, position.width - 16f));
+        ////    Widgets.Label(rect, header);
+        ////    curY += rect.height;
+        ////    source = source.OrderBy((Thing x) => x.def.defName).ThenByDescending(delegate (Thing x)
+        ////    {
+        ////        x.TryGetQuality(out var qc);
+        ////        return (int)qc;
+        ////    }).ThenByDescending((Thing x) => x.HitPoints / x.MaxHitPoints)
+        ////        .ToList();
+        ////    Rect outRect = new Rect(0f, 10f + curY, position.width, position.height - curY);
+        ////    Rect rect2 = new Rect(0f, 0f, position.width - 16f, scrollViewHeight);
+        ////    Widgets.BeginScrollView(outRect, ref scrollPosition, rect2);
+        ////    curY = 0f;
+        ////    if (source.Count < 1)
+        ////    {
+        ////        Widgets.Label(rect2, "NoItemsAreStoredHere".Translate());
+        ////        curY += 22f;
+        ////    }
+        ////    for (int i = 0; i < source.Count; i++)
+        ////    {
+        ////        DrawThingRow(ref curY, rect2.width, source[i]);
+        ////    }
+        ////    if (Event.current.type == EventType.Layout)
+        ////    {
+        ////        scrollViewHeight = curY + 25f;
+        ////    }
+        ////    Widgets.EndScrollView();
+        ////    GUI.EndGroup();
+        ////    GUI.color = Color.white;
+        ////    Text.Anchor = TextAnchor.UpperLeft;
+        ////}
 
         //private void DrawThingRow(ref float y, float width, Thing thing)
         //{
@@ -244,29 +367,29 @@ namespace UndergroundVault
         //}
 
 
-            ////public static void EjectTarget(Thing thing)
-            ////{
-            ////    IntVec3 position = thing.Position;
-            ////    Map map = thing.Map;
-            ////    thing.DeSpawn();
-            ////    if (!GenPlace.TryPlaceThing(thing, position, map, ThingPlaceMode.Near, null, delegate (IntVec3 newLoc)
-            ////    {
-            ////        foreach (Thing item in map.thingGrid.ThingsListAtFast(newLoc))
-            ////        {
-            ////            if (item is Building_Storage)
-            ////            {
-            ////                return false;
-            ////            }
-            ////        }
-            ////        return true;
-            ////    }))
-            ////    {
-            ////        GenSpawn.Spawn(thing, position, map);
-            ////    }
-            ////    if (!thing.Spawned || thing.Position == position)
-            ////    {
-            ////        Messages.Message("You have filled the map.", new LookTargets(position, map), MessageTypeDefOf.NegativeEvent);
-            ////    }
-            ////}
+        ////public static void EjectTarget(Thing thing)
+        ////{
+        ////    IntVec3 position = thing.Position;
+        ////    Map map = thing.Map;
+        ////    thing.DeSpawn();
+        ////    if (!GenPlace.TryPlaceThing(thing, position, map, ThingPlaceMode.Near, null, delegate (IntVec3 newLoc)
+        ////    {
+        ////        foreach (Thing item in map.thingGrid.ThingsListAtFast(newLoc))
+        ////        {
+        ////            if (item is Building_Storage)
+        ////            {
+        ////                return false;
+        ////            }
+        ////        }
+        ////        return true;
+        ////    }))
+        ////    {
+        ////        GenSpawn.Spawn(thing, position, map);
+        ////    }
+        ////    if (!thing.Spawned || thing.Position == position)
+        ////    {
+        ////        Messages.Message("You have filled the map.", new LookTargets(position, map), MessageTypeDefOf.NegativeEvent);
+        ////    }
+        ////}
     }
 }

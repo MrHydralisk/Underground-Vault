@@ -6,6 +6,10 @@ namespace UndergroundVault
     [StaticConstructorOnStartup]
     public static class TextureOfLocal
     {
+        public static readonly Texture2D StoreIconTex = ContentFinder<Texture2D>.Get("Icons/UVStore_Icon");
+        public static readonly Texture2D TakeIconTex = ContentFinder<Texture2D>.Get("Icons/UVTake_Icon");
+        public static readonly Texture2D TakeCountIconTex = ContentFinder<Texture2D>.Get("Icons/UVTakeSpecificCount_Icon");
+
         public static readonly Texture2D UpgradeCRIconTex = ContentFinder<Texture2D>.Get("Icons/UVCrematoriumUpgrade_Icon");
         public static readonly Texture2D UpgradeDDIconTex = ContentFinder<Texture2D>.Get("Icons/UVDeepDrillUpgrade_Icon");
     }
