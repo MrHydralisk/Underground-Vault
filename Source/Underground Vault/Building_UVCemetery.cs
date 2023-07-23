@@ -18,17 +18,21 @@ namespace UndergroundVault
         private Thing UVStorageEfficiencyUpgrade => uVStorageEfficiencyUpgradeCached ?? (uVStorageEfficiencyUpgradeCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVStorageEfficiencyUpgrade));
         private Thing UVAIUpgrade => uVAIUpgradeCached ?? (uVAIUpgradeCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVAIUpgrade));
         private Building_UVCemeteryVault UVCemeteryVault => uVCemeteryVaultCached ?? (uVCemeteryVaultCached = this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVCemeteryVault) as Building_UVCemeteryVault);
+
         private Thing uVCrematoriumUpgradeCached;
         private Thing uVDeepDrillUpgradeCached;
         private Thing uVStorageEfficiencyUpgradeCached;
         private Thing uVAIUpgradeCached;
         private Building_UVCemeteryVault uVCemeteryVaultCached;
-        private bool isPlatformFree => PlatformThing == null;
+
+        private bool isPlatformFree => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus || t is Blueprint);
         private bool isUpgradeCRInstalled => UVCrematoriumUpgrade != null;
         private bool isUpgradeDDInstalled => UVDeepDrillUpgrade != null;
         private bool isUpgradeSEInstalled => UVStorageEfficiencyUpgrade != null;
         private bool isUpgradeAIInstalled => UVAIUpgrade != null;
         private bool isCemeteryVaultAvailable => UVCemeteryVault != null;
+
+        public IEnumerable<Thing> InnerContainer => UVCemeteryVault.InnerContainer;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -55,7 +59,7 @@ namespace UndergroundVault
                 defaultLabel = "storecontainer".Translate(),
                 defaultDesc = "storecontainerdesc".Translate(),
                 icon = TextureOfLocal.UpgradeDDIconTex,
-                disabled = !isCemeteryVaultAvailable,
+                disabled = !isCemeteryVaultAvailable || isPlatformFree,
                 Order = 10f
             };
             yield return new Command_Action
@@ -68,7 +72,7 @@ namespace UndergroundVault
                 defaultLabel = "takecontainer".Translate(),
                 defaultDesc = "takecontainerdesc".Translate(),
                 icon = TextureOfLocal.UpgradeDDIconTex,
-                disabled = !isCemeteryVaultAvailable,
+                disabled = !isCemeteryVaultAvailable || !isPlatformFree,
                 Order = 10f
             };
             ThingDef bd = ThingDefOfLocal.UVSarcophagus;
