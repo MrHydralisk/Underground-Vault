@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	<!-- <UndergroundVault.Settings.PerPrisonerSkill>Best Prisoner Skill Multiplier</UndergroundVault.Settings.PerPrisonerSkill>
+    <UndergroundVault.Settings.InteractionIntervalReductionPerWarden>Interaction Interval Reduction Per Warden</UndergroundVault.Settings.InteractionIntervalReductionPerWarden>
+	<UndergroundVault.Settings.MaxInteractionInterval>Max Interaction Interval</UndergroundVault.Settings.MaxInteractionInterval>
+	<UndergroundVault.Settings.MinInteractionInterval>Min Interaction Interval</UndergroundVault.Settings.MinInteractionInterval> -->
+    <UndergroundVault.Command.StoreInVault.Label>Store in Vault</UndergroundVault.Command.StoreInVault.Label>
+    <UndergroundVault.Command.StoreInVault.Desc>Will lower the cargo platform from the surface to the Vault</UndergroundVault.Command.StoreInVault.Desc>
+    <UndergroundVault.Command.TakeFromVault.Label>Take from Vault</UndergroundVault.Command.TakeFromVault.Label>
+    <UndergroundVault.Command.TakeFromVault.Desc>Will raise the cargo platform from the Vault to the surface</UndergroundVault.Command.TakeFromVault.Desc>
+    <UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
+    <UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
+    <UndergroundVault.Command.disabledReason.PlatformConstructing>Сargo platform busy with construction</UndergroundVault.Command.disabledReason.PlatformConstructing>
+    <UndergroundVault.Command.disabledReason.PlatformMoving>Сargo platform is moving</UndergroundVault.Command.disabledReason.PlatformMoving>
+    <!-- <UndergroundVault.Hemogen>hemogen packs {0}</UndergroundVault.Hemogen>
+    <UndergroundVault.PrisonersWork>Force prisoners to work</UndergroundVault.PrisonersWork>
+    <UndergroundVault.RecruitPrisoners>Recruit prisoners</UndergroundVault.RecruitPrisoners>
+    <UndergroundVault.EnslavePrisoners>Enslave prisoners</UndergroundVault.EnslavePrisoners>
+    <UndergroundVault.HemogenPrisoners>Extract hemogen packs from prisoners</UndergroundVault.HemogenPrisoners>
+    <UndergroundVault.WillWarden>Wardens: {0}\nColony prisoners: {1}\nCurret strategy: {2}\nNext delivery in {3}:\n{4}</UndergroundVault.WillWarden>
+    <UndergroundVault.Letters.PrisonFail.Label>Prison {0} Nothing To Report</UndergroundVault.Letters.PrisonFail.Label>
+    <UndergroundVault.Letters.PrisonFail.Text>Prsion didn't recieved any payments. Consider increasing amount of wardens or prisoners</UndergroundVault.Letters.PrisonFail.Text> -->
+</LanguageData>

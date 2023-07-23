@@ -35,25 +35,26 @@ namespace UndergroundVault
                 action = delegate
                 {
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                    GenConstruct.PlaceBlueprintForBuild(bd, this.Position, this.Map, Rot4.North, this.Faction, null);
+                    Blueprint_Build bb = GenConstruct.PlaceBlueprintForBuild(bd, this.Position, this.Map, Rot4.North, this.Faction, null);
+                    Log.Message(bb.Label + " " + bb.Faction.ToStringSafe());
                 },
                 defaultLabel = bd.label,
                 defaultDesc = bd.description,
                 icon = bd.uiIcon,
                 disabled = this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVCemetery)
             };
-            yield return new Command_Action
-            {
-                action = delegate
-                {
-                    string str = "";
-                    foreach(Thing t in innerContainer)
-                    {
-                        str += t.Label + "\n";
-                    }
-                    Log.Message(str);
-                }
-            };
+            //yield return new Command_Action
+            //{
+            //    action = delegate
+            //    {
+            //        string str = "";
+            //        foreach (Thing t in innerContainer)
+            //        {
+            //            str += t.Label + "\n";
+            //        }
+            //        Log.Message(str);
+            //    }
+            //};
         }
     }
 }

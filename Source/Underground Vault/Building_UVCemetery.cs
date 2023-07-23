@@ -25,7 +25,9 @@ namespace UndergroundVault
         private Thing uVAIUpgradeCached;
         private Building_UVCemeteryVault uVCemeteryVaultCached;
 
-        public bool isPlatformFree => !this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus || t.def.IsBlueprint || t.def.IsFrame);
+        public bool isPlatformFree => !this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus);
+        public bool isPlatformConstructing => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def.IsBlueprint || t.def.IsFrame);
+        private bool isPlatformMoving => false;
         private bool isUpgradeCRInstalled => UVCrematoriumUpgrade != null;
         private bool isUpgradeDDInstalled => UVDeepDrillUpgrade != null;
         private bool isUpgradeSEInstalled => UVStorageEfficiencyUpgrade != null;
@@ -39,7 +41,8 @@ namespace UndergroundVault
             base.SpawnSetup(map, respawningAfterLoad);
             if (!isCemeteryVaultAvailable)
             {
-                GenSpawn.Spawn(ThingDefOfLocal.UVCemeteryVault, this.Position, this.Map);
+                Thing t = GenSpawn.Spawn(ThingDefOfLocal.UVCemeteryVault, this.Position, this.Map);
+                t.SetFactionDirect(this.Faction);
             }
         }
         public void TakeItem(Thing thing)
@@ -61,10 +64,11 @@ namespace UndergroundVault
                     t.DeSpawnOrDeselect();
                     UVCemeteryVault.AddItem(t);
                 },
-                defaultLabel = "storecontainer".Translate(),
-                defaultDesc = "storecontainerdesc".Translate(),
+                defaultLabel = "UndergroundVault.Command.StoreInVault.Label".Translate(),
+                defaultDesc = "UndergroundVault.Command.StoreInVault.Desc".Translate(),
                 icon = TextureOfLocal.StoreIconTex,
-                disabled = !isCemeteryVaultAvailable || isPlatformFree,
+                disabled = !isCemeteryVaultAvailable || isPlatformMoving || isPlatformFree || isPlatformConstructing,
+                disabledReason = !isCemeteryVaultAvailable ? "Cemetery Vault not Available".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
                 Order = 10f
             };
             yield return new Command_Action
@@ -73,10 +77,11 @@ namespace UndergroundVault
                 {
                     TakeItem(UVCemeteryVault.InnerContainer.First());
                 },
-                defaultLabel = "takecontainer".Translate(),
-                defaultDesc = "takecontainerdesc".Translate(),
+                defaultLabel = "UndergroundVault.Command.TakeFromVault.Label".Translate(),
+                defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
                 icon = TextureOfLocal.TakeIconTex,
-                disabled = !isCemeteryVaultAvailable || !isPlatformFree,
+                disabled = !isCemeteryVaultAvailable || isPlatformMoving || !isPlatformFree || isPlatformConstructing,
+                disabledReason = !isCemeteryVaultAvailable ? "Cemetery Vault not Available".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
                 Order = 10f
             };
             ThingDef bd = ThingDefOfLocal.UVSarcophagus;
@@ -101,8 +106,8 @@ namespace UndergroundVault
                 },
                 defaultLabel = des.Label,
                 defaultDesc = des.Desc,
-                disabled = !isPlatformFree || selectStuff.NullOrEmpty(),
-                disabledReason = isPlatformFree ? "NoStuffsToBuildWith".Translate() : "placenotempty".Translate()
+                disabled = !isPlatformFree || isPlatformConstructing || selectStuff.NullOrEmpty(),
+                disabledReason = isPlatformFree ? "NoStuffsToBuildWith".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate()
             };
             ThingDef stuffDefRaw = des.StuffDefRaw;
             command_Action.icon = des.ResolvedIcon(null);
