@@ -18,7 +18,7 @@ namespace UndergroundVault
             {
                 for (int i = 0; i < upgradesCached.Count(); i++)
                 {
-                    if (upgradesCached[i] == null)
+                    if (upgradesCached[i] == null || upgradesCached[i].def.IsFrame || upgradesCached[i].def.IsBlueprint || !upgradesCached[i].Spawned)
                     {
                         upgradesCached[i] = this.Map.thingGrid.ThingsListAtFast(this.Position + ExtUpgrade.ConstructionOffset[i]).FirstOrDefault((Thing t) => ExtUpgrade.AvailableUpgrades.Any((BuildingUpgrades bu) => t.def == bu.upgradeDef) || t.def.IsFrame || t.def.IsBlueprint);
                     }
@@ -90,14 +90,21 @@ namespace UndergroundVault
                         Find.WindowStack.Add(new FloatMenu(ExtUpgrade.AvailableUpgrades.Select(delegate (BuildingUpgrades bu)
                         {
                             ThingDef td = bu.upgradeDef;
-                            return new FloatMenuOption(td.label, delegate
+                            if (Upgrades.Count((Thing t) => t != null && t.def == bu.upgradeDef) < bu.maxAmount) // consider blueprint and frame
                             {
-                                SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                                //td.graphicData.drawOffset = ExtUpgrade.DrawOffset[freeIndex];
-                                Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(td, false);
-                                //des.SetStuffDef(td);
-                                des.DesignateSingleCell(this.Position + ExtUpgrade.ConstructionOffset[freeIndex]);
-                            }, itemIcon: bu.uiIcon, iconColor: Color.white);
+                                return new FloatMenuOption(td.label, delegate
+                                {
+                                    SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
+                                    //td.graphicData.drawOffset = ExtUpgrade.DrawOffset[freeIndex];
+                                    Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(td, false);
+                                    //des.SetStuffDef(td);
+                                    des.DesignateSingleCell(this.Position + ExtUpgrade.ConstructionOffset[freeIndex]);
+                                }, itemIcon: bu.uiIcon, iconColor: Color.white);
+                            }
+                            else
+                            {
+                                return new FloatMenuOption(td.label, null, itemIcon: bu.uiIcon, iconColor: Color.white);
+                            }
                         })
                             .ToList()));
                     },
@@ -115,16 +122,20 @@ namespace UndergroundVault
                     {
                         if (t == null)
                         {
-                            return new FloatMenuOption("Empty".Translate(), delegate
-                            {
-
-                            }, itemIcon: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
+                            return new FloatMenuOption("Empty".Translate(), null, itemIcon: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
                         }
                         else
                         {
                             return new FloatMenuOption(t.Label, delegate
                             {
-
+                                if (DebugSettings.godMode || t.GetInnerIfMinified().GetStatValue(StatDefOf.WorkToBuild) == 0f || t.def.IsFrame)
+                                {
+                                    t.Destroy(DestroyMode.Deconstruct);
+                                }
+                                else
+                                {
+                                    this.Map.designationManager.AddDesignation(new Designation(t, DesignationDefOf.Deconstruct));
+                                }
                             }, iconThing: t, iconColor: Color.white);
                         }
                     })

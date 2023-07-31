@@ -81,6 +81,7 @@
           <li>
             <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
             <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+            <maxAmount>3</maxAmount>
           </li>
           <li>
             <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>

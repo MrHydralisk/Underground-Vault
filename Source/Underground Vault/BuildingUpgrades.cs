@@ -12,6 +12,7 @@ namespace UndergroundVault
     {
         public string uiIconPath = "UI/Misc/BadTexture";
         public ThingDef upgradeDef;
+        public int maxAmount = 1;
 
         private Texture2D uiIconCached;
         public Texture2D uiIcon
