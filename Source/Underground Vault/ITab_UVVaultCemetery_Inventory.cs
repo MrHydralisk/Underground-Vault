@@ -11,7 +11,7 @@ using Verse;
 namespace UndergroundVault
 {
     [StaticConstructorOnStartup]
-    public class ITab_UVCemeteryVault_Inventory : ITab_ContentsBase
+    public class ITab_UVVaultCemetery_Inventory : ITab_ContentsBase
     {
             //private static Texture2D Drop;
 
@@ -19,7 +19,7 @@ namespace UndergroundVault
 
         //private float scrollViewHeight = 1000f;
 
-        private Building_UVCemetery building => base.SelThing as Building_UVCemetery;
+        private Building_UVTerminalCemetery building => base.SelThing as Building_UVTerminalCemetery;
 
             ////private Building_Storage buildingStorage;
 
@@ -183,7 +183,7 @@ namespace UndergroundVault
 
         //protected override void FillTab()
         //{
-        //    building = base.SelThing as Building_UVCemetery;
+        //    building = base.SelThing as Building_UVTerminalCemetery;
         //    Text.Font = GameFont.Small;
         //    Rect position = new Rect(10f, 10f, size.x - 10f, size.y - 10f);
         //    GUI.BeginGroup(position);

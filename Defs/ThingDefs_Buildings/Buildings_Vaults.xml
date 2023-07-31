@@ -1,14 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
+
+  <ThingDef Name="UVTerminalBase" ParentName="BuildingBase" Abstract="True">
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.5</fillPercent>
+		<rotatable>false</rotatable>
+    <!-- <tickerType>Normal</tickerType> -->
+    <canOverlapZones>false</canOverlapZones>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <blockWind>false</blockWind>
+    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+    <staticSunShadowHeight>0.3</staticSunShadowHeight>
+  </ThingDef>
   
-  <ThingDef ParentName="BuildingBase">
-    <defName>UVCemetery</defName>
+  <ThingDef ParentName="UVTerminalBase">
+    <defName>UVTerminalCemetery</defName>
     <label>cemetery vault panel</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
-    <thingClass>UndergroundVault.Building_UVCemetery</thingClass>
+    <thingClass>UndergroundVault.Building_UVTerminalCemetery</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVCemetery</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
+      <texPath>Things/Building/UVTerminalCemetery</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(5,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
@@ -18,25 +32,18 @@
       </damageData>
     </graphicData>
     <size>(3,2)</size>
-    <castEdgeShadows>true</castEdgeShadows>
-    <fillPercent>0.5</fillPercent>
     <tickerType>Rare</tickerType>
-    <canOverlapZones>false</canOverlapZones>
+    <!-- <tickerType>Normal</tickerType> -->
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <building>
       <!-- <ai_chillDestination>false</ai_chillDestination> -->
     </building>
     <inspectorTabs>
-      <li>UndergroundVault.ITab_UVCemeteryVault_Inventory</li>
+      <li>UndergroundVault.ITab_UVVaultCemetery_Inventory</li>
     </inspectorTabs>
-    <!-- <comps> -->
-    <!-- </comps> -->
+    <!-- <comps>
+    </comps> -->
     <!-- <costStuffCount>60</costStuffCount> -->
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>Impassable</passability>
-    <blockWind>false</blockWind>
-    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
-    <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <designationCategory>Misc</designationCategory>
     <researchPrerequisites>
       <li>ComplexFurniture</li>
@@ -48,26 +55,46 @@
       <!-- <spectateDistance>1</spectateDistance> -->
       <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
     <!-- </ritualFocus> -->
+    <modExtensions>
+      <li Class="UndergroundVault.BuildingUpgradesExtension">
+        <ConstructionOffset>
+          <li>(1,0,0)</li>
+          <li>(1,0,1)</li>
+          <li>(-1,0,1)</li>
+          <li>(-1,0,0)</li>
+        </ConstructionOffset>
+        <DrawOffset>
+          <li>(0.117,0,0.539)</li>
+          <li>(0.117,0,0.164)</li>
+          <li>(-0.117,0,0.164)</li>
+          <li>(-0.117,0,0.539)</li>
+        </DrawOffset>
+        <AvailableUpgrades>
+          <li>
+            <uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeCrematorium</upgradeDef>
+          </li>
+          <li>
+            <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+          </li>
+          <li>
+            <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+          </li>
+          <li>
+            <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeAI</upgradeDef>
+          </li>
+        </AvailableUpgrades>
+      </li>
+      <li Class="UndergroundVault.TerminalExtension">
+        <VaultDef>UVVaultCemetery</VaultDef>
+      </li>
+    </modExtensions>
   </ThingDef>
 
-  <ThingDef ParentName="BuildingBase">
-    <defName>UVCemeteryVault</defName>
-    <label>cemetery vault</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
-    <thingClass>UndergroundVault.Building_UVCemeteryVault</thingClass>
-    <graphicData>
-      <texPath>Things/Building/UVCemeteryVault</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(3,4)</drawSize>
-      <damageData>
-        <cornerTL>Damage/Corner</cornerTL>
-        <cornerTR>Damage/Corner</cornerTR>
-        <cornerBL>Damage/Corner</cornerBL>
-        <cornerBR>Damage/Corner</cornerBR>
-      </damageData>
-    </graphicData>
-    <size>(3,2)</size>
-    <!-- <uiIconScale>0.5</uiIconScale> -->
+  <ThingDef Name="UVVaultBase" ParentName="BuildingBase" Abstract="True">
     <altitudeLayer>Floor</altitudeLayer>
     <rotatable>false</rotatable>
     <destroyable>false</destroyable>
@@ -84,6 +111,46 @@
     </building>
     <!-- <designationCategory>Misc</designationCategory> -->
   </ThingDef>
+
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultCemetery</defName>
+    <label>cemetery vault</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <thingClass>UndergroundVault.Building_UVVaultCemetery</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVaultCemetery</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <!-- <uiIconScale>0.5</uiIconScale> -->
+    <!-- <altitudeLayer>Floor</altitudeLayer>
+    <rotatable>false</rotatable>
+    <destroyable>false</destroyable>
+    <useHitPoints>false</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+    <neverOverlapFloors>true</neverOverlapFloors>
+    <blockPlants>true</blockPlants>
+    <building>
+      <isEdifice>false</isEdifice>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+    </building> -->
+    <!-- <designationCategory>Misc</designationCategory> -->
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalCemetery</TerminalDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
   
   <ThingDef ParentName="BuildingBase">
     <defName>UVSarcophagus</defName>
@@ -93,7 +160,7 @@
     <containedPawnsSelectable>true</containedPawnsSelectable>
     <graphicData>
       <texPath>Things/Building/UVSarcophagusEmpty</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
+      <graphicClass>Graphic_Single</graphicClass>
       <drawSize>(3,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
@@ -220,11 +287,12 @@
     </ritualFocus>
   </ThingDef>
 
-  <ThingDef Name="UVUpgrade" ParentName="BuildingBase" Abstract="True">
+  <ThingDef Name="UVUpgradeBase" ParentName="BuildingBase" Abstract="True">
+    <thingClass>UndergroundVault.Building_UVUpgrade</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVStorageEfficiencyUpgrade</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
-      <drawSize>(1,3)</drawSize>
+      <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+      <drawSize>(1,1)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -237,6 +305,8 @@
     <castEdgeShadows>false</castEdgeShadows>
     <fillPercent>0.1</fillPercent>
     <tickerType>Never</tickerType>
+		<!-- <tickerType>Normal</tickerType> -->
+    <drawerType>RealtimeOnly</drawerType>
     <canOverlapZones>false</canOverlapZones>
     <selectable>false</selectable>
     <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
@@ -261,39 +331,39 @@
     </researchPrerequisites> -->
   </ThingDef>
 
-  <ThingDef ParentName="UVUpgrade">
-    <defName>UVCrematoriumUpgrade</defName>
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeCrematorium</defName>
     <label>crematorium module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVCrematoriumUpgrade</texPath>
+      <texPath>Things/Building/UVUpgradeCrematorium</texPath>
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVUpgrade">
-    <defName>UVDeepDrillUpgrade</defName>
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeDeepDrill</defName>
     <label>deep drill module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVDeepDrillUpgrade</texPath>
+      <texPath>Things/Building/UVUpgradeDeepDrill</texPath>
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVUpgrade">
-    <defName>UVStorageEfficiencyUpgrade</defName>
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeStorageEfficiency</defName>
     <label>storage efficiency module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVStorageEfficiencyUpgrade</texPath>
+      <texPath>Things/Building/UVUpgradeStorageEfficiency</texPath>
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVUpgrade">
-    <defName>UVAIUpgrade</defName>
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeAI</defName>
     <label>AI module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
-      <texPath>Things/Building/UVAIUpgrade</texPath>
+      <texPath>Things/Building/UVUpgradeAI</texPath>
     </graphicData>
   </ThingDef>
 
