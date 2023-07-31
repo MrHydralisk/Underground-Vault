@@ -13,23 +13,23 @@ namespace UndergroundVault
     public class Building_UVTerminalCemetery : Building_UVTerminal
     {
         private Thing PlatformThing => this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus);
-        private Thing UVUpgradeCrematorium => uVUpgradeCrematoriumCached ?? (uVUpgradeCrematoriumCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeCrematorium));
-        private Thing UVUpgradeDeepDrill => uVUpgradeDeepDrillCached ?? (uVUpgradeDeepDrillCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.NorthEast).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeDeepDrill));
-        private Thing UVUpgradeStorageEfficiency => uVUpgradeStorageEfficiencyCached ?? (uVUpgradeStorageEfficiencyCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.NorthWest).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeStorageEfficiency));
-        private Thing UVUpgradeAI => uVUpgradeAICached ?? (uVUpgradeAICached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.West).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeAI));
-        
-        private Thing uVUpgradeCrematoriumCached;
-        private Thing uVUpgradeDeepDrillCached;
-        private Thing uVUpgradeStorageEfficiencyCached;
-        private Thing uVUpgradeAICached;
+        //private Thing UVUpgradeCrematorium => uVUpgradeCrematoriumCached ?? (uVUpgradeCrematoriumCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.East).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeCrematorium));
+        //private Thing UVUpgradeDeepDrill => uVUpgradeDeepDrillCached ?? (uVUpgradeDeepDrillCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.NorthEast).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeDeepDrill));
+        //private Thing UVUpgradeStorageEfficiency => uVUpgradeStorageEfficiencyCached ?? (uVUpgradeStorageEfficiencyCached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.NorthWest).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeStorageEfficiency));
+        //private Thing UVUpgradeAI => uVUpgradeAICached ?? (uVUpgradeAICached = this.Map.thingGrid.ThingsListAtFast(this.Position + IntVec3.West).FirstOrDefault((Thing t) => t.def == ThingDefOfLocal.UVUpgradeAI));
 
-        public bool isPlatformFree => !this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus);
+        //private Thing uVUpgradeCrematoriumCached;
+        //private Thing uVUpgradeDeepDrillCached;
+        //private Thing uVUpgradeStorageEfficiencyCached;
+        //private Thing uVUpgradeAICached;
+
+        public override bool isPlatformFree => !this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == ThingDefOfLocal.UVSarcophagus);
         public bool isPlatformConstructing => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def.IsBlueprint || t.def.IsFrame);
-        private bool isPlatformMoving => false;
-        private bool isUpgradeCRInstalled => UVUpgradeCrematorium != null;
-        private bool isUpgradeDDInstalled => UVUpgradeDeepDrill != null;
-        private bool isUpgradeSEInstalled => UVUpgradeStorageEfficiency != null;
-        private bool isUpgradeAIInstalled => UVUpgradeAI != null;
+        //private bool isPlatformMoving => false;
+        //private bool isUpgradeCRInstalled => UVUpgradeCrematorium != null;
+        //private bool isUpgradeDDInstalled => UVUpgradeDeepDrill != null;
+        //private bool isUpgradeSEInstalled => UVUpgradeStorageEfficiency != null;
+        //private bool isUpgradeAIInstalled => UVUpgradeAI != null;
 
 
 
@@ -59,27 +59,26 @@ namespace UndergroundVault
             {
                 action = delegate
                 {
-                    Thing t = PlatformThing;
-                    AddItem(t);
+                    MarkItemFromTerminal(PlatformThing);
                 },
                 defaultLabel = "UndergroundVault.Command.StoreInVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.StoreInVault.Desc".Translate(),
                 icon = TextureOfLocal.StoreIconTex,
-                disabled = !isVaultAvailable || isPlatformMoving || isPlatformFree || isPlatformConstructing,
-                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
+                disabled = !isVaultAvailable || platformMode == PlatformMode.Up || isPlatformFree || isPlatformConstructing,
+                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
                 Order = 10f
             };
             yield return new Command_Action
             {
                 action = delegate
                 {
-                    TakeFirstItem();
+                    TakeFirstItemFromVault();
                 },
                 defaultLabel = "UndergroundVault.Command.TakeFromVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
                 icon = TextureOfLocal.TakeIconTex,
-                disabled = !isVaultAvailable || isPlatformMoving || !isPlatformFree || isPlatformConstructing,
-                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
+                disabled = !isVaultAvailable || (InnerContainer.Count() - PlatformContainer.Count() > 0) || platformMode == PlatformMode.Up || !isPlatformFree || isPlatformConstructing,
+                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : (InnerContainer.Count() - PlatformContainer.Count() > 0) ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
                 Order = 10f
             };
             ThingDef bd = ThingDefOfLocal.UVSarcophagus;
@@ -96,29 +95,6 @@ namespace UndergroundVault
                             SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
                             des.SetStuffDef(td);
                             des.DesignateSingleCell(this.Position);
-
-
-                            //Vector2 drawSize = new Vector2(1f, 3f);
-                            //Vector3 drawPos = DrawPos;
-                            //drawPos.x += 2f;
-                            //drawPos.x -= 1f;
-                            //drawPos.y += 1.1f;
-                            //Graphic turretMat = GraphicDatabase.Get<Graphic_Single>("Things/Building/UVUpgradeAI", ShaderDatabase.CutoutComplex, drawSize, DrawColor);
-                            //turretMat.Draw(drawPos, this.Rotation, this);
-                            //Log.Message(turretMat.ToStringSafe() + " -1- " + drawPos.ToStringSafe());
-
-
-                            //gun = ThingMaker.MakeThing(ThingDefOfLocal.UVUpgradeCrematorium);
-                            //gun.Position = this.Position;
-                            //gun.SpawnSetup(this.Map, true);
-                            //gun.Position = this.Position;
-
-                            //Draw();
-
-                            //DrawTurret();
-
-                            //Graphics.DrawMesh(MeshPool.plane10, Matrix4x4.TRS(Vector3.left, this.Rotation.AsQuat, new Vector3(3f, 1f, 3f)), MaterialPool.MatFrom("Things/Building/UVUpgradeAI"), 0);
-
                         }, shownItemForIcon: td);
                         floatMenuOption.tutorTag = "SelectStuff-" + bd.defName + "-" + td.defName;
                         return floatMenuOption;
@@ -127,8 +103,8 @@ namespace UndergroundVault
                 },
                 defaultLabel = des.Label,
                 defaultDesc = des.Desc,
-                disabled = !isPlatformFree || isPlatformConstructing || selectStuff.NullOrEmpty(),
-                disabledReason = isPlatformFree ? "NoStuffsToBuildWith".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate()
+                disabled = !isPlatformFree || platformMode == PlatformMode.Up || isPlatformConstructing || selectStuff.NullOrEmpty(),
+                disabledReason = selectStuff.NullOrEmpty() ? "NoStuffsToBuildWith".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate()
             };
             ThingDef stuffDefRaw = des.StuffDefRaw;
             command_Action.icon = des.ResolvedIcon(null);
@@ -142,22 +118,22 @@ namespace UndergroundVault
             des.SetStuffDef(stuffDefRaw);
             command_Action.defaultIconColor = bd.uiIconColor;
             yield return command_Action;
-            if (!isUpgradeCRInstalled)
-            {
-                yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeCrematorium, this.Position + IntVec3.East, TextureOfLocal.UpgradeCRIconTex, 20f);
-            }
-            if (!isUpgradeDDInstalled)
-            {
-                yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill, this.Position + IntVec3.NorthEast, TextureOfLocal.UpgradeDDIconTex, 21f);
-            }
-            if (!isUpgradeSEInstalled)
-            {
-                yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency, this.Position + IntVec3.NorthWest, TextureOfLocal.UpgradeSEIconTex, 22f);
-            }
-            if (!isUpgradeAIInstalled)
-            {
-                yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeAI, this.Position + IntVec3.West, TextureOfLocal.UpgradeAIIconTex, 23f);
-            }
+            //if (!isUpgradeCRInstalled)
+            //{
+            //    yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeCrematorium, this.Position + IntVec3.East, TextureOfLocal.UpgradeCRIconTex, 20f);
+            //}
+            //if (!isUpgradeDDInstalled)
+            //{
+            //    yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill, this.Position + IntVec3.NorthEast, TextureOfLocal.UpgradeDDIconTex, 21f);
+            //}
+            //if (!isUpgradeSEInstalled)
+            //{
+            //    yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency, this.Position + IntVec3.NorthWest, TextureOfLocal.UpgradeSEIconTex, 22f);
+            //}
+            //if (!isUpgradeAIInstalled)
+            //{
+            //    yield return UVUtility.InstallUpgrade(ThingDefOfLocal.UVUpgradeAI, this.Position + IntVec3.West, TextureOfLocal.UpgradeAIIconTex, 23f);
+            //}
         }
 
         //public override void Draw()
@@ -212,10 +188,10 @@ namespace UndergroundVault
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_References.Look(ref uVUpgradeCrematoriumCached, "uVUpgradeCrematoriumCached");
-            Scribe_References.Look(ref uVUpgradeDeepDrillCached, "uVUpgradeDeepDrillCached");
-            Scribe_References.Look(ref uVUpgradeStorageEfficiencyCached, "uVUpgradeStorageEfficiencyCached");
-            Scribe_References.Look(ref uVUpgradeAICached, "uVUpgradeAICached");
+            //Scribe_References.Look(ref uVUpgradeCrematoriumCached, "uVUpgradeCrematoriumCached");
+            //Scribe_References.Look(ref uVUpgradeDeepDrillCached, "uVUpgradeDeepDrillCached");
+            //Scribe_References.Look(ref uVUpgradeStorageEfficiencyCached, "uVUpgradeStorageEfficiencyCached");
+            //Scribe_References.Look(ref uVUpgradeAICached, "uVUpgradeAICached");
 
 
             //Scribe_Deep.Look(ref turretG, "turretG");

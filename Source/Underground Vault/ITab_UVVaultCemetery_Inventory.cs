@@ -72,9 +72,12 @@ namespace UndergroundVault
                     flag = true;
                     tmpSingleThing.Clear();
                     tmpSingleThing.Add(t);
-                    DoThingRow(t.def, t.stackCount, tmpSingleThing, inRect.width, ref curY, delegate ()
+                    DoThingRow(t.def, t.stackCount, tmpSingleThing, inRect.width, ref curY, building.PlatformUndergroundThings.Any((Thing th) => th == t), delegate ()
                     {
-                        building.TakeItem(t);
+                        building.MarkItemFromVault(t);
+                    }, delegate ()
+                    {
+                        building.UnMarkItemFromVault(t);
                     });
                     tmpSingleThing.Clear();
                 }
@@ -86,37 +89,32 @@ namespace UndergroundVault
             Widgets.EndGroup();
         }
 
-        protected void DoThingRow(ThingDef thingDef, int count, List<Thing> things, float width, ref float curY, Action discardAction)
+        protected void DoThingRow(ThingDef thingDef, int count, List<Thing> things, float width, ref float curY, bool isMarked, Action discardAction, Action cancelAction)
         {
             Rect rect = new Rect(0f, curY, width, 28f);
-            if (building.isPlatformFree)
-            {
+            //if (/*building.isPlatformFree*/)
+            //{
                 //if (count != 1 && Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeCountIconTex))
                 //{
                 //    Find.WindowStack.Add(new Dialog_Slider("RemoveSliderText".Translate(thingDef.label), 1, count, discardAction));
                 //}
-                rect.width -= 24f;
+            rect.width -= 24f;
+            if (isMarked)
+            {
+                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), CaravanThingsTabUtility.AbandonButtonTex))
+                {
+                    cancelAction();
+                }
+            }
+            else
+            {
                 if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
                 {
-                    if (UseDiscardMessage)
-                    {
-                        string text = thingDef.label;
-                        if (things.Count == 1 && things[0] is Pawn)
-                        {
-                            text = ((Pawn)things[0]).LabelShortCap;
-                        }
-                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmRemoveItemDialog".Translate(text), delegate
-                        {
-                            discardAction();
-                        }));
-                    }
-                    else
-                    {
-                        discardAction();
-                    }
+                    discardAction();
                 }
-                rect.width -= 24f;
             }
+            rect.width -= 24f;
+            //}
             if (things.Count == 1)
             {
                 Widgets.InfoCardButton(rect.width - 24f, curY, things[0]);

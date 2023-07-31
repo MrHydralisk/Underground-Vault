@@ -24,10 +24,26 @@ namespace UndergroundVault
         {
             innerContainer.Add(t);
         }
+        public void AddItems(List<Thing> things)
+        {
+            foreach(Thing t in things)
+            {
+                AddItem(t);
+            }
+        }
         public Thing TakeItem(Thing t)
         {
             innerContainer.Remove(t);
             return t;
+        }
+        public List<Thing> TakeItems(List<Thing> things)
+        {
+            List<Thing> Things = new List<Thing>();
+            foreach (Thing t in things)
+            {
+                Things.Add(TakeItem(t));
+            }
+            return Things;
         }
         public override IEnumerable<Gizmo> GetGizmos()
         {
