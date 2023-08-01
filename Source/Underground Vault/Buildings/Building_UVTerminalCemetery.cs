@@ -78,7 +78,7 @@ namespace UndergroundVault
                 defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
                 icon = TextureOfLocal.TakeIconTex,
                 disabled = !isVaultAvailable || (InnerContainer.Count() - PlatformContainer.Count() > 0) || platformMode == PlatformMode.Up || !isPlatformFree || isPlatformConstructing,
-                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : (InnerContainer.Count() - PlatformContainer.Count() > 0) ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
+                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : (InnerContainer.Count() - PlatformUndergroundThings.Count() > 0) ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
                 Order = 10f
             };
             ThingDef bd = ThingDefOfLocal.UVSarcophagus;

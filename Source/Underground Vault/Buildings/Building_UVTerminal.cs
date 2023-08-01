@@ -43,7 +43,14 @@ namespace UndergroundVault
 
         public IEnumerable<Thing> InnerContainer => UVVault.InnerContainer;
 
-        private int ticksPerPlatformTravelTime = 400;
+        private int ticksPerPlatformTravelTimeBase => 400;
+        private int ticksPerPlatformTravelTime
+        {
+            get
+            {
+                 return (int)(ticksPerPlatformTravelTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePlatformSpeed) - 1));
+            }
+        }
 
         private int ticksTillPlatformTravelTime;
 
@@ -59,6 +66,32 @@ namespace UndergroundVault
 
         protected virtual int PlatformCapacity => 1;
 
+        public int CanAdd => UVVault.CanAdd;
+
+        private int ticksPerExpandVaultTimeBase => 400;
+        private int ticksPerExpandVaultTime
+        {
+            get
+            {
+                return (int)(ticksPerPlatformTravelTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill)));
+            }
+        }
+
+        private int ticksTillExpandVaultTime;
+        public bool isExpandVault = false;
+
+        private int ticksPerUpgradeFloorVaultTimeBase => 400;
+        private int ticksPerUpgradeFloorVaultTime
+        {
+            get
+            {
+                return (int)(ticksPerPlatformTravelTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill)));
+            }
+        }
+
+        private int ticksTillUpgradeFloorVaultTime;
+        public bool isUpgradeFloorVault = false;
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -72,6 +105,11 @@ namespace UndergroundVault
                 Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
                 t.SetFactionDirect(this.Faction);
             }
+        }
+
+        public int HaveUpgrade(ThingDef upgradeDef)
+        {
+            return Upgrades.Count((Thing t) => t != null && t.def == upgradeDef);
         }
 
         //public virtual void AddItem(Thing thing)
@@ -211,9 +249,9 @@ namespace UndergroundVault
                             }
                         case PlatformMode.Done:
                             {
-                                if (!PlatformSurfaceThings.NullOrEmpty())
+                                if (!PlatformSurfaceThings.NullOrEmpty() && CanAdd > 0)
                                 {
-                                    IEnumerable<Thing> items = PlatformSurfaceThings.Take(PlatformCapacity);
+                                    IEnumerable<Thing> items = PlatformSurfaceThings.Take(Mathf.Min(CanAdd, PlatformCapacity));
                                     PlatformContainer.AddRange(items);
                                     TakeItemsFromTerminal(items.ToList());
                                     PlatformSurfaceThings.RemoveRange(0, items.Count());
@@ -238,6 +276,41 @@ namespace UndergroundVault
                     }
                 }
             }
+            else if (isExpandVault)
+            {
+                if (ticksTillExpandVaultTime > 0)
+                {
+                    ticksTillExpandVaultTime--;
+                }
+                else
+                {
+                    UVVault.AddFloor(HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency));
+                    isExpandVault = false;
+                }
+            }
+            else if (isUpgradeFloorVault)
+            {
+                if (ticksTillUpgradeFloorVaultTime > 0)
+                {
+                    ticksTillUpgradeFloorVaultTime--;
+                }
+                else
+                {
+                    UVVault.UpgradeFloor(HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency));
+                    isUpgradeFloorVault = false;
+                }
+            }
+        }
+
+        private void ExpandVault()
+        {
+            ticksTillExpandVaultTime = ticksPerExpandVaultTime;
+            isExpandVault = true;
+        }
+        private void UpgradeFloorVault()
+        {
+            ticksTillUpgradeFloorVaultTime = ticksPerUpgradeFloorVaultTime;
+            isUpgradeFloorVault = true;
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -245,6 +318,38 @@ namespace UndergroundVault
             foreach (Gizmo gizmo in base.GetGizmos())
             {
                 yield return gizmo;
+            }
+            if (HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill) > 0)
+            {
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        ExpandVault();
+                    },
+                    defaultLabel = "UndergroundVault.Command.ExpandVault.Label".Translate(),
+                    defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(),
+                    icon = TextureOfLocal.UpgradeDDIconTex,
+                    disabled = !isVaultAvailable,
+                    disabledReason = /*!isVaultAvailable ? */"Cemetery Vault not Available".Translate(),
+                    Order = 20f
+                };
+            }
+            if (HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) > 0)
+            {
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        UpgradeFloorVault();
+                    },
+                    defaultLabel = "UndergroundVault.Command.UpgradeFloorVault.Label".Translate(),
+                    defaultDesc = "UndergroundVault.Command.UpgradeFloorVault.Desc".Translate(),
+                    icon = TextureOfLocal.UpgradeSEIconTex,
+                    disabled = !isVaultAvailable,
+                    disabledReason = /*!isVaultAvailable ? */"Cemetery Vault not Available".Translate(),
+                    Order = 20f
+                };
             }
             int freeIndex = Upgrades.FindIndex((Thing t) => t == null);
             if (freeIndex > -1)
@@ -329,7 +434,7 @@ namespace UndergroundVault
 
         public override string GetInspectString()
         {
-            return base.GetInspectString() + ticksTillPlatformTravelTime.ToStringSafe();
+            return base.GetInspectString() + InnerContainer.Count() + " / " + CanAdd + " / " + UVVault.Capacity + "\n" + ticksTillPlatformTravelTime.ToStringSafe() + "\n" + ticksTillExpandVaultTime.ToStringSafe()+ "\n" + ticksTillUpgradeFloorVaultTime.ToStringSafe();
         }
 
         public override void ExposeData()

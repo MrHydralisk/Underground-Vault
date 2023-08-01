@@ -12,5 +12,6 @@ namespace UndergroundVault
 {
     public class Building_UVVaultCemetery : Building_UVVault
     {
+        public override int FloorSize => 3;
     }
 }

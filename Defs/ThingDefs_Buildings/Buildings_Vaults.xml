@@ -89,16 +89,16 @@
           </li>
           <li>
             <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
-            <upgradeDef>UVUpgradeFR</upgradeDef>
+            <upgradeDef>UVUpgradeFreezer</upgradeDef>
           </li>
           <li>
             <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
-            <upgradeDef>UVUpgradePS</upgradeDef>
+            <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
             <maxAmount>2</maxAmount>
           </li>
           <li>
             <uiIconPath>UI/Commands/DesirePower</uiIconPath>
-            <upgradeDef>UVUpgradePE</upgradeDef>
+            <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
             <maxAmount>2</maxAmount>
           </li>
         </AvailableUpgrades>
@@ -383,7 +383,7 @@
   </ThingDef>
 
   <ThingDef ParentName="UVUpgradeBase">
-    <defName>UVUpgradeFR</defName>
+    <defName>UVUpgradeFreezer</defName>
     <label>freezer module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
@@ -392,7 +392,7 @@
   </ThingDef>
 
   <ThingDef ParentName="UVUpgradeBase">
-    <defName>UVUpgradePS</defName>
+    <defName>UVUpgradePlatformSpeed</defName>
     <label>platform speed module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
@@ -401,7 +401,7 @@
   </ThingDef>
 
   <ThingDef ParentName="UVUpgradeBase">
-    <defName>UVUpgradePE</defName>
+    <defName>UVUpgradePowerEfficiency</defName>
     <label>power efficiency module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
