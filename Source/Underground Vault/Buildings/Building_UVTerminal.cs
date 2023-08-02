@@ -48,7 +48,7 @@ namespace UndergroundVault
         {
             get
             {
-                 return (int)(ticksPerPlatformTravelTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePlatformSpeed) - 1));
+                 return (int)(ticksPerPlatformTravelTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePlatformSpeed)));
             }
         }
 
@@ -68,19 +68,27 @@ namespace UndergroundVault
 
         public int CanAdd => UVVault.CanAdd;
 
-        private int ticksPerExpandVaultTimeBase => 400;
+        private int ticksPerExpandVaultTimeBase => 1250;
         private int ticksPerExpandVaultTime
         {
             get
             {
-                return (int)(ticksPerPlatformTravelTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill)));
+                return (int)((ticksPerPlatformTravelTimeBase * DrillDiffCurve.Evaluate(UVVault.Floors.Count() + 1)) / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill)));
             }
         }
+
+        private static readonly SimpleCurve DrillDiffCurve = new SimpleCurve
+        {
+            new CurvePoint(9f, 1f),
+            new CurvePoint(27f, 2f),
+            new CurvePoint(81f, 3f),
+            new CurvePoint(243f, 4f)
+        };
 
         private int ticksTillExpandVaultTime;
         public bool isExpandVault = false;
 
-        private int ticksPerUpgradeFloorVaultTimeBase => 400;
+        private int ticksPerUpgradeFloorVaultTimeBase => 600;
         private int ticksPerUpgradeFloorVaultTime
         {
             get
@@ -91,6 +99,26 @@ namespace UndergroundVault
 
         private int ticksTillUpgradeFloorVaultTime;
         public bool isUpgradeFloorVault = false;
+
+        public List<Thing> CremationThings = new List<Thing>();
+        private int ticksPerCremationTimeBase => 180;
+        private int ticksPerCremationTime
+        {
+            get
+            {
+                return (int)(ticksPerCremationTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeCrematorium)));
+            }
+        }
+
+        private int ticksTillCremationTime;
+        public bool isCremating;
+
+        public bool Manned => (compMannable?.MannedNow ?? true) || (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) > 0);
+        protected CompMannable compMannable => compMannableCached ?? (compMannableCached = GetComp<CompMannable>());
+        protected CompMannable compMannableCached;
+        public bool PowerOn => compPowerTrader?.PowerOn ?? true;
+        protected CompPowerTrader compPowerTrader => compPowerTraderCached ?? (compPowerTraderCached = GetComp<CompPowerTrader>());
+        protected CompPowerTrader compPowerTraderCached;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -105,6 +133,7 @@ namespace UndergroundVault
                 Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
                 t.SetFactionDirect(this.Faction);
             }
+            UpdatePowerConsumption();
         }
 
         public int HaveUpgrade(ThingDef upgradeDef)
@@ -148,9 +177,12 @@ namespace UndergroundVault
         }
         public virtual void MarkItemFromTerminal(Thing thing)
         {
-            PlatformSurfaceThings.Add(thing);
-            if (!isPlatformMoving)
-                platformMode = PlatformMode.Done;
+            if (!PlatformSurfaceThings.Any((Thing t) => t == thing))
+            {
+                PlatformSurfaceThings.Add(thing);
+                if (!isPlatformMoving)
+                    platformMode = PlatformMode.Done;
+            }
         }
         public virtual void MarkItemsFromTerminal(List<Thing> things)
         {
@@ -195,9 +227,12 @@ namespace UndergroundVault
         }
         public virtual void MarkItemFromVault(Thing thing)
         {
-            PlatformUndergroundThings.Add(thing);
-            if (!isPlatformMoving)
-                platformMode = PlatformMode.Done;
+            if (!PlatformUndergroundThings.Any((Thing t) => t == thing))
+            {
+                PlatformUndergroundThings.Add(thing);
+                if (!isPlatformMoving)
+                    platformMode = PlatformMode.Done;
+            }
         }
         public virtual void MarkItemsFromVault(List<Thing> things)
         {
@@ -208,9 +243,12 @@ namespace UndergroundVault
         }
         public virtual void UnMarkItemFromVault(Thing thing)
         {
-            PlatformUndergroundThings.Remove(thing);
-            if (!isPlatformMoving)
-                platformMode = PlatformMode.Done;
+            if (PlatformUndergroundThings.Any((Thing t) => t == thing))
+            {
+                PlatformUndergroundThings.Remove(thing);
+                if (!isPlatformMoving)
+                    platformMode = PlatformMode.Done;
+            }
         }
         public virtual void UnMarkItemsFromVault(List<Thing> things)
         {
@@ -219,86 +257,132 @@ namespace UndergroundVault
                 UnMarkItemFromVault(t);
             }
         }
+        public virtual void MarkItemForCremation(Thing thing)
+        {
+            if (!CremationThings.Any((Thing t) => t == thing))
+            {
+                CremationThings.Add(thing);
+            }
+        }
+        public virtual void UnMarkItemForCremation(Thing thing)
+        {
+            if (CremationThings.Any((Thing t) => t == thing))
+            {
+                CremationThings.Remove(thing);
+            }
+        }
+        public virtual void Cremate(Thing thing)
+        {
+            Thing t = UVVault.TakeItem(thing);
+            CremationThings.Remove(thing);
+            t.Destroy();
+        }
 
         public override void Tick()
         {
             base.Tick();
-            if (platformMode != PlatformMode.None)
+            if (PowerOn && Manned)
             {
-                if (ticksTillPlatformTravelTime > 0)
+                if (platformMode != PlatformMode.None)
                 {
-                    ticksTillPlatformTravelTime--;
-                }
-                else
-                {
-                    switch (platformMode)
+                    if (ticksTillPlatformTravelTime > 0)
                     {
-                        case PlatformMode.Up:
-                            {
-                                AddItemsToTerminal(PlatformContainer);
-                                PlatformContainer.Clear();
-                                platformMode = PlatformMode.Done;
-                                break;
-                            }
-                        case PlatformMode.Down:
-                            {
-                                AddItemsToVault(PlatformContainer);
-                                PlatformContainer.Clear();
-                                platformMode = PlatformMode.Done;
-                                break;
-                            }
-                        case PlatformMode.Done:
-                            {
-                                if (!PlatformSurfaceThings.NullOrEmpty() && CanAdd > 0)
+                        ticksTillPlatformTravelTime--;
+                    }
+                    else
+                    {
+                        switch (platformMode)
+                        {
+                            case PlatformMode.Up:
                                 {
-                                    IEnumerable<Thing> items = PlatformSurfaceThings.Take(Mathf.Min(CanAdd, PlatformCapacity));
-                                    PlatformContainer.AddRange(items);
-                                    TakeItemsFromTerminal(items.ToList());
-                                    PlatformSurfaceThings.RemoveRange(0, items.Count());
-                                    platformMode = PlatformMode.Down;
-                                    ticksTillPlatformTravelTime = ticksPerPlatformTravelTime;
+                                    AddItemsToTerminal(PlatformContainer);
+                                    PlatformContainer.Clear();
+                                    platformMode = PlatformMode.Done;
+                                    break;
                                 }
-                                else if (!PlatformUndergroundThings.NullOrEmpty() && isPlatformFree)
+                            case PlatformMode.Down:
                                 {
-                                    IEnumerable<Thing> items = PlatformUndergroundThings.Take(PlatformCapacity);
-                                    PlatformContainer.AddRange(items);
-                                    TakeItemsFromVault(items.ToList());
-                                    PlatformUndergroundThings.RemoveRange(0, items.Count());
-                                    platformMode = PlatformMode.Up;
-                                    ticksTillPlatformTravelTime = ticksPerPlatformTravelTime;
+                                    AddItemsToVault(PlatformContainer);
+                                    PlatformContainer.Clear();
+                                    platformMode = PlatformMode.Done;
+                                    break;
                                 }
-                                else
+                            case PlatformMode.Done:
                                 {
-                                    platformMode = PlatformMode.None;
+                                    if (!PlatformSurfaceThings.NullOrEmpty() && CanAdd > 0)
+                                    {
+                                        IEnumerable<Thing> items = PlatformSurfaceThings.Take(Mathf.Min(CanAdd, PlatformCapacity));
+                                        PlatformContainer.AddRange(items);
+                                        TakeItemsFromTerminal(items.ToList());
+                                        PlatformSurfaceThings.RemoveRange(0, items.Count());
+                                        platformMode = PlatformMode.Down;
+                                        ticksTillPlatformTravelTime = ticksPerPlatformTravelTime;
+                                    }
+                                    else if (!PlatformUndergroundThings.NullOrEmpty() && isPlatformFree)
+                                    {
+                                        IEnumerable<Thing> items = PlatformUndergroundThings.Take(PlatformCapacity);
+                                        PlatformContainer.AddRange(items);
+                                        TakeItemsFromVault(items.ToList());
+                                        PlatformUndergroundThings.RemoveRange(0, items.Count());
+                                        platformMode = PlatformMode.Up;
+                                        ticksTillPlatformTravelTime = ticksPerPlatformTravelTime;
+                                    }
+                                    else
+                                    {
+                                        platformMode = PlatformMode.None;
+                                    }
+                                    break;
                                 }
-                                break;
-                            }
+                        }
                     }
                 }
-            }
-            else if (isExpandVault)
-            {
-                if (ticksTillExpandVaultTime > 0)
+                else if (isExpandVault)
                 {
-                    ticksTillExpandVaultTime--;
+                    if (ticksTillExpandVaultTime > 0)
+                    {
+                        ticksTillExpandVaultTime--;
+                    }
+                    else
+                    {
+                        UVVault.AddFloor(HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency));
+                        isExpandVault = false;
+                    }
                 }
-                else
+                else if (isUpgradeFloorVault)
                 {
-                    UVVault.AddFloor(HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency));
-                    isExpandVault = false;
+                    if (ticksTillUpgradeFloorVaultTime > 0)
+                    {
+                        ticksTillUpgradeFloorVaultTime--;
+                    }
+                    else
+                    {
+                        UVVault.UpgradeFloor(HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency));
+                        isUpgradeFloorVault = false;
+                    }
                 }
-            }
-            else if (isUpgradeFloorVault)
-            {
-                if (ticksTillUpgradeFloorVaultTime > 0)
+                else if (!CremationThings.NullOrEmpty())
                 {
-                    ticksTillUpgradeFloorVaultTime--;
+                    if (ticksTillCremationTime > 0)
+                    {
+                        ticksTillCremationTime--;
+                    }
+                    else
+                    {
+                        if (isCremating)
+                        {
+                            Thing t = CremationThings.First();
+                            Log.Message(t.FlammableNow.ToStringSafe() + " " + t.Stuff.BaseFlammability.ToStringSafe());
+                            Cremate(t);
+                            isCremating = false;
+                        }
+                        else
+                        {
+                            ticksTillCremationTime = ticksPerCremationTime;
+                            isCremating = true;
+                        }
+                    }
                 }
-                else
-                {
-                    UVVault.UpgradeFloor(HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency));
-                    isUpgradeFloorVault = false;
-                }
+
             }
         }
 
@@ -311,6 +395,13 @@ namespace UndergroundVault
         {
             ticksTillUpgradeFloorVaultTime = ticksPerUpgradeFloorVaultTime;
             isUpgradeFloorVault = true;
+        }
+
+        protected virtual float newPowerTraderValue => compPowerTrader.Props.PowerConsumption;
+
+        public void UpdatePowerConsumption()
+        {
+            compPowerTrader.PowerOutput = 0f - (newPowerTraderValue / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency)));
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -330,8 +421,8 @@ namespace UndergroundVault
                     defaultLabel = "UndergroundVault.Command.ExpandVault.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeDDIconTex,
-                    disabled = !isVaultAvailable,
-                    disabledReason = /*!isVaultAvailable ? */"Cemetery Vault not Available".Translate(),
+                    disabled = !isVaultAvailable || isExpandVault,
+                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : "Already Expanding Vault".Translate(),
                     Order = 20f
                 };
             }
@@ -346,8 +437,8 @@ namespace UndergroundVault
                     defaultLabel = "UndergroundVault.Command.UpgradeFloorVault.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.UpgradeFloorVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeSEIconTex,
-                    disabled = !isVaultAvailable,
-                    disabledReason = /*!isVaultAvailable ? */"Cemetery Vault not Available".Translate(),
+                    disabled = !isVaultAvailable || isUpgradeFloorVault,
+                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : "Already Expanding Vault".Translate(),
                     Order = 20f
                 };
             }
@@ -434,7 +525,7 @@ namespace UndergroundVault
 
         public override string GetInspectString()
         {
-            return base.GetInspectString() + InnerContainer.Count() + " / " + CanAdd + " / " + UVVault.Capacity + "\n" + ticksTillPlatformTravelTime.ToStringSafe() + "\n" + ticksTillExpandVaultTime.ToStringSafe()+ "\n" + ticksTillUpgradeFloorVaultTime.ToStringSafe();
+            return base.GetInspectString() + InnerContainer.Count() + " / " + CanAdd + " / " + UVVault.Capacity + "\n" + ticksTillPlatformTravelTime.ToStringSafe() + "\n" + ticksTillExpandVaultTime.ToStringSafe()+ "\n" + ticksTillUpgradeFloorVaultTime.ToStringSafe()+ "\n" + ticksTillCremationTime.ToStringSafe();
         }
 
         public override void ExposeData()

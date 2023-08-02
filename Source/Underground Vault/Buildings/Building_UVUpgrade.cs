@@ -15,21 +15,29 @@ namespace UndergroundVault
     {
         public Vector3 offset = Vector3.zero;
         public override Vector3 DrawPos => base.DrawPos + offset;
+        private Building_UVTerminal uvT => this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t is Building_UVTerminal) as Building_UVTerminal;
 
         //public override Graphic Graphic => base.Graphic;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            Building_UVTerminal uvT = this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t is Building_UVTerminal) as Building_UVTerminal;
+            
             IntVec3 iv = this.Position - uvT.Position;
             //Log.Message(iv.ToStringSafe());
             int index = uvT.ExtUpgrade.ConstructionOffset.FindIndex((IntVec3 iv3) => iv3 == iv);
             //Log.Message(index.ToStringSafe());
             if (index > -1)
                 offset = uvT.ExtUpgrade.DrawOffset[index];
+            uvT.UpdatePowerConsumption();
             //Log.Message(offset.ToStringSafe());
             //Draw();
+        }
+
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.Destroy(mode);
+            uvT.UpdatePowerConsumption();
         }
 
         //public override void Tick()

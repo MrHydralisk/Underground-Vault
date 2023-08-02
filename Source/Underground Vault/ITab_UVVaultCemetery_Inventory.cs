@@ -78,6 +78,9 @@ namespace UndergroundVault
                     }, delegate ()
                     {
                         building.UnMarkItemFromVault(t);
+                    }, delegate ()
+                    {
+                        building.MarkItemForCremation(t);
                     });
                     tmpSingleThing.Clear();
                 }
@@ -89,7 +92,7 @@ namespace UndergroundVault
             Widgets.EndGroup();
         }
 
-        protected void DoThingRow(ThingDef thingDef, int count, List<Thing> things, float width, ref float curY, bool isMarked, Action discardAction, Action cancelAction)
+        protected void DoThingRow(ThingDef thingDef, int count, List<Thing> things, float width, ref float curY, bool isMarked, Action takedAction, Action cancelAction, Action discardAction)
         {
             Rect rect = new Rect(0f, curY, width, 28f);
             //if (/*building.isPlatformFree*/)
@@ -105,15 +108,29 @@ namespace UndergroundVault
                 {
                     cancelAction();
                 }
+                rect.width -= 24f;
             }
             else
             {
                 if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
                 {
-                    discardAction();
+                    takedAction();
                 }
+                rect.width -= 24f;
+                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.UpgradeCRIconTex))
+                {
+                    string text = thingDef.label;
+                    if (things.Count == 1 && things[0] is Pawn)
+                    {
+                        text = ((Pawn)things[0]).LabelShortCap;
+                    }
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmRemoveItemDialog".Translate(text), delegate
+                    {
+                        discardAction();
+                    }));
+                }
+                rect.width -= 24f;
             }
-            rect.width -= 24f;
             //}
             if (things.Count == 1)
             {

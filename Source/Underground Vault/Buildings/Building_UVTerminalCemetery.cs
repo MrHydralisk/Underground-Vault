@@ -48,6 +48,21 @@ namespace UndergroundVault
         //    }
         //}
 
+        public override void Cremate(Thing thing)
+        {
+            Building_Sarcophagus t = thing as Building_Sarcophagus;
+            CremationThings.Remove(t);
+            if (t.Stuff.BaseFlammability > 0)
+            {
+                UVVault.TakeItem(t);
+                t.Destroy();
+            }
+            else
+            {
+                t.ContainedThing?.Destroy();
+            }
+        }
+
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
