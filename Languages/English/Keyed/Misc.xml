@@ -4,14 +4,25 @@
     <UndergroundVault.Settings.InteractionIntervalReductionPerWarden>Interaction Interval Reduction Per Warden</UndergroundVault.Settings.InteractionIntervalReductionPerWarden>
 	<UndergroundVault.Settings.MaxInteractionInterval>Max Interaction Interval</UndergroundVault.Settings.MaxInteractionInterval>
 	<UndergroundVault.Settings.MinInteractionInterval>Min Interaction Interval</UndergroundVault.Settings.MinInteractionInterval> -->
+    <UndergroundVault.Command.InstallUpgrade.Label>Install upgrade</UndergroundVault.Command.InstallUpgrade.Label>
+    <UndergroundVault.Command.InstallUpgrade.Desc>Will install upgrade module</UndergroundVault.Command.InstallUpgrade.Desc>
+    <UndergroundVault.Command.UninstallUpgrade.Label>Uninstall upgrade</UndergroundVault.Command.UninstallUpgrade.Label>
+    <UndergroundVault.Command.UninstallUpgrade.Desc>Will uninstall upgrade module</UndergroundVault.Command.UninstallUpgrade.Desc>
     <UndergroundVault.Command.StoreInVault.Label>Store in Vault</UndergroundVault.Command.StoreInVault.Label>
     <UndergroundVault.Command.StoreInVault.Desc>Will lower the cargo platform from the surface to the Vault</UndergroundVault.Command.StoreInVault.Desc>
     <UndergroundVault.Command.TakeFromVault.Label>Take from Vault</UndergroundVault.Command.TakeFromVault.Label>
     <UndergroundVault.Command.TakeFromVault.Desc>Will raise the cargo platform from the Vault to the surface</UndergroundVault.Command.TakeFromVault.Desc>
+    <UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>
+    <UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor</UndergroundVault.Command.ExpandVault.Desc>
+    <UndergroundVault.Command.UpgradeFloorVault.Label>Upgrade Vault floor</UndergroundVault.Command.UpgradeFloorVault.Label>
+    <UndergroundVault.Command.UpgradeFloorVault.Desc>Will optimize floor space</UndergroundVault.Command.UpgradeFloorVault.Desc>
     <UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
     <UndergroundVault.Command.disabledReason.PlatformConstructing>Сargo platform busy with construction</UndergroundVault.Command.disabledReason.PlatformConstructing>
     <UndergroundVault.Command.disabledReason.PlatformMoving>Сargo platform is moving</UndergroundVault.Command.disabledReason.PlatformMoving>
+    <UndergroundVault.Command.disabledReason.ExpandingVault>Vault already expanding</UndergroundVault.Command.disabledReason.ExpandingVault>
+    <UndergroundVault.Command.disabledReason.UpgradeFloorVault>Vault floor already being optimized</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
+    <UndergroundVault.Command.disabledReason.VaultEmpty>Vault is empty</UndergroundVault.Command.disabledReason.VaultEmpty>
     <!-- <UndergroundVault.Hemogen>hemogen packs {0}</UndergroundVault.Hemogen>
     <UndergroundVault.PrisonersWork>Force prisoners to work</UndergroundVault.PrisonersWork>
     <UndergroundVault.RecruitPrisoners>Recruit prisoners</UndergroundVault.RecruitPrisoners>

@@ -20,8 +20,8 @@ namespace UndergroundVault
         protected ThingDef TerminalDef => ExtVault.TerminalDef;
 
         public int Capacity => floors.Sum(i => FloorSize * i);
-        public virtual int FloorSize => 6;
-        public virtual int FloorBaseAmount => 3;
+        public /*virtual*/ int FloorSize => ExtVault.FloorSize;
+        public /*virtual*/ int FloorBaseAmount => ExtVault.FloorBaseAmount;
 
         public int CanAdd => Mathf.Max(0, Capacity - innerContainer.Count());
 
@@ -31,8 +31,12 @@ namespace UndergroundVault
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            for (int i = 0; i < FloorBaseAmount; i++)
-                floors.Add(1);
+            if (!respawningAfterLoad && floors.Count() < FloorBaseAmount)
+            {
+                floors = new List<int>();
+                for (int i = 0; i < FloorBaseAmount; i++)
+                    floors.Add(1);
+            }
         }
 
         public void AddItem(Thing t)
@@ -105,6 +109,13 @@ namespace UndergroundVault
             string s = "";
             floors.ForEach(x => s += x + "\n");
             return base.GetInspectString() + s;
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Collections.Look(ref innerContainer, "innerContainer", LookMode.Deep);
+            Scribe_Collections.Look(ref floors, "floors", LookMode.Value);
         }
     }
 }

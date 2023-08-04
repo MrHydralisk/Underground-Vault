@@ -83,18 +83,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buildings\Building_UVCryptosleepCasket.cs" />
     <Compile Include="Buildings\Building_UVUpgrade.cs" />
     <Compile Include="Buildings\Building_UVVault.cs" />
     <Compile Include="BuildingUpgrades.cs" />
+    <Compile Include="ITab\ITab_UVTerminal_Inventory.cs" />
+    <Compile Include="TrashBin\CompPowerUVTerminal.cs" />
     <Compile Include="Extension\TerminalExtension.cs" />
     <Compile Include="Extension\VaultExtension.cs" />
     <Compile Include="Extension\BuildingUpgradesExtension.cs" />
     <Compile Include="Buildings\Building_UVTerminal.cs" />
     <Compile Include="Buildings\Building_UVTerminalCemetery.cs" />
-    <Compile Include="Buildings\Building_UVVaultCemetery.cs" />
+    <Compile Include="TrashBin\Building_UVVaultCemetery.cs" />
     <Compile Include="TrashBin\CompBuildingUpgrades.cs" />
     <Compile Include="TrashBin\CompProperties_BuildingUpgrades.cs" />
-    <Compile Include="ITab_UVVaultCemetery_Inventory.cs" />
+    <Compile Include="ITab\ITab_UVTerminalCemetery_Inventory.cs" />
     <Compile Include="TrashBin\JobDriver_InstallUpgrade.cs" />
     <Compile Include="PlaceWorker_UVUpgrade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

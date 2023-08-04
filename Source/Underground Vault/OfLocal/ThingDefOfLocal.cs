@@ -15,6 +15,6 @@ namespace UndergroundVault
         public static ThingDef UVUpgradeAI;
         public static ThingDef UVUpgradeFreezer;
         public static ThingDef UVUpgradePlatformSpeed;
-        public static ThingDef UVUpgradePowerEfficiency;
+        //public static ThingDef UVUpgradePowerEfficiency;
     }
 }

@@ -6,6 +6,7 @@
     <fillPercent>0.5</fillPercent>
 		<rotatable>false</rotatable>
     <!-- <tickerType>Normal</tickerType> -->
+    <!-- <drawerType>MapMeshAndRealTime</drawerType> -->
     <canOverlapZones>false</canOverlapZones>
     <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <altitudeLayer>Building</altitudeLayer>
@@ -14,10 +15,9 @@
     <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
     <staticSunShadowHeight>0.3</staticSunShadowHeight>
     <comps>
-      <li Class="CompProperties_Mannable">
-      </li>
+      <li Class="CompProperties_Mannable"/>
       <li Class="CompProperties_Flickable"/>
-      <li Class="CompProperties_Breakdownable"/>
+      <!-- <li Class="CompProperties_Breakdownable"/> -->
     </comps>
   </ThingDef>
   
@@ -47,12 +47,13 @@
       <!-- <ai_chillDestination>false</ai_chillDestination> -->
     </building>
     <inspectorTabs>
-      <li>UndergroundVault.ITab_UVVaultCemetery_Inventory</li>
+      <li>UndergroundVault.ITab_UVTerminalCemetery_Inventory</li>
     </inspectorTabs>
     <comps>
       <li Class="CompProperties_Power">
+        <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
         <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>200</basePowerConsumption>
+        <basePowerConsumption>150</basePowerConsumption>
       </li>
     </comps>
     <!-- <costStuffCount>60</costStuffCount> -->
@@ -76,10 +77,10 @@
           <li>(-1,0,0)</li>
         </ConstructionOffset>
         <DrawOffset>
-          <li>(0.117,0,0.539)</li>
-          <li>(0.117,0,0.164)</li>
-          <li>(-0.117,0,0.164)</li>
-          <li>(-0.117,0,0.539)</li>
+          <li>(0.109,0,0.531)</li>
+          <li>(0.109,0,0.156)</li>
+          <li>(-0.109,0,0.156)</li>
+          <li>(-0.109,0,0.531)</li>
         </DrawOffset>
         <AvailableUpgrades>
           <li>
@@ -108,11 +109,11 @@
             <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
             <maxAmount>2</maxAmount>
           </li>
-          <li>
+          <!-- <li>
             <uiIconPath>UI/Commands/DesirePower</uiIconPath>
             <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
             <maxAmount>2</maxAmount>
-          </li>
+          </li> -->
         </AvailableUpgrades>
       </li>
       <li Class="UndergroundVault.TerminalExtension">
@@ -143,7 +144,7 @@
     <defName>UVVaultCemetery</defName>
     <label>cemetery vault</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
-    <thingClass>UndergroundVault.Building_UVVaultCemetery</thingClass>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVaultCemetery</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -175,6 +176,8 @@
     <modExtensions>
       <li Class="UndergroundVault.VaultExtension">
         <TerminalDef>UVTerminalCemetery</TerminalDef>
+        <FloorSize>3</FloorSize>
+        <FloorBaseAmount>3</FloorBaseAmount>
       </li>
     </modExtensions>
   </ThingDef>
@@ -210,7 +213,7 @@
       <haulToContainerDuration>500</haulToContainerDuration>
       <fullGraveGraphicData>
         <texPath>Things/Building/UVSarcophagusFull</texPath>
-        <graphicClass>Graphic_Multi</graphicClass>
+        <graphicClass>Graphic_Single</graphicClass>
         <drawSize>(3,4)</drawSize>
       </fullGraveGraphicData>
       <fixedStorageSettings>
@@ -314,6 +317,80 @@
     </ritualFocus>
   </ThingDef>
 
+  <ThingDef ParentName="BuildingBase">
+    <defName>UVCryptosleepCasket</defName>
+    <label>cryptosleep casket</label>
+    <description>A self-powered sarcophagus designed to keep a person in a state of suspended animation for many years.</description>
+    <thingClass>UndergroundVault.Building_UVCryptosleepCasket</thingClass>
+    <containedPawnsSelectable>true</containedPawnsSelectable>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/Building/UVShipCryptosleepCasket</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(1, 2)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+      <!-- <shadowData>
+        <volume>(0.83, 0.3, 1.7)</volume>
+      </shadowData> -->
+    </graphicData>
+    <researchPrerequisites><li>Cryptosleep</li></researchPrerequisites>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>42</pathCost>
+    <blockWind>true</blockWind>
+    <fillPercent>0.5</fillPercent>
+    <canOverlapZones>false</canOverlapZones>
+    <statBases>
+      <WorkToBuild>3200</WorkToBuild>
+      <MaxHitPoints>250</MaxHitPoints>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <tickerType>Normal</tickerType>
+    <size>(1,2)</size>
+    <designationCategory>Misc</designationCategory>
+    <uiOrder>2050</uiOrder>
+    <hasInteractionCell>true</hasInteractionCell>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <destroySound>BuildingDestroyed_Metal_Small</destroySound>
+    </building>
+    <costList>
+      <Steel>180</Steel>
+      <Uranium>5</Uranium>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Explosive">
+        <explosiveRadius>2.66</explosiveRadius>
+        <explosiveDamageType>Flame</explosiveDamageType>
+      </li>
+      <li Class="CompProperties_EmptyStateGraphic">
+        <graphicData>
+          <texPath>Things/Building/Ship/ShipCryptosleepCasketOpenDoor</texPath>
+          <graphicClass>Graphic_Multi</graphicClass>
+          <drawSize>(1, 2)</drawSize>
+        </graphicData>
+      </li>
+    </comps>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+      <li>UndergroundVault.PlaceWorker_UVUpgrade</li>
+    </placeWorkers>
+    <inspectorTabs>
+      <li>ITab_ContentsCasket</li>
+    </inspectorTabs>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+  </ThingDef>
+
   <ThingDef Name="UVUpgradeBase" ParentName="BuildingBase" Abstract="True">
     <thingClass>UndergroundVault.Building_UVUpgrade</thingClass>
     <graphicData>
@@ -412,14 +489,14 @@
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVUpgradeBase">
+  <!-- <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradePowerEfficiency</defName>
     <label>power efficiency module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
       <texPath>Things/Building/UVUpgradePowerEfficiency</texPath>
     </graphicData>
-  </ThingDef>
+  </ThingDef> -->
 
   <!-- <DesignationCategoryDef>
     <defName>Hidden</defName>

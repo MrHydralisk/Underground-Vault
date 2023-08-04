@@ -14,57 +14,33 @@ namespace UndergroundVault
     public class Building_UVUpgrade : Building
     {
         public Vector3 offset = Vector3.zero;
-        public override Vector3 DrawPos => base.DrawPos + offset;
-        private Building_UVTerminal uvT => this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t is Building_UVTerminal) as Building_UVTerminal;
+        public override Vector3 DrawPos => base.DrawPos + offset / 100;
 
-        //public override Graphic Graphic => base.Graphic;
+        Building_UVTerminal uvT => uvTCached ?? (uvTCached = this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t is Building_UVTerminal) as Building_UVTerminal);
+        Building_UVTerminal uvTCached;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            
-            IntVec3 iv = this.Position - uvT.Position;
-            //Log.Message(iv.ToStringSafe());
-            int index = uvT.ExtUpgrade.ConstructionOffset.FindIndex((IntVec3 iv3) => iv3 == iv);
-            //Log.Message(index.ToStringSafe());
-            if (index > -1)
-                offset = uvT.ExtUpgrade.DrawOffset[index];
-            uvT.UpdatePowerConsumption();
-            //Log.Message(offset.ToStringSafe());
-            //Draw();
+            if (!respawningAfterLoad)
+            {
+                IntVec3 iv = this.Position - uvT.Position;
+                int index = uvT.ExtUpgrade.ConstructionOffset.FindIndex((IntVec3 iv3) => iv3 == iv);
+                if (index > -1)
+                    offset = uvT.ExtUpgrade.DrawOffset[index] * 100;
+            }
         }
 
-        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        public void OffsetReset(Vector3 offsetVector)
         {
-            base.Destroy(mode);
-            uvT.UpdatePowerConsumption();
+            offset = offsetVector * 100;
         }
-
-        //public override void Tick()
-        //{
-        //    base.Tick();
-        //    //Draw();
-        //}
-
-        //public override void Draw()
-        //{
-        //    base.Draw();
-        //    Matrix4x4 matrix = default(Matrix4x4);
-        //    Vector3 drawPos = DrawPos;
-        //    drawPos.y = AltitudeLayer.BuildingOnTop.AltitudeFor();
-        //    matrix.SetTRS(drawPos, 0f.ToQuat(), new Vector3(1f, 1f, 1f));
-        //    Graphics.DrawMesh(MeshPool.plane10, matrix, Graphic.MatSingle, 0);
-        //}
-
-        //public override void DrawAt(Vector3 drawLoc, bool flip = false)
-        //{
-        //    base.DrawAt(drawLoc + offset, flip);
-        //}
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref offset, "offset");
+            Scribe_References.Look(ref uvTCached, "uvTCached");
         }
     }
 }

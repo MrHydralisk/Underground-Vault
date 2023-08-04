@@ -16,6 +16,6 @@ namespace UndergroundVault
         public static readonly Texture2D UpgradeAIIconTex = ContentFinder<Texture2D>.Get("Icons/UVUpgradeAI_Icon");
         public static readonly Texture2D UpgradeFRIconTex = ContentFinder<Texture2D>.Get("Icons/UVUpgradeFreezer_Icon");
         public static readonly Texture2D UpgradePSIconTex = ContentFinder<Texture2D>.Get("Icons/UVUpgradePlatformSpeed_Icon");
-        public static readonly Texture2D UpgradeEEIconTex = ContentFinder<Texture2D>.Get("UI/Commands/DesirePower");
+        //public static readonly Texture2D UpgradeEEIconTex = ContentFinder<Texture2D>.Get("UI/Commands/DesirePower");
     }
 }

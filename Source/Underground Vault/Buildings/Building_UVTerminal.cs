@@ -100,19 +100,6 @@ namespace UndergroundVault
         private int ticksTillUpgradeFloorVaultTime;
         public bool isUpgradeFloorVault = false;
 
-        public List<Thing> CremationThings = new List<Thing>();
-        private int ticksPerCremationTimeBase => 180;
-        private int ticksPerCremationTime
-        {
-            get
-            {
-                return (int)(ticksPerCremationTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeCrematorium)));
-            }
-        }
-
-        private int ticksTillCremationTime;
-        public bool isCremating;
-
         public bool Manned => (compMannable?.MannedNow ?? true) || (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) > 0);
         protected CompMannable compMannable => compMannableCached ?? (compMannableCached = GetComp<CompMannable>());
         protected CompMannable compMannableCached;
@@ -123,35 +110,26 @@ namespace UndergroundVault
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-            upgradesCached = new List<Thing>();
-            for (int i = 0; i < ExtUpgrade.DrawOffset.Count(); i++)
+            if (!respawningAfterLoad)
             {
-                upgradesCached.Add(null);
+                upgradesCached = new List<Thing>();
+                for (int i = 0; i < ExtUpgrade.DrawOffset.Count(); i++)
+                {
+                    upgradesCached.Add(null);
+                }
+                if (!isVaultAvailable)
+                {
+                    Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
+                    t.SetFactionDirect(this.Faction);
+                }
+                //UpdatePowerConsumption();
             }
-            if (!isVaultAvailable)
-            {
-                Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
-                t.SetFactionDirect(this.Faction);
-            }
-            UpdatePowerConsumption();
         }
 
         public int HaveUpgrade(ThingDef upgradeDef)
         {
             return Upgrades.Count((Thing t) => t != null && t.def == upgradeDef);
         }
-
-        //public virtual void AddItem(Thing thing)
-        //{
-        //    thing.DeSpawnOrDeselect();
-        //    UVVault.AddItem(thing);
-        //}
-        //public virtual void TakeItem(Thing thing)
-        //{
-        //    Thing t = UVVault.TakeItem(thing);
-        //    GenSpawn.Spawn(t, this.Position, this.Map);
-        //}
-
 
         public virtual void AddItemToTerminal(Thing thing)
         {
@@ -257,26 +235,6 @@ namespace UndergroundVault
                 UnMarkItemFromVault(t);
             }
         }
-        public virtual void MarkItemForCremation(Thing thing)
-        {
-            if (!CremationThings.Any((Thing t) => t == thing))
-            {
-                CremationThings.Add(thing);
-            }
-        }
-        public virtual void UnMarkItemForCremation(Thing thing)
-        {
-            if (CremationThings.Any((Thing t) => t == thing))
-            {
-                CremationThings.Remove(thing);
-            }
-        }
-        public virtual void Cremate(Thing thing)
-        {
-            Thing t = UVVault.TakeItem(thing);
-            CremationThings.Remove(thing);
-            t.Destroy();
-        }
 
         public override void Tick()
         {
@@ -360,30 +318,17 @@ namespace UndergroundVault
                         isUpgradeFloorVault = false;
                     }
                 }
-                else if (!CremationThings.NullOrEmpty())
+                else
                 {
-                    if (ticksTillCremationTime > 0)
-                    {
-                        ticksTillCremationTime--;
-                    }
-                    else
-                    {
-                        if (isCremating)
-                        {
-                            Thing t = CremationThings.First();
-                            Log.Message(t.FlammableNow.ToStringSafe() + " " + t.Stuff.BaseFlammability.ToStringSafe());
-                            Cremate(t);
-                            isCremating = false;
-                        }
-                        else
-                        {
-                            ticksTillCremationTime = ticksPerCremationTime;
-                            isCremating = true;
-                        }
-                    }
+                    WorkTick();
                 }
 
             }
+        }
+
+        protected virtual void WorkTick()
+        {
+
         }
 
         private void ExpandVault()
@@ -397,12 +342,17 @@ namespace UndergroundVault
             isUpgradeFloorVault = true;
         }
 
-        protected virtual float newPowerTraderValue => compPowerTrader.Props.PowerConsumption;
+        //protected virtual float newPowerTraderValue => compPowerTrader.Props.PowerConsumption;
+        //public virtual float addPowerTraderValue => 0;
+        //public virtual float mulPowerTraderValue => Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency));
 
-        public void UpdatePowerConsumption()
-        {
-            compPowerTrader.PowerOutput = 0f - (newPowerTraderValue / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency)));
-        }
+        //public void UpdatePowerConsumption()
+        //{
+        //    //Log.Message(compPowerTrader.PowerOutput + " => " + newPowerTraderValue);
+        //    //compPowerTrader.PowerOutput = 0f - (newPowerTraderValue / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency)));
+        //    //Log.Message(compPowerTrader.PowerOutput + " => " + (0f - (newPowerTraderValue / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency)))));
+        //    compPowerTrader.SetUpPowerVars();
+        //}
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
@@ -422,7 +372,7 @@ namespace UndergroundVault
                     defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeDDIconTex,
                     disabled = !isVaultAvailable || isExpandVault,
-                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : "Already Expanding Vault".Translate(),
+                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : "UndergroundVault.Command.disabledReason.ExpandingVault".Translate(),
                     Order = 20f
                 };
             }
@@ -438,7 +388,7 @@ namespace UndergroundVault
                     defaultDesc = "UndergroundVault.Command.UpgradeFloorVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeSEIconTex,
                     disabled = !isVaultAvailable || isUpgradeFloorVault,
-                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : "Already Expanding Vault".Translate(),
+                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : "UndergroundVault.Command.disabledReason.UpgradeFloorVault".Translate(),
                     Order = 20f
                 };
             }
@@ -468,8 +418,8 @@ namespace UndergroundVault
                         })
                             .ToList()));
                     },
-                    defaultLabel = "InstallUpgrade.Label".Translate(),
-                    defaultDesc = "InstallUpgrade.Desc".Translate(),
+                    defaultLabel = "UndergroundVault.Command.InstallUpgrade.Label".Translate(),
+                    defaultDesc = "UndergroundVault.Command.InstallUpgrade.Desc".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Buttons/AutoRebuild"),
                     Order = 30
                 };
@@ -496,43 +446,45 @@ namespace UndergroundVault
                         }
                         else
                         {
-                            return new FloatMenuOption("Empty".Translate(), null, itemIcon: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
+                            return new FloatMenuOption("---", null, itemIcon: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
                         }
                     })
                         .ToList()));
                 },
-                defaultLabel = "UninstallUpgrade.Label".Translate(),
-                defaultDesc = "UninstallUpgrade.Desc".Translate(),
+                defaultLabel = "UndergroundVault.Command.UninstallUpgrade.Label".Translate(),
+                defaultDesc = "UndergroundVault.Command.UninstallUpgrade.Desc".Translate(),
                 icon = ContentFinder<Texture2D>.Get("UI/Designators/Deconstruct"),
                 Order = 30
             };
-            yield return new Command_Action
+        }
+
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            foreach(Thing t in Upgrades)
             {
-                action = delegate
-                {
-                    string s = "";
-                    foreach (Thing t in Upgrades)
-                    {
-                        if (t != null)
-                            s += t.Label + " B " + t.def.IsBlueprint + " F " + t.def.IsFrame + "\n";
-                        else
-                            s += "null\n";
-                    }
-                    Log.Message(s);
-                }
-            };
+                t?.Destroy(mode);
+            }
+            base.Destroy(mode);
         }
 
         public override string GetInspectString()
         {
-            return base.GetInspectString() + InnerContainer.Count() + " / " + CanAdd + " / " + UVVault.Capacity + "\n" + ticksTillPlatformTravelTime.ToStringSafe() + "\n" + ticksTillExpandVaultTime.ToStringSafe()+ "\n" + ticksTillUpgradeFloorVaultTime.ToStringSafe()+ "\n" + ticksTillCremationTime.ToStringSafe();
+            return base.GetInspectString() + InnerContainer.Count() + " / " + CanAdd + " / " + UVVault.Capacity + "\n" + ticksTillPlatformTravelTime.ToStringSafe() + "\n" + ticksTillExpandVaultTime.ToStringSafe()+ "\n" + ticksTillUpgradeFloorVaultTime.ToStringSafe();
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.Look(ref upgradesCached, "upgradesCached", LookMode.Deep);
+            Scribe_Collections.Look(ref upgradesCached, "upgradesCached", LookMode.Reference);
+            Scribe_Collections.Look(ref PlatformContainer, "PlatformContainer", LookMode.Deep);
+            Scribe_Collections.Look(ref PlatformSurfaceThings, "PlatformSurfaceThings", LookMode.Reference);
+            Scribe_Collections.Look(ref PlatformUndergroundThings, "PlatformUndergroundThings", LookMode.Reference);
             Scribe_References.Look(ref uVVaultCached, "uVVaultCached");
+            Scribe_Values.Look(ref ticksTillPlatformTravelTime, "ticksTillPlatformTravelTime");
+            Scribe_Values.Look(ref platformMode, "platformMode", PlatformMode.None);
+            Scribe_Values.Look(ref wantToAdd, "wantToAdd");
+            Scribe_Values.Look(ref ticksTillExpandVaultTime, "ticksTillExpandVaultTime");
+            Scribe_Values.Look(ref ticksTillUpgradeFloorVaultTime, "ticksTillUpgradeFloorVaultTime");
         }
     }
     public enum PlatformMode : byte
