@@ -22,7 +22,22 @@
     <UndergroundVault.Command.disabledReason.PlatformMoving>Сargo platform is moving</UndergroundVault.Command.disabledReason.PlatformMoving>
     <UndergroundVault.Command.disabledReason.ExpandingVault>Vault already expanding</UndergroundVault.Command.disabledReason.ExpandingVault>
     <UndergroundVault.Command.disabledReason.UpgradeFloorVault>Vault floor already being optimized</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
+    <UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>No floors to optimize</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.VaultEmpty>Vault is empty</UndergroundVault.Command.disabledReason.VaultEmpty>
+
+    <UndergroundVault.Terminal.InspectString.PlatformMoving>Platform moving: {0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
+    <UndergroundVault.Terminal.InspectString.SheduledStoreInVault>{0} thing scheduled to store in Vault</UndergroundVault.Terminal.InspectString.SheduledStoreInVault>
+    <UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>{0} thing scheduled to take from Vault</UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>
+    <UndergroundVault.Terminal.InspectString.ExpandVault>Expanding Vault: {0}</UndergroundVault.Terminal.InspectString.ExpandVault>
+    <UndergroundVault.Terminal.InspectString.SheduledExpandVault>Floor scheduled to expand Vault</UndergroundVault.Terminal.InspectString.SheduledExpandVault>
+    <UndergroundVault.Terminal.InspectString.UpgradeFloor>Upgrading Vault floor: {0}</UndergroundVault.Terminal.InspectString.UpgradeFloor>
+    <UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>Floor scheduled for upgrade</UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>
+    <UndergroundVault.Terminal.InspectString.Cremation>Cremating: {0}</UndergroundVault.Terminal.InspectString.Cremation>
+    <UndergroundVault.Terminal.InspectString.SheduledCremation>{0} thing scheduled for cremation</UndergroundVault.Terminal.InspectString.SheduledCremation>
+
+    <UndergroundVault.Vault.InspectString.Capacity>Vault space {0} Used / {1} Free / {2} Total</UndergroundVault.Vault.InspectString.Capacity>
+    <UndergroundVault.Vault.InspectString.Total>Vault floors:</UndergroundVault.Vault.InspectString.Total>
+    <UndergroundVault.Vault.InspectString.Floor>- Floors lvl {0}: {1}</UndergroundVault.Vault.InspectString.Floor>
     <!-- <UndergroundVault.Hemogen>hemogen packs {0}</UndergroundVault.Hemogen>
     <UndergroundVault.PrisonersWork>Force prisoners to work</UndergroundVault.PrisonersWork>
     <UndergroundVault.RecruitPrisoners>Recruit prisoners</UndergroundVault.RecruitPrisoners>

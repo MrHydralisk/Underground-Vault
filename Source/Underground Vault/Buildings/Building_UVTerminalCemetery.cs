@@ -18,7 +18,7 @@ namespace UndergroundVault
         public bool isPlatformConstructing => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def.IsBlueprint || t.def.IsFrame);
 
         public List<Thing> CremationThings = new List<Thing>();
-        private int ticksPerCremationTimeBase => 180;
+        private int ticksPerCremationTimeBase => ExtTerminal.TicksPerCremationTimeBase;
         private int ticksPerCremationTime
         {
             get
@@ -53,9 +53,18 @@ namespace UndergroundVault
                 }
             }
         }
+        public override void MarkItemFromVault(Thing thing)
+        {
+            if (!PlatformUndergroundThings.Any((Thing t) => t == thing) && !CremationThings.Any((Thing t) => t == thing))
+            {
+                PlatformUndergroundThings.Add(thing);
+                if (!isPlatformMoving)
+                    platformMode = PlatformMode.Done;
+            }
+        }
         public virtual void MarkItemForCremation(Thing thing)
         {
-            if (!CremationThings.Any((Thing t) => t == thing))
+            if (!PlatformUndergroundThings.Any((Thing t) => t == thing) && !CremationThings.Any((Thing t) => t == thing))
             {
                 CremationThings.Add(thing);
             }
@@ -123,8 +132,8 @@ namespace UndergroundVault
                 defaultLabel = "UndergroundVault.Command.TakeFromVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
                 icon = TextureOfLocal.TakeIconTex,
-                disabled = !isVaultAvailable || (InnerContainer.Count() > 0) || platformMode == PlatformMode.Up || !isPlatformFree || isPlatformConstructing,
-                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : (InnerContainer.Count() > 0) ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
+                disabled = !isVaultAvailable || ((InnerContainer.Count() - (PlatformContainer.Count() + CremationThings.Count())) <= 0) || platformMode == PlatformMode.Up || !isPlatformFree || isPlatformConstructing,
+                disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : ((InnerContainer.Count() - (PlatformUndergroundThings.Count() + CremationThings.Count())) <= 0) ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
                 Order = 10f
             };
             ThingDef bd = ThingDefOfLocal.UVSarcophagus;
@@ -166,10 +175,19 @@ namespace UndergroundVault
             yield return command_Action;
         }
 
-
         public override string GetInspectString()
         {
-            return base.GetInspectString() + "\n" + ticksTillCremationTime.ToStringSafe();
+            List<string> inspectStrings = new List<string>();
+            inspectStrings.Add(base.GetInspectString());
+            if (ticksTillCremationTime > 0)
+            {
+                inspectStrings.Add("UndergroundVault.Terminal.InspectString.Cremation".Translate(ticksTillCremationTime.TicksToSeconds()));
+            }
+            if (CremationThings.Count() > 0)
+            {
+                inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledCremation".Translate(CremationThings.Count()));
+            }
+            return String.Join("\n", inspectStrings);
         }
 
         public override void ExposeData()

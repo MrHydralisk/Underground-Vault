@@ -5,10 +5,13 @@ VisualStudioVersion = 15.0.28307.1758
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Underground Vault", "Underground Vault\Underground Vault.csproj", "{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Underground Vault Achievements Expanded", "Underground Vault Achievements Expanded\Underground Vault Achievements Expanded.csproj", "{E690F283-656B-434F-8C5A-2E4DEA698D6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		1.3|Any CPU = 1.3|Any CPU
 		1.4|Any CPU = 1.4|Any CPU
+		Any|Any CPU = Any|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
@@ -17,10 +20,15 @@ Global
 		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.1.3|Any CPU.Build.0 = 1.3|Any CPU
 		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.1.4|Any CPU.ActiveCfg = 1.4|Any CPU
 		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.1.4|Any CPU.Build.0 = 1.4|Any CPU
-		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Any|Any CPU.ActiveCfg = 1.4|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Debug|Any CPU.ActiveCfg = 1.3|Any CPU
+		{F0033B10-F4CE-47D8-BDC8-58CBE1653E87}.Release|Any CPU.ActiveCfg = 1.3|Any CPU
+		{E690F283-656B-434F-8C5A-2E4DEA698D6F}.1.3|Any CPU.ActiveCfg = Release|Any CPU
+		{E690F283-656B-434F-8C5A-2E4DEA698D6F}.1.4|Any CPU.ActiveCfg = Release|Any CPU
+		{E690F283-656B-434F-8C5A-2E4DEA698D6F}.Any|Any CPU.ActiveCfg = Any|Any CPU
+		{E690F283-656B-434F-8C5A-2E4DEA698D6F}.Any|Any CPU.Build.0 = Any|Any CPU
+		{E690F283-656B-434F-8C5A-2E4DEA698D6F}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{E690F283-656B-434F-8C5A-2E4DEA698D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

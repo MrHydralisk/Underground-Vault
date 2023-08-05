@@ -11,5 +11,10 @@ namespace UndergroundVault
     public class TerminalExtension : DefModExtension
     {
         public ThingDef VaultDef;
+        public int PlatformCapacity = 1;
+        public int TicksPerPlatformTravelTimeBase = 400;
+        public int TicksPerExpandVaultTimeBase = 1250;
+        public int TicksPerUpgradeFloorVaultTimeBase = 1250;
+        public int TicksPerCremationTimeBase = 180;
     }
 }

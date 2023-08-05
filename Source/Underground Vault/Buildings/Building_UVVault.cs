@@ -15,11 +15,11 @@ namespace UndergroundVault
 
         protected List<Thing> innerContainer = new List<Thing>();
         protected List<int> floors = new List<int>();
-        public IEnumerable<Thing> InnerContainer => innerContainer;
+        public List<Thing> InnerContainer => innerContainer;
         public IEnumerable<int> Floors => floors;
         protected ThingDef TerminalDef => ExtVault.TerminalDef;
 
-        public int Capacity => floors.Sum(i => FloorSize * i);
+        public int Capacity => floors.Sum(i => FloorSize * (int)Mathf.Pow(2, i - 1));
         public /*virtual*/ int FloorSize => ExtVault.FloorSize;
         public /*virtual*/ int FloorBaseAmount => ExtVault.FloorBaseAmount;
 
@@ -43,41 +43,41 @@ namespace UndergroundVault
         {
             innerContainer.Add(t);
         }
-        public void AddItems(List<Thing> things)
-        {
-            foreach(Thing t in things)
-            {
-                AddItem(t);
-            }
-        }
+        //public void AddItems(List<Thing> things)
+        //{
+        //    foreach(Thing t in things)
+        //    {
+        //        AddItem(t);
+        //    }
+        //}
 
         public Thing TakeItem(Thing t)
         {
             innerContainer.Remove(t);
             return t;
         }
-        public List<Thing> TakeItems(List<Thing> things)
-        {
-            List<Thing> Things = new List<Thing>();
-            foreach (Thing t in things)
-            {
-                Things.Add(TakeItem(t));
-            }
-            return Things;
-        }
+        //public List<Thing> TakeItems(List<Thing> things)
+        //{
+        //    List<Thing> Things = new List<Thing>();
+        //    foreach (Thing t in things)
+        //    {
+        //        Things.Add(TakeItem(t));
+        //    }
+        //    return Things;
+        //}
 
-        public void AddFloor(int storageEfficiency)
+        public void AddFloor()
         {
-            floors.Add((int)Mathf.Pow(2, storageEfficiency));
+            floors.Add(1);
         }
         public void UpgradeFloor(int storageEfficiency)
         {
-            int newSize = (int)Mathf.Pow(2, storageEfficiency);
+            int newSize = storageEfficiency + 1;
             for (int i = 0; i < floors.Count(); i++)
             {
                 if (floors[i] < newSize)
                 {
-                    floors[i] = newSize;
+                    floors[i] = Mathf.Min(floors[i] + 1, newSize);
                     return;
                 }
             }
@@ -106,9 +106,17 @@ namespace UndergroundVault
 
         public override string GetInspectString()
         {
-            string s = "";
-            floors.ForEach(x => s += x + "\n");
-            return base.GetInspectString() + s;
+            List<string> inspectStrings = new List<string>();
+            inspectStrings.Add("UndergroundVault.Vault.InspectString.Capacity".Translate(InnerContainer.Count(), CanAdd, Capacity));
+            inspectStrings.Add("UndergroundVault.Vault.InspectString.Total".Translate());
+            for (int i = 1; i <= 5; i++)
+            {
+                if (floors.Any(x => x == i))
+                {
+                    inspectStrings.Add("UndergroundVault.Vault.InspectString.Floor".Translate(i, floors.Count(x => x == i)));                   
+                }
+            }
+            return String.Join("\n", inspectStrings);
         }
 
         public override void ExposeData()
