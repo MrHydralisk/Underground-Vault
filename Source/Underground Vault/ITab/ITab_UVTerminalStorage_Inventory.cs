@@ -11,10 +11,10 @@ using Verse;
 namespace UndergroundVault
 {
     [StaticConstructorOnStartup]
-    public class ITab_UVTerminalCryptosleep_Inventory : ITab_UVTerminal_Inventory
+    public class ITab_UVTerminalStorage_Inventory : ITab_UVTerminal_Inventory
     {
 
-        private Building_UVTerminalCryptosleep building => base.SelThing as Building_UVTerminalCryptosleep;
+        private Building_UVTerminalStorage building => base.SelThing as Building_UVTerminalStorage;
 
         ////static ITab_DeepStorage_Inventory()
         ////{
@@ -49,12 +49,6 @@ namespace UndergroundVault
                 }
                 rect.width -= 24f;
             }
-            Building_Casket bs = thing as Building_Casket;
-            if (bs.ContainedThing != null)
-            {
-                Widgets.InfoCardButton(rect.width - 24f, curY, bs.ContainedThing);
-                rect.width -= 24f;
-            }
             Widgets.InfoCardButton(rect.width - 24f, curY, thing);
             rect.width -= 24f;
             if (Mouse.IsOver(rect))
@@ -69,17 +63,6 @@ namespace UndergroundVault
             }
             Text.Anchor = TextAnchor.MiddleLeft;
             GUI.color = ThingLabelColor;
-            if (bs.ContainedThing != null)
-            {
-                if (bs.ContainedThing is Corpse corpse)
-                {
-                    GUI.color = PawnNameColorUtility.PawnNameColorOf(corpse.InnerPawn);
-                }
-                else
-                {
-                    GUI.color = PawnNameColorUtility.PawnNameColorOf(bs.ContainedThing as Pawn);
-                }
-            }
             Rect rect3 = new Rect(36f, curY, rect.width - 36f, rect.height);
             //TaggedString text2 = RowText(thing.def, thing.stackCount, things);
             string text2 = thing.LabelCap;

@@ -227,7 +227,7 @@
         <defName>UVTerminalStorage</defName>
         <label>storage vault panel</label>
         <description>Terminal for storage vault management and access point to it.</description>
-        <thingClass>UndergroundVault.Building_UVTerminalCemetery</thingClass>
+        <thingClass>UndergroundVault.Building_UVTerminalStorage</thingClass>
         <graphicData>
           <texPath>Things/Building/UVTerminal1x2</texPath>
           <graphicClass>Graphic_Single</graphicClass>
@@ -239,7 +239,7 @@
             <cornerBR>Damage/Corner</cornerBR>
           </damageData>
         </graphicData>
-        <size>(4,2)</size>
+        <size>(3,2)</size>
         <tickerType>Normal</tickerType>
         <!-- <tickerType>Normal</tickerType> -->
         <constructionSkillPrerequisite>5</constructionSkillPrerequisite>    
@@ -249,7 +249,7 @@
           <!-- <ai_chillDestination>false</ai_chillDestination> -->
         </building>
         <inspectorTabs>
-          <li>UndergroundVault.ITab_UVTerminal_Inventory</li>
+          <li>UndergroundVault.ITab_UVTerminalStorage_Inventory</li>
         </inspectorTabs>
         <comps>
           <li Class="CompProperties_Power">
@@ -302,10 +302,10 @@
                 <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
                 <upgradeDef>UVUpgradeAI</upgradeDef>
               </li>
-              <li>
+              <!-- <li>
                 <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
                 <upgradeDef>UVUpgradeFreezer</upgradeDef>
-              </li>
+              </li> -->
               <li>
                 <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
                 <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
@@ -319,7 +319,7 @@
             </AvailableUpgrades>
           </li>
           <li Class="UndergroundVault.TerminalExtension">
-            <VaultDef>UVVaultCemetery</VaultDef>
+            <VaultDef>UVVaultStorage</VaultDef>
             <PlatformItemPositions>
               <li>(0,0,0)</li>
               <li>(0,0,1)</li>

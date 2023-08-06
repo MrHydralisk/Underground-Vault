@@ -56,7 +56,47 @@
       <li Class="UndergroundVault.VaultExtension">
         <TerminalDef>UVTerminalCemetery</TerminalDef>
         <FloorSize>3</FloorSize>
-        <FloorBaseAmount>3</FloorBaseAmount>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultStorage</defName>
+    <label>storage vault</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <!-- <uiIconScale>0.5</uiIconScale> -->
+    <!-- <altitudeLayer>Floor</altitudeLayer>
+    <rotatable>false</rotatable>
+    <destroyable>false</destroyable>
+    <useHitPoints>false</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+    <neverOverlapFloors>true</neverOverlapFloors>
+    <blockPlants>true</blockPlants>
+    <building>
+      <isEdifice>false</isEdifice>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+    </building> -->
+    <!-- <designationCategory>Misc</designationCategory> -->
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalStorage</TerminalDef>
+        <FloorSize>6</FloorSize>
       </li>
     </modExtensions>
   </ThingDef>
