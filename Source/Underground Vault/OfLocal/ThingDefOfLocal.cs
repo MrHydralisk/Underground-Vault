@@ -6,9 +6,11 @@ namespace UndergroundVault
     [DefOf]
     public static class ThingDefOfLocal
     {
-        public static ThingDef UVTerminalCemetery;
-        public static ThingDef UVVaultCemetery;
+        //public static ThingDef UVTerminalCemetery;
+        //public static ThingDef UVVaultCemetery;
         public static ThingDef UVSarcophagus;
+        public static ThingDef UVCryptosleepCasket;
+
         public static ThingDef UVUpgradeCrematorium;
         public static ThingDef UVUpgradeDeepDrill;
         public static ThingDef UVUpgradeStorageEfficiency;

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <ThingDef Name="UVUpgradeBase" ParentName="BuildingBase" Abstract="True">
+    <thingClass>UndergroundVault.Building_UVUpgrade</thingClass>
+    <graphicData>
+      <graphicClass>Graphic_Single</graphicClass>
+			<shaderType>CutoutComplex</shaderType>
+      <drawSize>(1,1)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(1,1)</size>
+    <pathCost>42</pathCost>
+    <castEdgeShadows>false</castEdgeShadows>
+    <fillPercent>0.1</fillPercent>
+    <tickerType>Never</tickerType>
+		<!-- <tickerType>Normal</tickerType> -->
+    <drawerType>RealtimeOnly</drawerType>
+    <canOverlapZones>false</canOverlapZones>
+    <selectable>false</selectable>
+    <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+    <statBases>
+      <WorkToBuild>100</WorkToBuild>
+    </statBases>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <isEdifice>false</isEdifice>
+    </building>
+    <placeWorkers>
+      <li>UndergroundVault.PlaceWorker_UVUpgrade</li>
+    </placeWorkers>
+    <altitudeLayer>BuildingBelowTop</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <clearBuildingArea>false</clearBuildingArea>
+    <blockWind>false</blockWind>
+    <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+    <designationCategory>Misc</designationCategory>
+    <!-- <researchPrerequisites>
+      <li>ComplexFurniture</li>
+    </researchPrerequisites> -->
+  </ThingDef>
+
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeCrematorium</defName>
+    <label>crematorium module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVUpgradeCrematorium</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeDeepDrill</defName>
+    <label>deep drill module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVUpgradeDeepDrill</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeStorageEfficiency</defName>
+    <label>storage efficiency module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVUpgradeStorageEfficiency</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeAI</defName>
+    <label>AI module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVUpgradeAI</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradeFreezer</defName>
+    <label>freezer module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVUpgradeFreezer</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradePlatformSpeed</defName>
+    <label>platform speed module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVUpgradePlatformSpeed</texPath>
+    </graphicData>
+  </ThingDef>
+
+  <!-- <ThingDef ParentName="UVUpgradeBase">
+    <defName>UVUpgradePowerEfficiency</defName>
+    <label>power efficiency module</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <graphicData>
+      <texPath>Things/Building/UVUpgradePowerEfficiency</texPath>
+    </graphicData>
+  </ThingDef> -->
+
+</Defs>

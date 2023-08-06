@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buildings\Building_UVCryptosleepCasket.cs" />
+    <Compile Include="Buildings\Building_UVTerminalCryptosleep.cs" />
     <Compile Include="Buildings\Building_UVUpgrade.cs" />
     <Compile Include="Buildings\Building_UVVault.cs" />
     <Compile Include="BuildingUpgrades.cs" />

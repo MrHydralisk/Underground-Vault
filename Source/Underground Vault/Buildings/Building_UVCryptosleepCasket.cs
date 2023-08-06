@@ -13,23 +13,15 @@ namespace UndergroundVault
 {
     public class Building_UVCryptosleepCasket : Building_CryptosleepCasket
     {
-        public Building_UVTerminal UVTerminal => uVTerminalCached ?? (uVTerminalCached = this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t is Building_UVTerminal) as Building_UVTerminal);
-        private Building_UVTerminal uVTerminalCached;
+        public Building_UVTerminal UVTerminal => this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t is Building_UVTerminal) as Building_UVTerminal;
 
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())
             {
-                if (gizmo is Command_Action command_Action && command_Action.defaultLabel == "CommandPodEject".Translate())
-                {
-
-                }
-                else
-                {
-                    yield return gizmo;
-                }
+                yield return gizmo;
             }
-            if (base.Faction == Faction.OfPlayer && innerContainer.Count > 0 && (def.building.isPlayerEjectable || UVTerminal?.HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) > 0))
+            if (base.Faction == Faction.OfPlayer && innerContainer.Count > 0 && UVTerminal?.HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) > 0)
             {
                 Command_Action command_Action = new Command_Action();
                 command_Action.action = EjectContents;
