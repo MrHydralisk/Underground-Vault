@@ -100,10 +100,111 @@
             <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
             <upgradeDef>UVUpgradeAI</upgradeDef>
           </li>
-          <li>
+          <!-- <li>
             <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
             <upgradeDef>UVUpgradeFreezer</upgradeDef>
+          </li> -->
+          <li>
+            <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+            <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+            <maxAmount>2</maxAmount>
           </li>
+          <!-- <li>
+            <uiIconPath>UI/Commands/DesirePower</uiIconPath>
+            <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
+            <maxAmount>2</maxAmount>
+          </li> -->
+        </AvailableUpgrades>
+      </li>
+      <li Class="UndergroundVault.TerminalExtension">
+        <VaultDef>UVVaultCemetery</VaultDef>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="UVTerminalBase">
+    <defName>UVTerminalCryptosleep</defName>
+    <label>cryptosleep vault panel</label>
+    <description>An ornamented burial receptacle for the honored dead.</description>
+    <thingClass>UndergroundVault.Building_UVTerminalCemetery</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVTerminalCemetery</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(5,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <tickerType>Normal</tickerType>
+    <!-- <tickerType>Normal</tickerType> -->
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>    
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(1,0,-1)</interactionCellOffset>
+    <building>
+      <!-- <ai_chillDestination>false</ai_chillDestination> -->
+    </building>
+    <inspectorTabs>
+      <li>UndergroundVault.ITab_UVTerminalCemetery_Inventory</li>
+    </inspectorTabs>
+    <comps>
+      <li Class="CompProperties_Power">
+        <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+    </comps>
+    <!-- <costStuffCount>60</costStuffCount> -->
+    <designationCategory>Misc</designationCategory>
+    <researchPrerequisites>
+      <li>ComplexFurniture</li>
+    </researchPrerequisites>
+    <!-- <placeWorkers> -->
+      <!-- <li>PlaceWorker_MeditationOffsetBuildingsNear</li> -->
+    <!-- </placeWorkers> -->
+    <!-- <ritualFocus> -->
+      <!-- <spectateDistance>1</spectateDistance> -->
+      <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
+    <!-- </ritualFocus> -->
+    <modExtensions>
+      <li Class="UndergroundVault.BuildingUpgradesExtension">
+        <ConstructionOffset>
+          <li>(1,0,0)</li>
+          <li>(1,0,1)</li>
+          <li>(-1,0,1)</li>
+          <li>(-1,0,0)</li>
+        </ConstructionOffset>
+        <DrawOffset>
+          <li>(0.109,0,0.531)</li>
+          <li>(0.109,0,0.156)</li>
+          <li>(-0.109,0,0.156)</li>
+          <li>(-0.109,0,0.531)</li>
+        </DrawOffset>
+        <AvailableUpgrades>
+          <!-- <li>
+            <uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeCrematorium</upgradeDef>
+          </li> -->
+          <li>
+            <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+          </li>
+          <li>
+            <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+            <maxAmount>3</maxAmount>
+          </li>
+          <li>
+            <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeAI</upgradeDef>
+          </li>
+          <!-- <li>
+            <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
+            <upgradeDef>UVUpgradeFreezer</upgradeDef>
+          </li> -->
           <li>
             <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
             <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
@@ -352,6 +453,7 @@
     </statBases>
     <tickerType>Normal</tickerType>
     <size>(1,2)</size>
+    <clearBuildingArea>false</clearBuildingArea>
     <designationCategory>Misc</designationCategory>
     <uiOrder>2050</uiOrder>
     <hasInteractionCell>true</hasInteractionCell>
@@ -359,6 +461,7 @@
     <defaultPlacingRot>South</defaultPlacingRot>
     <building>
       <ai_chillDestination>false</ai_chillDestination>
+      <isEdifice>false</isEdifice>
       <destroySound>BuildingDestroyed_Metal_Small</destroySound>
     </building>
     <costList>

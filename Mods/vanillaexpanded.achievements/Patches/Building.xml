@@ -24,7 +24,7 @@
 							</tracker>
 							
 							<texPath>Achievements/TheArchitect</texPath>
-							<points>10</points>
+							<points>5</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
@@ -34,11 +34,12 @@
 							<description>Expand vault till 100th underground floor</description>
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerFloor">
-								<CountFloors>100</CountFloors>
+								<!-- <CountFloors>100</CountFloors> -->
+								<CountFloors>10</CountFloors>
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>10</points>
+							<points>25</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
@@ -48,11 +49,12 @@
 							<description>Expand vault capacity till 1000 items</description>
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerFloor">
-								<Capacity>1000</Capacity>
+								<!-- <Capacity>1000</Capacity> -->
+								<Capacity>100</Capacity>
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>10</points>
+							<points>25</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
@@ -63,11 +65,44 @@
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
 								<!-- <def>Container</def> -->
-								<count>500</count>
+								<!-- <count>500</count> -->
+								<count>10</count>
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>10</points>
+							<points>25</points>
+						</AchievementsExpanded.AchievementDef>
+
+						<AchievementsExpanded.AchievementDef>
+							<defName>UVTerminalCemeteryBurialSite</defName>
+							<label>Burial Site</label>
+							<tab>UV_Achievements</tab>
+							<description>Store 100 sarcophagus in vault</description>
+							
+							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
+								<def>UVTerminalCemetery</def>
+								<!-- <count>100</count> -->
+								<count>5</count>
+							</tracker>
+							
+							<texPath>Achievements/ComfierThanUsual</texPath>
+							<points>25</points>
+						</AchievementsExpanded.AchievementDef>
+
+						<AchievementsExpanded.AchievementDef>
+							<defName>UVTerminalCryptosleepArk</defName>
+							<label>The Ark</label>
+							<tab>UV_Achievements</tab>
+							<description>Store 100 cryptosleep caskets in vault</description>
+							
+							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
+								<!-- <def>Cryptosleep</def> -->
+								<!-- <count>100</count> -->
+								<count>5</count>
+							</tracker>
+							
+							<texPath>Achievements/ComfierThanUsual</texPath>
+							<points>25</points>
 						</AchievementsExpanded.AchievementDef>
 						<!-- <AchievementsExpanded.AchievementTabDef> -->
 							<!-- <defName>GR_Achievements</defName> -->
