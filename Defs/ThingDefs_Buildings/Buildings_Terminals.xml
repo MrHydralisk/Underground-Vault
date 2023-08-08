@@ -521,8 +521,12 @@
       <designatorDropdown>UVTerminalStorage_SET</designatorDropdown>
       <building>
         <!-- <ai_chillDestination>false</ai_chillDestination> -->
+        <defaultStorageSettings>
+          <priority>Important</priority>
+        </defaultStorageSettings>
       </building>
       <inspectorTabs>
+        <li>ITab_Storage</li>
         <li>UndergroundVault.ITab_UVTerminalStorage_Inventory</li>
       </inspectorTabs>
       <comps>
@@ -530,6 +534,7 @@
       <researchPrerequisites>
         <li>ComplexFurniture</li>
       </researchPrerequisites>
+      <surfaceType>Item</surfaceType>
     </ThingDef>
 
     <ThingDef ParentName="UVTerminalStorage">
@@ -809,6 +814,7 @@
           </li>
           <li Class="UndergroundVault.TerminalExtension">
             <VaultDef>UVVaultStorageXL</VaultDef>
+            <PlatformStorageDef>UVPlatformStorageXL</PlatformStorageDef>
             <PlatformCapacity>9</PlatformCapacity>
             <PlatformItemPositions>
               <li>(-1,0,-1)</li>
