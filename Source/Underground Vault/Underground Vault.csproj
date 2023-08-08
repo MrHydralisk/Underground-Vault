@@ -50,10 +50,22 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Any|AnyCPU'">
+    <OutputPath>bin\Any\</OutputPath>
+    <DefineConstants>TRACE;v1_4</DefineConstants>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>..\..\..\..\..\..\workshop\content\294100\2009463077\Current\Assemblies\0Harmony.dll</HintPath>
       <Private>False</Private>
+    </Reference>
+    <Reference Include="AchievementsExpanded, Version=1.4.8315.17730, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\workshop\content\294100\2288125657\v1.4\Assemblies\AchievementsExpanded.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -73,11 +85,43 @@
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Building_UVaultSarcophagus.cs" />
+    <Compile Include="Buildings\Building_UVCryptosleepCasket.cs" />
+    <Compile Include="Buildings\Building_UVTerminalStorage.cs" />
+    <Compile Include="Buildings\Building_UVTerminalCryptosleep.cs" />
+    <Compile Include="Buildings\Building_UVUpgrade.cs" />
+    <Compile Include="Buildings\Building_UVVault.cs" />
+    <Compile Include="BuildingUpgrades.cs" />
+    <Compile Include="ITab\ITab_UVTerminalStorage_Inventory.cs" />
+    <Compile Include="ITab\ITab_UVTerminalCryptosleep_Inventory.cs" />
+    <Compile Include="ITab\ITab_UVTerminal_Inventory.cs" />
+    <None Include="TrashBin\CompPowerUVTerminal.cs" />
+    <Compile Include="Extension\TerminalExtension.cs" />
+    <Compile Include="Extension\VaultExtension.cs" />
+    <Compile Include="Extension\BuildingUpgradesExtension.cs" />
+    <Compile Include="Buildings\Building_UVTerminal.cs" />
+    <Compile Include="Buildings\Building_UVTerminalCemetery.cs" />
+    <None Include="TrashBin\Building_UVVaultCemetery.cs" />
+    <None Include="TrashBin\CompBuildingUpgrades.cs" />
+    <None Include="TrashBin\CompProperties_BuildingUpgrades.cs" />
+    <Compile Include="ITab\ITab_UVTerminalCemetery_Inventory.cs" />
+    <None Include="TrashBin\JobDriver_InstallUpgrade.cs" />
+    <Compile Include="PlaceWorker_UVUpgrade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThingDefOfLocal.cs" />
+    <Compile Include="OfLocal\TextureOfLocal.cs" />
+    <Compile Include="OfLocal\ThingDefOfLocal.cs" />
+    <None Include="UVBuildingTracker.cs" />
+    <Compile Include="UVUtility.cs" />
+    <None Include="TrashBin\WorkGiver_InstallUpgrade.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
