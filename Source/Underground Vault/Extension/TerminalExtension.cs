@@ -16,6 +16,6 @@ namespace UndergroundVault
         public int TicksPerExpandVaultTimeBase = 1250;
         public int TicksPerUpgradeFloorVaultTimeBase = 1250;
         public int TicksPerCremationTimeBase = 180;
-        public List<IntVec3> PlatformItemPositions;
+        public List<IntVec3> PlatformItemPositions = new List<IntVec3>() { IntVec3.Zero};
     }
 }

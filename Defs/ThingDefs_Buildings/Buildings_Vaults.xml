@@ -22,7 +22,7 @@
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultCemetery</defName>
     <label>cemetery vault</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
+    <description>Cemetery vault for storing sarcophagus.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>
@@ -61,9 +61,50 @@
   </ThingDef>
 
   <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultCryptosleep</defName>
+    <label>cryptosleep vault</label>
+    <description>Cryptosleep vault for storing cryptosleep casket.</description>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(3,2)</size>
+    <!-- <uiIconScale>0.5</uiIconScale> -->
+    <!-- <altitudeLayer>Floor</altitudeLayer>
+    <rotatable>false</rotatable>
+    <destroyable>false</destroyable>
+    <useHitPoints>false</useHitPoints>
+    <tickerType>Normal</tickerType>
+    <selectable>true</selectable>
+    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+    <neverOverlapFloors>true</neverOverlapFloors>
+    <blockPlants>true</blockPlants>
+    <building>
+      <isEdifice>false</isEdifice>
+      <claimable>false</claimable>
+      <deconstructible>false</deconstructible>
+    </building> -->
+    <!-- <designationCategory>Misc</designationCategory> -->
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalCryptosleep</TerminalDef>
+        <FloorSize>3</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultStorage</defName>
     <label>storage vault</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
+    <description>Storage vault for storing items.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>

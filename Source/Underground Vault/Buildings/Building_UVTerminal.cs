@@ -56,8 +56,18 @@ namespace UndergroundVault
 
         public List<Thing> PlatformContainer = new List<Thing>();
         protected PlatformMode platformMode = PlatformMode.None;
+        
+        protected virtual List<Thing> PlatformSlots => ExtTerminal.PlatformItemPositions.Select((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).FirstOrDefault((Thing t) => PlatformThingsSorter(t))).ToList();
+        protected virtual List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null).ToList();
 
-        public virtual bool isPlatformFree => true;
+        protected virtual bool PlatformThingsSorter(Thing thing)
+        {
+            return true;
+        }
+
+        public virtual bool isPlatformFree => PlatformSlots.All((Thing t) => t == null);
+        public virtual bool isPlatformHaveFree => PlatformSlots.Any((Thing t) => t == null);
+        public virtual bool isPlatformHaveItems => PlatformThings.Count() > 0;
         protected virtual bool isPlatformMoving => platformMode != PlatformMode.None;
 
         public List<Thing> PlatformSurfaceThings = new List<Thing>();
@@ -110,6 +120,7 @@ namespace UndergroundVault
         public bool PowerOn => compPowerTrader?.PowerOn ?? true;
         protected CompPowerTrader compPowerTrader => compPowerTraderCached ?? (compPowerTraderCached = GetComp<CompPowerTrader>());
         protected CompPowerTrader compPowerTraderCached;
+        protected virtual bool IsVaultEmpty => ((InnerContainer.Count() - PlatformContainer.Count()) <= 0);
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -290,7 +301,7 @@ namespace UndergroundVault
                                 {
                                     if (!PlatformSurfaceThings.NullOrEmpty() && CanAdd > 0)
                                     {
-                                        PlatformSurfaceThings.RemoveAll((Thing t) => t.Destroyed);
+                                        PlatformSurfaceThings.RemoveAll((Thing t) => t == null || t.Destroyed);
                                         List<Thing> items = PlatformSurfaceThings.Take(Mathf.Min(CanAdd, PlatformCapacity)).ToList();
                                         if (items.Count() > 0)
                                         {
@@ -301,7 +312,7 @@ namespace UndergroundVault
                                             ticksTillPlatformTravelTime = ticksPerPlatformTravelTime;
                                         }
                                     }
-                                    else if (!PlatformUndergroundThings.NullOrEmpty() && isPlatformFree)
+                                    else if (!PlatformUndergroundThings.NullOrEmpty() && isPlatformHaveFree)
                                     {
                                         List<Thing> items = PlatformUndergroundThings.Take(PlatformCapacity).ToList();
                                         if (items.Count() > 0)
@@ -382,12 +393,70 @@ namespace UndergroundVault
         //    compPowerTrader.SetUpPowerVars();
         //}
 
+        protected virtual Command_Action StoreInVault()
+        {
+            return new Command_Action
+            {
+                action = delegate
+                {
+                    if (PlatformThings.Count() == 1)
+                    {
+                        MarkItemFromTerminal(PlatformThings.First());
+                    }
+                    else
+                    {
+                        List<FloatMenuOption> floatMenuOptions = PlatformThings.Select(delegate (Thing t)
+                        {
+                            return new FloatMenuOption(t.LabelCap, delegate
+                            {
+                                MarkItemFromTerminal(t);
+                            }, iconThing: t, iconColor: t.DrawColor);
+                        })
+                            .ToList();
+                        if (PlatformThings.Count() > 0)
+                        {
+                            floatMenuOptions.Add(new FloatMenuOption("All".Translate(), delegate
+                            {
+                                MarkItemsFromTerminal(PlatformThings);
+                            }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                        }
+                        Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
+                    }
+                },
+                defaultLabel = "UndergroundVault.Command.StoreInVault.Label".Translate(),
+                defaultDesc = "UndergroundVault.Command.StoreInVault.Desc".Translate(),
+                icon = TextureOfLocal.StoreIconTex,
+                disabled = !isVaultAvailable || platformMode == PlatformMode.Up || isPlatformFree || !isPlatformHaveItems,
+                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore".Translate(),
+                Order = 10f
+            };
+        }
+
+        protected virtual Command_Action TakeFromVault()
+        {
+            return new Command_Action
+            {
+                action = delegate
+                {
+                    TakeFirstItemFromVault();
+                },
+                defaultLabel = "UndergroundVault.Command.TakeFromVault.Label".Translate(),
+                defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
+                icon = TextureOfLocal.TakeIconTex,
+                disabled = !isVaultAvailable || IsVaultEmpty || platformMode == PlatformMode.Up,
+                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : IsVaultEmpty ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : /*platformMode == PlatformMode.Up ?*/ "UndergroundVault.Command.disabledReason.PlatformBusy".Translate()/* : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate()*/,
+                Order = 10f
+            };
+        }
+
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())
             {
                 yield return gizmo;
             }
+            yield return StoreInVault();
+            yield return TakeFromVault();
             if (HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill) > 0)
             {
                 yield return new Command_Action
@@ -400,7 +469,7 @@ namespace UndergroundVault
                     defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeDDIconTex,
                     disabled = !isVaultAvailable || isExpandVault,
-                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : "UndergroundVault.Command.disabledReason.ExpandingVault".Translate(),
+                    disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : "UndergroundVault.Command.disabledReason.ExpandingVault".Translate(),
                     Order = 20f
                 };
             }
@@ -416,7 +485,7 @@ namespace UndergroundVault
                     defaultDesc = "UndergroundVault.Command.UpgradeFloorVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeSEIconTex,
                     disabled = !isVaultAvailable || isUpgradeFloorVault || !UVVault.Floors.Any(x => x < HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) + 1),
-                    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : isUpgradeFloorVault ? "UndergroundVault.Command.disabledReason.UpgradeFloorVault".Translate() : "UndergroundVault.Command.disabledReason.NoUpgradeFloorVault".Translate(),
+                    disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isUpgradeFloorVault ? "UndergroundVault.Command.disabledReason.UpgradeFloorVault".Translate() : "UndergroundVault.Command.disabledReason.NoUpgradeFloorVault".Translate(),
                     Order = 20f
                 };
             }
