@@ -14,6 +14,7 @@ namespace UndergroundVault_AchievementsExpanded
 {
     public class UVBuildingTracker : BuildingTracker
     {
+        public DesignatorDropdownGroupDef designatorDropdownGroupDef;
         public override string Key => "UVBuildingTracker";
         public UVBuildingTracker()
         {
@@ -22,6 +23,7 @@ namespace UndergroundVault_AchievementsExpanded
         public UVBuildingTracker(UVBuildingTracker reference)
             : base((BuildingTracker) reference)
         {
+            designatorDropdownGroupDef = reference.designatorDropdownGroupDef;
         }
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Building_UVTerminal), "SpawnSetup", (Type[])null, (Type[])null);
@@ -34,7 +36,7 @@ namespace UndergroundVault_AchievementsExpanded
             {
                 return false;
             }
-            return (building is Building_UVTerminal uVTerminal) && (def == null || def == building.def) && (madeFrom == null || madeFrom == building.Stuff);
+            return (building is Building_UVTerminal uVTerminal) && (def == null || def == building.def) && (madeFrom == null || madeFrom == building.Stuff) && (designatorDropdownGroupDef == null || designatorDropdownGroupDef == building.def.designatorDropdown);
         }
     }
 }

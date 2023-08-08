@@ -2,6 +2,7 @@
 <Defs>
 
   <ThingDef Name="UVVaultBase" ParentName="BuildingBase" Abstract="True">
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <altitudeLayer>Floor</altitudeLayer>
     <rotatable>false</rotatable>
     <destroyable>false</destroyable>
@@ -19,11 +20,12 @@
     <!-- <designationCategory>Misc</designationCategory> -->
   </ThingDef>
 
+
+
   <ThingDef ParentName="UVVaultBase">
-    <defName>UVVaultCemetery</defName>
+    <defName>UVVaultCemeteryS</defName>
     <label>cemetery vault</label>
-    <description>Cemetery vault for storing sarcophagus.</description>
-    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <description>Cemetery vault for storing sarcophagus. Size S.</description>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -36,34 +38,68 @@
       </damageData>
     </graphicData>
     <size>(3,2)</size>
-    <!-- <uiIconScale>0.5</uiIconScale> -->
-    <!-- <altitudeLayer>Floor</altitudeLayer>
-    <rotatable>false</rotatable>
-    <destroyable>false</destroyable>
-    <useHitPoints>false</useHitPoints>
-    <tickerType>Normal</tickerType>
-    <selectable>true</selectable>
-    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
-    <neverOverlapFloors>true</neverOverlapFloors>
-    <blockPlants>true</blockPlants>
-    <building>
-      <isEdifice>false</isEdifice>
-      <claimable>false</claimable>
-      <deconstructible>false</deconstructible>
-    </building> -->
-    <!-- <designationCategory>Misc</designationCategory> -->
     <modExtensions>
       <li Class="UndergroundVault.VaultExtension">
-        <TerminalDef>UVTerminalCemetery</TerminalDef>
+        <TerminalDef>UVTerminalCemeteryS</TerminalDef>
         <FloorSize>3</FloorSize>
       </li>
     </modExtensions>
   </ThingDef>
+  
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultCemeteryM</defName>
+    <label>cemetery vault</label>
+    <description>Cemetery vault for storing sarcophagus. Size M.</description>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(4,2)</size>
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalCemeteryM</TerminalDef>
+        <FloorSize>4</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+  
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultCemeteryL</defName>
+    <label>cemetery vault</label>
+    <description>Cemetery vault for storing sarcophagus. Size L.</description>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(5,2)</size>
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalCemeteryL</TerminalDef>
+        <FloorSize>5</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+
 
   <ThingDef ParentName="UVVaultBase">
-    <defName>UVVaultCryptosleep</defName>
+    <defName>UVVaultCryptosleepS</defName>
     <label>cryptosleep vault</label>
-    <description>Cryptosleep vault for storing cryptosleep casket.</description>
+    <description>Cryptosleep vault for storing cryptosleep casket. Size S.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>
@@ -77,34 +113,70 @@
       </damageData>
     </graphicData>
     <size>(3,2)</size>
-    <!-- <uiIconScale>0.5</uiIconScale> -->
-    <!-- <altitudeLayer>Floor</altitudeLayer>
-    <rotatable>false</rotatable>
-    <destroyable>false</destroyable>
-    <useHitPoints>false</useHitPoints>
-    <tickerType>Normal</tickerType>
-    <selectable>true</selectable>
-    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
-    <neverOverlapFloors>true</neverOverlapFloors>
-    <blockPlants>true</blockPlants>
-    <building>
-      <isEdifice>false</isEdifice>
-      <claimable>false</claimable>
-      <deconstructible>false</deconstructible>
-    </building> -->
-    <!-- <designationCategory>Misc</designationCategory> -->
     <modExtensions>
       <li Class="UndergroundVault.VaultExtension">
-        <TerminalDef>UVTerminalCryptosleep</TerminalDef>
+        <TerminalDef>UVTerminalCryptosleepS</TerminalDef>
         <FloorSize>3</FloorSize>
       </li>
     </modExtensions>
   </ThingDef>
 
   <ThingDef ParentName="UVVaultBase">
-    <defName>UVVaultStorage</defName>
+    <defName>UVVaultCryptosleepM</defName>
+    <label>cryptosleep vault</label>
+    <description>Cryptosleep vault for storing cryptosleep casket. Size M.</description>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(4,2)</size>
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalCryptosleepM</TerminalDef>
+        <FloorSize>4</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultCryptosleepL</defName>
+    <label>cryptosleep vault</label>
+    <description>Cryptosleep vault for storing cryptosleep casket. Size L.</description>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(5,2)</size>
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalCryptosleepL</TerminalDef>
+        <FloorSize>5</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  
+
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultStorageS</defName>
     <label>storage vault</label>
-    <description>Storage vault for storing items.</description>
+    <description>Storage vault for storing items. Size S.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>
@@ -118,26 +190,85 @@
       </damageData>
     </graphicData>
     <size>(3,2)</size>
-    <!-- <uiIconScale>0.5</uiIconScale> -->
-    <!-- <altitudeLayer>Floor</altitudeLayer>
-    <rotatable>false</rotatable>
-    <destroyable>false</destroyable>
-    <useHitPoints>false</useHitPoints>
-    <tickerType>Normal</tickerType>
-    <selectable>true</selectable>
-    <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
-    <neverOverlapFloors>true</neverOverlapFloors>
-    <blockPlants>true</blockPlants>
-    <building>
-      <isEdifice>false</isEdifice>
-      <claimable>false</claimable>
-      <deconstructible>false</deconstructible>
-    </building> -->
-    <!-- <designationCategory>Misc</designationCategory> -->
     <modExtensions>
       <li Class="UndergroundVault.VaultExtension">
-        <TerminalDef>UVTerminalStorage</TerminalDef>
+        <TerminalDef>UVTerminalStorageS</TerminalDef>
         <FloorSize>6</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultStorageM</defName>
+    <label>storage vault</label>
+    <description>Storage vault for storing items. Size M.</description>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(4,2)</size>
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalStorageM</TerminalDef>
+        <FloorSize>8</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultStorageL</defName>
+    <label>storage vault</label>
+    <description>Storage vault for storing items. Size L.</description>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(5,2)</size>
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalStorageL</TerminalDef>
+        <FloorSize>10</FloorSize>
+      </li>
+    </modExtensions>
+  </ThingDef>
+
+  <ThingDef ParentName="UVVaultBase">
+    <defName>UVVaultStorageXL</defName>
+    <label>storage vault</label>
+    <description>Storage vault for storing items. Size XL.</description>
+    <thingClass>UndergroundVault.Building_UVVault</thingClass>
+    <graphicData>
+      <texPath>Things/Building/UVVault1x2</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,4)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <size>(5,3)</size>
+    <modExtensions>
+      <li Class="UndergroundVault.VaultExtension">
+        <TerminalDef>UVTerminalStorageXL</TerminalDef>
+        <FloorSize>15</FloorSize>
       </li>
     </modExtensions>
   </ThingDef>

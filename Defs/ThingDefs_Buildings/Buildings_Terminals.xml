@@ -3,16 +3,19 @@
 
     <ThingDef Name="UVTerminalBase" ParentName="BuildingBase" Abstract="True">
       <castEdgeShadows>true</castEdgeShadows>
+      <tickerType>Normal</tickerType>
+      <hasInteractionCell>True</hasInteractionCell>
       <fillPercent>0.5</fillPercent>
           <rotatable>false</rotatable>
       <!-- <tickerType>Normal</tickerType> -->
       <!-- <drawerType>MapMeshAndRealTime</drawerType> -->
       <canOverlapZones>false</canOverlapZones>
-      <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+      <constructionSkillPrerequisite>5</constructionSkillPrerequisite>    
+      <designationCategory>Misc</designationCategory>
       <altitudeLayer>Building</altitudeLayer>
       <passability>PassThroughOnly</passability>
       <blockWind>false</blockWind>
-      <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded>
+      <!-- <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded> -->
       <staticSunShadowHeight>0.3</staticSunShadowHeight>
       <comps>
         <li Class="CompProperties_Mannable"/>
@@ -20,12 +23,41 @@
         <!-- <li Class="CompProperties_Breakdownable"/> -->
       </comps>
     </ThingDef>
-    
-    <ThingDef ParentName="UVTerminalBase">
-      <defName>UVTerminalCemetery</defName>
+
+
+
+    <DesignatorDropdownGroupDef>
+      <defName>UVTerminalCemetery_SET</defName>
+    </DesignatorDropdownGroupDef>
+
+    <ThingDef Name="UVTerminalCemetery" ParentName="UVTerminalBase" Abstract="True">
       <label>cemetery vault terminal</label>
-      <description>Terminal for cemetery vault management and access point to it.</description>
       <thingClass>UndergroundVault.Building_UVTerminalCemetery</thingClass>
+      <designatorDropdown>UVTerminalCemetery_SET</designatorDropdown>
+      <!-- <tickerType>Normal</tickerType> -->
+      <building>
+        <!-- <ai_chillDestination>false</ai_chillDestination> -->
+      </building>
+      <inspectorTabs>
+        <li>UndergroundVault.ITab_UVTerminalCemetery_Inventory</li>
+      </inspectorTabs>
+      <comps>
+      </comps>
+      <researchPrerequisites>
+        <li>ComplexFurniture</li>
+      </researchPrerequisites>
+      <!-- <placeWorkers> -->
+        <!-- <li>PlaceWorker_MeditationOffsetBuildingsNear</li> -->
+      <!-- </placeWorkers> -->
+      <!-- <ritualFocus> -->
+        <!-- <spectateDistance>1</spectateDistance> -->
+        <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
+      <!-- </ritualFocus> -->
+    </ThingDef>
+    
+    <ThingDef ParentName="UVTerminalCemetery">
+      <defName>UVTerminalCemeteryS</defName>
+      <description>Terminal for cemetery vault management and access point to it. Size S.</description>
       <graphicData>
         <texPath>Things/Building/UVTerminal1x2</texPath>
         <graphicClass>Graphic_Single</graphicClass>
@@ -38,17 +70,85 @@
         </damageData>
       </graphicData>
       <size>(3,2)</size>
-      <tickerType>Normal</tickerType>
-      <!-- <tickerType>Normal</tickerType> -->
-      <constructionSkillPrerequisite>5</constructionSkillPrerequisite>    
-      <hasInteractionCell>True</hasInteractionCell>
       <interactionCellOffset>(1,0,-1)</interactionCellOffset>
-      <building>
-        <!-- <ai_chillDestination>false</ai_chillDestination> -->
-      </building>
-      <inspectorTabs>
-        <li>UndergroundVault.ITab_UVTerminalCemetery_Inventory</li>
-      </inspectorTabs>
+      <comps>
+        <li Class="CompProperties_Power">
+          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>100</basePowerConsumption>
+        </li>
+      </comps>
+      <!-- <costStuffCount>60</costStuffCount> -->
+      <modExtensions>
+        <li Class="UndergroundVault.BuildingUpgradesExtension">
+          <ConstructionOffset>
+            <li>(1,0,0)</li>
+            <li>(1,0,1)</li>
+            <li>(-1,0,1)</li>
+            <li>(-1,0,0)</li>
+          </ConstructionOffset>
+          <DrawOffset>
+            <li>(0.109,0,0.531)</li>
+            <li>(0.109,0,0.156)</li>
+            <li>(-0.109,0,0.156)</li>
+            <li>(-0.109,0,0.531)</li>
+          </DrawOffset>
+          <AvailableUpgrades>
+            <li>
+              <uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeCrematorium</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+              <maxAmount>3</maxAmount>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeAI</upgradeDef>
+            </li>
+            <!-- <li>
+              <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeFreezer</upgradeDef>
+            </li> -->
+            <li>
+              <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+              <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+              <maxAmount>2</maxAmount>
+            </li>
+            <!-- <li>
+              <uiIconPath>UI/Commands/DesirePower</uiIconPath>
+              <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
+              <maxAmount>2</maxAmount>
+            </li> -->
+          </AvailableUpgrades>
+        </li>
+        <li Class="UndergroundVault.TerminalExtension">
+          <VaultDef>UVVaultCemeteryS</VaultDef>
+        </li>
+      </modExtensions>
+    </ThingDef>
+
+    <ThingDef ParentName="UVTerminalCemetery">
+      <defName>UVTerminalCemeteryM</defName>
+      <description>Terminal for cemetery vault management and access point to it. Size M.</description>
+      <graphicData>
+        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(5,4)</drawSize>
+        <damageData>
+          <cornerTL>Damage/Corner</cornerTL>
+          <cornerTR>Damage/Corner</cornerTR>
+          <cornerBL>Damage/Corner</cornerBL>
+          <cornerBR>Damage/Corner</cornerBR>
+        </damageData>
+      </graphicData>
+      <size>(4,2)</size>
+      <interactionCellOffset>(2,0,-1)</interactionCellOffset>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -57,22 +157,11 @@
         </li>
       </comps>
       <!-- <costStuffCount>60</costStuffCount> -->
-      <designationCategory>Misc</designationCategory>
-      <researchPrerequisites>
-        <li>ComplexFurniture</li>
-      </researchPrerequisites>
-      <!-- <placeWorkers> -->
-        <!-- <li>PlaceWorker_MeditationOffsetBuildingsNear</li> -->
-      <!-- </placeWorkers> -->
-      <!-- <ritualFocus> -->
-        <!-- <spectateDistance>1</spectateDistance> -->
-        <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
-      <!-- </ritualFocus> -->
       <modExtensions>
         <li Class="UndergroundVault.BuildingUpgradesExtension">
           <ConstructionOffset>
-            <li>(1,0,0)</li>
-            <li>(1,0,1)</li>
+            <li>(2,0,0)</li>
+            <li>(2,0,1)</li>
             <li>(-1,0,1)</li>
             <li>(-1,0,0)</li>
           </ConstructionOffset>
@@ -100,33 +189,126 @@
               <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
               <upgradeDef>UVUpgradeAI</upgradeDef>
             </li>
-            <!-- <li>
-              <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
-              <upgradeDef>UVUpgradeFreezer</upgradeDef>
-            </li> -->
             <li>
               <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
               <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
               <maxAmount>2</maxAmount>
             </li>
-            <!-- <li>
-              <uiIconPath>UI/Commands/DesirePower</uiIconPath>
-              <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
-              <maxAmount>2</maxAmount>
-            </li> -->
           </AvailableUpgrades>
         </li>
         <li Class="UndergroundVault.TerminalExtension">
-          <VaultDef>UVVaultCemetery</VaultDef>
+          <VaultDef>UVVaultCemeteryM</VaultDef>
+          <PlatformCapacity>2</PlatformCapacity>
+          <PlatformItemPositions>
+            <li>(0,0,0)</li>
+            <li>(1,0,0)</li>
+          </PlatformItemPositions>
         </li>
       </modExtensions>
     </ThingDef>
-  
-    <ThingDef ParentName="UVTerminalBase">
-      <defName>UVTerminalCryptosleep</defName>
+    
+    <ThingDef ParentName="UVTerminalCemetery">
+      <defName>UVTerminalCemeteryL</defName>
+      <description>Terminal for cemetery vault management and access point to it. Size L.</description>
+      <graphicData>
+        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(5,4)</drawSize>
+        <damageData>
+          <cornerTL>Damage/Corner</cornerTL>
+          <cornerTR>Damage/Corner</cornerTR>
+          <cornerBL>Damage/Corner</cornerBL>
+          <cornerBR>Damage/Corner</cornerBR>
+        </damageData>
+      </graphicData>
+      <size>(5,2)</size>
+      <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+      <comps>
+        <li Class="CompProperties_Power">
+          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>200</basePowerConsumption>
+        </li>
+      </comps>
+      <!-- <costStuffCount>60</costStuffCount> -->
+      <modExtensions>
+        <li Class="UndergroundVault.BuildingUpgradesExtension">
+          <ConstructionOffset>
+            <li>(2,0,0)</li>
+            <li>(2,0,1)</li>
+            <li>(-2,0,1)</li>
+            <li>(-2,0,0)</li>
+          </ConstructionOffset>
+          <DrawOffset>
+            <li>(0.109,0,0.531)</li>
+            <li>(0.109,0,0.156)</li>
+            <li>(-0.109,0,0.156)</li>
+            <li>(-0.109,0,0.531)</li>
+          </DrawOffset>
+          <AvailableUpgrades>
+            <li>
+              <uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeCrematorium</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+              <maxAmount>3</maxAmount>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeAI</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+              <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+              <maxAmount>2</maxAmount>
+            </li>
+          </AvailableUpgrades>
+        </li>
+        <li Class="UndergroundVault.TerminalExtension">
+          <VaultDef>UVVaultCemeteryL</VaultDef>
+          <PlatformCapacity>3</PlatformCapacity>
+          <PlatformItemPositions>
+            <li>(-1,0,0)</li>
+            <li>(0,0,0)</li>
+            <li>(1,0,0)</li>
+          </PlatformItemPositions>
+        </li>
+      </modExtensions>
+    </ThingDef>
+
+
+
+    <DesignatorDropdownGroupDef>
+      <defName>UVTerminalCryptosleep_SET</defName>
+    </DesignatorDropdownGroupDef>
+
+    <ThingDef Name="UVTerminalCryptosleep" ParentName="UVTerminalBase" Abstract="True">
       <label>cryptosleep vault terminal</label>
-      <description>Terminal for cryptosleep vault management and access point to it.</description>
       <thingClass>UndergroundVault.Building_UVTerminalCryptosleep</thingClass>
+      <designatorDropdown>UVTerminalCryptosleep_SET</designatorDropdown>
+      <!-- <tickerType>Normal</tickerType> -->
+      <building>
+        <!-- <ai_chillDestination>false</ai_chillDestination> -->
+      </building>
+      <inspectorTabs>
+        <li>UndergroundVault.ITab_UVTerminalCryptosleep_Inventory</li>
+      </inspectorTabs>
+      <comps>
+      </comps>
+      <researchPrerequisites>
+        <li>ComplexFurniture</li>
+      </researchPrerequisites>
+    </ThingDef>
+  
+    <ThingDef ParentName="UVTerminalCryptosleep">
+      <defName>UVTerminalCryptosleepS</defName>
+      <description>Terminal for cryptosleep vault management and access point to it. Size S.</description>
       <graphicData>
         <texPath>Things/Building/UVTerminal1x2</texPath>
         <graphicClass>Graphic_Single</graphicClass>
@@ -139,36 +321,14 @@
         </damageData>
       </graphicData>
       <size>(3,2)</size>
-      <tickerType>Normal</tickerType>
-      <!-- <tickerType>Normal</tickerType> -->
-      <constructionSkillPrerequisite>5</constructionSkillPrerequisite>    
-      <hasInteractionCell>True</hasInteractionCell>
       <interactionCellOffset>(1,0,-1)</interactionCellOffset>
-      <building>
-        <!-- <ai_chillDestination>false</ai_chillDestination> -->
-      </building>
-      <inspectorTabs>
-        <li>UndergroundVault.ITab_UVTerminalCryptosleep_Inventory</li>
-      </inspectorTabs>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
           <compClass>CompPowerTrader</compClass>
-          <basePowerConsumption>200</basePowerConsumption>
+          <basePowerConsumption>100</basePowerConsumption>
         </li>
       </comps>
-      <!-- <costStuffCount>60</costStuffCount> -->
-      <designationCategory>Misc</designationCategory>
-      <researchPrerequisites>
-        <li>ComplexFurniture</li>
-      </researchPrerequisites>
-      <!-- <placeWorkers> -->
-        <!-- <li>PlaceWorker_MeditationOffsetBuildingsNear</li> -->
-      <!-- </placeWorkers> -->
-      <!-- <ritualFocus> -->
-        <!-- <spectateDistance>1</spectateDistance> -->
-        <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
-      <!-- </ritualFocus> -->
       <modExtensions>
         <li Class="UndergroundVault.BuildingUpgradesExtension">
           <ConstructionOffset>
@@ -184,10 +344,6 @@
             <li>(-0.109,0,0.531)</li>
           </DrawOffset>
           <AvailableUpgrades>
-            <!-- <li>
-              <uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
-              <upgradeDef>UVUpgradeCrematorium</upgradeDef>
-            </li> -->
             <li>
               <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
               <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -201,33 +357,184 @@
               <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
               <upgradeDef>UVUpgradeAI</upgradeDef>
             </li>
-            <!-- <li>
-              <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
-              <upgradeDef>UVUpgradeFreezer</upgradeDef>
-            </li> -->
             <li>
               <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
               <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
               <maxAmount>2</maxAmount>
             </li>
-            <!-- <li>
-              <uiIconPath>UI/Commands/DesirePower</uiIconPath>
-              <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
-              <maxAmount>2</maxAmount>
-            </li> -->
           </AvailableUpgrades>
         </li>
         <li Class="UndergroundVault.TerminalExtension">
-          <VaultDef>UVVaultCryptosleep</VaultDef>
+          <VaultDef>UVVaultCryptosleepS</VaultDef>
+        </li>
+      </modExtensions>
+    </ThingDef>
+  
+    <ThingDef ParentName="UVTerminalCryptosleep">
+      <defName>UVTerminalCryptosleepM</defName>
+      <description>Terminal for cryptosleep vault management and access point to it. Size M.</description>
+      <graphicData>
+        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(5,4)</drawSize>
+        <damageData>
+          <cornerTL>Damage/Corner</cornerTL>
+          <cornerTR>Damage/Corner</cornerTR>
+          <cornerBL>Damage/Corner</cornerBL>
+          <cornerBR>Damage/Corner</cornerBR>
+        </damageData>
+      </graphicData>
+      <size>(4,2)</size>
+      <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+      <comps>
+        <li Class="CompProperties_Power">
+          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>150</basePowerConsumption>
+        </li>
+      </comps>
+      <modExtensions>
+        <li Class="UndergroundVault.BuildingUpgradesExtension">
+          <ConstructionOffset>
+            <li>(2,0,0)</li>
+            <li>(2,0,1)</li>
+            <li>(-1,0,1)</li>
+            <li>(-1,0,0)</li>
+          </ConstructionOffset>
+          <DrawOffset>
+            <li>(0.109,0,0.531)</li>
+            <li>(0.109,0,0.156)</li>
+            <li>(-0.109,0,0.156)</li>
+            <li>(-0.109,0,0.531)</li>
+          </DrawOffset>
+          <AvailableUpgrades>
+            <li>
+              <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+              <maxAmount>3</maxAmount>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeAI</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+              <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+              <maxAmount>2</maxAmount>
+            </li>
+          </AvailableUpgrades>
+        </li>
+        <li Class="UndergroundVault.TerminalExtension">
+          <VaultDef>UVVaultCryptosleepM</VaultDef>
+          <PlatformCapacity>2</PlatformCapacity>
+          <PlatformItemPositions>
+            <li>(0,0,0)</li>
+            <li>(1,0,0)</li>
+          </PlatformItemPositions>
+        </li>
+      </modExtensions>
+    </ThingDef>
+  
+    <ThingDef ParentName="UVTerminalCryptosleep">
+      <defName>UVTerminalCryptosleepL</defName>
+      <description>Terminal for cryptosleep vault management and access point to it. Size L.</description>
+      <graphicData>
+        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <graphicClass>Graphic_Single</graphicClass>
+        <drawSize>(5,4)</drawSize>
+        <damageData>
+          <cornerTL>Damage/Corner</cornerTL>
+          <cornerTR>Damage/Corner</cornerTR>
+          <cornerBL>Damage/Corner</cornerBL>
+          <cornerBR>Damage/Corner</cornerBR>
+        </damageData>
+      </graphicData>
+      <size>(5,2)</size>
+      <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+      <comps>
+        <li Class="CompProperties_Power">
+          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>200</basePowerConsumption>
+        </li>
+      </comps>
+      <modExtensions>
+        <li Class="UndergroundVault.BuildingUpgradesExtension">
+          <ConstructionOffset>
+            <li>(2,0,0)</li>
+            <li>(2,0,1)</li>
+            <li>(-2,0,1)</li>
+            <li>(-2,0,0)</li>
+          </ConstructionOffset>
+          <DrawOffset>
+            <li>(0.109,0,0.531)</li>
+            <li>(0.109,0,0.156)</li>
+            <li>(-0.109,0,0.156)</li>
+            <li>(-0.109,0,0.531)</li>
+          </DrawOffset>
+          <AvailableUpgrades>
+            <li>
+              <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+              <maxAmount>3</maxAmount>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+              <upgradeDef>UVUpgradeAI</upgradeDef>
+            </li>
+            <li>
+              <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+              <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+              <maxAmount>2</maxAmount>
+            </li>
+          </AvailableUpgrades>
+        </li>
+        <li Class="UndergroundVault.TerminalExtension">
+          <VaultDef>UVVaultCryptosleepL</VaultDef>
+          <PlatformCapacity>3</PlatformCapacity>
+          <PlatformItemPositions>
+            <li>(-1,0,0)</li>
+            <li>(0,0,0)</li>
+            <li>(1,0,0)</li>
+          </PlatformItemPositions>
         </li>
       </modExtensions>
     </ThingDef>
 
-    <ThingDef ParentName="UVTerminalBase">
-        <defName>UVTerminalStorage</defName>
-        <label>storage vault panel</label>
-        <description>Terminal for storage vault management and access point to it.</description>
-        <thingClass>UndergroundVault.Building_UVTerminalStorage</thingClass>
+
+
+    <DesignatorDropdownGroupDef>
+      <defName>UVTerminalStorage_SET</defName>
+    </DesignatorDropdownGroupDef>
+
+    <ThingDef Name="UVTerminalStorage" ParentName="UVTerminalBase" Abstract="True">
+      <label>storage vault panel</label>
+      <thingClass>UndergroundVault.Building_UVTerminalStorage</thingClass>
+      <designatorDropdown>UVTerminalStorage_SET</designatorDropdown>
+      <building>
+        <!-- <ai_chillDestination>false</ai_chillDestination> -->
+      </building>
+      <inspectorTabs>
+        <li>UndergroundVault.ITab_UVTerminalStorage_Inventory</li>
+      </inspectorTabs>
+      <comps>
+      </comps>
+      <researchPrerequisites>
+        <li>ComplexFurniture</li>
+      </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="UVTerminalStorage">
+        <defName>UVTerminalStorageS</defName>
+        <description>Terminal for storage vault management and access point to it. Size S.</description>
         <graphicData>
           <texPath>Things/Building/UVTerminal1x2</texPath>
           <graphicClass>Graphic_Single</graphicClass>
@@ -240,36 +547,14 @@
           </damageData>
         </graphicData>
         <size>(3,2)</size>
-        <tickerType>Normal</tickerType>
-        <!-- <tickerType>Normal</tickerType> -->
-        <constructionSkillPrerequisite>5</constructionSkillPrerequisite>    
-        <hasInteractionCell>True</hasInteractionCell>
         <interactionCellOffset>(1,0,-1)</interactionCellOffset>
-        <building>
-          <!-- <ai_chillDestination>false</ai_chillDestination> -->
-        </building>
-        <inspectorTabs>
-          <li>UndergroundVault.ITab_UVTerminalStorage_Inventory</li>
-        </inspectorTabs>
         <comps>
           <li Class="CompProperties_Power">
             <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
             <compClass>CompPowerTrader</compClass>
-            <basePowerConsumption>150</basePowerConsumption>
+            <basePowerConsumption>100</basePowerConsumption>
           </li>
         </comps>
-        <!-- <costStuffCount>60</costStuffCount> -->
-        <designationCategory>Misc</designationCategory>
-        <researchPrerequisites>
-          <li>ComplexFurniture</li>
-        </researchPrerequisites>
-        <!-- <placeWorkers> -->
-          <!-- <li>PlaceWorker_MeditationOffsetBuildingsNear</li> -->
-        <!-- </placeWorkers> -->
-        <!-- <ritualFocus> -->
-          <!-- <spectateDistance>1</spectateDistance> -->
-          <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
-        <!-- </ritualFocus> -->
         <modExtensions>
           <li Class="UndergroundVault.BuildingUpgradesExtension">
             <ConstructionOffset>
@@ -285,10 +570,6 @@
               <li>(-0.109,0,0.531)</li>
             </DrawOffset>
             <AvailableUpgrades>
-              <!-- <li>
-                <uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
-                <upgradeDef>UVUpgradeCrematorium</upgradeDef>
-              </li> -->
               <li>
                 <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
                 <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -302,28 +583,243 @@
                 <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
                 <upgradeDef>UVUpgradeAI</upgradeDef>
               </li>
-              <!-- <li>
-                <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
-                <upgradeDef>UVUpgradeFreezer</upgradeDef>
-              </li> -->
               <li>
                 <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
                 <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
                 <maxAmount>2</maxAmount>
               </li>
-              <!-- <li>
-                <uiIconPath>UI/Commands/DesirePower</uiIconPath>
-                <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
-                <maxAmount>2</maxAmount>
-              </li> -->
             </AvailableUpgrades>
           </li>
           <li Class="UndergroundVault.TerminalExtension">
-            <VaultDef>UVVaultStorage</VaultDef>
+            <VaultDef>UVVaultStorageS</VaultDef>
             <PlatformCapacity>2</PlatformCapacity>
             <PlatformItemPositions>
               <li>(0,0,0)</li>
               <li>(0,0,1)</li>
+            </PlatformItemPositions>
+          </li>
+        </modExtensions>
+      </ThingDef>
+
+    <ThingDef ParentName="UVTerminalStorage">
+        <defName>UVTerminalStorageM</defName>
+        <description>Terminal for storage vault management and access point to it. Size M.</description>
+        <graphicData>
+          <texPath>Things/Building/UVTerminal1x2</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(5,4)</drawSize>
+          <damageData>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+          </damageData>
+        </graphicData>
+        <size>(4,2)</size>
+        <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+        <comps>
+          <li Class="CompProperties_Power">
+            <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>150</basePowerConsumption>
+          </li>
+        </comps>
+        <modExtensions>
+          <li Class="UndergroundVault.BuildingUpgradesExtension">
+            <ConstructionOffset>
+              <li>(2,0,0)</li>
+              <li>(2,0,1)</li>
+              <li>(-1,0,1)</li>
+              <li>(-1,0,0)</li>
+            </ConstructionOffset>
+            <DrawOffset>
+              <li>(0.109,0,0.531)</li>
+              <li>(0.109,0,0.156)</li>
+              <li>(-0.109,0,0.156)</li>
+              <li>(-0.109,0,0.531)</li>
+            </DrawOffset>
+            <AvailableUpgrades>
+              <li>
+                <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+                <maxAmount>3</maxAmount>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeAI</upgradeDef>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+                <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+                <maxAmount>2</maxAmount>
+              </li>
+            </AvailableUpgrades>
+          </li>
+          <li Class="UndergroundVault.TerminalExtension">
+            <VaultDef>UVVaultStorageM</VaultDef>
+            <PlatformCapacity>4</PlatformCapacity>
+            <PlatformItemPositions>
+              <li>(0,0,0)</li>
+              <li>(0,0,1)</li>
+              <li>(1,0,0)</li>
+              <li>(1,0,1)</li>
+            </PlatformItemPositions>
+          </li>
+        </modExtensions>
+      </ThingDef>
+
+    <ThingDef ParentName="UVTerminalStorage">
+        <defName>UVTerminalStorageL</defName>
+        <description>Terminal for storage vault management and access point to it. Size L.</description>
+        <graphicData>
+          <texPath>Things/Building/UVTerminal1x2</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(5,4)</drawSize>
+          <damageData>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+          </damageData>
+        </graphicData>
+        <size>(5,2)</size>
+        <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+        <comps>
+          <li Class="CompProperties_Power">
+            <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>200</basePowerConsumption>
+          </li>
+        </comps>
+        <modExtensions>
+          <li Class="UndergroundVault.BuildingUpgradesExtension">
+            <ConstructionOffset>
+              <li>(2,0,0)</li>
+              <li>(2,0,1)</li>
+              <li>(-2,0,1)</li>
+              <li>(-2,0,0)</li>
+            </ConstructionOffset>
+            <DrawOffset>
+              <li>(0.109,0,0.531)</li>
+              <li>(0.109,0,0.156)</li>
+              <li>(-0.109,0,0.156)</li>
+              <li>(-0.109,0,0.531)</li>
+            </DrawOffset>
+            <AvailableUpgrades>
+              <li>
+                <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+                <maxAmount>3</maxAmount>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeAI</upgradeDef>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+                <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+                <maxAmount>2</maxAmount>
+              </li>
+            </AvailableUpgrades>
+          </li>
+          <li Class="UndergroundVault.TerminalExtension">
+            <VaultDef>UVVaultStorageL</VaultDef>
+            <PlatformCapacity>6</PlatformCapacity>
+            <PlatformItemPositions>
+              <li>(-1,0,0)</li>
+              <li>(-1,0,1)</li>
+              <li>(0,0,0)</li>
+              <li>(0,0,1)</li>
+              <li>(1,0,0)</li>
+              <li>(1,0,1)</li>
+            </PlatformItemPositions>
+          </li>
+        </modExtensions>
+      </ThingDef>
+
+    <ThingDef ParentName="UVTerminalStorage">
+        <defName>UVTerminalStorageXL</defName>
+        <description>Terminal for storage vault management and access point to it. Size XL.</description>
+        <graphicData>
+          <texPath>Things/Building/UVTerminal1x2</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(5,4)</drawSize>
+          <damageData>
+            <cornerTL>Damage/Corner</cornerTL>
+            <cornerTR>Damage/Corner</cornerTR>
+            <cornerBL>Damage/Corner</cornerBL>
+            <cornerBR>Damage/Corner</cornerBR>
+          </damageData>
+        </graphicData>
+        <size>(5,3)</size>
+        <interactionCellOffset>(2,0,-2)</interactionCellOffset>
+        <comps>
+          <li Class="CompProperties_Power">
+            <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>300</basePowerConsumption>
+          </li>
+        </comps>
+        <modExtensions>
+          <li Class="UndergroundVault.BuildingUpgradesExtension">
+            <ConstructionOffset>
+              <li>(2,0,-1)</li>
+              <li>(2,0,0)</li>
+              <li>(2,0,1)</li>
+              <li>(-2,0,1)</li>
+              <li>(-2,0,0)</li>
+              <li>(-2,0,-1)</li>
+            </ConstructionOffset>
+            <DrawOffset>
+              <li>(0.109,0,0.156)</li>
+              <li>(0.109,0,0.531)</li>
+              <li>(0.109,0,0.156)</li>
+              <li>(-0.109,0,0.156)</li>
+              <li>(-0.109,0,0.531)</li>
+              <li>(-0.109,0,0.156)</li>
+            </DrawOffset>
+            <AvailableUpgrades>
+              <li>
+                <uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
+                <maxAmount>3</maxAmount>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+                <upgradeDef>UVUpgradeAI</upgradeDef>
+              </li>
+              <li>
+                <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+                <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
+                <maxAmount>2</maxAmount>
+              </li>
+            </AvailableUpgrades>
+          </li>
+          <li Class="UndergroundVault.TerminalExtension">
+            <VaultDef>UVVaultStorageXL</VaultDef>
+            <PlatformCapacity>9</PlatformCapacity>
+            <PlatformItemPositions>
+              <li>(-1,0,-1)</li>
+              <li>(-1,0,0)</li>
+              <li>(-1,0,1)</li>
+              <li>(0,0,-1)</li>
+              <li>(0,0,0)</li>
+              <li>(0,0,1)</li>
+              <li>(1,0,-1)</li>
+              <li>(1,0,0)</li>
+              <li>(1,0,1)</li>
             </PlatformItemPositions>
           </li>
         </modExtensions>

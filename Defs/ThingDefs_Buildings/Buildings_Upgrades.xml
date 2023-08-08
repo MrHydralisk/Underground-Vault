@@ -81,14 +81,14 @@
     </graphicData>
   </ThingDef>
 
-  <ThingDef ParentName="UVUpgradeBase">
+  <!-- <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradeFreezer</defName>
     <label>freezer module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
     <graphicData>
       <texPath>Things/Building/UVUpgradeFreezer</texPath>
     </graphicData>
-  </ThingDef>
+  </ThingDef> -->
 
   <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradePlatformSpeed</defName>

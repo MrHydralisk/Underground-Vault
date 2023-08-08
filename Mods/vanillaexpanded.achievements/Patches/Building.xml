@@ -39,7 +39,7 @@
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>25</points>
+							<points>15</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
@@ -54,23 +54,39 @@
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>25</points>
+							<points>10</points>
+						</AchievementsExpanded.AchievementDef>
+
+						<AchievementsExpanded.AchievementDef>
+							<defName>UVTerminalStorageCollector</defName>
+							<label>The Collector</label>
+							<tab>UV_Achievements</tab>
+							<description>Collect 500 items in storage vault</description>
+							
+							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
+								<designatorDropdownGroupDef>UVTerminalStorage_SET</designatorDropdownGroupDef>
+								<!-- <count>500</count> -->
+								<count>10</count>
+							</tracker>
+							
+							<texPath>Achievements/ComfierThanUsual</texPath>
+							<points>10</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
 							<defName>UVTerminalStorageHoarder</defName>
 							<label>The Hoarder</label>
 							<tab>UV_Achievements</tab>
-							<description>Collect 500 items in storage vault</description>
+							<description>Collect 5000 items in storage vault</description>
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
-								<!-- <def>Container</def> -->
-								<!-- <count>500</count> -->
-								<count>10</count>
+								<designatorDropdownGroupDef>UVTerminalStorage_SET</designatorDropdownGroupDef>
+								<!-- <count>5000</count> -->
+								<count>20</count>
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>25</points>
+							<points>30</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
@@ -80,13 +96,13 @@
 							<description>Store 100 sarcophagus in vault</description>
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
-								<def>UVTerminalCemetery</def>
+								<designatorDropdownGroupDef>UVTerminalCemetery_SET</designatorDropdownGroupDef>
 								<!-- <count>100</count> -->
 								<count>5</count>
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>25</points>
+							<points>20</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
@@ -96,13 +112,13 @@
 							<description>Store 100 cryptosleep caskets in vault</description>
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
-								<!-- <def>Cryptosleep</def> -->
+								<designatorDropdownGroupDef>UVTerminalCryptosleep_SET</designatorDropdownGroupDef>
 								<!-- <count>100</count> -->
 								<count>5</count>
 							</tracker>
 							
 							<texPath>Achievements/ComfierThanUsual</texPath>
-							<points>25</points>
+							<points>20</points>
 						</AchievementsExpanded.AchievementDef>
 						<!-- <AchievementsExpanded.AchievementTabDef> -->
 							<!-- <defName>GR_Achievements</defName> -->

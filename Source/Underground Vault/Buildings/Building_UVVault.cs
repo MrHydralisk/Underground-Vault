@@ -19,6 +19,8 @@ namespace UndergroundVault
         public IEnumerable<int> Floors => floors;
         protected ThingDef TerminalDef => ExtVault.TerminalDef;
 
+        protected bool isTerminalAvailable => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t is Building_UVTerminal);
+
         public int Capacity => floors.Sum(i => FloorSize * (int)Mathf.Pow(2, i - 1));
         public /*virtual*/ int FloorSize => ExtVault.FloorSize;
         public /*virtual*/ int FloorBaseAmount => ExtVault.FloorBaseAmount;
@@ -101,6 +103,22 @@ namespace UndergroundVault
                 defaultDesc = TerminalDef.description,
                 icon = TerminalDef.uiIcon,
                 disabled = this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == TerminalDef)
+            };
+            yield return new Command_Action
+            {
+                action = delegate
+                {
+                    Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmRemoveItemDialog".Translate(this.Label), delegate
+                    {
+                        this.DeSpawn();
+                    }));
+                },
+                defaultLabel = "UndergroundVault.Command.VaultDetonate.Label".Translate(),
+                defaultDesc = "UndergroundVault.Command.VaultDetonate.Desc".Translate(),
+                icon =TextureOfLocal.VaultDetonateIconTex,
+                disabled = isTerminalAvailable,
+                disabledReason = "UndergroundVault.Command.disabledReason.TerminalAvailable".Translate(),
+                Order = 30
             };
         }
 

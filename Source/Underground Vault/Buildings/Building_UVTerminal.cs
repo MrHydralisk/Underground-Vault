@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RimWorld;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -410,6 +411,12 @@ namespace UndergroundVault
                             return new FloatMenuOption(t.LabelCap, delegate
                             {
                                 MarkItemFromTerminal(t);
+                            }, mouseoverGuiAction: delegate
+                            {
+                                GlobalTargetInfo target = new GlobalTargetInfo(t);
+                                TargetHighlighter.Highlight(target, true);
+                                //GUI.color = ITab_Pawn_Gear.HighlightColor;
+                                //GUI.DrawTexture(rect, TexUI.HighlightTex);
                             }, iconThing: t, iconColor: t.DrawColor);
                         })
                             .ToList();
