@@ -96,6 +96,34 @@ namespace UndergroundVault
             }
         }
 
+        public override void AddItemToVault(Thing thing)
+        {
+            if (thing.stackCount < thing.def.stackLimit)
+            {
+                foreach (Thing containedItem in InnerContainer)
+                {
+                    if (containedItem.def == thing.def)
+                    {
+                        int diff = containedItem.def.stackLimit - containedItem.stackCount;
+                        if (diff > 0)
+                        {
+                            int added = Mathf.Min(diff, thing.stackCount);
+                            containedItem.stackCount += added;
+                            thing.stackCount -= added;
+                        }
+                    }
+                    if (thing.stackCount <= 0)
+                    {
+                        break;
+                    }
+                }
+            }
+            if (thing.stackCount > 0)
+            {
+                UVVault.AddItem(thing);
+            }
+        }
+
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             base.DeSpawn(mode);
@@ -213,7 +241,6 @@ namespace UndergroundVault
             }
             foreach (Gizmo item2 in StorageGroupUtility.StorageGroupMemberGizmos(this))
             {
-                item2.Order = 30;
                 yield return item2;
             }
             if (Find.Selector.NumSelected != 1)
@@ -222,7 +249,9 @@ namespace UndergroundVault
             }
             foreach (Thing heldThing in slotGroup.HeldThings)
             {
-                yield return ContainingSelectionUtility.CreateSelectStorageGizmo("CommandSelectStoredThing".Translate(heldThing), "CommandSelectStoredThingDesc".Translate() + "\n\n" + heldThing.GetInspectString(), heldThing, heldThing, groupable: false);
+                Gizmo gizmo = ContainingSelectionUtility.CreateSelectStorageGizmo("CommandSelectStoredThing".Translate(heldThing), "CommandSelectStoredThingDesc".Translate() + "\n\n" + heldThing.GetInspectString(), heldThing, heldThing, groupable: false);
+                gizmo.Order = 30;
+                yield return gizmo;
             }
         }
 

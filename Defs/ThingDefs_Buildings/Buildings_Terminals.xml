@@ -6,7 +6,7 @@
       <tickerType>Normal</tickerType>
       <hasInteractionCell>True</hasInteractionCell>
       <fillPercent>0.5</fillPercent>
-          <rotatable>false</rotatable>
+      <rotatable>false</rotatable>
       <!-- <tickerType>Normal</tickerType> -->
       <!-- <drawerType>MapMeshAndRealTime</drawerType> -->
       <canOverlapZones>false</canOverlapZones>
@@ -15,10 +15,15 @@
       <altitudeLayer>Building</altitudeLayer>
       <passability>PassThroughOnly</passability>
       <blockWind>false</blockWind>
+      <statBases>
+        <Flammability>0.0</Flammability>
+      </statBases>
       <!-- <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded> -->
       <staticSunShadowHeight>0.3</staticSunShadowHeight>
       <comps>
-        <li Class="CompProperties_Mannable"/>
+        <li Class="CompProperties_Mannable">
+          <compClass>UndergroundVault.CompMannableUVTerminal</compClass>
+        </li>
         <li Class="CompProperties_Flickable"/>
         <!-- <li Class="CompProperties_Breakdownable"/> -->
       </comps>
@@ -59,7 +64,7 @@
       <defName>UVTerminalCemeteryS</defName>
       <description>Terminal for cemetery vault management and access point to it. Size S.</description>
       <graphicData>
-        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <texPath>Things/Building/UVTerminal1x2B</texPath>
         <graphicClass>Graphic_Single</graphicClass>
         <drawSize>(5,4)</drawSize>
         <damageData>
@@ -71,6 +76,14 @@
       </graphicData>
       <size>(3,2)</size>
       <interactionCellOffset>(1,0,-1)</interactionCellOffset>
+      <costList>
+        <Steel>635</Steel>
+        <ComponentIndustrial>11</ComponentIndustrial>
+      </costList>
+      <statBases>
+        <WorkToBuild>25500</WorkToBuild>
+        <MaxHitPoints>1600</MaxHitPoints>
+      </statBases>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -137,9 +150,9 @@
       <defName>UVTerminalCemeteryM</defName>
       <description>Terminal for cemetery vault management and access point to it. Size M.</description>
       <graphicData>
-        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <texPath>Things/Building/UVTerminal2x2B</texPath>
         <graphicClass>Graphic_Single</graphicClass>
-        <drawSize>(5,4)</drawSize>
+        <drawSize>(6,4)</drawSize>
         <damageData>
           <cornerTL>Damage/Corner</cornerTL>
           <cornerTR>Damage/Corner</cornerTR>
@@ -149,6 +162,14 @@
       </graphicData>
       <size>(4,2)</size>
       <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+      <costList>
+        <Steel>705</Steel>
+        <ComponentIndustrial>11</ComponentIndustrial>
+      </costList>
+      <statBases>
+        <WorkToBuild>32500</WorkToBuild>
+        <MaxHitPoints>1700</MaxHitPoints>
+      </statBases>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -211,9 +232,9 @@
       <defName>UVTerminalCemeteryL</defName>
       <description>Terminal for cemetery vault management and access point to it. Size L.</description>
       <graphicData>
-        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <texPath>Things/Building/UVTerminal3x2B</texPath>
         <graphicClass>Graphic_Single</graphicClass>
-        <drawSize>(5,4)</drawSize>
+        <drawSize>(7,4)</drawSize>
         <damageData>
           <cornerTL>Damage/Corner</cornerTL>
           <cornerTR>Damage/Corner</cornerTR>
@@ -223,6 +244,14 @@
       </graphicData>
       <size>(5,2)</size>
       <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+      <costList>
+        <Steel>775</Steel>
+        <ComponentIndustrial>11</ComponentIndustrial>
+      </costList>
+      <statBases>
+        <WorkToBuild>39500</WorkToBuild>
+        <MaxHitPoints>1800</MaxHitPoints>
+      </statBases>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -296,6 +325,7 @@
       <building>
         <!-- <ai_chillDestination>false</ai_chillDestination> -->
       </building>
+      <constructionSkillPrerequisite>8</constructionSkillPrerequisite>    
       <inspectorTabs>
         <li>UndergroundVault.ITab_UVTerminalCryptosleep_Inventory</li>
       </inspectorTabs>
@@ -310,7 +340,7 @@
       <defName>UVTerminalCryptosleepS</defName>
       <description>Terminal for cryptosleep vault management and access point to it. Size S.</description>
       <graphicData>
-        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <texPath>Things/Building/UVTerminal1x2B</texPath>
         <graphicClass>Graphic_Single</graphicClass>
         <drawSize>(5,4)</drawSize>
         <damageData>
@@ -322,6 +352,14 @@
       </graphicData>
       <size>(3,2)</size>
       <interactionCellOffset>(1,0,-1)</interactionCellOffset>
+      <costList>
+        <Steel>635</Steel>
+        <ComponentIndustrial>11</ComponentIndustrial>
+      </costList>
+      <statBases>
+        <WorkToBuild>25500</WorkToBuild>
+        <MaxHitPoints>1600</MaxHitPoints>
+      </statBases>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -374,9 +412,9 @@
       <defName>UVTerminalCryptosleepM</defName>
       <description>Terminal for cryptosleep vault management and access point to it. Size M.</description>
       <graphicData>
-        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <texPath>Things/Building/UVTerminal2x2B</texPath>
         <graphicClass>Graphic_Single</graphicClass>
-        <drawSize>(5,4)</drawSize>
+        <drawSize>(6,4)</drawSize>
         <damageData>
           <cornerTL>Damage/Corner</cornerTL>
           <cornerTR>Damage/Corner</cornerTR>
@@ -386,6 +424,14 @@
       </graphicData>
       <size>(4,2)</size>
       <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+      <costList>
+        <Steel>705</Steel>
+        <ComponentIndustrial>11</ComponentIndustrial>
+      </costList>
+      <statBases>
+        <WorkToBuild>32500</WorkToBuild>
+        <MaxHitPoints>1700</MaxHitPoints>
+      </statBases>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -443,9 +489,9 @@
       <defName>UVTerminalCryptosleepL</defName>
       <description>Terminal for cryptosleep vault management and access point to it. Size L.</description>
       <graphicData>
-        <texPath>Things/Building/UVTerminal1x2</texPath>
+        <texPath>Things/Building/UVTerminal3x2B</texPath>
         <graphicClass>Graphic_Single</graphicClass>
-        <drawSize>(5,4)</drawSize>
+        <drawSize>(7,4)</drawSize>
         <damageData>
           <cornerTL>Damage/Corner</cornerTL>
           <cornerTR>Damage/Corner</cornerTR>
@@ -455,6 +501,14 @@
       </graphicData>
       <size>(5,2)</size>
       <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+      <costList>
+        <Steel>775</Steel>
+        <ComponentIndustrial>11</ComponentIndustrial>
+      </costList>
+      <statBases>
+        <WorkToBuild>39500</WorkToBuild>
+        <MaxHitPoints>1800</MaxHitPoints>
+      </statBases>
       <comps>
         <li Class="CompProperties_Power">
           <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -553,6 +607,14 @@
         </graphicData>
         <size>(3,2)</size>
         <interactionCellOffset>(1,0,-1)</interactionCellOffset>
+        <costList>
+          <Steel>635</Steel>
+          <ComponentIndustrial>11</ComponentIndustrial>
+        </costList>
+        <statBases>
+          <WorkToBuild>25500</WorkToBuild>
+          <MaxHitPoints>1600</MaxHitPoints>
+        </statBases>
         <comps>
           <li Class="CompProperties_Power">
             <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -610,9 +672,9 @@
         <defName>UVTerminalStorageM</defName>
         <description>Terminal for storage vault management and access point to it. Size M.</description>
         <graphicData>
-          <texPath>Things/Building/UVTerminal1x2</texPath>
+          <texPath>Things/Building/UVTerminal2x2</texPath>
           <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(5,4)</drawSize>
+          <drawSize>(6,4)</drawSize>
           <damageData>
             <cornerTL>Damage/Corner</cornerTL>
             <cornerTR>Damage/Corner</cornerTR>
@@ -622,6 +684,14 @@
         </graphicData>
         <size>(4,2)</size>
         <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+        <costList>
+          <Steel>705</Steel>
+          <ComponentIndustrial>11</ComponentIndustrial>
+        </costList>
+        <statBases>
+          <WorkToBuild>32500</WorkToBuild>
+          <MaxHitPoints>1700</MaxHitPoints>
+        </statBases>
         <comps>
           <li Class="CompProperties_Power">
             <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -681,9 +751,9 @@
         <defName>UVTerminalStorageL</defName>
         <description>Terminal for storage vault management and access point to it. Size L.</description>
         <graphicData>
-          <texPath>Things/Building/UVTerminal1x2</texPath>
+          <texPath>Things/Building/UVTerminal3x2</texPath>
           <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(5,4)</drawSize>
+          <drawSize>(7,4)</drawSize>
           <damageData>
             <cornerTL>Damage/Corner</cornerTL>
             <cornerTR>Damage/Corner</cornerTR>
@@ -693,6 +763,14 @@
         </graphicData>
         <size>(5,2)</size>
         <interactionCellOffset>(2,0,-1)</interactionCellOffset>
+        <costList>
+          <Steel>775</Steel>
+          <ComponentIndustrial>11</ComponentIndustrial>
+        </costList>
+        <statBases>
+          <WorkToBuild>39500</WorkToBuild>
+          <MaxHitPoints>1800</MaxHitPoints>
+        </statBases>
         <comps>
           <li Class="CompProperties_Power">
             <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -754,9 +832,9 @@
         <defName>UVTerminalStorageXL</defName>
         <description>Terminal for storage vault management and access point to it. Size XL.</description>
         <graphicData>
-          <texPath>Things/Building/UVTerminal1x2</texPath>
+          <texPath>Things/Building/UVTerminal3x3</texPath>
           <graphicClass>Graphic_Single</graphicClass>
-          <drawSize>(5,4)</drawSize>
+          <drawSize>(7,5)</drawSize>
           <damageData>
             <cornerTL>Damage/Corner</cornerTL>
             <cornerTR>Damage/Corner</cornerTR>
@@ -766,6 +844,14 @@
         </graphicData>
         <size>(5,3)</size>
         <interactionCellOffset>(2,0,-2)</interactionCellOffset>
+        <costList>
+          <Steel>1180</Steel>
+          <ComponentIndustrial>13</ComponentIndustrial>
+        </costList>
+        <statBases>
+          <WorkToBuild>59000</WorkToBuild>
+          <MaxHitPoints>2650</MaxHitPoints>
+        </statBases>
         <comps>
           <li Class="CompProperties_Power">
             <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
@@ -784,12 +870,12 @@
               <li>(-2,0,-1)</li>
             </ConstructionOffset>
             <DrawOffset>
-              <li>(0.109,0,0.156)</li>
-              <li>(0.109,0,0.531)</li>
-              <li>(0.109,0,0.156)</li>
-              <li>(-0.109,0,0.156)</li>
-              <li>(-0.109,0,0.531)</li>
-              <li>(-0.109,0,0.156)</li>
+              <li>(0.109,0,0.594)</li>
+              <li>(0.109,0,0.344)</li>
+              <li>(0.109,0,0.094)</li>
+              <li>(-0.109,0,0.094)</li>
+              <li>(-0.109,0,0.344)</li>
+              <li>(-0.109,0,0.594)</li>
             </DrawOffset>
             <AvailableUpgrades>
               <li>
@@ -814,7 +900,6 @@
           </li>
           <li Class="UndergroundVault.TerminalExtension">
             <VaultDef>UVVaultStorageXL</VaultDef>
-            <PlatformStorageDef>UVPlatformStorageXL</PlatformStorageDef>
             <PlatformCapacity>9</PlatformCapacity>
             <PlatformItemPositions>
               <li>(-1,0,-1)</li>

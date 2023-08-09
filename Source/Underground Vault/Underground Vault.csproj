@@ -104,6 +104,9 @@
     <Compile Include="ITab\ITab_UVTerminalStorage_Inventory.cs" />
     <Compile Include="ITab\ITab_UVTerminalCryptosleep_Inventory.cs" />
     <Compile Include="ITab\ITab_UVTerminal_Inventory.cs" />
+    <Compile Include="Jobs\CompMannableUVTerminal.cs" />
+    <Compile Include="OfLocal\JobDefOfLocal.cs" />
+    <Compile Include="Jobs\WorkGiver_ManUVTerminal.cs" />
     <None Include="TrashBin\CompPowerUVTerminal.cs" />
     <Compile Include="Extension\TerminalExtension.cs" />
     <Compile Include="Extension\VaultExtension.cs" />
@@ -115,11 +118,12 @@
     <None Include="TrashBin\CompProperties_BuildingUpgrades.cs" />
     <Compile Include="ITab\ITab_UVTerminalCemetery_Inventory.cs" />
     <None Include="TrashBin\JobDriver_InstallUpgrade.cs" />
+    <Compile Include="Jobs\JobDriver_ManUVTerminal.cs" />
     <Compile Include="PlaceWorker_UVUpgrade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OfLocal\TextureOfLocal.cs" />
     <Compile Include="OfLocal\ThingDefOfLocal.cs" />
-    <None Include="UVBuildingTracker.cs" />
+    <None Include="TrashBin\UVBuildingTracker.cs" />
     <Compile Include="UVUtility.cs" />
     <None Include="TrashBin\WorkGiver_InstallUpgrade.cs" />
   </ItemGroup>

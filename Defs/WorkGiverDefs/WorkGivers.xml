@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <WorkGiverDef>
+    <defName>ManUVTerminal</defName>
+    <label>operate vault terminal</label>
+    <giverClass>UndergroundVault.WorkGiver_ManUVTerminal</giverClass>
+    <workType>Hauling</workType>
+    <verb>operate</verb>
+    <gerund>operating</gerund>
+    <priorityInType>100</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  
+</Defs>

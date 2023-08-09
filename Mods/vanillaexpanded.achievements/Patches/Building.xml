@@ -23,7 +23,7 @@
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTracker">
 							</tracker>
 							
-							<texPath>Achievements/TheArchitect</texPath>
+							<texPath>Achievements/AchivementUVTerminalBuilt</texPath>
 							<points>5</points>
 						</AchievementsExpanded.AchievementDef>
 
@@ -34,26 +34,24 @@
 							<description>Expand vault till 100th underground floor</description>
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerFloor">
-								<!-- <CountFloors>100</CountFloors> -->
-								<CountFloors>10</CountFloors>
+								<CountFloors>100</CountFloors>
 							</tracker>
 							
-							<texPath>Achievements/ComfierThanUsual</texPath>
+							<texPath>Achievements/AchivementUVTerminal100Floors</texPath>
 							<points>15</points>
 						</AchievementsExpanded.AchievementDef>
 
 						<AchievementsExpanded.AchievementDef>
-							<defName>UVTerminalAmazon</defName>
-							<label>Amazon Warehouse</label>
+							<defName>UVTerminalRimazon</defName>
+							<label>Rimazon Warehouse</label>
 							<tab>UV_Achievements</tab>
 							<description>Expand vault capacity till 1000 items</description>
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerFloor">
-								<!-- <Capacity>1000</Capacity> -->
-								<Capacity>100</Capacity>
+								<Capacity>1000</Capacity>
 							</tracker>
 							
-							<texPath>Achievements/ComfierThanUsual</texPath>
+							<texPath>Achievements/AchivementUVTerminalRimazon</texPath>
 							<points>10</points>
 						</AchievementsExpanded.AchievementDef>
 
@@ -65,11 +63,10 @@
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
 								<designatorDropdownGroupDef>UVTerminalStorage_SET</designatorDropdownGroupDef>
-								<!-- <count>500</count> -->
-								<count>10</count>
+								<count>500</count>
 							</tracker>
 							
-							<texPath>Achievements/ComfierThanUsual</texPath>
+							<texPath>Achievements/AchivementUVTerminalStorageCollector</texPath>
 							<points>10</points>
 						</AchievementsExpanded.AchievementDef>
 
@@ -81,11 +78,10 @@
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
 								<designatorDropdownGroupDef>UVTerminalStorage_SET</designatorDropdownGroupDef>
-								<!-- <count>5000</count> -->
-								<count>20</count>
+								<count>5000</count>
 							</tracker>
 							
-							<texPath>Achievements/ComfierThanUsual</texPath>
+							<texPath>Achievements/AchivementUVTerminalStorageHoarder</texPath>
 							<points>30</points>
 						</AchievementsExpanded.AchievementDef>
 
@@ -97,11 +93,10 @@
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
 								<designatorDropdownGroupDef>UVTerminalCemetery_SET</designatorDropdownGroupDef>
-								<!-- <count>100</count> -->
-								<count>5</count>
+								<count>100</count>
 							</tracker>
 							
-							<texPath>Achievements/ComfierThanUsual</texPath>
+							<texPath>Achievements/AchivementUVTerminalCemeteryBurialSite</texPath>
 							<points>20</points>
 						</AchievementsExpanded.AchievementDef>
 
@@ -113,58 +108,12 @@
 							
 							<tracker Class="UndergroundVault_AchievementsExpanded.UVBuildingTrackerVaultContainer">
 								<designatorDropdownGroupDef>UVTerminalCryptosleep_SET</designatorDropdownGroupDef>
-								<!-- <count>100</count> -->
-								<count>5</count>
+								<count>100</count>
 							</tracker>
 							
-							<texPath>Achievements/ComfierThanUsual</texPath>
+							<texPath>Achievements/AchivementUVTerminalCryptosleepArk</texPath>
 							<points>20</points>
 						</AchievementsExpanded.AchievementDef>
-						<!-- <AchievementsExpanded.AchievementTabDef> -->
-							<!-- <defName>GR_Achievements</defName> -->
-							<!-- <label>Vanilla Genetics Expanded</label> -->
-						<!-- </AchievementsExpanded.AchievementTabDef> -->
-						<!-- <AchievementsExpanded.AchievementDef Name="GR_AchievementParent" Abstract="true"> -->
-							<!-- <bgtexPath>Achievements/GR_AchievementBackground</bgtexPath> -->
-							<!-- <tab>GR_Achievements</tab> -->
-						<!-- </AchievementsExpanded.AchievementDef> -->
-						<!-- <AchievementsExpanded.AchievementDef ParentName="GR_AchievementParent"> -->
-							<!-- <defName>GR_AchievementMyFirstLab</defName> -->
-							<!-- <label>Baby's First Genetics Lab</label> -->
-							<!-- <description>Build your first Genomorpher</description> -->
-							<!-- <tracker Class="AchievementsExpanded.BuildingTracker"> -->
-								<!-- <def>GR_GenePod</def> -->
-								<!-- <count>1</count> -->
-							<!-- </tracker> -->
-							<!-- <texPath>Achievements/GR_AchievementMyFirstLab</texPath> -->
-							<!-- <points>5</points> -->
-						<!-- </AchievementsExpanded.AchievementDef> -->
-						<!-- <AchievementsExpanded.AchievementDef ParentName="GR_AchievementParent"> -->
-							<!-- <defName>GR_AchievementItLives</defName> -->
-							<!-- <label>It Lives!</label> -->
-							<!-- <description>Successfully hatch your first hybrid from an electrowomb</description> -->
-							<!-- <tracker Class="AchievementsExpanded.HediffTracker"> -->
-								<!-- <def>GR_RecentlyHatched</def> -->
-								<!-- <count>1</count> -->
-							<!-- </tracker> -->
-							<!-- <texPath>Achievements/GR_AchievementItLives</texPath> -->
-							<!-- <points>10</points> -->
-						<!-- </AchievementsExpanded.AchievementDef> -->
-						<!-- <AchievementsExpanded.AchievementDef ParentName="GR_AchievementParent"> -->
-							<!-- <defName>GR_AchievementOnePedeToRuleThemAll</defName> -->
-							<!-- <label>One 'Pede To Rule Them All</label> -->
-							<!-- <description>Create an Archotech Centipede and win the game</description> -->
-							<!-- <tracker Class="AchievementsExpanded.KindDefTracker"> -->
-								<!-- <kindDefs> -->
-									<!-- <li> -->
-										<!-- <key>GR_ArchotechCentipede</key> -->
-										<!-- <value>1</value> -->
-									<!-- </li> -->
-								<!-- </kindDefs> -->
-							<!-- </tracker> -->
-							<!-- <texPath>Achievements/GR_AchievementOnePedeToRuleThemAll</texPath> -->
-							<!-- <points>250</points> -->
-						<!-- </AchievementsExpanded.AchievementDef> -->
 					</value>
 				</li>
 			</operations>

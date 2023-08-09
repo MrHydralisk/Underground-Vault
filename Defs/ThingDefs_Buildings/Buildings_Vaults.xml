@@ -51,9 +51,9 @@
     <label>cemetery vault</label>
     <description>Cemetery vault for storing sarcophagus. Size M.</description>
     <graphicData>
-      <texPath>Things/Building/UVVault1x2</texPath>
+      <texPath>Things/Building/UVVault2x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(4,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -75,9 +75,9 @@
     <label>cemetery vault</label>
     <description>Cemetery vault for storing sarcophagus. Size L.</description>
     <graphicData>
-      <texPath>Things/Building/UVVault1x2</texPath>
+      <texPath>Things/Building/UVVault3x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(5,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -127,9 +127,9 @@
     <description>Cryptosleep vault for storing cryptosleep casket. Size M.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVVault1x2</texPath>
+      <texPath>Things/Building/UVVault2x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(4,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -152,9 +152,9 @@
     <description>Cryptosleep vault for storing cryptosleep casket. Size L.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVVault1x2</texPath>
+      <texPath>Things/Building/UVVault3x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(5,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -204,9 +204,9 @@
     <description>Storage vault for storing items. Size M.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVVault1x2</texPath>
+      <texPath>Things/Building/UVVault2x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(4,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -229,9 +229,9 @@
     <description>Storage vault for storing items. Size L.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVVault1x2</texPath>
+      <texPath>Things/Building/UVVault3x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(5,4)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>
@@ -254,9 +254,9 @@
     <description>Storage vault for storing items. Size XL.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
-      <texPath>Things/Building/UVVault1x2</texPath>
+      <texPath>Things/Building/UVVault3x3</texPath>
       <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(3,4)</drawSize>
+      <drawSize>(5,5)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
         <cornerTR>Damage/Corner</cornerTR>

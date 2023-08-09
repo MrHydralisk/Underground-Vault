@@ -17,15 +17,16 @@
     <size>(1,1)</size>
     <pathCost>42</pathCost>
     <castEdgeShadows>false</castEdgeShadows>
+    <useHitPoints>false</useHitPoints>
     <fillPercent>0.1</fillPercent>
     <tickerType>Never</tickerType>
 		<!-- <tickerType>Normal</tickerType> -->
     <drawerType>RealtimeOnly</drawerType>
     <canOverlapZones>false</canOverlapZones>
     <selectable>false</selectable>
-    <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
     <statBases>
-      <WorkToBuild>100</WorkToBuild>
+      <WorkToBuild>2500</WorkToBuild>
     </statBases>
     <building>
       <ai_chillDestination>false</ai_chillDestination>
@@ -49,6 +50,10 @@
     <defName>UVUpgradeCrematorium</defName>
     <label>crematorium module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
+    <costList>
+      <Steel>55</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
     <graphicData>
       <texPath>Things/Building/UVUpgradeCrematorium</texPath>
     </graphicData>
@@ -58,6 +63,10 @@
     <defName>UVUpgradeDeepDrill</defName>
     <label>deep drill module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
+    <costList>
+      <Steel>115</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
     <graphicData>
       <texPath>Things/Building/UVUpgradeDeepDrill</texPath>
     </graphicData>
@@ -67,6 +76,11 @@
     <defName>UVUpgradeStorageEfficiency</defName>
     <label>storage efficiency module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentSpacer>1</ComponentSpacer>
+    </costList>
     <graphicData>
       <texPath>Things/Building/UVUpgradeStorageEfficiency</texPath>
     </graphicData>
@@ -76,6 +90,12 @@
     <defName>UVUpgradeAI</defName>
     <label>AI module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <costList>
+      <Steel>15</Steel>
+      <Plasteel>35</Plasteel>
+			<ComponentSpacer>2</ComponentSpacer>
+    </costList>
     <graphicData>
       <texPath>Things/Building/UVUpgradeAI</texPath>
     </graphicData>
@@ -94,6 +114,10 @@
     <defName>UVUpgradePlatformSpeed</defName>
     <label>platform speed module</label>
     <description>An ornamented burial receptacle for the honored dead.</description>
+    <costList>
+      <Steel>75</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
     <graphicData>
       <texPath>Things/Building/UVUpgradePlatformSpeed</texPath>
     </graphicData>

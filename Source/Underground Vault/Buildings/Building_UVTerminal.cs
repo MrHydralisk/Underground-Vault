@@ -123,6 +123,8 @@ namespace UndergroundVault
         protected CompPowerTrader compPowerTraderCached;
         protected virtual bool IsVaultEmpty => ((InnerContainer.Count() - PlatformContainer.Count()) <= 0);
 
+        public bool isHaveWorkOn => (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) <= 0) && (platformMode != PlatformMode.None || isExpandVault || isUpgradeFloorVault);
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -604,6 +606,7 @@ namespace UndergroundVault
             {
                 inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor".Translate());
             }
+            inspectStrings.Add(isHaveWorkOn.ToString());
             return String.Join("\n", inspectStrings);
         }
 
