@@ -15,19 +15,37 @@ namespace UndergroundVault
     {
 
         private Building_UVTerminal building => base.SelThing as Building_UVTerminal;
+        public override bool IsVisible
+        {
+            get
+            {
+                if (base.AllSelObjects.Count > 1)
+                {
+                    return false;
+                }
+                else if (base.SelObject != null)
+                {
+                    if (base.SelObject is Thing thing && thing.Faction != null && thing.Faction != Faction.OfPlayer)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
 
-            ////static ITab_DeepStorage_Inventory()
-            ////{
-            ////    ThingLabelColor = new Color(0.9f, 0.9f, 0.9f, 1f);
-            ////    HighlightColor = new Color(0.5f, 0.5f, 0.5f, 1f);
-            ////    Drop = (Texture2D)AccessTools.Field(AccessTools.TypeByName("Verse.TexButton"), "Drop").GetValue(null);
-            ////}
+        ////static ITab_DeepStorage_Inventory()
+        ////{
+        ////    ThingLabelColor = new Color(0.9f, 0.9f, 0.9f, 1f);
+        ////    HighlightColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+        ////    Drop = (Texture2D)AccessTools.Field(AccessTools.TypeByName("Verse.TexButton"), "Drop").GetValue(null);
+        ////}
 
-            ////public ITab_DeepStorage_Inventory()
-            ////{
-            ////    size = new Vector2(460f, 450f);
-            ////    labelKey = "Contents";
-            ////}
+        ////public ITab_DeepStorage_Inventory()
+        ////{
+        ////    size = new Vector2(460f, 450f);
+        ////    labelKey = "Contents";
+        ////}
 
         public override IList<Thing> container
 	    {

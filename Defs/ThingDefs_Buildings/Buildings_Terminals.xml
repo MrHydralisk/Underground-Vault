@@ -25,7 +25,7 @@
           <compClass>UndergroundVault.CompMannableUVTerminal</compClass>
         </li>
         <li Class="CompProperties_Flickable"/>
-        <!-- <li Class="CompProperties_Breakdownable"/> -->
+        <li Class="CompProperties_Breakdownable"/>
       </comps>
     </ThingDef>
 
