@@ -22,8 +22,8 @@ namespace UndergroundVault
         protected bool isTerminalAvailable => this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t is Building_UVTerminal);
 
         public int Capacity => floors.Sum(i => FloorSize * (int)Mathf.Pow(2, i - 1));
-        public /*virtual*/ int FloorSize => ExtVault.FloorSize;
-        public /*virtual*/ int FloorBaseAmount => ExtVault.FloorBaseAmount;
+        public int FloorSize => ExtVault.FloorSize;
+        public int FloorBaseAmount => ExtVault.FloorBaseAmount;
 
         public int CanAdd => Mathf.Max(0, Capacity - innerContainer.Count());
 
@@ -45,28 +45,12 @@ namespace UndergroundVault
         {
             innerContainer.Add(t);
         }
-        //public void AddItems(List<Thing> things)
-        //{
-        //    foreach(Thing t in things)
-        //    {
-        //        AddItem(t);
-        //    }
-        //}
 
         public Thing TakeItem(Thing t)
         {
             innerContainer.Remove(t);
             return t;
         }
-        //public List<Thing> TakeItems(List<Thing> things)
-        //{
-        //    List<Thing> Things = new List<Thing>();
-        //    foreach (Thing t in things)
-        //    {
-        //        Things.Add(TakeItem(t));
-        //    }
-        //    return Things;
-        //}
 
         public void AddFloor()
         {

@@ -34,19 +34,6 @@ namespace UndergroundVault
             }
         }
 
-        ////static ITab_DeepStorage_Inventory()
-        ////{
-        ////    ThingLabelColor = new Color(0.9f, 0.9f, 0.9f, 1f);
-        ////    HighlightColor = new Color(0.5f, 0.5f, 0.5f, 1f);
-        ////    Drop = (Texture2D)AccessTools.Field(AccessTools.TypeByName("Verse.TexButton"), "Drop").GetValue(null);
-        ////}
-
-        ////public ITab_DeepStorage_Inventory()
-        ////{
-        ////    size = new Vector2(460f, 450f);
-        ////    labelKey = "Contents";
-        ////}
-
         public override IList<Thing> container
 	    {
 		    get
@@ -113,10 +100,8 @@ namespace UndergroundVault
             Text.Anchor = TextAnchor.MiddleLeft;
             GUI.color = ThingLabelColor;
             Rect rect3 = new Rect(36f, curY, rect.width - 36f, rect.height);
-            //TaggedString text2 = RowText(thing.def, thing.stackCount, things);
             string text2 = thing.LabelCap;
             Text.WordWrap = false;
-            //Widgets.Label(rect3, text2.Truncate(rect3.width));
             Widgets.Label(rect3, text2.StripTags().Truncate(rect3.width));
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;

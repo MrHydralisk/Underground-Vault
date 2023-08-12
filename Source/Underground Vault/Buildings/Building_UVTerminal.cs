@@ -121,7 +121,7 @@ namespace UndergroundVault
         {
             get
             {
-                return (int)(ticksPerUpgradeFloorVaultTimeBase * Mathf.Pow(2, UVVault.Floors.First(x => x < HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) + 1) - 1) /*/ Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill))*/);
+                return (int)(ticksPerUpgradeFloorVaultTimeBase * Mathf.Pow(2, UVVault.Floors.First(x => x < HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) + 1) - 1));
             }
         }
 
@@ -154,7 +154,6 @@ namespace UndergroundVault
                     Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
                     t.SetFactionDirect(this.Faction);
                 }
-                //UpdatePowerConsumption();
             }
         }
 
@@ -398,18 +397,6 @@ namespace UndergroundVault
             isUpgradeFloorVault = true;
         }
 
-        //protected virtual float newPowerTraderValue => compPowerTrader.Props.PowerConsumption;
-        //public virtual float addPowerTraderValue => 0;
-        //public virtual float mulPowerTraderValue => Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency));
-
-        //public void UpdatePowerConsumption()
-        //{
-        //    //Log.Message(compPowerTrader.PowerOutput + " => " + newPowerTraderValue);
-        //    //compPowerTrader.PowerOutput = 0f - (newPowerTraderValue / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency)));
-        //    //Log.Message(compPowerTrader.PowerOutput + " => " + (0f - (newPowerTraderValue / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePowerEfficiency)))));
-        //    compPowerTrader.SetUpPowerVars();
-        //}
-
         protected virtual Command_Action StoreInVault()
         {
             return new Command_Action
@@ -431,14 +418,12 @@ namespace UndergroundVault
                             {
                                 GlobalTargetInfo target = new GlobalTargetInfo(t);
                                 TargetHighlighter.Highlight(target, true);
-                                //GUI.color = ITab_Pawn_Gear.HighlightColor;
-                                //GUI.DrawTexture(rect, TexUI.HighlightTex);
                             }, iconThing: t, iconColor: t.DrawColor);
                         })
                             .ToList();
                         if (PlatformThings.Count() > 0)
                         {
-                            floatMenuOptions.Add(new FloatMenuOption("All".Translate(), delegate
+                            floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllInVault.Label".Translate(PlatformThings.Count().ToStringSafe()), delegate
                             {
                                 MarkItemsFromTerminal(PlatformThings);
                             }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
@@ -467,7 +452,7 @@ namespace UndergroundVault
                 defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
                 icon = TextureOfLocal.TakeIconTex,
                 disabled = !isVaultAvailable || IsVaultEmpty || platformMode == PlatformMode.Up,
-                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : IsVaultEmpty ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : /*platformMode == PlatformMode.Up ?*/ "UndergroundVault.Command.disabledReason.PlatformBusy".Translate()/* : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate()*/,
+                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : IsVaultEmpty ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : "UndergroundVault.Command.disabledReason.PlatformBusy".Translate(),
                 Order = 10f
             };
         }
@@ -510,7 +495,7 @@ namespace UndergroundVault
                             int uLevel = i;
                             if (floorIndex > -1)
                             {
-                                fmo.Add(new FloatMenuOption(floorIndex + " to [" + uLevel + "]", delegate
+                                fmo.Add(new FloatMenuOption("UndergroundVault.Command.ExpandVault.Label".Translate(floorIndex, uLevel), delegate
                                 {
                                     upgradeLevel = uLevel;
                                     UpgradeFloorVault(floorIndex);

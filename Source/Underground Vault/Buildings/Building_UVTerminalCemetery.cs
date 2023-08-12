@@ -131,8 +131,8 @@ namespace UndergroundVault
                 },
                 defaultLabel = des.Label,
                 defaultDesc = des.Desc,
-                disabled = !isPlatformHaveFree || platformMode == PlatformMode.Up /*|| isPlatformConstructing*/ || selectStuff.NullOrEmpty(),
-                disabledReason = selectStuff.NullOrEmpty() ? "NoStuffsToBuildWith".Translate() : !isPlatformHaveFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() :/* platformMode == PlatformMode.Up ? */"UndergroundVault.Command.disabledReason.PlatformBusy".Translate()/* : "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate()*/
+                disabled = !isPlatformHaveFree || platformMode == PlatformMode.Up || selectStuff.NullOrEmpty(),
+                disabledReason = selectStuff.NullOrEmpty() ? "NoStuffsToBuildWith".Translate() : !isPlatformHaveFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformBusy".Translate()
             };
             ThingDef stuffDefRaw = des.StuffDefRaw;
             command_Action.icon = des.ResolvedIcon(null);
@@ -154,77 +154,6 @@ namespace UndergroundVault
             {
                 yield return gizmo;
             }
-            //yield return new Command_Action
-            //{
-            //    action = delegate
-            //    {
-            //        MarkItemFromTerminal(PlatformThing);
-            //    },
-            //    defaultLabel = "UndergroundVault.Command.StoreInVault.Label".Translate(),
-            //    defaultDesc = "UndergroundVault.Command.StoreInVault.Desc".Translate(),
-            //    icon = TextureOfLocal.StoreIconTex,
-            //    disabled = !isVaultAvailable || platformMode == PlatformMode.Up || isPlatformFree || isPlatformConstructing,
-            //    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
-            //    Order = 10f
-            //};
-            //yield return new Command_Action
-            //{
-            //    action = delegate
-            //    {
-            //        TakeFirstItemFromVault();
-            //    },
-            //    defaultLabel = "UndergroundVault.Command.TakeFromVault.Label".Translate(),
-            //    defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
-            //    icon = TextureOfLocal.TakeIconTex,
-            //    disabled = !isVaultAvailable || IsVaultEmpty || platformMode == PlatformMode.Up || !isPlatformFree || isPlatformConstructing,
-            //    disabledReason = !isVaultAvailable ? "Cemetery Vault not Available".Translate() : IsVaultEmpty ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : isPlatformConstructing ? "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate() : "UndergroundVault.Command.disabledReason.PlatformMoving".Translate(),
-            //    Order = 10f
-            //};
-            //ThingDef bd = ThingDefOfLocal.UVSarcophagus;
-            //Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(bd, false);
-            //List<ThingDef> selectStuff = base.Map.resourceCounter.AllCountedAmounts.Keys.OrderByDescending((ThingDef td) => td.stuffProps?.commonality ?? float.PositiveInfinity).ThenBy((ThingDef td) => td.BaseMarketValue).Where((ThingDef td) => (td.IsStuff && td.stuffProps.CanMake(bd) && (DebugSettings.godMode || base.Map.listerThings.ThingsOfDef(td).Count > 0))).ToList();
-            //Command_Action command_Action = new Command_Action
-            //{
-            //    action = delegate
-            //    {
-            //        Find.WindowStack.Add(new FloatMenu(selectStuff.Select(delegate (ThingDef td)
-            //        {
-            //            FloatMenuOption floatMenuOption = new FloatMenuOption((GenLabel.ThingLabel(bd, td)).CapitalizeFirst(), delegate
-            //            {
-            //                IntVec3 pos = PlatformFreeSlot;
-            //                SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-            //                des.SetStuffDef(td);
-            //                if (pos.IsValid)
-            //                {
-            //                    des.DesignateSingleCell(this.Position + pos);
-            //                }
-            //                else
-            //                {
-            //                    des.DesignateSingleCell(this.Position);
-            //                }
-            //            }, shownItemForIcon: td);
-            //            floatMenuOption.tutorTag = "SelectStuff-" + bd.defName + "-" + td.defName;
-            //            return floatMenuOption;
-            //        })
-            //            .ToList()));
-            //    },
-            //    defaultLabel = des.Label,
-            //    defaultDesc = des.Desc,
-            //    disabled = !isPlatformFree || platformMode == PlatformMode.Up || isPlatformConstructing || selectStuff.NullOrEmpty(),
-            //    disabledReason = selectStuff.NullOrEmpty() ? "NoStuffsToBuildWith".Translate() : !isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : "UndergroundVault.Command.disabledReason.PlatformConstructing".Translate()
-            //};
-            //ThingDef stuffDefRaw = des.StuffDefRaw;
-            //command_Action.icon = des.ResolvedIcon(null);
-            //command_Action.iconProportions = des.iconProportions;
-            //command_Action.iconDrawScale = des.iconDrawScale;
-            //command_Action.iconTexCoords = des.iconTexCoords;
-            //command_Action.iconAngle = des.iconAngle;
-            //command_Action.iconOffset = des.iconOffset;
-            //command_Action.Order = 11f;
-            //command_Action.SetColorOverride(des.IconDrawColor);
-            //des.SetStuffDef(stuffDefRaw);
-            //command_Action.defaultIconColor = bd.uiIconColor;
-            //yield return command_Action;
         }
 
         public override string GetInspectString()
