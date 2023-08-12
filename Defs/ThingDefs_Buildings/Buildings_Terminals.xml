@@ -142,6 +142,9 @@
         </li>
         <li Class="UndergroundVault.TerminalExtension">
           <VaultDef>UVVaultCemeteryS</VaultDef>
+          <TicksPerPlatformTravelTimeBase>1200</TicksPerPlatformTravelTimeBase>
+          <TicksPerExpandVaultTimeBase>1000</TicksPerExpandVaultTimeBase>
+          <TicksPerUpgradeFloorVaultTimeBase>500</TicksPerUpgradeFloorVaultTimeBase>
         </li>
       </modExtensions>
     </ThingDef>
@@ -220,6 +223,9 @@
         <li Class="UndergroundVault.TerminalExtension">
           <VaultDef>UVVaultCemeteryM</VaultDef>
           <PlatformCapacity>2</PlatformCapacity>
+          <TicksPerPlatformTravelTimeBase>2300</TicksPerPlatformTravelTimeBase>
+          <TicksPerExpandVaultTimeBase>1300</TicksPerExpandVaultTimeBase>
+          <TicksPerUpgradeFloorVaultTimeBase>650</TicksPerUpgradeFloorVaultTimeBase>
           <PlatformItemPositions>
             <li>(0,0,0)</li>
             <li>(1,0,0)</li>
@@ -302,6 +308,9 @@
         <li Class="UndergroundVault.TerminalExtension">
           <VaultDef>UVVaultCemeteryL</VaultDef>
           <PlatformCapacity>3</PlatformCapacity>
+          <TicksPerPlatformTravelTimeBase>3500</TicksPerPlatformTravelTimeBase>
+          <TicksPerExpandVaultTimeBase>1600</TicksPerExpandVaultTimeBase>
+          <TicksPerUpgradeFloorVaultTimeBase>800</TicksPerUpgradeFloorVaultTimeBase>
           <PlatformItemPositions>
             <li>(-1,0,0)</li>
             <li>(0,0,0)</li>
@@ -332,7 +341,7 @@
       <comps>
       </comps>
       <researchPrerequisites>
-        <li>ComplexFurniture</li>
+        <li>Cryptosleep</li>
       </researchPrerequisites>
     </ThingDef>
   
@@ -404,6 +413,9 @@
         </li>
         <li Class="UndergroundVault.TerminalExtension">
           <VaultDef>UVVaultCryptosleepS</VaultDef>
+          <TicksPerPlatformTravelTimeBase>1200</TicksPerPlatformTravelTimeBase>
+          <TicksPerExpandVaultTimeBase>1000</TicksPerExpandVaultTimeBase>
+          <TicksPerUpgradeFloorVaultTimeBase>500</TicksPerUpgradeFloorVaultTimeBase>
         </li>
       </modExtensions>
     </ThingDef>
@@ -477,6 +489,9 @@
         <li Class="UndergroundVault.TerminalExtension">
           <VaultDef>UVVaultCryptosleepM</VaultDef>
           <PlatformCapacity>2</PlatformCapacity>
+            <TicksPerPlatformTravelTimeBase>2300</TicksPerPlatformTravelTimeBase>
+            <TicksPerExpandVaultTimeBase>1300</TicksPerExpandVaultTimeBase>
+            <TicksPerUpgradeFloorVaultTimeBase>650</TicksPerUpgradeFloorVaultTimeBase>
           <PlatformItemPositions>
             <li>(0,0,0)</li>
             <li>(1,0,0)</li>
@@ -554,6 +569,9 @@
         <li Class="UndergroundVault.TerminalExtension">
           <VaultDef>UVVaultCryptosleepL</VaultDef>
           <PlatformCapacity>3</PlatformCapacity>
+          <TicksPerPlatformTravelTimeBase>3500</TicksPerPlatformTravelTimeBase>
+          <TicksPerExpandVaultTimeBase>1600</TicksPerExpandVaultTimeBase>
+          <TicksPerUpgradeFloorVaultTimeBase>800</TicksPerUpgradeFloorVaultTimeBase>
           <PlatformItemPositions>
             <li>(-1,0,0)</li>
             <li>(0,0,0)</li>
@@ -660,6 +678,9 @@
           <li Class="UndergroundVault.TerminalExtension">
             <VaultDef>UVVaultStorageS</VaultDef>
             <PlatformCapacity>2</PlatformCapacity>
+            <TicksPerPlatformTravelTimeBase>1200</TicksPerPlatformTravelTimeBase>
+            <TicksPerExpandVaultTimeBase>1000</TicksPerExpandVaultTimeBase>
+            <TicksPerUpgradeFloorVaultTimeBase>500</TicksPerUpgradeFloorVaultTimeBase>
             <PlatformItemPositions>
               <li>(0,0,0)</li>
               <li>(0,0,1)</li>
@@ -737,6 +758,9 @@
           <li Class="UndergroundVault.TerminalExtension">
             <VaultDef>UVVaultStorageM</VaultDef>
             <PlatformCapacity>4</PlatformCapacity>
+            <TicksPerPlatformTravelTimeBase>2300</TicksPerPlatformTravelTimeBase>
+            <TicksPerExpandVaultTimeBase>1300</TicksPerExpandVaultTimeBase>
+            <TicksPerUpgradeFloorVaultTimeBase>650</TicksPerUpgradeFloorVaultTimeBase>
             <PlatformItemPositions>
               <li>(0,0,0)</li>
               <li>(0,0,1)</li>
@@ -816,6 +840,9 @@
           <li Class="UndergroundVault.TerminalExtension">
             <VaultDef>UVVaultStorageL</VaultDef>
             <PlatformCapacity>6</PlatformCapacity>
+            <TicksPerPlatformTravelTimeBase>3500</TicksPerPlatformTravelTimeBase>
+            <TicksPerExpandVaultTimeBase>1600</TicksPerExpandVaultTimeBase>
+            <TicksPerUpgradeFloorVaultTimeBase>800</TicksPerUpgradeFloorVaultTimeBase>
             <PlatformItemPositions>
               <li>(-1,0,0)</li>
               <li>(-1,0,1)</li>

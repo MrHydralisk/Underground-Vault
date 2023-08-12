@@ -72,17 +72,22 @@ namespace UndergroundVault
         {
             floors.Add(1);
         }
+
+        public int UpgradableFloor(int storageEfficiency)
+        {
+            return floors.FirstIndexOf(x => x == storageEfficiency);
+        }
         public void UpgradeFloor(int storageEfficiency)
         {
-            int newSize = storageEfficiency + 1;
             for (int i = 0; i < floors.Count(); i++)
             {
-                if (floors[i] < newSize)
+                if (floors[i] == storageEfficiency)
                 {
-                    floors[i] = Mathf.Min(floors[i] + 1, newSize);
+                    floors[i] = Mathf.Min(floors[i] + 1, storageEfficiency + 1);
                     return;
                 }
             }
+            Log.Warning("Floor hasn't been upgraded");
         }
 
         public override IEnumerable<Gizmo> GetGizmos()

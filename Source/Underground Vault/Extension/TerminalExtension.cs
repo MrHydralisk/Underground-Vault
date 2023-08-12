@@ -12,8 +12,8 @@ namespace UndergroundVault
     {
         public ThingDef VaultDef;
         public int PlatformCapacity = 1;
-        public int TicksPerPlatformTravelTimeBase = 400;
-        public int TicksPerExpandVaultTimeBase = 1250;
+        public int TicksPerPlatformTravelTimeBase = 5000;
+        public int TicksPerExpandVaultTimeBase = 2500;
         public int TicksPerUpgradeFloorVaultTimeBase = 1250;
         public int TicksPerCremationTimeBase = 180;
         public List<IntVec3> PlatformItemPositions = new List<IntVec3>() { IntVec3.Zero};

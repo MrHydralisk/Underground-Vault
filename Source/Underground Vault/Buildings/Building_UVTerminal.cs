@@ -45,15 +45,24 @@ namespace UndergroundVault
         public List<Thing> InnerContainer => UVVault.InnerContainer;
 
         private int ticksPerPlatformTravelTimeBase => ExtTerminal.TicksPerPlatformTravelTimeBase;
-        private int ticksPerPlatformTravelTime
+        private int TicksPerPlatformTravelTime(int floor)
         {
-            get
-            {
-                 return (int)(ticksPerPlatformTravelTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePlatformSpeed)));
-            }
+            return (int)(ticksPerPlatformTravelTimeBase * DistanceDiffCurve.Evaluate(floor) / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradePlatformSpeed)));
         }
 
         private int ticksTillPlatformTravelTime;
+
+        private static readonly SimpleCurve DistanceDiffCurve = new SimpleCurve
+        {
+            new CurvePoint(9f, 1f),
+            new CurvePoint(27f, 2f),
+            new CurvePoint(81f, 3f),
+            new CurvePoint(243f, 4f),
+            new CurvePoint(486f, 5f),
+            new CurvePoint(972f, 6f),
+            new CurvePoint(1458f, 7f),
+            new CurvePoint(2187f, 8f)
+        };
 
         public List<Thing> PlatformContainer = new List<Thing>();
         protected PlatformMode platformMode = PlatformMode.None;
@@ -90,14 +99,18 @@ namespace UndergroundVault
 
         private static readonly SimpleCurve DrillDiffCurve = new SimpleCurve
         {
-            new CurvePoint(9f, 1f),
-            new CurvePoint(27f, 2f),
-            new CurvePoint(81f, 3f),
-            new CurvePoint(243f, 4f),
-            new CurvePoint(486f, 5f),
-            new CurvePoint(972f, 6f),
-            new CurvePoint(1458f, 7f),
-            new CurvePoint(2187f, 8f)
+            new CurvePoint(8f, 1f),
+            new CurvePoint(16f, 2f),
+            new CurvePoint(32f, 3f),
+            new CurvePoint(64f, 4f),
+            new CurvePoint(128f, 5f),
+            new CurvePoint(192f, 6f),
+            new CurvePoint(288f, 7f),
+            new CurvePoint(432f, 8f),
+            new CurvePoint(648f, 9f),
+            new CurvePoint(972f, 10f),
+            new CurvePoint(1458f, 11f),
+            new CurvePoint(2187f, 12f)
         };
 
         private int ticksTillExpandVaultTime;
@@ -108,12 +121,13 @@ namespace UndergroundVault
         {
             get
             {
-                return (int)(ticksPerUpgradeFloorVaultTimeBase * Mathf.Pow(2, UVVault.Floors.First(x => x < HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) + 1) - 1) / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill)));
+                return (int)(ticksPerUpgradeFloorVaultTimeBase * Mathf.Pow(2, UVVault.Floors.First(x => x < HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) + 1) - 1) /*/ Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill))*/);
             }
         }
 
         private int ticksTillUpgradeFloorVaultTime;
         public bool isUpgradeFloorVault = false;
+        private int upgradeLevel;
 
         public bool Manned => (compMannable?.MannedNow ?? true) || (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) > 0);
         protected CompMannable compMannable => compMannableCached ?? (compMannableCached = GetComp<CompMannable>());
@@ -262,7 +276,7 @@ namespace UndergroundVault
 
         public void UpgradeFloor()
         {
-            UVVault.UpgradeFloor(HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency));
+            UVVault.UpgradeFloor(upgradeLevel);
             FloorUpdate();
         }
 
@@ -312,7 +326,7 @@ namespace UndergroundVault
                                             TakeItemsFromTerminal(items);
                                             PlatformSurfaceThings.RemoveRange(0, items.Count());
                                             platformMode = PlatformMode.Down;
-                                            ticksTillPlatformTravelTime = ticksPerPlatformTravelTime;
+                                            ticksTillPlatformTravelTime = TicksPerPlatformTravelTime(InnerContainer.Count() / UVVault.FloorSize);
                                         }
                                     }
                                     else if (!PlatformUndergroundThings.NullOrEmpty() && isPlatformHaveFree)
@@ -324,7 +338,7 @@ namespace UndergroundVault
                                             TakeItemsFromVault(items);
                                             PlatformUndergroundThings.RemoveRange(0, items.Count());
                                             platformMode = PlatformMode.Up;
-                                            ticksTillPlatformTravelTime = ticksPerPlatformTravelTime;
+                                            ticksTillPlatformTravelTime = TicksPerPlatformTravelTime(InnerContainer.Count() / UVVault.FloorSize);
                                         }
                                     }
                                     else if (PlatformSurfaceThings.NullOrEmpty() && PlatformUndergroundThings.NullOrEmpty())
@@ -375,12 +389,12 @@ namespace UndergroundVault
 
         private void ExpandVault()
         {
-            ticksTillExpandVaultTime = ticksPerExpandVaultTime;
+            ticksTillExpandVaultTime = ticksPerExpandVaultTime + TicksPerPlatformTravelTime(UVVault.Floors.Count());
             isExpandVault = true;
         }
-        private void UpgradeFloorVault()
+        private void UpgradeFloorVault(int upgradeFloor = 0)
         {
-            ticksTillUpgradeFloorVaultTime = ticksPerUpgradeFloorVaultTime;
+            ticksTillUpgradeFloorVaultTime = ticksPerUpgradeFloorVaultTime * Mathf.Min(1, upgradeLevel) + TicksPerPlatformTravelTime(upgradeFloor);
             isUpgradeFloorVault = true;
         }
 
@@ -482,13 +496,28 @@ namespace UndergroundVault
                     Order = 20f
                 };
             }
-            if (HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) > 0)
+            int upgradesAmount;
+            if ((upgradesAmount = HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency)) > 0)
             {
                 yield return new Command_Action
                 {
                     action = delegate
                     {
-                        UpgradeFloorVault();
+                        List<FloatMenuOption> fmo = new List<FloatMenuOption>();
+                        for (int i = 1; i <= upgradesAmount; i++)
+                        {
+                            int floorIndex = UVVault.UpgradableFloor(i);
+                            int uLevel = i;
+                            if (floorIndex > -1)
+                            {
+                                fmo.Add(new FloatMenuOption(floorIndex + " to [" + uLevel + "]", delegate
+                                {
+                                    upgradeLevel = uLevel;
+                                    UpgradeFloorVault(floorIndex);
+                                }));
+                            }
+                        }
+                        Find.WindowStack.Add(new FloatMenu(fmo));
                     },
                     defaultLabel = "UndergroundVault.Command.UpgradeFloorVault.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.UpgradeFloorVault.Desc".Translate(),
@@ -625,6 +654,7 @@ namespace UndergroundVault
             Scribe_Values.Look(ref ticksTillUpgradeFloorVaultTime, "ticksTillUpgradeFloorVaultTime");
             Scribe_Values.Look(ref isExpandVault, "isExpandVault");
             Scribe_Values.Look(ref isUpgradeFloorVault, "isUpgradeFloorVault");
+            Scribe_Values.Look(ref upgradeLevel, "upgradeLevel");
         }
     }
     public enum PlatformMode : byte

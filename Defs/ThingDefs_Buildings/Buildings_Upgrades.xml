@@ -49,7 +49,7 @@
   <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradeCrematorium</defName>
     <label>crematorium module</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
+    <description>Upgrade module for underground vault terminal which vaporizes selected things with extremely high temperatures.</description>
     <costList>
       <Steel>55</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
@@ -62,7 +62,7 @@
   <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradeDeepDrill</defName>
     <label>deep drill module</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
+    <description>Upgrade module for underground vault terminal which allows to drill deep-crust to create a new vault floor.</description>
     <costList>
       <Steel>115</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
@@ -75,7 +75,7 @@
   <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradeStorageEfficiency</defName>
     <label>storage efficiency module</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
+    <description>Upgrade module for underground vault terminal which allows to reorganize vault floor to increase it capacity.</description>
     <costList>
       <Steel>75</Steel>
       <ComponentIndustrial>2</ComponentIndustrial>
@@ -89,7 +89,7 @@
   <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradeAI</defName>
     <label>AI module</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
+    <description>Upgrade module for underground vault terminal which allows terminal to work autonomously.</description>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     <costList>
       <Steel>15</Steel>
@@ -113,7 +113,7 @@
   <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradePlatformSpeed</defName>
     <label>platform speed module</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
+    <description>Upgrade module for underground vault terminal which accelerates platform movement.</description>
     <costList>
       <Steel>75</Steel>
       <ComponentIndustrial>4</ComponentIndustrial>
