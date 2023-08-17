@@ -17,15 +17,14 @@
       <claimable>false</claimable>
       <deconstructible>false</deconstructible>
     </building>
-    <!-- <designationCategory>Misc</designationCategory> -->
   </ThingDef>
 
 
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultCemeteryS</defName>
-    <label>cemetery vault</label>
-    <description>Cemetery vault for storing sarcophagus. Size S.</description>
+    <label>cemetery underground vault</label>
+    <description>Cemetery underground vault  for storing sarcophagus. Size S.</description>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -48,8 +47,8 @@
   
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultCemeteryM</defName>
-    <label>cemetery vault</label>
-    <description>Cemetery vault for storing sarcophagus. Size M.</description>
+    <label>cemetery underground vault</label>
+    <description>Cemetery underground vault  for storing sarcophagus. Size M.</description>
     <graphicData>
       <texPath>Things/Building/UVVault2x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -72,8 +71,8 @@
   
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultCemeteryL</defName>
-    <label>cemetery vault</label>
-    <description>Cemetery vault for storing sarcophagus. Size L.</description>
+    <label>cemetery underground vault</label>
+    <description>Cemetery underground vault  for storing sarcophagus. Size L.</description>
     <graphicData>
       <texPath>Things/Building/UVVault3x2</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -98,8 +97,8 @@
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultCryptosleepS</defName>
-    <label>cryptosleep vault</label>
-    <description>Cryptosleep vault for storing cryptosleep casket. Size S.</description>
+    <label>cryptosleep underground vault</label>
+    <description>Cryptosleep underground vault  for storing cryptosleep casket. Size S.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>
@@ -123,8 +122,8 @@
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultCryptosleepM</defName>
-    <label>cryptosleep vault</label>
-    <description>Cryptosleep vault for storing cryptosleep casket. Size M.</description>
+    <label>cryptosleep underground vault</label>
+    <description>Cryptosleep underground vault  for storing cryptosleep casket. Size M.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault2x2</texPath>
@@ -148,8 +147,8 @@
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultCryptosleepL</defName>
-    <label>cryptosleep vault</label>
-    <description>Cryptosleep vault for storing cryptosleep casket. Size L.</description>
+    <label>cryptosleep underground vault</label>
+    <description>Cryptosleep underground vault  for storing cryptosleep casket. Size L.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault3x2</texPath>
@@ -175,8 +174,8 @@
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultStorageS</defName>
-    <label>storage vault</label>
-    <description>Storage vault for storing items. Size S.</description>
+    <label>storage underground vault</label>
+    <description>Storage underground vault  for storing items. Size S.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault1x2</texPath>
@@ -200,8 +199,8 @@
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultStorageM</defName>
-    <label>storage vault</label>
-    <description>Storage vault for storing items. Size M.</description>
+    <label>storage underground vault</label>
+    <description>Storage underground vault  for storing items. Size M.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault2x2</texPath>
@@ -225,8 +224,8 @@
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultStorageL</defName>
-    <label>storage vault</label>
-    <description>Storage vault for storing items. Size L.</description>
+    <label>storage underground vault</label>
+    <description>Storage underground vault  for storing items. Size L.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault3x2</texPath>
@@ -250,8 +249,8 @@
 
   <ThingDef ParentName="UVVaultBase">
     <defName>UVVaultStorageXL</defName>
-    <label>storage vault</label>
-    <description>Storage vault for storing items. Size XL.</description>
+    <label>storage underground vault</label>
+    <description>Storage underground vault  for storing items. Size XL.</description>
     <thingClass>UndergroundVault.Building_UVVault</thingClass>
     <graphicData>
       <texPath>Things/Building/UVVault3x3</texPath>

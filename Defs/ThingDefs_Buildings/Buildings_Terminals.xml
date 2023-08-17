@@ -7,8 +7,6 @@
       <hasInteractionCell>True</hasInteractionCell>
       <fillPercent>0.5</fillPercent>
       <rotatable>false</rotatable>
-      <!-- <tickerType>Normal</tickerType> -->
-      <!-- <drawerType>MapMeshAndRealTime</drawerType> -->
       <canOverlapZones>false</canOverlapZones>
       <constructionSkillPrerequisite>5</constructionSkillPrerequisite>    
       <designationCategory>Misc</designationCategory>
@@ -18,7 +16,6 @@
       <statBases>
         <Flammability>0.0</Flammability>
       </statBases>
-      <!-- <terrainAffordanceNeeded>Diggable</terrainAffordanceNeeded> -->
       <staticSunShadowHeight>0.3</staticSunShadowHeight>
       <comps>
         <li Class="CompProperties_Mannable">
@@ -39,9 +36,7 @@
       <label>cemetery vault terminal</label>
       <thingClass>UndergroundVault.Building_UVTerminalCemetery</thingClass>
       <designatorDropdown>UVTerminalCemetery_SET</designatorDropdown>
-      <!-- <tickerType>Normal</tickerType> -->
       <building>
-        <!-- <ai_chillDestination>false</ai_chillDestination> -->
       </building>
       <inspectorTabs>
         <li>UndergroundVault.ITab_UVTerminalCemetery_Inventory</li>
@@ -51,13 +46,6 @@
       <researchPrerequisites>
         <li>ComplexFurniture</li>
       </researchPrerequisites>
-      <!-- <placeWorkers> -->
-        <!-- <li>PlaceWorker_MeditationOffsetBuildingsNear</li> -->
-      <!-- </placeWorkers> -->
-      <!-- <ritualFocus> -->
-        <!-- <spectateDistance>1</spectateDistance> -->
-        <!-- <allowedSpectateSides>Vertical</allowedSpectateSides> -->
-      <!-- </ritualFocus> -->
     </ThingDef>
     
     <ThingDef ParentName="UVTerminalCemetery">
@@ -86,12 +74,10 @@
       </statBases>
       <comps>
         <li Class="CompProperties_Power">
-          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
           <compClass>CompPowerTrader</compClass>
           <basePowerConsumption>100</basePowerConsumption>
         </li>
       </comps>
-      <!-- <costStuffCount>60</costStuffCount> -->
       <modExtensions>
         <li Class="UndergroundVault.BuildingUpgradesExtension">
           <ConstructionOffset>
@@ -124,20 +110,11 @@
               <uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
               <upgradeDef>UVUpgradeAI</upgradeDef>
             </li>
-            <!-- <li>
-              <uiIconPath>Icons/UVUpgradeFreezer_Icon</uiIconPath>
-              <upgradeDef>UVUpgradeFreezer</upgradeDef>
-            </li> -->
             <li>
               <uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
               <upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
               <maxAmount>2</maxAmount>
             </li>
-            <!-- <li>
-              <uiIconPath>UI/Commands/DesirePower</uiIconPath>
-              <upgradeDef>UVUpgradePowerEfficiency</upgradeDef>
-              <maxAmount>2</maxAmount>
-            </li> -->
           </AvailableUpgrades>
         </li>
         <li Class="UndergroundVault.TerminalExtension">
@@ -175,12 +152,10 @@
       </statBases>
       <comps>
         <li Class="CompProperties_Power">
-          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
           <compClass>CompPowerTrader</compClass>
           <basePowerConsumption>150</basePowerConsumption>
         </li>
       </comps>
-      <!-- <costStuffCount>60</costStuffCount> -->
       <modExtensions>
         <li Class="UndergroundVault.BuildingUpgradesExtension">
           <ConstructionOffset>
@@ -260,12 +235,10 @@
       </statBases>
       <comps>
         <li Class="CompProperties_Power">
-          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
           <compClass>CompPowerTrader</compClass>
           <basePowerConsumption>200</basePowerConsumption>
         </li>
       </comps>
-      <!-- <costStuffCount>60</costStuffCount> -->
       <modExtensions>
         <li Class="UndergroundVault.BuildingUpgradesExtension">
           <ConstructionOffset>
@@ -330,9 +303,7 @@
       <label>cryptosleep vault terminal</label>
       <thingClass>UndergroundVault.Building_UVTerminalCryptosleep</thingClass>
       <designatorDropdown>UVTerminalCryptosleep_SET</designatorDropdown>
-      <!-- <tickerType>Normal</tickerType> -->
       <building>
-        <!-- <ai_chillDestination>false</ai_chillDestination> -->
       </building>
       <constructionSkillPrerequisite>8</constructionSkillPrerequisite>    
       <inspectorTabs>
@@ -371,7 +342,6 @@
       </statBases>
       <comps>
         <li Class="CompProperties_Power">
-          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
           <compClass>CompPowerTrader</compClass>
           <basePowerConsumption>100</basePowerConsumption>
         </li>
@@ -446,7 +416,6 @@
       </statBases>
       <comps>
         <li Class="CompProperties_Power">
-          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
           <compClass>CompPowerTrader</compClass>
           <basePowerConsumption>150</basePowerConsumption>
         </li>
@@ -526,7 +495,6 @@
       </statBases>
       <comps>
         <li Class="CompProperties_Power">
-          <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
           <compClass>CompPowerTrader</compClass>
           <basePowerConsumption>200</basePowerConsumption>
         </li>
@@ -592,7 +560,6 @@
       <thingClass>UndergroundVault.Building_UVTerminalStorage</thingClass>
       <designatorDropdown>UVTerminalStorage_SET</designatorDropdown>
       <building>
-        <!-- <ai_chillDestination>false</ai_chillDestination> -->
         <defaultStorageSettings>
           <priority>Important</priority>
         </defaultStorageSettings>
@@ -635,7 +602,6 @@
         </statBases>
         <comps>
           <li Class="CompProperties_Power">
-            <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
             <compClass>CompPowerTrader</compClass>
             <basePowerConsumption>100</basePowerConsumption>
           </li>
@@ -715,7 +681,6 @@
         </statBases>
         <comps>
           <li Class="CompProperties_Power">
-            <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
             <compClass>CompPowerTrader</compClass>
             <basePowerConsumption>150</basePowerConsumption>
           </li>
@@ -797,7 +762,6 @@
         </statBases>
         <comps>
           <li Class="CompProperties_Power">
-            <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
             <compClass>CompPowerTrader</compClass>
             <basePowerConsumption>200</basePowerConsumption>
           </li>
@@ -881,7 +845,6 @@
         </statBases>
         <comps>
           <li Class="CompProperties_Power">
-            <!-- <compClass>UndergroundVault.CompPowerUVTerminal</compClass> -->
             <compClass>CompPowerTrader</compClass>
             <basePowerConsumption>300</basePowerConsumption>
           </li>

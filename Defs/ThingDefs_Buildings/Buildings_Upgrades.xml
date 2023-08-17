@@ -20,7 +20,6 @@
     <useHitPoints>false</useHitPoints>
     <fillPercent>0.1</fillPercent>
     <tickerType>Never</tickerType>
-		<!-- <tickerType>Normal</tickerType> -->
     <drawerType>RealtimeOnly</drawerType>
     <canOverlapZones>false</canOverlapZones>
     <selectable>false</selectable>
@@ -41,9 +40,6 @@
     <blockWind>false</blockWind>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
     <designationCategory>Misc</designationCategory>
-    <!-- <researchPrerequisites>
-      <li>ComplexFurniture</li>
-    </researchPrerequisites> -->
   </ThingDef>
 
   <ThingDef ParentName="UVUpgradeBase">
@@ -101,15 +97,6 @@
     </graphicData>
   </ThingDef>
 
-  <!-- <ThingDef ParentName="UVUpgradeBase">
-    <defName>UVUpgradeFreezer</defName>
-    <label>freezer module</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
-    <graphicData>
-      <texPath>Things/Building/UVUpgradeFreezer</texPath>
-    </graphicData>
-  </ThingDef> -->
-
   <ThingDef ParentName="UVUpgradeBase">
     <defName>UVUpgradePlatformSpeed</defName>
     <label>platform speed module</label>
@@ -122,14 +109,5 @@
       <texPath>Things/Building/UVUpgradePlatformSpeed</texPath>
     </graphicData>
   </ThingDef>
-
-  <!-- <ThingDef ParentName="UVUpgradeBase">
-    <defName>UVUpgradePowerEfficiency</defName>
-    <label>power efficiency module</label>
-    <description>An ornamented burial receptacle for the honored dead.</description>
-    <graphicData>
-      <texPath>Things/Building/UVUpgradePowerEfficiency</texPath>
-    </graphicData>
-  </ThingDef> -->
 
 </Defs>

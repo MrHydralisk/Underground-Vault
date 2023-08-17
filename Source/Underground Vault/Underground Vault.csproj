@@ -42,14 +42,6 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == '1.3|AnyCPU'">
-    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
-    <DefineConstants>TRACE;v1_3</DefineConstants>
-    <Optimize>true</Optimize>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Any|AnyCPU'">
     <OutputPath>bin\Any\</OutputPath>
     <DefineConstants>TRACE;v1_4</DefineConstants>
