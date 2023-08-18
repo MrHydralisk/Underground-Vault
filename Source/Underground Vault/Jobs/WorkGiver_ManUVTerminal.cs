@@ -23,7 +23,7 @@ namespace UndergroundVault
             {
                 return false;
             }
-            if (!uVTerminal.isHaveWorkOn)
+            if (!uVTerminal.isCanWorkOn)
             {
                 return false;
             }

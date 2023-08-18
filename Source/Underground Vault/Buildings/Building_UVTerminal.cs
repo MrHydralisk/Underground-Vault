@@ -137,7 +137,8 @@ namespace UndergroundVault
         protected CompPowerTrader compPowerTraderCached;
         protected virtual bool IsVaultEmpty => ((InnerContainer.Count() - PlatformContainer.Count()) <= 0);
 
-        public bool isHaveWorkOn => (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) <= 0) && (platformMode != PlatformMode.None || isExpandVault || isUpgradeFloorVault);
+        public bool isCanWorkOn => PowerOn && (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) <= 0) && (isHaveWorkOn);
+        protected virtual bool isHaveWorkOn => platformMode != PlatformMode.None || isExpandVault || isUpgradeFloorVault;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {

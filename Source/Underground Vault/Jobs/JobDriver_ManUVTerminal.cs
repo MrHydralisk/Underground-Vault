@@ -41,7 +41,7 @@ namespace UndergroundVault
                 man.actor.rotationTracker.FaceCell(terminal.Position);
             };
             man.handlingFacing = true;
-            man.FailOn(() => !uVTerminal.isHaveWorkOn);
+            man.FailOn(() => !uVTerminal.isCanWorkOn);
             man.FailOnCannotTouch(TargetIndex.A, PathEndMode.InteractionCell);
             man.defaultCompleteMode = ToilCompleteMode.Delay;
             man.defaultDuration = JobEndInterval;
