@@ -495,7 +495,7 @@ namespace UndergroundVault
                             int uLevel = i;
                             if (floorIndex > -1)
                             {
-                                fmo.Add(new FloatMenuOption("UndergroundVault.Command.ExpandVault.Label".Translate(floorIndex, uLevel), delegate
+                                fmo.Add(new FloatMenuOption("UndergroundVault.Command.UpgradeFloorVault.Option".Translate(floorIndex, uLevel), delegate
                                 {
                                     upgradeLevel = uLevel;
                                     UpgradeFloorVault(floorIndex);
@@ -620,7 +620,6 @@ namespace UndergroundVault
             {
                 inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor".Translate());
             }
-            inspectStrings.Add(isHaveWorkOn.ToString());
             return String.Join("\n", inspectStrings);
         }
 
