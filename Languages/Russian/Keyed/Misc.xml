@@ -3,6 +3,7 @@
     
     <UndergroundVault.Command.InstallUpgrade.Label>Установить улучшение</UndergroundVault.Command.InstallUpgrade.Label>
     <UndergroundVault.Command.InstallUpgrade.Desc>Будет установлен модуль улучшения</UndergroundVault.Command.InstallUpgrade.Desc>
+    <UndergroundVault.Command.InstallUpgrade.Option>{0}:\n{1}\nНавык {2}</UndergroundVault.Command.InstallUpgrade.Option>
     <UndergroundVault.Command.UninstallUpgrade.Label>Убрать улучшение</UndergroundVault.Command.UninstallUpgrade.Label>
     <UndergroundVault.Command.UninstallUpgrade.Desc>Будет разобран модуль улучшения</UndergroundVault.Command.UninstallUpgrade.Desc>
     <UndergroundVault.Command.StoreInVault.Label>Поместить в хранилище</UndergroundVault.Command.StoreInVault.Label>

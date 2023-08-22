@@ -458,6 +458,31 @@ namespace UndergroundVault
             };
         }
 
+        public List<ThingDefCountClass> BuildingCost(List<ThingDefCountClass> buildingCostList)
+        {
+            return buildingCostList.Select((ThingDefCountClass tdcc) => new ThingDefCountClass() { thingDef = tdcc.thingDef, count = tdcc.count }).ToList();
+        }
+
+        public string FrameCost(Frame frame)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            List<ThingDefCountClass> list = frame.def.entityDefToBuild.CostListAdjusted(frame.Stuff);
+            for (int i = 0; i < list.Count; i++)
+            {
+                ThingDefCountClass need = list[i];
+                int num = need.count;
+                foreach (ThingDefCountClass item in from needed in frame.MaterialsNeeded()
+                                                    where needed.thingDef == need.thingDef
+                                                    select needed)
+                {
+                    num -= item.count;
+                }
+                stringBuilder.AppendLine((string)(need.thingDef.LabelCap + ": ") + num + " / " + need.count);
+            }
+            stringBuilder.Append("WorkLeft".Translate() + ": " + frame.WorkLeft.ToStringWorkAmount());
+            return stringBuilder.ToString();
+        }
+
         public override IEnumerable<Gizmo> GetGizmos()
         {
             foreach (Gizmo gizmo in base.GetGizmos())
@@ -525,7 +550,7 @@ namespace UndergroundVault
                             ThingDef td = bu.upgradeDef;
                             if (Upgrades.Count((Thing t) => t != null && (t.def == bu.upgradeDef || t.def == bu.upgradeDef.frameDef || t.def == bu.upgradeDef.blueprintDef)) < bu.maxAmount)
                             {
-                                return new FloatMenuOption(td.label, delegate
+                                return new FloatMenuOption("UndergroundVault.Command.InstallUpgrade.Option".Translate(td.LabelCap, string.Join("\n", BuildingCost(td.CostList).Select((ThingDefCountClass tdcc) => tdcc.Label)).ToStringSafe(), td.constructionSkillPrerequisite), delegate
                                 {
                                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
                                     Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(td, false);
@@ -534,7 +559,7 @@ namespace UndergroundVault
                             }
                             else
                             {
-                                return new FloatMenuOption(td.label, null, itemIcon: bu.uiIcon, iconColor: Color.white);
+                                return new FloatMenuOption(td.LabelCap, null, itemIcon: bu.uiIcon, iconColor: Color.white);
                             }
                         })
                             .ToList()));
@@ -551,24 +576,38 @@ namespace UndergroundVault
                 {
                     Find.WindowStack.Add(new FloatMenu(Upgrades.Select(delegate (Thing t)
                     {
-                        if (t != null && !t.def.IsFrame && !t.def.IsBlueprint)
+                        if (t != null)
                         {
-                            return new FloatMenuOption(t.Label, delegate
+                            if (t.def.IsBlueprint)
                             {
-                                if (DebugSettings.godMode || t.GetInnerIfMinified().GetStatValue(StatDefOf.WorkToBuild) == 0f)
+                                return new FloatMenuOption(t.LabelCap, delegate
                                 {
-                                    t.Destroy(DestroyMode.Deconstruct);
-                                }
-                                else
+                                    t.Destroy(DestroyMode.Cancel);
+                                }, iconThing: t, iconColor: Color.blue);
+                            }
+                            else if (t.def.IsFrame && t is Frame tFrame)
+                            {
+                                return new FloatMenuOption("UndergroundVault.Command.InstallUpgrade.Option".Translate(t.LabelCap, FrameCost(tFrame).ToStringSafe(), t.def.constructionSkillPrerequisite), delegate
                                 {
-                                    this.Map.designationManager.AddDesignation(new Designation(t, DesignationDefOf.Deconstruct));
-                                }
-                            }, iconThing: t, iconColor: Color.white);
+                                    t.Destroy(DestroyMode.Cancel);
+                                }, iconThing: t, iconColor: Color.gray);
+                            }
+                            else
+                            {
+                                return new FloatMenuOption(t.LabelCap, delegate
+                                {
+                                    if (DebugSettings.godMode || t.GetInnerIfMinified().GetStatValue(StatDefOf.WorkToBuild) == 0f)
+                                    {
+                                        t.Destroy(DestroyMode.Deconstruct);
+                                    }
+                                    else
+                                    {
+                                        this.Map.designationManager.AddDesignation(new Designation(t, DesignationDefOf.Deconstruct));
+                                    }
+                                }, iconThing: t, iconColor: Color.white);
+                            }
                         }
-                        else
-                        {
-                            return new FloatMenuOption("---", null, itemIcon: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
-                        }
+                        return new FloatMenuOption("---", null, itemIcon: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
                     })
                         .ToList()));
                 },

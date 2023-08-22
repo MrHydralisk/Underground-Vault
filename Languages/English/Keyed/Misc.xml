@@ -3,18 +3,19 @@
     
     <UndergroundVault.Command.InstallUpgrade.Label>Install upgrade</UndergroundVault.Command.InstallUpgrade.Label>
     <UndergroundVault.Command.InstallUpgrade.Desc>Will install upgrade module</UndergroundVault.Command.InstallUpgrade.Desc>
+    <UndergroundVault.Command.InstallUpgrade.Option>{0}:\n{1}\nSkill {2}</UndergroundVault.Command.InstallUpgrade.Option>
     <UndergroundVault.Command.UninstallUpgrade.Label>Uninstall upgrade</UndergroundVault.Command.UninstallUpgrade.Label>
     <UndergroundVault.Command.UninstallUpgrade.Desc>Will uninstall upgrade module</UndergroundVault.Command.UninstallUpgrade.Desc>
     <UndergroundVault.Command.StoreInVault.Label>Store in Vault</UndergroundVault.Command.StoreInVault.Label>
     <UndergroundVault.Command.StoreInVault.Desc>Will lower the cargo platform from the surface to the Vault</UndergroundVault.Command.StoreInVault.Desc>
     <UndergroundVault.Command.StoreAllInVault.Label>Store all {0}</UndergroundVault.Command.StoreAllInVault.Label>
-    <UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to {1}</UndergroundVault.Command.UpgradeFloorVault.Option>
     <UndergroundVault.Command.TakeFromVault.Label>Take from Vault</UndergroundVault.Command.TakeFromVault.Label>
     <UndergroundVault.Command.TakeFromVault.Desc>Will raise the cargo platform from the Vault to the surface</UndergroundVault.Command.TakeFromVault.Desc>
     <UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>
     <UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor</UndergroundVault.Command.ExpandVault.Desc>
     <UndergroundVault.Command.UpgradeFloorVault.Label>Upgrade Vault floor</UndergroundVault.Command.UpgradeFloorVault.Label>
     <UndergroundVault.Command.UpgradeFloorVault.Desc>Will optimize floor space</UndergroundVault.Command.UpgradeFloorVault.Desc>
+    <UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to {1}</UndergroundVault.Command.UpgradeFloorVault.Option>
     <UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
     <UndergroundVault.Command.disabledReason.PlatformBusy>Сargo platform busy</UndergroundVault.Command.disabledReason.PlatformBusy>
