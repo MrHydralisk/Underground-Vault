@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <UVVaultCemeteryS.label>подземное хранилище кладбища</UVVaultCemeteryS.label>
+  <UVVaultCemeteryS.description>Подземное хранилище кладбища для саркофагов. Размер S.</UVVaultCemeteryS.description>
+
+  <UVVaultCemeteryM.label>подземное хранилище кладбища</UVVaultCemeteryM.label>
+  <UVVaultCemeteryM.description>Подземное хранилище кладбища для саркофагов. Размер M.</UVVaultCemeteryM.description>
+
+  <UVVaultCemeteryL.label>подземное хранилище кладбища</UVVaultCemeteryL.label>
+  <UVVaultCemeteryL.description>Подземное хранилище кладбища для саркофагов. Размер L.</UVVaultCemeteryL.description>
+
+  <UVVaultCryptosleepS.label>подземное хранилище криптосна</UVVaultCryptosleepS.label>
+  <UVVaultCryptosleepS.description>Подземное хранилище криптосна для саркофагов криптосна. Размер S.</UVVaultCryptosleepS.description>
+
+  <UVVaultCryptosleepM.label>подземное хранилище криптосна</UVVaultCryptosleepM.label>
+  <UVVaultCryptosleepM.description>Подземное хранилище криптосна для саркофагов криптосна. Размер M.</UVVaultCryptosleepM.description>
+
+  <UVVaultCryptosleepL.label>подземное хранилище криптосна</UVVaultCryptosleepL.label>
+  <UVVaultCryptosleepL.description>Подземное хранилище криптосна для саркофагов криптосна. Размер L.</UVVaultCryptosleepL.description>
+
+  <UVVaultStorageS.label>подземное хранилище</UVVaultStorageS.label>
+  <UVVaultStorageS.description>Подземное хранилище для предметов. Размер S.</UVVaultStorageS.description>
+
+  <UVVaultStorageM.label>подземное хранилище</UVVaultStorageM.label>
+  <UVVaultStorageM.description>Подземное хранилище для предметов. Размер M.</UVVaultStorageM.description>
+
+  <UVVaultStorageL.label>подземное хранилище</UVVaultStorageL.label>
+  <UVVaultStorageL.description>Подземное хранилище для предметов. Размер L.</UVVaultStorageL.description>
+
+  <UVVaultStorageXL.label>подземное хранилище</UVVaultStorageXL.label>
+  <UVVaultStorageXL.description>Подземное хранилище для предметов. Размер XL.</UVVaultStorageXL.description>
+
+</LanguageData>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <UVUpgradeCrematorium.label>модуль крематория</UVUpgradeCrematorium.label>
+  <UVUpgradeCrematorium.description>Модуль улучшения для терминала подземного хранилища, который сжигает выбранные вещи при чрезвычайно высоких температурах.</UVUpgradeCrematorium.description>
+
+  <UVUpgradeDeepDrill.label>модуль буровой установки</UVUpgradeDeepDrill.label>
+  <UVUpgradeDeepDrill.description>Модуль улучшения для терминала подземного хранилища, который позволяет бурить подземную породу для освобождения места под дополнительный этаж хранилища.</UVUpgradeDeepDrill.description>
+
+  <UVUpgradeStorageEfficiency.label>модуль эффективности складского пространства</UVUpgradeStorageEfficiency.label>
+  <UVUpgradeStorageEfficiency.description>Модуль улучшения для терминала подземного хранилища, который позволяет оптимизировать складское пространство.</UVUpgradeStorageEfficiency.description>
+
+  <UVUpgradeAI.label>модуль ИИ</UVUpgradeAI.label>
+  <UVUpgradeAI.description>Модуль улучшения для терминала подземного хранилища, который позволяет терминалу работать самостоятельно.</UVUpgradeAI.description>
+
+  <UVUpgradePlatformSpeed.label>модуль скорости платформы</UVUpgradePlatformSpeed.label>
+  <UVUpgradePlatformSpeed.description>Модуль улучшения для терминала подземного хранилища, который позволяет увеличить максимальную скорость грузовой плотформы.</UVUpgradePlatformSpeed.description>
+
+</LanguageData>

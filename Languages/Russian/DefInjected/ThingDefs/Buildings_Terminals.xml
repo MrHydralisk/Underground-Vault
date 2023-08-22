@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <UVTerminalCemeteryS.label>терминал хранилища кладбища</UVTerminalCemeteryS.label>
+  <UVTerminalCemeteryS.description>Терминал для управления хранилищем кладбища и доступа к нему. Размер S.</UVTerminalCemeteryS.description>
+
+  <UVTerminalCemeteryM.label>терминал хранилища кладбища</UVTerminalCemeteryM.label>
+  <UVTerminalCemeteryM.description>Терминал для управления хранилищем кладбища и доступа к нему. Размер M.</UVTerminalCemeteryM.description>
+
+  <UVTerminalCemeteryL.label>терминал хранилища кладбища</UVTerminalCemeteryL.label>
+  <UVTerminalCemeteryL.description>Терминал для управления хранилищем кладбища и доступа к нему. Размер L.</UVTerminalCemeteryL.description>
+
+  <UVTerminalCryptosleepS.label>терминал хранилища криптосна</UVTerminalCryptosleepS.label>
+  <UVTerminalCryptosleepS.description>Терминал для управления хранилищем криптосна и доступа к нему. Размер S.</UVTerminalCryptosleepS.description>
+
+  <UVTerminalCryptosleepM.label>терминал хранилища криптосна</UVTerminalCryptosleepM.label>
+  <UVTerminalCryptosleepM.description>Терминал для управления хранилищем криптосна и доступа к нему. Размер M.</UVTerminalCryptosleepM.description>
+
+  <UVTerminalCryptosleepL.label>терминал хранилища криптосна</UVTerminalCryptosleepL.label>
+  <UVTerminalCryptosleepL.description>Терминал для управления хранилищем криптосна и доступа к нему. Размер L.</UVTerminalCryptosleepL.description>
+
+  <UVTerminalStorageS.label>терминал хранилища</UVTerminalStorageS.label>
+  <UVTerminalStorageS.description>Терминал для управления хранилищем и доступа к нему. Размер S.</UVTerminalStorageS.description>
+
+  <UVTerminalStorageM.label>терминал хранилища</UVTerminalStorageM.label>
+  <UVTerminalStorageM.description>Терминал для управления хранилищем и доступа к нему. Размер M.</UVTerminalStorageM.description>
+
+  <UVTerminalStorageL.label>терминал хранилища</UVTerminalStorageL.label>
+  <UVTerminalStorageL.description>Терминал для управления хранилищем и доступа к нему. Размер L.</UVTerminalStorageL.description>
+
+  <UVTerminalStorageXL.label>терминал хранилища</UVTerminalStorageXL.label>
+  <UVTerminalStorageXL.description>Терминал для управления хранилищем и доступа к нему. Размер XL.</UVTerminalStorageXL.description>
+
+</LanguageData>

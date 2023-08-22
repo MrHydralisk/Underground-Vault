@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <UVSarcophagus.label>саркофаг</UVSarcophagus.label>
+  <UVSarcophagus.description>Украшенное орнаментами вместилище для почётных усопших.</UVSarcophagus.description>
+  
+  <UVCryptosleepCasket.label>саркофаг криптосна</UVCryptosleepCasket.label>
+  <UVCryptosleepCasket.description>Автономная капсула, разработанная, чтобы поддерживать человека в состоянии анабиоза в течение многих лет.</UVCryptosleepCasket.description>
+
+</LanguageData>
