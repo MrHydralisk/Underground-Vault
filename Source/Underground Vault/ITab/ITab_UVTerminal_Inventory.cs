@@ -13,8 +13,10 @@ namespace UndergroundVault
     [StaticConstructorOnStartup]
     public class ITab_UVTerminal_Inventory : ITab_ContentsBase
     {
-
         private Building_UVTerminal building => base.SelThing as Building_UVTerminal;
+
+        public QuickSearchWidget quickSearch = new QuickSearchWidget();
+
         public override bool IsVisible
         {
             get
@@ -42,11 +44,62 @@ namespace UndergroundVault
 		    }
 	    }
 
+        protected virtual IList<Thing> sortedContainer
+        {
+            get
+            {
+                if (quickSearch.filter.Active)
+                    return container.Where((Thing t) => quickSearch.filter.Matches(t.LabelCap)).ToList();
+                else
+                    return container;
+            }
+        }
+
+        public ITab_UVTerminal_Inventory() : base()
+        {
+            labelKey = "Contents";
+        }
+
+        public override void OnOpen()
+        {
+            base.OnOpen();
+            quickSearch.Reset();
+        }
+
+        //protected void SearchBar(Rect rect, float gap, ref string input)
+        //{
+        //    Rect rect2 = new Rect(rect);
+        //    rect2.height = 28f;
+        //    Rect rect3 = rect2;
+        //    Rect rect4 = rect3.LeftPartPixels(rect3.width - 28f - 1f - gap);
+        //    Rect butRect = rect3.RightPartPixels(29f);
+        //    InputField("Search", rect4, ref input);
+        //    Text.Anchor = TextAnchor.MiddleLeft;
+        //    if (Widgets.ButtonImageFitted(butRect, Widgets.CheckboxOffTex))
+        //    {
+        //        input = "";
+        //    }
+        //}
+
         protected override void DoItemsLists(Rect inRect, ref float curY)
         {
             Widgets.BeginGroup(inRect);
             Widgets.ListSeparator(ref curY, inRect.width, containedItemsKey.Translate());
-            IList<Thing> list = container;
+            float curX = 1f;
+            float searchBarWidth = inRect.width - 3f - 24f;
+            Rect rect3 = new Rect(curX, curY, searchBarWidth, 24f);
+            quickSearch.OnGUI(rect3);
+            curX += searchBarWidth + 1f;
+            if (Widgets.ButtonImage(new Rect(curX, curY, 24f, 24f), TextureOfLocal.TakeIconTex))
+            {
+                Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Command.TakeFromVault.Label".Translate(), Mathf.Min(1, sortedContainer.Count()), sortedContainer.Count(), delegate(int x)
+                {
+                    sortedContainer.Take(x).ToList().ForEach((Thing t) => building.MarkItemFromVault(t));
+                }
+                    ));
+            }
+            curY += 24f;
+            IList<Thing> list = sortedContainer;
             bool flag = false;
             for (int i = 0; i < list.Count; i++)
             {

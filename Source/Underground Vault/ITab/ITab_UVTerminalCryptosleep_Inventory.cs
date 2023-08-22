@@ -16,6 +16,17 @@ namespace UndergroundVault
 
         private Building_UVTerminalCryptosleep building => base.SelThing as Building_UVTerminalCryptosleep;
 
+        protected override IList<Thing> sortedContainer
+        {
+            get
+            {
+                if (quickSearch.filter.Active)
+                    return container.Where((Thing t) => quickSearch.filter.Matches(t.LabelCap) || (t is Building_Casket bc && (bc.HasAnyContents ? quickSearch.filter.Matches(bc.ContainedThing.LabelCap) : false))).ToList();
+                else
+                    return container;
+            }
+        }
+
         protected override void DoThingRow(Thing thing, float width, ref float curY)
         {
             Rect rect = new Rect(0f, curY, width, 28f);
@@ -36,14 +47,14 @@ namespace UndergroundVault
                 }
                 rect.width -= 24f;
             }
+            Widgets.InfoCardButton(rect.width - 24f, curY, thing);
+            rect.width -= 24f;
             Building_Casket bs = thing as Building_Casket;
             if (bs.ContainedThing != null)
             {
                 Widgets.InfoCardButton(rect.width - 24f, curY, bs.ContainedThing);
                 rect.width -= 24f;
             }
-            Widgets.InfoCardButton(rect.width - 24f, curY, thing);
-            rect.width -= 24f;
             if (Mouse.IsOver(rect))
             {
                 GUI.color = ThingHighlightColor;
