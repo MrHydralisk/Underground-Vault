@@ -141,6 +141,8 @@ namespace UndergroundVault
         public bool isCanWorkOn => PowerOn && (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) <= 0) && (isHaveWorkOn);
         protected virtual bool isHaveWorkOn => platformMode != PlatformMode.None || isExpandVault || isUpgradeFloorVault;
 
+        protected virtual bool isSheduled => !PlatformSurfaceThings.NullOrEmpty() || !PlatformUndergroundThings.NullOrEmpty();
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -200,6 +202,22 @@ namespace UndergroundVault
             foreach (Thing t in things)
             {
                 MarkItemFromTerminal(t);
+            }
+        }
+        public virtual void UnMarkItemFromTerminal(Thing thing)
+        {
+            if (PlatformSurfaceThings.Any((Thing t) => t == thing))
+            {
+                PlatformSurfaceThings.Remove(thing);
+                if (!isPlatformMoving)
+                    platformMode = PlatformMode.Done;
+            }
+        }
+        public virtual void UnMarkItemsFromTerminal(List<Thing> things)
+        {
+            foreach (Thing t in things)
+            {
+                UnMarkItemFromTerminal(t);
             }
         }
 
@@ -470,6 +488,36 @@ namespace UndergroundVault
             };
         }
 
+        protected virtual Command_Action ClearSheduled()
+        {
+            return new Command_Action
+            {
+                action = delegate
+                {
+                    List<FloatMenuOption> floatMenuOptions = new List<FloatMenuOption>();
+                    if (PlatformSurfaceThings.Count() > 0)
+                    {
+                        floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.ClearSheduled.SurfaceThings".Translate(), delegate
+                        {
+                            UnMarkItemsFromTerminal(PlatformSurfaceThings.ToList());
+                        }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                    }
+                    if (PlatformUndergroundThings.Count() > 0)
+                    {
+                        floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.ClearSheduled.UndergroundThings".Translate(), delegate
+                        {
+                            UnMarkItemsFromVault(PlatformUndergroundThings.ToList());
+                        }, itemIcon: TextureOfLocal.TakeIconTex, iconColor: Color.white));
+                    }
+                    Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
+                },
+                defaultLabel = "UndergroundVault.Command.ClearSheduled.Label".Translate(),
+                defaultDesc = "UndergroundVault.Command.ClearSheduled.Desc".Translate(),
+                icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel"),
+                Order = 10f
+            };
+        }
+
         public List<ThingDefCountClass> BuildingCost(List<ThingDefCountClass> buildingCostList)
         {
             return buildingCostList.Select((ThingDefCountClass tdcc) => new ThingDefCountClass() { thingDef = tdcc.thingDef, count = tdcc.count }).ToList();
@@ -503,6 +551,8 @@ namespace UndergroundVault
             }
             yield return StoreInVault();
             yield return TakeFromVault();
+            if (isSheduled)
+                yield return ClearSheduled();
             if (HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill) > 0)
             {
                 yield return new Command_Action

@@ -4,19 +4,30 @@
     <UndergroundVault.Command.InstallUpgrade.Label>Install upgrade</UndergroundVault.Command.InstallUpgrade.Label>
     <UndergroundVault.Command.InstallUpgrade.Desc>Will install upgrade module</UndergroundVault.Command.InstallUpgrade.Desc>
     <UndergroundVault.Command.InstallUpgrade.Option>{0}:\n{1}\nSkill {2}</UndergroundVault.Command.InstallUpgrade.Option>
+    
     <UndergroundVault.Command.UninstallUpgrade.Label>Uninstall upgrade</UndergroundVault.Command.UninstallUpgrade.Label>
     <UndergroundVault.Command.UninstallUpgrade.Desc>Will uninstall upgrade module</UndergroundVault.Command.UninstallUpgrade.Desc>
+    
     <UndergroundVault.Command.StoreInVault.Label>Store in Vault</UndergroundVault.Command.StoreInVault.Label>
     <UndergroundVault.Command.StoreInVault.Desc>Will lower the cargo platform from the surface to the Vault</UndergroundVault.Command.StoreInVault.Desc>
     <UndergroundVault.Command.StoreAllInVault.Label>Store all {0}</UndergroundVault.Command.StoreAllInVault.Label>
     <UndergroundVault.Command.StoreAllFullInVault.Label>Store all full {0}</UndergroundVault.Command.StoreAllFullInVault.Label>
+    
     <UndergroundVault.Command.TakeFromVault.Label>Take from Vault</UndergroundVault.Command.TakeFromVault.Label>
     <UndergroundVault.Command.TakeFromVault.Desc>Will raise the cargo platform from the Vault to the surface</UndergroundVault.Command.TakeFromVault.Desc>
+    
+    <UndergroundVault.Command.ClearSheduled.Label>Clear sheduled actions</UndergroundVault.Command.ClearSheduled.Label>
+    <UndergroundVault.Command.ClearSheduled.Desc>Will clear sheduled actions for items transportation between Vault and Terminal</UndergroundVault.Command.ClearSheduled.Desc>
+    <UndergroundVault.Command.ClearSheduled.SurfaceThings>To store in Vault</UndergroundVault.Command.ClearSheduled.SurfaceThings>
+    <UndergroundVault.Command.ClearSheduled.UndergroundThings>To take from Vault</UndergroundVault.Command.ClearSheduled.UndergroundThings>
+    
     <UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>
     <UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor</UndergroundVault.Command.ExpandVault.Desc>
+    
     <UndergroundVault.Command.UpgradeFloorVault.Label>Upgrade Vault floor</UndergroundVault.Command.UpgradeFloorVault.Label>
     <UndergroundVault.Command.UpgradeFloorVault.Desc>Will optimize floor space</UndergroundVault.Command.UpgradeFloorVault.Desc>
     <UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to {1}</UndergroundVault.Command.UpgradeFloorVault.Option>
+    
     <UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
     <UndergroundVault.Command.disabledReason.PlatformBusy>Сargo platform busy</UndergroundVault.Command.disabledReason.PlatformBusy>
@@ -29,6 +40,8 @@
     <UndergroundVault.Command.disabledReason.VaultEmpty>Vault is empty</UndergroundVault.Command.disabledReason.VaultEmpty>
     <UndergroundVault.Command.disabledReason.VaultFull>Vault is full</UndergroundVault.Command.disabledReason.VaultFull>
 
+
+
     <UndergroundVault.Terminal.InspectString.PlatformMoving>Platform moving: {0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
     <UndergroundVault.Terminal.InspectString.SheduledStoreInVault>{0} thing scheduled to store in Vault</UndergroundVault.Terminal.InspectString.SheduledStoreInVault>
     <UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>{0} thing scheduled to take from Vault</UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>
@@ -39,10 +52,14 @@
     <UndergroundVault.Terminal.InspectString.Cremation>Cremating: {0}</UndergroundVault.Terminal.InspectString.Cremation>
     <UndergroundVault.Terminal.InspectString.SheduledCremation>{0} thing scheduled for cremation</UndergroundVault.Terminal.InspectString.SheduledCremation>
 
+
+
     <UndergroundVault.Command.VaultDetonate.Label>Detonate Vault</UndergroundVault.Command.VaultDetonate.Label>
     <UndergroundVault.Command.VaultDetonate.Desc>Will detonate Vault with all it content</UndergroundVault.Command.VaultDetonate.Desc>
     <UndergroundVault.Command.disabledReason.TerminalAvailable>Uninstall Terminal first</UndergroundVault.Command.disabledReason.TerminalAvailable>
 
+
+    
     <UndergroundVault.Vault.InspectString.Capacity>Vault space {0} Used / {1} Free / {2} Total</UndergroundVault.Vault.InspectString.Capacity>
     <UndergroundVault.Vault.InspectString.Total>Vault floors:</UndergroundVault.Vault.InspectString.Total>
     <UndergroundVault.Vault.InspectString.Floor>- Floors lvl {0}: {1}</UndergroundVault.Vault.InspectString.Floor>

@@ -4,19 +4,30 @@
     <UndergroundVault.Command.InstallUpgrade.Label>Установить улучшение</UndergroundVault.Command.InstallUpgrade.Label>
     <UndergroundVault.Command.InstallUpgrade.Desc>Будет установлен модуль улучшения</UndergroundVault.Command.InstallUpgrade.Desc>
     <UndergroundVault.Command.InstallUpgrade.Option>{0}:\n{1}\nНавык {2}</UndergroundVault.Command.InstallUpgrade.Option>
+    
     <UndergroundVault.Command.UninstallUpgrade.Label>Убрать улучшение</UndergroundVault.Command.UninstallUpgrade.Label>
     <UndergroundVault.Command.UninstallUpgrade.Desc>Будет разобран модуль улучшения</UndergroundVault.Command.UninstallUpgrade.Desc>
+    
     <UndergroundVault.Command.StoreInVault.Label>Поместить в хранилище</UndergroundVault.Command.StoreInVault.Label>
     <UndergroundVault.Command.StoreInVault.Desc>Опустит грузовую платформу с поверхности в хранилище</UndergroundVault.Command.StoreInVault.Desc>
     <UndergroundVault.Command.StoreAllInVault.Label>Поместить все {0}</UndergroundVault.Command.StoreAllInVault.Label>
     <UndergroundVault.Command.StoreAllFullInVault.Label>Поместить все заполненные {0}</UndergroundVault.Command.StoreAllFullInVault.Label>
+    
     <UndergroundVault.Command.TakeFromVault.Label>Забрать из хранилища</UndergroundVault.Command.TakeFromVault.Label>
     <UndergroundVault.Command.TakeFromVault.Desc>Поднимет грузовую платформу из хранилища на поверхность</UndergroundVault.Command.TakeFromVault.Desc>
+    
+    <UndergroundVault.Command.ClearSheduled.Label>Очистка запланированных действий</UndergroundVault.Command.ClearSheduled.Label>
+    <UndergroundVault.Command.ClearSheduled.Desc>Очистит запланированные действия по перемещению предметов между хранилищем и терминалом</UndergroundVault.Command.ClearSheduled.Desc>
+    <UndergroundVault.Command.ClearSheduled.SurfaceThings>Помещаемые в хранилище</UndergroundVault.Command.ClearSheduled.SurfaceThings>
+    <UndergroundVault.Command.ClearSheduled.UndergroundThings>Забираемые из хранилища</UndergroundVault.Command.ClearSheduled.UndergroundThings>
+    
     <UndergroundVault.Command.ExpandVault.Label>Расширить хранилище</UndergroundVault.Command.ExpandVault.Label>
     <UndergroundVault.Command.ExpandVault.Desc>Проведёт бурение подземной породы для освобождения места под дополнительный этаж хранилища</UndergroundVault.Command.ExpandVault.Desc>
+    
     <UndergroundVault.Command.UpgradeFloorVault.Label>Улучшит этаж хранилища</UndergroundVault.Command.UpgradeFloorVault.Label>
     <UndergroundVault.Command.UpgradeFloorVault.Desc>Проведёт оптимизацию пространства этажа</UndergroundVault.Command.UpgradeFloorVault.Desc>
     <UndergroundVault.Command.UpgradeFloorVault.Option>Улучшить этаж {0} до {1}</UndergroundVault.Command.UpgradeFloorVault.Option>
+
     <UndergroundVault.Command.disabledReason.PlatformFree>Грузовая платформа пуста</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Грузовая платформа заполнена</UndergroundVault.Command.disabledReason.PlatformNotFree>
     <UndergroundVault.Command.disabledReason.PlatformBusy>Грузовая платформа занята</UndergroundVault.Command.disabledReason.PlatformBusy>
@@ -29,6 +40,8 @@
     <UndergroundVault.Command.disabledReason.VaultEmpty>Хранилище пусто</UndergroundVault.Command.disabledReason.VaultEmpty>
     <UndergroundVault.Command.disabledReason.VaultFull>Хранилище заполнено</UndergroundVault.Command.disabledReason.VaultFull>
 
+
+
     <UndergroundVault.Terminal.InspectString.PlatformMoving>Платформа движется: {0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
     <UndergroundVault.Terminal.InspectString.SheduledStoreInVault>{0} вещей планируется поместить в хранилище</UndergroundVault.Terminal.InspectString.SheduledStoreInVault>
     <UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>{0} вещей планируется забрать из хранилища</UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>
@@ -39,9 +52,13 @@
     <UndergroundVault.Terminal.InspectString.Cremation>Кремирование: {0}</UndergroundVault.Terminal.InspectString.Cremation>
     <UndergroundVault.Terminal.InspectString.SheduledCremation>{0} вещей планируется кремировать</UndergroundVault.Terminal.InspectString.SheduledCremation>
 
+
+
     <UndergroundVault.Command.VaultDetonate.Label>Взорвать хранилище</UndergroundVault.Command.VaultDetonate.Label>
     <UndergroundVault.Command.VaultDetonate.Desc>Взорвёт зранилище со всем содержимым</UndergroundVault.Command.VaultDetonate.Desc>
     <UndergroundVault.Command.disabledReason.TerminalAvailable>Разберите сначала терминал</UndergroundVault.Command.disabledReason.TerminalAvailable>
+
+
 
     <UndergroundVault.Vault.InspectString.Capacity>Пространство в хранилище {0} Используется / {1} Свободно / {2} Всего</UndergroundVault.Vault.InspectString.Capacity>
     <UndergroundVault.Vault.InspectString.Total>Этажи хранилища:</UndergroundVault.Vault.InspectString.Total>
