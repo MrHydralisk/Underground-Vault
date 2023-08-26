@@ -560,6 +560,7 @@
       <thingClass>UndergroundVault.Building_UVTerminalStorage</thingClass>
       <designatorDropdown>UVTerminalStorage_SET</designatorDropdown>
       <building>
+        <maxItemsInCell>3</maxItemsInCell>
         <defaultStorageSettings>
           <priority>Important</priority>
         </defaultStorageSettings>

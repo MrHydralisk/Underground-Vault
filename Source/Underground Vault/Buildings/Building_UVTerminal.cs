@@ -445,19 +445,19 @@ namespace UndergroundVault
                             }, iconThing: t, iconColor: t.DrawColor);
                         })
                             .ToList();
-                        if (PlatformThings.Count() > 0)
+                        if (PlatformThings.Count() > 1)
                         {
                             floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllInVault.Label".Translate(PlatformThings.Count().ToStringSafe()), delegate
                             {
                                 MarkItemsFromTerminal(PlatformThings);
                             }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
-                        }
-                        if (PlatformFullThings.Count() > 0)
-                        {
-                            floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllFullInVault.Label".Translate(PlatformFullThings.Count().ToStringSafe()), delegate
+                            if (PlatformFullThings.Count() > 0)
                             {
-                                MarkItemsFromTerminal(PlatformFullThings);
-                            }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                                floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllFullInVault.Label".Translate(PlatformFullThings.Count().ToStringSafe()), delegate
+                                {
+                                    MarkItemsFromTerminal(PlatformFullThings);
+                                }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                            }
                         }
                         Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
                     }
@@ -465,8 +465,8 @@ namespace UndergroundVault
                 defaultLabel = "UndergroundVault.Command.StoreInVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.StoreInVault.Desc".Translate(),
                 icon = TextureOfLocal.StoreIconTex,
-                disabled = !isVaultAvailable || platformMode == PlatformMode.Up || isPlatformFree || !isPlatformHaveItems || CanAdd <= 0,
-                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : !isPlatformHaveItems ? "UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore".Translate() : "UndergroundVault.Command.disabledReason.VaultFull".Translate(),
+                disabled = !isVaultAvailable || isPlatformFree || !isPlatformHaveItems || CanAdd <= 0,
+                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : !isPlatformHaveItems ? "UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore".Translate() : "UndergroundVault.Command.disabledReason.VaultFull".Translate(),
                 Order = 10f
             };
         }
@@ -482,8 +482,8 @@ namespace UndergroundVault
                 defaultLabel = "UndergroundVault.Command.TakeFromVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
                 icon = TextureOfLocal.TakeIconTex,
-                disabled = !isVaultAvailable || IsVaultEmpty || platformMode == PlatformMode.Up,
-                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : IsVaultEmpty ? "UndergroundVault.Command.disabledReason.VaultEmpty".Translate() : "UndergroundVault.Command.disabledReason.PlatformBusy".Translate(),
+                disabled = !isVaultAvailable || IsVaultEmpty,
+                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : "UndergroundVault.Command.disabledReason.VaultEmpty".Translate(),
                 Order = 10f
             };
         }
