@@ -68,7 +68,7 @@ namespace UndergroundVault
         protected PlatformMode platformMode = PlatformMode.None;
         
         protected virtual List<Thing> PlatformSlots => ExtTerminal.PlatformItemPositions.Select((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).FirstOrDefault((Thing t) => PlatformThingsSorter(t))).ToList();
-        protected virtual List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null).ToList();
+        protected virtual List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && !(t is Filth)).ToList();
 
         protected virtual bool PlatformThingsSorter(Thing thing)
         {
@@ -350,7 +350,7 @@ namespace UndergroundVault
                         }
                     }
                 }
-                else if (isExpandVault)
+                if (isExpandVault)
                 {
                     if (ticksTillExpandVaultTime > 0)
                     {
@@ -362,7 +362,7 @@ namespace UndergroundVault
                         isExpandVault = false;
                     }
                 }
-                else if (isUpgradeFloorVault)
+                if (isUpgradeFloorVault)
                 {
                     if (ticksTillUpgradeFloorVaultTime > 0)
                     {
@@ -374,11 +374,7 @@ namespace UndergroundVault
                         isUpgradeFloorVault = false;
                     }
                 }
-                else
-                {
-                    WorkTick();
-                }
-
+                WorkTick();
             }
         }
 
@@ -435,8 +431,8 @@ namespace UndergroundVault
                 defaultLabel = "UndergroundVault.Command.StoreInVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.StoreInVault.Desc".Translate(),
                 icon = TextureOfLocal.StoreIconTex,
-                disabled = !isVaultAvailable || platformMode == PlatformMode.Up || isPlatformFree || !isPlatformHaveItems,
-                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore".Translate(),
+                disabled = !isVaultAvailable || platformMode == PlatformMode.Up || isPlatformFree || !isPlatformHaveItems || CanAdd <= 0,
+                disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : platformMode == PlatformMode.Up ? "UndergroundVault.Command.disabledReason.PlatformBusy".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : !isPlatformHaveItems ? "UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore".Translate() : "UndergroundVault.Command.disabledReason.VaultFull".Translate(),
                 Order = 10f
             };
         }

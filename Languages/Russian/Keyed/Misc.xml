@@ -26,6 +26,7 @@
     <UndergroundVault.Command.disabledReason.UpgradeFloorVault>Оптимизация пространства этажа хранилища уже проихводится</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>Нет этажей для оптимизации</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.VaultEmpty>Хранилище пусто</UndergroundVault.Command.disabledReason.VaultEmpty>
+    <UndergroundVault.Command.disabledReason.VaultFull>Хранилище заполнено</UndergroundVault.Command.disabledReason.VaultFull>
 
     <UndergroundVault.Terminal.InspectString.PlatformMoving>Платформа движется: {0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
     <UndergroundVault.Terminal.InspectString.SheduledStoreInVault>{0} вещей планируется поместить в хранилище</UndergroundVault.Terminal.InspectString.SheduledStoreInVault>

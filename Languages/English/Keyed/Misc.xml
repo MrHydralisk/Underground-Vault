@@ -26,6 +26,7 @@
     <UndergroundVault.Command.disabledReason.UpgradeFloorVault>Vault floor already being optimized</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>No floors to optimize</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.VaultEmpty>Vault is empty</UndergroundVault.Command.disabledReason.VaultEmpty>
+    <UndergroundVault.Command.disabledReason.VaultFull>Vault is full</UndergroundVault.Command.disabledReason.VaultFull>
 
     <UndergroundVault.Terminal.InspectString.PlatformMoving>Platform moving: {0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
     <UndergroundVault.Terminal.InspectString.SheduledStoreInVault>{0} thing scheduled to store in Vault</UndergroundVault.Terminal.InspectString.SheduledStoreInVault>
