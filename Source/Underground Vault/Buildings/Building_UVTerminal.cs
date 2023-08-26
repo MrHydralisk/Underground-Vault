@@ -290,8 +290,10 @@ namespace UndergroundVault
             base.Tick();
             if (PowerOn && Manned)
             {
-                if (platformMode != PlatformMode.None)
+                bool isNotSkip = true;
+                if ((ExtTerminal.isMultitask || isNotSkip) && platformMode != PlatformMode.None)
                 {
+                    isNotSkip = false;
                     if (ticksTillPlatformTravelTime > 0)
                     {
                         ticksTillPlatformTravelTime--;
@@ -345,13 +347,18 @@ namespace UndergroundVault
                                     {
                                         platformMode = PlatformMode.None;
                                     }
+                                    else
+                                    {
+                                        isNotSkip = true;
+                                    }
                                     break;
                                 }
                         }
                     }
                 }
-                if (isExpandVault)
+                if ((ExtTerminal.isMultitask || isNotSkip) && isExpandVault)
                 {
+                    isNotSkip = false;
                     if (ticksTillExpandVaultTime > 0)
                     {
                         ticksTillExpandVaultTime--;
@@ -362,8 +369,9 @@ namespace UndergroundVault
                         isExpandVault = false;
                     }
                 }
-                if (isUpgradeFloorVault)
+                if ((ExtTerminal.isMultitask || isNotSkip) && isUpgradeFloorVault)
                 {
+                    isNotSkip = false;
                     if (ticksTillUpgradeFloorVaultTime > 0)
                     {
                         ticksTillUpgradeFloorVaultTime--;
@@ -374,11 +382,11 @@ namespace UndergroundVault
                         isUpgradeFloorVault = false;
                     }
                 }
-                WorkTick();
+                WorkTick(isNotSkip);
             }
         }
 
-        protected virtual void WorkTick()
+        protected virtual void WorkTick(bool isNotSkip)
         {
 
         }
@@ -423,6 +431,14 @@ namespace UndergroundVault
                             floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllInVault.Label".Translate(PlatformThings.Count().ToStringSafe()), delegate
                             {
                                 MarkItemsFromTerminal(PlatformThings);
+                            }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                        }
+                        List<Thing> PlatformFullThings = PlatformThings.Where((Thing t) => t.stackCount == t.def.stackLimit).ToList();
+                        if (PlatformFullThings.Count() > 0)
+                        {
+                            floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllFullInVault.Label".Translate(PlatformFullThings.Count().ToStringSafe()), delegate
+                            {
+                                MarkItemsFromTerminal(PlatformFullThings);
                             }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
                         }
                         Find.WindowStack.Add(new FloatMenu(floatMenuOptions));

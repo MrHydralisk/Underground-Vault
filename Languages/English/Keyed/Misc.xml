@@ -9,6 +9,7 @@
     <UndergroundVault.Command.StoreInVault.Label>Store in Vault</UndergroundVault.Command.StoreInVault.Label>
     <UndergroundVault.Command.StoreInVault.Desc>Will lower the cargo platform from the surface to the Vault</UndergroundVault.Command.StoreInVault.Desc>
     <UndergroundVault.Command.StoreAllInVault.Label>Store all {0}</UndergroundVault.Command.StoreAllInVault.Label>
+    <UndergroundVault.Command.StoreAllFullInVault.Label>Store all full {0}</UndergroundVault.Command.StoreAllFullInVault.Label>
     <UndergroundVault.Command.TakeFromVault.Label>Take from Vault</UndergroundVault.Command.TakeFromVault.Label>
     <UndergroundVault.Command.TakeFromVault.Desc>Will raise the cargo platform from the Vault to the surface</UndergroundVault.Command.TakeFromVault.Desc>
     <UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>

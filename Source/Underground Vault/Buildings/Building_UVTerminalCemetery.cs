@@ -31,9 +31,9 @@ namespace UndergroundVault
         public bool isCremating;
         protected override bool IsVaultEmpty => ((InnerContainer.Count() - (PlatformContainer.Count() + CremationThings.Count())) <= 0);
         protected override bool isHaveWorkOn => base.isHaveWorkOn || !CremationThings.NullOrEmpty();
-        protected override void WorkTick()
+        protected override void WorkTick(bool isNotSkip)
         {
-            if (!CremationThings.NullOrEmpty())
+            if ((ExtTerminal.isMultitask || isNotSkip) && !CremationThings.NullOrEmpty())
             {
                 if (ticksTillCremationTime > 0)
                 {

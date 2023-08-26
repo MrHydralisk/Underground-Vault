@@ -9,6 +9,7 @@
     <UndergroundVault.Command.StoreInVault.Label>Поместить в хранилище</UndergroundVault.Command.StoreInVault.Label>
     <UndergroundVault.Command.StoreInVault.Desc>Опустит грузовую платформу с поверхности в хранилище</UndergroundVault.Command.StoreInVault.Desc>
     <UndergroundVault.Command.StoreAllInVault.Label>Поместить все {0}</UndergroundVault.Command.StoreAllInVault.Label>
+    <UndergroundVault.Command.StoreAllFullInVault.Label>Поместить все заполненные {0}</UndergroundVault.Command.StoreAllFullInVault.Label>
     <UndergroundVault.Command.TakeFromVault.Label>Забрать из хранилища</UndergroundVault.Command.TakeFromVault.Label>
     <UndergroundVault.Command.TakeFromVault.Desc>Поднимет грузовую платформу из хранилища на поверхность</UndergroundVault.Command.TakeFromVault.Desc>
     <UndergroundVault.Command.ExpandVault.Label>Расширить хранилище</UndergroundVault.Command.ExpandVault.Label>
