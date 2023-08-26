@@ -14,6 +14,7 @@ namespace UndergroundVault
     public class Building_UVTerminalCryptosleep : Building_UVTerminal
     {
         protected override List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && t.def == ThingDefOfLocal.UVCryptosleepCasket).ToList();
+        protected override List<Thing> PlatformFullThings => PlatformThings.Where((Thing t) => (t is Building_Casket bc) && bc.HasAnyContents).ToList();
         protected override bool PlatformThingsSorter(Thing thing)
         {
             return thing.def == ThingDefOfLocal.UVCryptosleepCasket || thing is Frame || thing is Blueprint;
@@ -78,9 +79,16 @@ namespace UndergroundVault
                             .ToList();
                         if (PlatformThings.Count() > 1)
                         {
-                            floatMenuOptions.Add(new FloatMenuOption("All".Translate(), delegate
+                            floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllInVault.Label".Translate(), delegate
                             {
                                 MarkItemsFromTerminal(PlatformThings);
+                            }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                        }
+                        if (PlatformFullThings.Count() > 0)
+                        {
+                            floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllFullInVault.Label".Translate(PlatformFullThings.Count().ToStringSafe()), delegate
+                            {
+                                MarkItemsFromTerminal(PlatformFullThings);
                             }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
                         }
                         Find.WindowStack.Add(new FloatMenu(floatMenuOptions));

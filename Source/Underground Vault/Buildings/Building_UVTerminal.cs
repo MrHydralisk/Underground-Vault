@@ -69,6 +69,7 @@ namespace UndergroundVault
         
         protected virtual List<Thing> PlatformSlots => ExtTerminal.PlatformItemPositions.Select((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).FirstOrDefault((Thing t) => PlatformThingsSorter(t))).ToList();
         protected virtual List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && !(t is Filth)).ToList();
+        protected virtual List<Thing> PlatformFullThings => PlatformThings.Where((Thing t) => t.stackCount == t.def.stackLimit).ToList();
 
         protected virtual bool PlatformThingsSorter(Thing thing)
         {
@@ -433,7 +434,6 @@ namespace UndergroundVault
                                 MarkItemsFromTerminal(PlatformThings);
                             }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
                         }
-                        List<Thing> PlatformFullThings = PlatformThings.Where((Thing t) => t.stackCount == t.def.stackLimit).ToList();
                         if (PlatformFullThings.Count() > 0)
                         {
                             floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllFullInVault.Label".Translate(PlatformFullThings.Count().ToStringSafe()), delegate
@@ -643,7 +643,6 @@ namespace UndergroundVault
         {
             List<string> inspectStrings = new List<string>();
             inspectStrings.Add(base.GetInspectString());
-            inspectStrings.Add("UndergroundVault.Vault.InspectString.Capacity".Translate(InnerContainer.Count(), CanAdd, UVVault.Capacity));
             if (ticksTillPlatformTravelTime > 0)
             {
                 inspectStrings.Add("UndergroundVault.Terminal.InspectString.PlatformMoving".Translate(ticksTillPlatformTravelTime.TicksToSeconds()));

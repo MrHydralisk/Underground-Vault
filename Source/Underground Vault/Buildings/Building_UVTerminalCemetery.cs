@@ -13,6 +13,7 @@ namespace UndergroundVault
     public class Building_UVTerminalCemetery : Building_UVTerminalCryptosleep
     {
         protected override List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && t.def == ThingDefOfLocal.UVSarcophagus).ToList();
+        protected override List<Thing> PlatformFullThings => PlatformThings.Where((Thing t) => (t is Building_Casket bc) && bc.HasAnyContents).ToList();
         protected override bool PlatformThingsSorter(Thing thing)
         {
             return thing.def == ThingDefOfLocal.UVSarcophagus || thing is Frame || thing is Blueprint;

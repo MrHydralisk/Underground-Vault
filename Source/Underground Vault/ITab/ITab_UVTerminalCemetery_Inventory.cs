@@ -21,7 +21,7 @@ namespace UndergroundVault
             get
             {
                 if (quickSearch.filter.Active)
-                    return container.Where((Thing t) => quickSearch.filter.Matches(t.LabelCap) || (t is Building_Casket bc && (bc.HasAnyContents ? quickSearch.filter.Matches(bc.ContainedThing.LabelCap) : false))).ToList();
+                    return container.Where((Thing t) => quickSearch.filter.Matches(t.LabelCap) || (t is Building_Casket bc && (bc.HasAnyContents ? quickSearch.filter.Matches(bc.ContainedThing.LabelCap) : quickSearch.filter.Matches("NothingLower".Translate().RawText)))).ToList();
                 else
                     return container;
             }
@@ -98,7 +98,7 @@ namespace UndergroundVault
                 }
             }
             Rect rect3 = new Rect(36f, curY, rect.width - 36f, rect.height);
-            string text2 = thing.LabelCap;
+            string text2 = thing.LabelCap + " (" + (bs.HasAnyContents ? bs.ContainedThing.LabelCap : "NothingLower".Translate().RawText) + ")";
             Text.WordWrap = false;
             Widgets.Label(rect3, text2.StripTags().Truncate(rect3.width));
             Text.WordWrap = true;
