@@ -139,7 +139,7 @@ namespace UndergroundVault
         protected virtual bool IsVaultEmpty => ((InnerContainer.Count() - PlatformContainer.Count()) <= 0);
 
         public bool isCanWorkOn => PowerOn && (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) <= 0) && (isHaveWorkOn);
-        protected virtual bool isHaveWorkOn => platformMode != PlatformMode.None || isExpandVault || isUpgradeFloorVault;
+        protected virtual bool isHaveWorkOn => (platformMode != PlatformMode.None && !(platformMode == PlatformMode.Done && !PlatformSurfaceThings.NullOrEmpty() && PlatformUndergroundThings.NullOrEmpty() && CanAdd <= 0)) || isExpandVault || isUpgradeFloorVault;
 
         protected virtual bool isSheduled => !PlatformSurfaceThings.NullOrEmpty() || !PlatformUndergroundThings.NullOrEmpty();
 
