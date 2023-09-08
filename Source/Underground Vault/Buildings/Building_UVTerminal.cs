@@ -94,7 +94,7 @@ namespace UndergroundVault
         {
             get
             {
-                return (int)((ticksPerExpandVaultTimeBase * DrillDiffCurve.Evaluate(UVVault.Floors.Count() + 1)) / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill)));
+                return (int)((ticksPerExpandVaultTimeBase * DrillDiffCurve.Evaluate(UVVault.Floors.Count() + 1)) / Mathf.Pow(2, HaveUpgrade(new List<ThingDef>(){ ThingDefOfLocal.UVUpgradeDeepDrill, ThingDefOfLocal.UVUpgradeDeepDrillM })));
             }
         }
 
@@ -116,13 +116,14 @@ namespace UndergroundVault
 
         private int ticksTillExpandVaultTime;
         public bool isExpandVault = false;
+        public bool isVaultMaxFloor => (ExtTerminal.FloorMax > 0) && (UVVault.Floors.Count() >= ExtTerminal.FloorMax);
 
         private int ticksPerUpgradeFloorVaultTimeBase => ExtTerminal.TicksPerUpgradeFloorVaultTimeBase;
         private int ticksPerUpgradeFloorVaultTime
         {
             get
             {
-                return (int)(ticksPerUpgradeFloorVaultTimeBase * Mathf.Pow(2, UVVault.Floors.First(x => x < HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) + 1) - 1));
+                return (int)(ticksPerUpgradeFloorVaultTimeBase * Mathf.Pow(2, UVVault.Floors.First(x => x < HaveUpgrade(new List<ThingDef>() { ThingDefOfLocal.UVUpgradeStorageEfficiency, ThingDefOfLocal.UVUpgradeStorageEfficiencyM }) + 1) - 1));
             }
         }
 
@@ -156,6 +157,7 @@ namespace UndergroundVault
                 if (!isVaultAvailable)
                 {
                     Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
+                    t.SetStuffDirect(this.Stuff);
                     t.SetFactionDirect(this.Faction);
                 }
             }
@@ -164,6 +166,11 @@ namespace UndergroundVault
         public int HaveUpgrade(ThingDef upgradeDef)
         {
             return Upgrades.Count((Thing t) => t != null && t.def == upgradeDef);
+        }
+
+        public int HaveUpgrade(List<ThingDef> upgradeDefs)
+        {
+            return Upgrades.Count((Thing t) => t != null && upgradeDefs.Any(td => td == t.def));
         }
 
         public virtual void AddItemToTerminal(Thing thing)
@@ -553,7 +560,7 @@ namespace UndergroundVault
             yield return TakeFromVault();
             if (isSheduled)
                 yield return ClearSheduled();
-            if (HaveUpgrade(ThingDefOfLocal.UVUpgradeDeepDrill) > 0)
+            if (HaveUpgrade(new List<ThingDef>() { ThingDefOfLocal.UVUpgradeDeepDrill, ThingDefOfLocal.UVUpgradeDeepDrillM }) > 0)
             {
                 yield return new Command_Action
                 {
@@ -564,13 +571,13 @@ namespace UndergroundVault
                     defaultLabel = "UndergroundVault.Command.ExpandVault.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeDDIconTex,
-                    disabled = !isVaultAvailable || isExpandVault,
-                    disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : "UndergroundVault.Command.disabledReason.ExpandingVault".Translate(),
+                    disabled = !isVaultAvailable || isVaultMaxFloor || isExpandVault,
+                    disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isVaultMaxFloor ? "UndergroundVault.Command.disabledReason.ExpandingVaultMax".Translate() : "UndergroundVault.Command.disabledReason.ExpandingVault".Translate(),
                     Order = 20f
                 };
             }
             int upgradesAmount;
-            if ((upgradesAmount = HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency)) > 0)
+            if ((upgradesAmount = HaveUpgrade(new List<ThingDef>() { ThingDefOfLocal.UVUpgradeStorageEfficiency, ThingDefOfLocal.UVUpgradeStorageEfficiencyM })) > 0)
             {
                 yield return new Command_Action
                 {
@@ -595,7 +602,7 @@ namespace UndergroundVault
                     defaultLabel = "UndergroundVault.Command.UpgradeFloorVault.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.UpgradeFloorVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeSEIconTex,
-                    disabled = !isVaultAvailable || isUpgradeFloorVault || !UVVault.Floors.Any(x => x < HaveUpgrade(ThingDefOfLocal.UVUpgradeStorageEfficiency) + 1),
+                    disabled = !isVaultAvailable || isUpgradeFloorVault || !UVVault.Floors.Any(x => x < HaveUpgrade(new List<ThingDef>() { ThingDefOfLocal.UVUpgradeStorageEfficiency, ThingDefOfLocal.UVUpgradeStorageEfficiencyM }) + 1),
                     disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isUpgradeFloorVault ? "UndergroundVault.Command.disabledReason.UpgradeFloorVault".Translate() : "UndergroundVault.Command.disabledReason.NoUpgradeFloorVault".Translate(),
                     Order = 20f
                 };
@@ -692,7 +699,11 @@ namespace UndergroundVault
         public override string GetInspectString()
         {
             List<string> inspectStrings = new List<string>();
-            inspectStrings.Add(base.GetInspectString());
+            string str = base.GetInspectString();
+            if (!str.NullOrEmpty())
+            {
+                inspectStrings.Add(str);
+            }
             if (ticksTillPlatformTravelTime > 0)
             {
                 inspectStrings.Add("UndergroundVault.Terminal.InspectString.PlatformMoving".Translate(ticksTillPlatformTravelTime.TicksToSeconds()));

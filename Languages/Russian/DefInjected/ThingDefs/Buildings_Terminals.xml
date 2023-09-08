@@ -10,6 +10,9 @@
   <UVTerminalCemeteryL.label>терминал хранилища кладбища</UVTerminalCemeteryL.label>
   <UVTerminalCemeteryL.description>Терминал для управления хранилищем кладбища и доступа к нему. Размер L.</UVTerminalCemeteryL.description>
 
+  <UVTerminalCemeteryMedieval.label>средневековый терминал хранилища кладбища</UVTerminalCemeteryMedieval.label>
+  <UVTerminalCemeteryMedieval.description>Терминал для управления хранилищем кладбища и доступа к нему. Средневековый тип.</UVTerminalCemeteryMedieval.description>
+
   <UVTerminalCryptosleepS.label>терминал хранилища криптосна</UVTerminalCryptosleepS.label>
   <UVTerminalCryptosleepS.description>Терминал для управления хранилищем криптосна и доступа к нему. Размер S.</UVTerminalCryptosleepS.description>
 
@@ -30,5 +33,8 @@
 
   <UVTerminalStorageXL.label>терминал хранилища</UVTerminalStorageXL.label>
   <UVTerminalStorageXL.description>Терминал для управления хранилищем и доступа к нему. Размер XL.</UVTerminalStorageXL.description>
+
+  <UVTerminalStorageMedieval.label>средневековый терминал хранилища</UVTerminalStorageMedieval.label>
+  <UVTerminalStorageMedieval.description>Терминал для управления хранилищем и доступа к нему. Средневековый тип.</UVTerminalStorageMedieval.description>
 
 </LanguageData>

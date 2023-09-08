@@ -35,6 +35,7 @@
     <UndergroundVault.Command.disabledReason.PlatformMoving>Грузовая платформа движется</UndergroundVault.Command.disabledReason.PlatformMoving>
     <UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>Нечего помещать в хранилище</UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>
     <UndergroundVault.Command.disabledReason.ExpandingVault>Расширение хранилища уже проихводится</UndergroundVault.Command.disabledReason.ExpandingVault>
+    <UndergroundVault.Command.disabledReason.ExpandingVaultMax>Хранилище уже достигло предельного количества этажей</UndergroundVault.Command.disabledReason.ExpandingVaultMax>
     <UndergroundVault.Command.disabledReason.UpgradeFloorVault>Оптимизация пространства этажа хранилища уже проихводится</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>Нет этажей для оптимизации</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.VaultEmpty>Хранилище пусто</UndergroundVault.Command.disabledReason.VaultEmpty>
@@ -60,7 +61,7 @@
 
 
 
-    <UndergroundVault.Vault.InspectString.Capacity>Пространство в хранилище {0} Используется / {1} Свободно / {2} Всего</UndergroundVault.Vault.InspectString.Capacity>
+    <UndergroundVault.Vault.InspectString.Capacity>Пространство {0} Используется / {1} Свободно / {2} Всего</UndergroundVault.Vault.InspectString.Capacity>
     <UndergroundVault.Vault.InspectString.Total>Этажи хранилища:</UndergroundVault.Vault.InspectString.Total>
     <UndergroundVault.Vault.InspectString.Floor>- Этажи уровня {0}: {1}</UndergroundVault.Vault.InspectString.Floor>
 

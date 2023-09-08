@@ -10,6 +10,9 @@
   <UVVaultCemeteryL.label>подземное хранилище кладбища</UVVaultCemeteryL.label>
   <UVVaultCemeteryL.description>Подземное хранилище кладбища для саркофагов. Размер L.</UVVaultCemeteryL.description>
 
+  <UVVaultCemeteryMedieval.label>средневековое подземное хранилище кладбища</UVVaultCemeteryMedieval.label>
+  <UVVaultCemeteryMedieval.description>Подземное хранилище кладбища для саркофагов. Средневековый тип.</UVVaultCemeteryMedieval.description>
+
   <UVVaultCryptosleepS.label>подземное хранилище криптосна</UVVaultCryptosleepS.label>
   <UVVaultCryptosleepS.description>Подземное хранилище криптосна для саркофагов криптосна. Размер S.</UVVaultCryptosleepS.description>
 
@@ -30,5 +33,8 @@
 
   <UVVaultStorageXL.label>подземное хранилище</UVVaultStorageXL.label>
   <UVVaultStorageXL.description>Подземное хранилище для предметов. Размер XL.</UVVaultStorageXL.description>
+
+  <UVVaultStorageMedieval.label>средневековое подземное хранилище</UVVaultStorageMedieval.label>
+  <UVVaultStorageMedieval.description>Подземное хранилище для предметов. Средневековый тип.</UVVaultStorageMedieval.description>
 
 </LanguageData>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ResearchProjectDef>
+    <defName>UVCemeteryMedieval</defName>
+    <label>Medieval cemetery underground vault</label>
+    <description>Experiment with storing sarcophagus in deep underground cellar.</description>
+    <baseCost>600</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+      <li>ComplexFurniture</li>
+      <li>Stonecutting</li>
+    </prerequisites>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <tab>UVUndergroundVault</tab>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>UVCemetery</defName>
+    <label>Cemetery underground vault</label>
+    <description>Experiment with storing sarcophagus in deep underground vault.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>UVCemeteryMedieval</li>
+      <li>Electricity</li>
+    </prerequisites>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <tab>UVUndergroundVault</tab>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>UVStorageMedieval</defName>
+    <label>Medieval storage underground vault</label>
+    <description>Experiment with storing things in deep underground cellar.</description>
+    <baseCost>600</baseCost>
+    <techLevel>Medieval</techLevel>
+    <prerequisites>
+      <li>ComplexFurniture</li>
+      <li>Stonecutting</li>
+    </prerequisites>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>1.00</researchViewY>
+    <tab>UVUndergroundVault</tab>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>UVStorage</defName>
+    <label>Storage underground vault</label>
+    <description>Experiment with storing things in deep underground vault.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>UVStorageMedieval</li>
+      <li>Electricity</li>
+    </prerequisites>
+    <researchViewX>1.00</researchViewX>
+    <researchViewY>1.00</researchViewY>
+    <tab>UVUndergroundVault</tab>
+  </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>UVCryptosleep</defName>
+    <label>Cryptosleep underground vault</label>
+    <description>Experiment with storing cryptosleep casket in deep underground vault.</description>
+    <baseCost>1500</baseCost>
+    <techLevel>Spacer</techLevel>
+    <prerequisites>
+      <li>Cryptosleep</li>
+    </prerequisites>
+    <researchViewX>0.00</researchViewX>
+    <researchViewY>2.00</researchViewY>
+    <tab>UVUndergroundVault</tab>
+  </ResearchProjectDef>
+
+</Defs>

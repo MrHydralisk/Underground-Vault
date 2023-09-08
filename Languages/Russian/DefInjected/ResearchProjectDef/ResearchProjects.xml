@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <UVCemeteryMedieval.label>средневековое подземное хранилище кладбища</UVCemeteryMedieval.label>
+  <UVCemeteryMedieval.description>Экспирементирование с хранением саркофагов в глубоком погребе.</UVCemeteryMedieval.description>
+
+  <UVCemetery.label>подземное хранилище кладбища</UVCemetery.label>
+  <UVCemetery.description>Экспирементирование с хранением саркофагов в подземном хранилище.</UVCemetery.description>
+
+  <UVStorageMedieval.label>средневековое подземное хранилище</UVStorageMedieval.label>
+  <UVStorageMedieval.description>Экспирементирование с хранением предметов в глубоком погребе.</UVStorageMedieval.description>
+
+  <UVStorage.label>подземное хранилище</UVStorage.label>
+  <UVStorage.description>Экспирементирование с хранением предметов в подземном хранилище.</UVStorage.description>
+
+  <UVCryptosleep.label>подземное хранилище криптосна</UVCryptosleep.label>
+  <UVCryptosleep.description>Экспирементирование с хранением саркофагов криптосна в подземном хранилище.</UVCryptosleep.description>
+
+</LanguageData>

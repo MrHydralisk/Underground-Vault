@@ -35,6 +35,7 @@
     <UndergroundVault.Command.disabledReason.PlatformMoving>Сargo platform is moving</UndergroundVault.Command.disabledReason.PlatformMoving>
     <UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>Nothing to store</UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>
     <UndergroundVault.Command.disabledReason.ExpandingVault>Vault already expanding</UndergroundVault.Command.disabledReason.ExpandingVault>
+    <UndergroundVault.Command.disabledReason.ExpandingVaultMax>Vault already have maximum amount of floors</UndergroundVault.Command.disabledReason.ExpandingVaultMax>
     <UndergroundVault.Command.disabledReason.UpgradeFloorVault>Vault floor already being optimized</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>No floors to optimize</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
     <UndergroundVault.Command.disabledReason.VaultEmpty>Vault is empty</UndergroundVault.Command.disabledReason.VaultEmpty>

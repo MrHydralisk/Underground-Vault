@@ -16,4 +16,10 @@
   <UVUpgradePlatformSpeed.label>модуль скорости платформы</UVUpgradePlatformSpeed.label>
   <UVUpgradePlatformSpeed.description>Модуль улучшения для терминала подземного хранилища, который позволяет увеличить максимальную скорость грузовой плотформы.</UVUpgradePlatformSpeed.description>
 
+  <UVUpgradeDeepDrillM.label>модуль копания</UVUpgradeDeepDrillM.label>
+  <UVUpgradeDeepDrillM.description>Модуль улучшения для терминала подземного хранилища, который позволяет копать подземную породу для освобождения места под дополнительный этаж хранилища.</UVUpgradeDeepDrillM.description>
+
+  <UVUpgradeStorageEfficiencyM.label>модуль эффективности складского пространства</UVUpgradeStorageEfficiencyM.label>
+  <UVUpgradeStorageEfficiencyM.description>Модуль улучшения для терминала подземного хранилища, который позволяет оптимизировать складское пространство.</UVUpgradeStorageEfficiencyM.description>
+
 </LanguageData>

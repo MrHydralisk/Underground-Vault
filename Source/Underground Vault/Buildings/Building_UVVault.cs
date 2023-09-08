@@ -85,7 +85,7 @@ namespace UndergroundVault
                 action = delegate
                 {
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                    Blueprint_Build bb = GenConstruct.PlaceBlueprintForBuild(TerminalDef, this.Position, this.Map, Rot4.North, this.Faction, null);
+                    Blueprint_Build bb = GenConstruct.PlaceBlueprintForBuild(TerminalDef, this.Position, this.Map, Rot4.North, this.Faction, this.Stuff);
                     Log.Message(bb.Label + " " + bb.Faction.ToStringSafe());
                 },
                 defaultLabel = TerminalDef.label,
