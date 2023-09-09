@@ -37,11 +37,33 @@
 		<thingClass>UndergroundVault.Building_UVTerminalCemetery</thingClass>
 		<designatorDropdown>UVTerminalCemetery_SET</designatorDropdown>
 		<building>
+			<buildingTags>
+				<li>RitualFocus</li>
+			</buildingTags>
 		</building>
 		<inspectorTabs>
 			<li>UndergroundVault.ITab_UVTerminalCemetery_Inventory</li>
 		</inspectorTabs>
+		<statBases>
+			<MeditationFocusStrength>0.10</MeditationFocusStrength>
+		</statBases>
 		<comps>
+			<li Class="CompProperties_MeditationFocus">
+				<statDef>MeditationFocusStrength</statDef>
+				<focusTypes>
+					<li>Morbid</li>
+				</focusTypes>
+				<offsets>
+					<li Class="UndergroundVault.FocusStrengthOffset_CementeryTerminal">
+						<offsetPerBuilding>0.01</offsetPerBuilding>
+						<maxBuildings>16</maxBuildings>
+						<focusPerFullGrave>0.05</focusPerFullGrave>
+						<maxBuildingsFull>8</maxBuildingsFull>
+						<offsetGraveCorpseRelationship>0.10</offsetGraveCorpseRelationship>
+						<maxBuildingsRelated>4</maxBuildingsRelated>
+					</li>
+				</offsets>
+			</li>
 		</comps>
 		<researchPrerequisites>
 			<li>UVCemetery</li>

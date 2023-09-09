@@ -52,6 +52,8 @@
     <UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>Floor scheduled for upgrade</UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>
     <UndergroundVault.Terminal.InspectString.Cremation>Cremating: {0}</UndergroundVault.Terminal.InspectString.Cremation>
     <UndergroundVault.Terminal.InspectString.SheduledCremation>{0} thing scheduled for cremation</UndergroundVault.Terminal.InspectString.SheduledCremation>
+    
+    <UndergroundVault.Terminal.MeditationFocusCementery>Per each sarcophagus in Vault (current/max):\n{0} if empty ({1}/{2}),\n{3} for human corpse inside ({4}/{5}),\n{6} if meditator is related to the corpse inside (max {7})</UndergroundVault.Terminal.MeditationFocusCementery>
 
 
 
