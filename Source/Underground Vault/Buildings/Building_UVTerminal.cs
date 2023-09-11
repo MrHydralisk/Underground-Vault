@@ -231,6 +231,7 @@ namespace UndergroundVault
         public virtual void AddItemToVault(Thing thing)
         {
             UVVault.AddItem(thing);
+            ANotify_AddItemToVault();
         }
         public virtual void AddItemsToVault(List<Thing> things)
         {
@@ -238,6 +239,11 @@ namespace UndergroundVault
             {
                 AddItemToVault(t);
             }
+        }
+
+        public void ANotify_AddItemToVault()
+        {
+
         }
         public virtual void TakeItemFromVault(Thing thing)
         {
@@ -297,16 +303,16 @@ namespace UndergroundVault
         public void AddFloor()
         {
             UVVault.AddFloor();
-            FloorUpdate();
+            ANotify_FloorUpdate();
         }
 
         public void UpgradeFloor()
         {
             UVVault.UpgradeFloor(upgradeLevel);
-            FloorUpdate();
+            ANotify_FloorUpdate();
         }
 
-        public void FloorUpdate()
+        public void ANotify_FloorUpdate()
         {
 
         }

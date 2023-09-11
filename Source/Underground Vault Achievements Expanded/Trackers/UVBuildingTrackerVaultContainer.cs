@@ -24,7 +24,7 @@ namespace UndergroundVault_AchievementsExpanded
         {
         }
 
-        public override MethodInfo MethodHook => AccessTools.Method(typeof(Building_UVTerminal), "AddItemToVault", new Type[1] { typeof(Thing) }, (Type[])null);
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Building_UVTerminal), "ANotify_AddItemToVault", (Type[])null, (Type[])null);
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmonyLocal), "UVBuildingVaultContainer", (Type[])null, (Type[])null);
         public override (float percent, string text) PercentComplete => (count > 0) ? ((float)triggeredCount / (float)count, $"{triggeredCount} / {count}") : base.PercentComplete;
 

@@ -19,7 +19,6 @@ namespace UndergroundVault_AchievementsExpanded
     {
         public static void UVBuilding(Thing __instance)
         {
-            Log.Message("UVBuilding " + __instance?.ToStringSafe());
             if (!(__instance is Building_UVTerminal building) || building.Faction != Faction.OfPlayer || Current.ProgramState != ProgramState.Playing)
             {
                 return;
@@ -42,7 +41,6 @@ namespace UndergroundVault_AchievementsExpanded
         }
         public static void UVBuildingFloor(Thing __instance)
         {
-            Log.Message("UVBuildingFloor " + __instance?.ToStringSafe());
             if (!(__instance is Building_UVTerminal building) || building.Faction != Faction.OfPlayer || Current.ProgramState != ProgramState.Playing)
             {
                 return;
@@ -65,7 +63,6 @@ namespace UndergroundVault_AchievementsExpanded
         }
         public static void UVBuildingVaultContainer(Thing __instance)
         {
-            Log.Message("UVBuildingVaultContainer " + __instance?.ToStringSafe());
             if (!(__instance is Building_UVTerminal building) || building.Faction != Faction.OfPlayer || Current.ProgramState != ProgramState.Playing)
             {
                 return;

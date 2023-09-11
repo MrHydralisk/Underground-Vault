@@ -32,7 +32,7 @@ namespace UndergroundVault_AchievementsExpanded
             triggeredCapacity = 0;
         }
 
-        public override MethodInfo MethodHook => AccessTools.Method(typeof(Building_UVTerminal), "FloorUpdate", (Type[])null, (Type[])null);
+        public override MethodInfo MethodHook => AccessTools.Method(typeof(Building_UVTerminal), "ANotify_FloorUpdate", (Type[])null, (Type[])null);
         public override MethodInfo PatchMethod => AccessTools.Method(typeof(AchievementHarmonyLocal), "UVBuildingFloor", (Type[])null, (Type[])null);
         public override (float percent, string text) PercentComplete => (CountFloors > 0) ? ((float)triggeredCountFloors / (float)CountFloors, $"{triggeredCountFloors} / {CountFloors}") : (Capacity > 0) ? ((float)triggeredCapacity / (float)Capacity, $"{triggeredCapacity} / {Capacity}") : base.PercentComplete;
 

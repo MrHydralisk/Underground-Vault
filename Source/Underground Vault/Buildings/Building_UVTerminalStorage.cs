@@ -125,6 +125,7 @@ namespace UndergroundVault
             {
                 UVVault.AddItem(thing);
             }
+            ANotify_AddItemToVault();
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
