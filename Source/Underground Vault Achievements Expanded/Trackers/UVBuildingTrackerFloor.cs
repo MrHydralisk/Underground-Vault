@@ -66,9 +66,9 @@ namespace UndergroundVault_AchievementsExpanded
                 else if (Capacity > 0)
                 {
                     int conCount = uVTerminal.UVVault.Capacity;
-                    if (conCount > triggeredCount)
+                    if (conCount > triggeredCapacity)
                     {
-                        triggeredCount = conCount;
+                        triggeredCapacity = conCount;
                     }
                     if (conCount >= Capacity)
                         return true;
