@@ -81,51 +81,65 @@ namespace UndergroundVault
         }
         public override void AddItemToTerminal(Thing thing)
         {
-            IntVec3 position = this.Position;
-            Map map = this.Map;
-            if (!GenPlace.TryPlaceThing(thing, position, map, ThingPlaceMode.Near, null, delegate (IntVec3 newLoc)
+            if (thing != null)
             {
-                foreach (Thing item in map.thingGrid.ThingsListAtFast(newLoc))
+                IntVec3 position = this.Position;
+                Map map = this.Map;
+                if (!GenPlace.TryPlaceThing(thing, position, map, ThingPlaceMode.Near, null, delegate (IntVec3 newLoc)
                 {
-                    if (item is Building_UVTerminalStorage)
+                    foreach (Thing item in map.thingGrid.ThingsListAtFast(newLoc))
                     {
-                        return false;
+                        if (item is Building_UVTerminalStorage)
+                        {
+                            return false;
+                        }
                     }
+                    return true;
+                }))
+                {
+                    GenSpawn.Spawn(thing, this.InteractionCell, map);
                 }
-                return true;
-            }))
+            }
+            else
             {
-                GenSpawn.Spawn(thing, this.InteractionCell, map);
+                Log.Warning("Tried taking null thing");
             }
         }
 
         public override void AddItemToVault(Thing thing)
         {
-            if (thing.stackCount < thing.def.stackLimit)
+            if (thing != null)
             {
-                foreach (Thing containedItem in InnerContainer)
+                if (thing.stackCount < thing.def.stackLimit)
                 {
-                    if (containedItem.def == thing.def)
+                    foreach (Thing containedItem in InnerContainer)
                     {
-                        int diff = containedItem.def.stackLimit - containedItem.stackCount;
-                        if (diff > 0)
+                        if (containedItem.def == thing.def)
                         {
-                            int added = Mathf.Min(diff, thing.stackCount);
-                            containedItem.stackCount += added;
-                            thing.stackCount -= added;
+                            int diff = containedItem.def.stackLimit - containedItem.stackCount;
+                            if (diff > 0)
+                            {
+                                int added = Mathf.Min(diff, thing.stackCount);
+                                containedItem.stackCount += added;
+                                thing.stackCount -= added;
+                            }
+                        }
+                        if (thing.stackCount <= 0)
+                        {
+                            break;
                         }
                     }
-                    if (thing.stackCount <= 0)
-                    {
-                        break;
-                    }
                 }
+                if (thing.stackCount > 0)
+                {
+                    UVVault.AddItem(thing);
+                }
+                ANotify_AddItemToVault();
             }
-            if (thing.stackCount > 0)
+            else
             {
-                UVVault.AddItem(thing);
+                Log.Warning("Tried adding null thing");
             }
-            ANotify_AddItemToVault();
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)

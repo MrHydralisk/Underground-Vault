@@ -175,7 +175,14 @@ namespace UndergroundVault
 
         public virtual void AddItemToTerminal(Thing thing)
         {
-            GenSpawn.Spawn(thing, this.Position, this.Map);
+            if (thing != null)
+            {
+                GenSpawn.Spawn(thing, this.Position, this.Map);
+            }
+            else
+            {
+                Log.Warning("Tried taking null thing");
+            }
         }
         public virtual void AddItemsToTerminal(List<Thing> things)
         {
@@ -230,8 +237,15 @@ namespace UndergroundVault
 
         public virtual void AddItemToVault(Thing thing)
         {
-            UVVault.AddItem(thing);
-            ANotify_AddItemToVault();
+            if (thing != null)
+            {
+                UVVault.AddItem(thing);
+                ANotify_AddItemToVault();
+            }
+            else
+            {
+                Log.Warning("Tried adding null thing");
+            }
         }
         public virtual void AddItemsToVault(List<Thing> things)
         {
