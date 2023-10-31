@@ -101,9 +101,9 @@ namespace UndergroundVault
 
         private static readonly SimpleCurve DrillDiffCurve = new SimpleCurve
         {
-            new CurvePoint(8f, 1f),
-            new CurvePoint(16f, 2f),
-            new CurvePoint(32f, 3f),
+            new CurvePoint(3f, 1f),
+            new CurvePoint(10f, 2f),
+            new CurvePoint(30f, 3f),
             new CurvePoint(64f, 4f),
             new CurvePoint(128f, 5f),
             new CurvePoint(192f, 6f),

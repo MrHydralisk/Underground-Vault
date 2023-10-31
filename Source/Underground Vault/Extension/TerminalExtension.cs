@@ -14,7 +14,7 @@ namespace UndergroundVault
         public bool isMultitask = true;
         public int PlatformCapacity = 1;
         public int TicksPerPlatformTravelTimeBase = 5000;
-        public int TicksPerExpandVaultTimeBase = 2500;
+        public int TicksPerExpandVaultTimeBase = 20000;
         public int TicksPerUpgradeFloorVaultTimeBase = 1250;
         public int TicksPerCremationTimeBase = 180;
         public List<IntVec3> PlatformItemPositions = new List<IntVec3>() { IntVec3.Zero};

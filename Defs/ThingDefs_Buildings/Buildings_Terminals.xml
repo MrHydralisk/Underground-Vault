@@ -142,7 +142,7 @@
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCemeteryS</VaultDef>
 				<TicksPerPlatformTravelTimeBase>1200</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1000</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>8000</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>500</TicksPerUpgradeFloorVaultTimeBase>
 			</li>
 		</modExtensions>
@@ -221,7 +221,7 @@
 				<VaultDef>UVVaultCemeteryM</VaultDef>
 				<PlatformCapacity>2</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>2300</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1300</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>10400</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>650</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
@@ -304,7 +304,7 @@
 				<VaultDef>UVVaultCemeteryL</VaultDef>
 				<PlatformCapacity>3</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>3500</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1600</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>12800</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>800</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(-1,0,0)</li>
@@ -374,7 +374,7 @@
 				<VaultDef>UVVaultCemeteryMedieval</VaultDef>
 				<PlatformCapacity>2</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>3450</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>5000</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>30000</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>1500</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
@@ -476,7 +476,7 @@
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCryptosleepS</VaultDef>
 				<TicksPerPlatformTravelTimeBase>1200</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1000</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>8000</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>500</TicksPerUpgradeFloorVaultTimeBase>
 			</li>
 		</modExtensions>
@@ -551,7 +551,7 @@
 				<VaultDef>UVVaultCryptosleepM</VaultDef>
 				<PlatformCapacity>2</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>2300</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1300</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>10400</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>650</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
@@ -630,7 +630,7 @@
 				<VaultDef>UVVaultCryptosleepL</VaultDef>
 				<PlatformCapacity>3</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>3500</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1600</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>12800</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>800</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(-1,0,0)</li>
@@ -738,7 +738,7 @@
 				<VaultDef>UVVaultStorageS</VaultDef>
 				<PlatformCapacity>2</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>1200</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1000</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>8000</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>500</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
@@ -817,7 +817,7 @@
 				<VaultDef>UVVaultStorageM</VaultDef>
 				<PlatformCapacity>4</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>2300</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1300</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>10400</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>650</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
@@ -898,7 +898,7 @@
 				<VaultDef>UVVaultStorageL</VaultDef>
 				<PlatformCapacity>6</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>3500</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>1600</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>12800</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>800</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(-1,0,0)</li>
@@ -1058,7 +1058,7 @@
 				<VaultDef>UVVaultStorageMedieval</VaultDef>
 				<PlatformCapacity>4</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>3450</TicksPerPlatformTravelTimeBase>
-				<TicksPerExpandVaultTimeBase>5000</TicksPerExpandVaultTimeBase>
+				<TicksPerExpandVaultTimeBase>30000</TicksPerExpandVaultTimeBase>
 				<TicksPerUpgradeFloorVaultTimeBase>1500</TicksPerUpgradeFloorVaultTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
