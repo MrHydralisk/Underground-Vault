@@ -7,6 +7,7 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace UndergroundVault
 {
@@ -18,6 +19,10 @@ namespace UndergroundVault
         private Building_UVTerminal building => base.SelThing as Building_UVTerminal;
 
         public QuickSearchWidget quickSearch = new QuickSearchWidget();
+
+        private ThingFilterUI.UIState thingFilterState = new ThingFilterUI.UIState();
+        private StorageSettings settings = new StorageSettings();
+        private bool isSettingsActive = true;
 
         public override bool IsVisible
         {
@@ -50,10 +55,13 @@ namespace UndergroundVault
         {
             get
             {
+                IList<Thing> SortedList = container;
                 if (quickSearch.filter.Active)
-                    return container.Where((Thing t) => quickSearch.filter.Matches(t.LabelCap)).ToList();
-                else
-                    return container;
+                    SortedList = SortedList.Where((Thing t) => quickSearch.filter.Matches(t.LabelCap)).ToList();
+                if (isSettingsActive)
+                    SortedList = SortedList.Where((Thing t) => settings.AllowedToAccept(t)).ToList();
+                SortedList = SortedList.OrderBy((Thing t) => t.def.label).ThenByDescending((Thing t) => t.stackCount).ToList();
+                return SortedList;
             }
         }
 
@@ -101,6 +109,22 @@ namespace UndergroundVault
             DoItemsLists(rect, ref curY);
             lastDrawnHeight = curY;
             Widgets.EndScrollView();
+
+            if (isSettingsActive)
+            {
+                Rect rect4 = new Rect(TabRect.xMax - 1f, TabRect.yMin, 300, TabRect.height);
+                Pawn localSpecificHealthTabForPawn = Find.WorldPawns.AllPawnsAlive.FirstOrDefault();
+                Find.WindowStack.ImmediateWindow(1431351846, rect4, WindowLayer.GameUI, delegate
+                {
+                    Rect rect5 = new Rect(4f, 25, rect4.width - 8f, rect4.height - 29);
+                    ThingFilterUI.DoThingFilterConfigWindow(rect5, thingFilterState, settings.filter);
+                    if (Widgets.CloseButtonFor(rect4.AtZero()))
+                    {
+                        isSettingsActive = false;
+                        SoundDefOf.TabClose.PlayOneShotOnCamera();
+                    }
+                });
+            }
         }
 
         protected override void DoItemsLists(Rect inRect, ref float curY)
