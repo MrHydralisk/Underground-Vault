@@ -15,27 +15,52 @@ namespace UndergroundVault
     {
 
         private Building_UVTerminalStorage building => base.SelThing as Building_UVTerminalStorage;
+        private enum MouseMarking
+        {
+            Idle,
+            Marking,
+            UnMarking
+        }
+        private MouseMarking mouseState = MouseMarking.Idle;
 
         protected override void DoThingRow(Thing thing, float width, ref float curY)
         {
+            if (Input.GetMouseButtonUp(0))
+            {
+                mouseState = MouseMarking.Idle;
+            }
             Rect rect = new Rect(0f, curY, width, 28f);
+            Rect rect1 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
+            if (Mouse.IsOver(rect1))
+            {
+                GUI.color = GenUI.MouseoverColor;
+            }
+            else
+            {
+                GUI.color = Color.white;
+            }
             if (building.PlatformUndergroundThings.Any((Thing t) => t == thing))
             {
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
+                GUI.DrawTexture(rect1, TextureOfLocal.TakeIconTex);
+                if (Mouse.IsOver(rect1) && ((mouseState == MouseMarking.Idle && Input.GetMouseButtonDown(0)) || (mouseState == MouseMarking.UnMarking && Input.GetMouseButton(0))))
                 {
                     building.UnMarkItemFromVault(thing);
+                    mouseState = MouseMarking.UnMarking;
                 }
-                Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), CaravanThingsTabUtility.AbandonButtonTex);
+                GUI.DrawTexture(rect1, CaravanThingsTabUtility.AbandonButtonTex);
                 rect.width -= 24f;
             }
             else
             {
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
+                GUI.DrawTexture(rect1, TextureOfLocal.TakeIconTex);
+                if (Mouse.IsOver(rect1) && ((mouseState == MouseMarking.Idle && Input.GetMouseButtonDown(0)) || (mouseState == MouseMarking.Marking && Input.GetMouseButton(0))))
                 {
                     building.MarkItemFromVault(thing);
+                    mouseState = MouseMarking.Marking;
                 }
                 rect.width -= 24f;
             }
+            GUI.color = Color.white;
             Widgets.InfoCardButton(rect.width - 24f, curY, thing);
             rect.width -= 24f;
             if (Mouse.IsOver(rect))
