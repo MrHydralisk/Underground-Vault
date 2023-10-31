@@ -462,7 +462,7 @@ namespace UndergroundVault
                     {
                         List<FloatMenuOption> floatMenuOptions = PlatformThings.Select(delegate (Thing t)
                         {
-                            return new FloatMenuOption(t.LabelCap, delegate
+                            return new FloatMenuOption((PlatformSurfaceThings.Any((Thing th) => t == th) ? ">> " : "") + t.LabelCap, delegate
                             {
                                 MarkItemFromTerminal(t);
                             }, mouseoverGuiAction: delegate
