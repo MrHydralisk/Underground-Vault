@@ -22,7 +22,7 @@ namespace UndergroundVault
 
         private ThingFilterUI.UIState thingFilterState = new ThingFilterUI.UIState();
         private StorageSettings settings = new StorageSettings();
-        private bool isSettingsActive = true;
+        private bool isSettingsActive;
 
         public override bool IsVisible
         {
@@ -85,10 +85,12 @@ namespace UndergroundVault
             Rect rect2 = new Rect(curX, curY, outRect.width - curX, 24f);
             Widgets.Label(rect2, " " + "UndergroundVault.Vault.InspectString.Capacity".Translate(building.InnerContainer.Count(), building.CanAdd, building.UVVault.Capacity));
             curY += 24f;
-            float searchBarWidth = outRect.width - 3f - 24f;
-            Rect rect3 = new Rect(curX, curY, searchBarWidth, 24f);
-            quickSearch.OnGUI(rect3);
-            curX += searchBarWidth + 1f;
+            curX = outRect.width - 24f + 17f;
+            if (Widgets.ButtonImage(new Rect(curX, curY, 24f, 24f), CaravanThingsTabUtility.SpecificTabButtonTex))
+            {
+                isSettingsActive = !isSettingsActive;
+            }
+            curX += -3f - 24f;
             if (Widgets.ButtonImage(new Rect(curX, curY, 24f, 24f), TextureOfLocal.TakeIconTex))
             {
                 Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Command.TakeFromVault.Label".Translate(), Mathf.Min(1, sortedContainer.Count()), sortedContainer.Count(), delegate (int x)
@@ -97,6 +99,9 @@ namespace UndergroundVault
                 }
                     ));
             }
+            float searchBarWidth = curX - 3f;
+            Rect rect3 = new Rect(0, curY, searchBarWidth, 24f);
+            quickSearch.OnGUI(rect3);
             curY += 25f;
             GUI.color = Widgets.SeparatorLineColor;
             Widgets.DrawLineHorizontal(0f, curY, size.x);
