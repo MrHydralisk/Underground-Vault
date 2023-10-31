@@ -21,6 +21,9 @@
     <UndergroundVault.Command.ClearSheduled.SurfaceThings>Помещаемые в хранилище</UndergroundVault.Command.ClearSheduled.SurfaceThings>
     <UndergroundVault.Command.ClearSheduled.UndergroundThings>Забираемые из хранилища</UndergroundVault.Command.ClearSheduled.UndergroundThings>
     
+    <UndergroundVault.Command.AutoStoreFullItems.Label>Автоматическое помещение в хранилище</UndergroundVault.Command.AutoStoreFullItems.Label>
+    <UndergroundVault.Command.AutoStoreFullItems.Desc>Будет автоматически планировать помещение полных вещей в хранилище</UndergroundVault.Command.AutoStoreFullItems.Desc>
+    
     <UndergroundVault.Command.ExpandVault.Label>Расширить хранилище</UndergroundVault.Command.ExpandVault.Label>
     <UndergroundVault.Command.ExpandVault.Desc>Проведёт бурение подземной породы для освобождения места под дополнительный этаж хранилища</UndergroundVault.Command.ExpandVault.Desc>
     

@@ -21,6 +21,9 @@
     <UndergroundVault.Command.ClearSheduled.SurfaceThings>To store in Vault</UndergroundVault.Command.ClearSheduled.SurfaceThings>
     <UndergroundVault.Command.ClearSheduled.UndergroundThings>To take from Vault</UndergroundVault.Command.ClearSheduled.UndergroundThings>
     
+    <UndergroundVault.Command.AutoStoreFullItems.Label>Auto Store in Vault</UndergroundVault.Command.AutoStoreFullItems.Label>
+    <UndergroundVault.Command.AutoStoreFullItems.Desc>Will automatically schedule full things to be stored in Vault</UndergroundVault.Command.AutoStoreFullItems.Desc>
+    
     <UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>
     <UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor</UndergroundVault.Command.ExpandVault.Desc>
     
