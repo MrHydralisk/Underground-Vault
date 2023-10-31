@@ -54,7 +54,7 @@ namespace UndergroundVault
 
         protected override bool PlatformThingsSorter(Thing thing)
         {
-            return !(thing is Pawn || thing is Building);
+            return !(thing is Pawn || thing is Building || thing is Mote);
         }
 
         public Building_UVTerminalStorage()
