@@ -380,7 +380,7 @@
 					<li>(0,0,0)</li>
 					<li>(1,0,0)</li>
 				</PlatformItemPositions>
-				<FloorMax>20</FloorMax>
+				<FloorMax>40</FloorMax>
 			</li>
 		</modExtensions>
 	</ThingDef>
@@ -1066,7 +1066,7 @@
 					<li>(1,0,0)</li>
 					<li>(1,0,1)</li>
 				</PlatformItemPositions>
-				<FloorMax>20</FloorMax>
+				<FloorMax>40</FloorMax>
 			</li>
 		</modExtensions>
 	</ThingDef>
