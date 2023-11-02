@@ -115,7 +115,7 @@ namespace UndergroundVault
             List<string> inspectStrings = new List<string>();
             inspectStrings.Add("UndergroundVault.Vault.InspectString.Capacity".Translate(InnerContainer.Count(), CanAdd, Capacity));
             inspectStrings.Add("UndergroundVault.Vault.InspectString.Total".Translate());
-            for (int i = 1; i <= 5; i++)
+            for (int i = 1; i <= 7; i++)
             {
                 if (floors.Any(x => x == i))
                 {

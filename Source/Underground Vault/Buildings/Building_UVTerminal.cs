@@ -166,12 +166,19 @@ namespace UndergroundVault
 
         public int HaveUpgrade(ThingDef upgradeDef)
         {
-            return Upgrades.Count((Thing t) => t != null && t.def == upgradeDef);
+            int maxAmount = ExtUpgrade.AvailableUpgrades.FirstOrDefault((BuildingUpgrades bu) => bu.upgradeDef == upgradeDef)?.maxAmount ?? 0;
+            int currAmount = Upgrades.Count((Thing t) => t != null && t.def == upgradeDef);
+            return Mathf.Min(maxAmount, currAmount);
         }
 
         public int HaveUpgrade(List<ThingDef> upgradeDefs)
         {
-            return Upgrades.Count((Thing t) => t != null && upgradeDefs.Any(td => td == t.def));
+            int total = 0;
+            foreach (ThingDef upgrade in upgradeDefs)
+            {
+                total += HaveUpgrade(upgrade);
+            }
+            return total;
         }
 
         public virtual void AddItemToTerminal(Thing thing)
@@ -631,7 +638,7 @@ namespace UndergroundVault
                             int uLevel = i;
                             if (floorIndex > -1)
                             {
-                                fmo.Add(new FloatMenuOption("UndergroundVault.Command.UpgradeFloorVault.Option".Translate(floorIndex, uLevel), delegate
+                                fmo.Add(new FloatMenuOption("UndergroundVault.Command.UpgradeFloorVault.Option".Translate(floorIndex, uLevel + 1), delegate
                                 {
                                     upgradeLevel = uLevel;
                                     UpgradeFloorVault(floorIndex);
