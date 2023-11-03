@@ -25,11 +25,11 @@
     <UndergroundVault.Command.AutoStoreFullItems.Desc>Will automatically schedule full things to be stored in Vault</UndergroundVault.Command.AutoStoreFullItems.Desc>
     
     <UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>
-    <UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor</UndergroundVault.Command.ExpandVault.Desc>
+    <UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor. Require in Vault: {0}</UndergroundVault.Command.ExpandVault.Desc>
     
     <UndergroundVault.Command.UpgradeFloorVault.Label>Upgrade Vault floor</UndergroundVault.Command.UpgradeFloorVault.Label>
     <UndergroundVault.Command.UpgradeFloorVault.Desc>Will optimize floor space</UndergroundVault.Command.UpgradeFloorVault.Desc>
-    <UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to {1}</UndergroundVault.Command.UpgradeFloorVault.Option>
+    <UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to level {1}. Require in Vault:\n{2}</UndergroundVault.Command.UpgradeFloorVault.Option>
     
     <UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
@@ -50,6 +50,7 @@
     <UndergroundVault.Terminal.InspectString.SheduledStoreInVault>{0} thing scheduled to store in Vault</UndergroundVault.Terminal.InspectString.SheduledStoreInVault>
     <UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>{0} thing scheduled to take from Vault</UndergroundVault.Terminal.InspectString.SheduledTakeFromVault>
     <UndergroundVault.Terminal.InspectString.ExpandVault>Expanding Vault: {0}</UndergroundVault.Terminal.InspectString.ExpandVault>
+    <UndergroundVault.Terminal.InspectString.CostExpandVault>Require in Vault: {0}</UndergroundVault.Terminal.InspectString.CostExpandVault>
     <UndergroundVault.Terminal.InspectString.SheduledExpandVault>Floor scheduled to expand Vault</UndergroundVault.Terminal.InspectString.SheduledExpandVault>
     <UndergroundVault.Terminal.InspectString.UpgradeFloor>Upgrading Vault floor: {0}</UndergroundVault.Terminal.InspectString.UpgradeFloor>
     <UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>Floor scheduled for upgrade</UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>

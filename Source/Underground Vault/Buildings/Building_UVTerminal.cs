@@ -66,7 +66,7 @@ namespace UndergroundVault
 
         public List<Thing> PlatformContainer = new List<Thing>();
         protected PlatformMode platformMode = PlatformMode.None;
-        
+
         protected virtual List<Thing> PlatformSlots => ExtTerminal.PlatformItemPositions.Select((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).FirstOrDefault((Thing t) => PlatformThingsSorter(t))).ToList();
         protected virtual List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && !(t is Filth)).ToList();
         protected virtual List<Thing> PlatformFullThings => PlatformThings.Where((Thing t) => t.stackCount == t.def.stackLimit).ToList();
@@ -95,7 +95,7 @@ namespace UndergroundVault
         {
             get
             {
-                return (int)((ticksPerExpandVaultTimeBase * DrillDiffCurve.Evaluate(UVVault.Floors.Count() + 1)) / Mathf.Pow(2, HaveUpgrade(new List<ThingDef>(){ ThingDefOfLocal.UVUpgradeDeepDrill, ThingDefOfLocal.UVUpgradeDeepDrillM })));
+                return (int)((ticksPerExpandVaultTimeBase * DrillDiffCurve.Evaluate(UVVault.Floors.Count() + 1)) / Mathf.Pow(2, HaveUpgrade(new List<ThingDef>() { ThingDefOfLocal.UVUpgradeDeepDrill, ThingDefOfLocal.UVUpgradeDeepDrillM })));
             }
         }
 
@@ -117,6 +117,8 @@ namespace UndergroundVault
 
         private int ticksTillExpandVaultTime;
         public bool isExpandVault = false;
+        public bool isCanExpandVault = false;
+        public bool isCostDoneExpandVault => ExtUpgrade.CostForExpanding?.costList?.All((ThingDefCountClass tdcc) => AvailableThings.Any((ThingDefCountClass atdcc) => atdcc.thingDef == tdcc.thingDef && atdcc.count >= tdcc.count)) ?? true;
         public bool isVaultMaxFloor => (ExtTerminal.FloorMax > 0) && (UVVault.Floors.Count() >= ExtTerminal.FloorMax);
 
         private int ticksPerUpgradeFloorVaultTimeBase => ExtTerminal.TicksPerUpgradeFloorVaultTimeBase;
@@ -130,6 +132,8 @@ namespace UndergroundVault
 
         private int ticksTillUpgradeFloorVaultTime;
         public bool isUpgradeFloorVault = false;
+        public bool isCanUpgradeFloorVault = false; 
+        public bool isCostDoneUpgradeFloorVault => ExtUpgrade.CostForUpgrading?.ElementAtOrDefault(upgradeLevel - 1)?.costList?.All((ThingDefCountClass tdcc) => AvailableThings.Any((ThingDefCountClass atdcc) => atdcc.thingDef == tdcc.thingDef && atdcc.count >= tdcc.count)) ?? true;
         private int upgradeLevel;
 
         public bool Manned => (compMannable?.MannedNow ?? true) || (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) > 0);
@@ -141,9 +145,20 @@ namespace UndergroundVault
         protected virtual bool IsVaultEmpty => ((InnerContainer.Count() - PlatformContainer.Count()) <= 0);
 
         public bool isCanWorkOn => PowerOn && (HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) <= 0) && (isHaveWorkOn);
-        protected virtual bool isHaveWorkOn => (platformMode != PlatformMode.None && !(platformMode == PlatformMode.Done && !PlatformSurfaceThings.NullOrEmpty() && PlatformUndergroundThings.NullOrEmpty() && CanAdd <= 0)) || isExpandVault || isUpgradeFloorVault;
+        protected virtual bool isHaveWorkOn => (platformMode != PlatformMode.None && !(platformMode == PlatformMode.Done && !PlatformSurfaceThings.NullOrEmpty() && PlatformUndergroundThings.NullOrEmpty() && CanAdd <= 0)) || (isExpandVault && isCanExpandVault) || (isUpgradeFloorVault && isCanUpgradeFloorVault);
 
         protected virtual bool isSheduled => !PlatformSurfaceThings.NullOrEmpty() || !PlatformUndergroundThings.NullOrEmpty();
+
+        public List<ThingDefCountClass> AvailableThings
+        {
+            get
+            {
+                List<Thing> AllThings = PlatformThings.Where((Thing t1) => !PlatformSurfaceThings.Any((Thing t2) => t1 == t2)).ToList();
+                AllThings.AddRange(InnerContainer.Where((Thing t1) => !PlatformUndergroundThings.Any((Thing t2) => t1 == t2)));
+                List<ThingDefCountClass> availableThings = AllThings.GroupBy(x => x.def).Select(x => new ThingDefCountClass(x.First().def, x.Sum(y => y.stackCount))).ToList();
+                return availableThings;
+            }
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -348,6 +363,24 @@ namespace UndergroundVault
                 {
                     MarkItemsFromTerminal(PlatformFullThings);
                 }
+                if (isExpandVault && !isCanExpandVault && isCostDoneExpandVault)
+                {
+                    List<ThingDefCountClass> consumeList = ExtUpgrade.CostForExpanding?.costList ?? null;
+                    if (consumeList != null)
+                    {
+                        ConsumeCost(consumeList);
+                    }
+                    isCanExpandVault = true;
+                }
+                if (isUpgradeFloorVault && !isCanUpgradeFloorVault && isCostDoneUpgradeFloorVault)
+                {
+                    List<ThingDefCountClass> consumeList = ExtUpgrade.CostForUpgrading?.ElementAtOrDefault(upgradeLevel - 1)?.costList ?? null;
+                    if (consumeList != null)
+                    {
+                        ConsumeCost(consumeList);
+                    }
+                    isCanUpgradeFloorVault = true;
+                }
                 if (Manned)
                 {
                     bool isNotSkip = true;
@@ -416,7 +449,7 @@ namespace UndergroundVault
                             }
                         }
                     }
-                    if ((ExtTerminal.isMultitask || isNotSkip) && isExpandVault)
+                    if ((ExtTerminal.isMultitask || isNotSkip) && isExpandVault && isCanExpandVault)
                     {
                         isNotSkip = false;
                         if (ticksTillExpandVaultTime > 0)
@@ -429,7 +462,7 @@ namespace UndergroundVault
                             isExpandVault = false;
                         }
                     }
-                    if ((ExtTerminal.isMultitask || isNotSkip) && isUpgradeFloorVault)
+                    if ((ExtTerminal.isMultitask || isNotSkip) && isUpgradeFloorVault && isCanUpgradeFloorVault)
                     {
                         isNotSkip = false;
                         if (ticksTillUpgradeFloorVaultTime > 0)
@@ -447,6 +480,59 @@ namespace UndergroundVault
             }
         }
 
+        protected void ConsumeCost(List<ThingDefCountClass> consumeList)
+        {
+            foreach (ThingDefCountClass consumeThingDCC in consumeList)
+            {
+                int thingCount = consumeThingDCC.count;
+                while (thingCount > 0)
+                {
+                    Thing item = PlatformThings.FirstOrDefault((Thing t1) => t1.def == consumeThingDCC.thingDef && t1.stackCount > 0 && !PlatformSurfaceThings.Any((Thing t2) => t1 == t2));
+                    if (item != null)
+                    {
+                        if (thingCount < item.stackCount)
+                        {
+                            item.SplitOff(thingCount);
+                            thingCount = 0;
+                        }
+                        else
+                        {
+                            thingCount -= item.stackCount;
+                            item.Destroy();
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                while (thingCount > 0)
+                {
+                    Thing item = InnerContainer.FirstOrDefault((Thing t1) => t1.def == consumeThingDCC.thingDef && t1.stackCount > 0 && !PlatformUndergroundThings.Any((Thing t2) => t1 == t2));
+                    if (item != null)
+                    {
+                        if (thingCount < item.stackCount)
+                        {
+                            item.SplitOff(thingCount);
+                            thingCount = 0;
+                        }
+                        else
+                        {
+                            thingCount -= item.stackCount;
+                            InnerContainer.Remove(item);
+                            item.Destroy();
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+                if (thingCount > 0)
+                    Log.Warning(consumeThingDCC.Label + " not found");
+            }
+        }
+
         protected virtual void WorkTick(bool isNotSkip)
         {
 
@@ -456,11 +542,13 @@ namespace UndergroundVault
         {
             ticksTillExpandVaultTime = ticksPerExpandVaultTime + TicksPerPlatformTravelTime(UVVault.Floors.Count());
             isExpandVault = true;
+            isCanExpandVault = false;
         }
         private void UpgradeFloorVault(int upgradeFloor = 0)
         {
             ticksTillUpgradeFloorVaultTime = ticksPerUpgradeFloorVaultTime * Mathf.Min(1, upgradeLevel) + TicksPerPlatformTravelTime(upgradeFloor);
             isUpgradeFloorVault = true;
+            isCanUpgradeFloorVault = false;
         }
 
         protected virtual Command_Action StoreInVault()
@@ -617,7 +705,7 @@ namespace UndergroundVault
                         ExpandVault();
                     },
                     defaultLabel = "UndergroundVault.Command.ExpandVault.Label".Translate(),
-                    defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(),
+                    defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(string.Join(", ", ExtUpgrade.CostForExpanding?.costList?.Select(x => x.LabelCap) ?? new List<string>() { "" }).ToStringSafe()),
                     icon = TextureOfLocal.UpgradeDDIconTex,
                     disabled = !isVaultAvailable || isVaultMaxFloor || isExpandVault,
                     disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isVaultMaxFloor ? "UndergroundVault.Command.disabledReason.ExpandingVaultMax".Translate() : "UndergroundVault.Command.disabledReason.ExpandingVault".Translate(),
@@ -638,7 +726,7 @@ namespace UndergroundVault
                             int uLevel = i;
                             if (floorIndex > -1)
                             {
-                                fmo.Add(new FloatMenuOption("UndergroundVault.Command.UpgradeFloorVault.Option".Translate(floorIndex, uLevel + 1), delegate
+                                fmo.Add(new FloatMenuOption("UndergroundVault.Command.UpgradeFloorVault.Option".Translate(floorIndex, uLevel + 1, string.Join("\n", ExtUpgrade.CostForUpgrading?.ElementAtOrDefault(uLevel - 1)?.costList?.Select(x => x.LabelCap) ?? new List<string>() { "" }).ToStringSafe()), delegate
                                 {
                                     upgradeLevel = uLevel;
                                     UpgradeFloorVault(floorIndex);
@@ -764,23 +852,37 @@ namespace UndergroundVault
             {
                 inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledTakeFromVault".Translate(PlatformUndergroundThings.Count()));
             }
-            if (ticksTillExpandVaultTime > 0)
+            if (isExpandVault)
             {
-                inspectStrings.Add("UndergroundVault.Terminal.InspectString.ExpandVault".Translate(ticksTillExpandVaultTime.TicksToSeconds()));
+                if (isCanExpandVault && ticksTillExpandVaultTime > 0)
+                {
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.ExpandVault".Translate(ticksTillExpandVaultTime.TicksToSeconds()));
+                }
+                else
+                {
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledExpandVault".Translate());
+                }
+                if (!isCanExpandVault)
+                {
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.CostExpandVault".Translate(string.Join(", ", ExtUpgrade.CostForExpanding?.costList?.Select(x => x.LabelCap) ?? new List<string>() { "" })));
+                }
             }
-            else if (isExpandVault)
+            if (isUpgradeFloorVault)
             {
-                inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledExpandVault".Translate());
+                if (isCanUpgradeFloorVault && ticksTillUpgradeFloorVaultTime > 0)
+                {
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.UpgradeFloor".Translate(ticksTillUpgradeFloorVaultTime.TicksToSeconds()));
+                }
+                else
+                {
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor".Translate());
+                }
+                if (!isCanUpgradeFloorVault)
+                {
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.CostExpandVault".Translate(string.Join(", ", ExtUpgrade.CostForUpgrading?.ElementAtOrDefault(upgradeLevel - 1)?.costList?.Select(x => x.LabelCap) ?? new List<string>() { "" })));
+                }
             }
-            if (ticksTillUpgradeFloorVaultTime > 0)
-            {
-                inspectStrings.Add("UndergroundVault.Terminal.InspectString.UpgradeFloor".Translate(ticksTillUpgradeFloorVaultTime.TicksToSeconds()));
-            }
-            else if (isUpgradeFloorVault)
-            {
-                inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor".Translate());
-            }
-            return String.Join("\n", inspectStrings);
+            return string.Join("\n", inspectStrings);
         }
 
         public override void ExposeData()
@@ -798,7 +900,9 @@ namespace UndergroundVault
             Scribe_Values.Look(ref ticksTillExpandVaultTime, "ticksTillExpandVaultTime");
             Scribe_Values.Look(ref ticksTillUpgradeFloorVaultTime, "ticksTillUpgradeFloorVaultTime");
             Scribe_Values.Look(ref isExpandVault, "isExpandVault");
+            Scribe_Values.Look(ref isCanExpandVault, "isCanExpandVault");
             Scribe_Values.Look(ref isUpgradeFloorVault, "isUpgradeFloorVault");
+            Scribe_Values.Look(ref isCanUpgradeFloorVault, "isCanUpgradeFloorVault");
             Scribe_Values.Look(ref upgradeLevel, "upgradeLevel");
         }
     }

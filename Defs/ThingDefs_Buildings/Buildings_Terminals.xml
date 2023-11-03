@@ -137,7 +137,31 @@
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
-				</AvailableUpgrades>
+				</AvailableUpgrades>				
+				<CostForExpanding>		
+					<costList>
+						<Steel>102</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>96</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>72</Steel>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>24</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCemeteryS</VaultDef>
@@ -215,7 +239,31 @@
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
-				</AvailableUpgrades>
+				</AvailableUpgrades>				
+				<CostForExpanding>		
+					<costList>
+						<Steel>136</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>128</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>96</Steel>
+							<ComponentIndustrial>3</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>32</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCemeteryM</VaultDef>
@@ -299,6 +347,30 @@
 						<maxAmount>2</maxAmount>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<Steel>170</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>160</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>120</Steel>
+							<ComponentIndustrial>4</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>40</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCemeteryL</VaultDef>
@@ -369,6 +441,18 @@
 						<upgradeDef>UVUpgradeStorageEfficiencyM</upgradeDef>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<WoodLog>120</WoodLog>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<WoodLog>90</WoodLog>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCemeteryMedieval</VaultDef>
@@ -471,7 +555,31 @@
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
-				</AvailableUpgrades>
+				</AvailableUpgrades>				
+				<CostForExpanding>		
+					<costList>
+						<Steel>102</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>96</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>72</Steel>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>24</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCryptosleepS</VaultDef>
@@ -545,7 +653,31 @@
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
-				</AvailableUpgrades>
+				</AvailableUpgrades>				
+				<CostForExpanding>		
+					<costList>
+						<Steel>136</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>128</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>96</Steel>
+							<ComponentIndustrial>3</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>32</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCryptosleepM</VaultDef>
@@ -625,6 +757,30 @@
 						<maxAmount>2</maxAmount>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<Steel>170</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>160</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>120</Steel>
+							<ComponentIndustrial>4</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>40</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultCryptosleepL</VaultDef>
@@ -733,6 +889,30 @@
 						<maxAmount>2</maxAmount>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<Steel>102</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>96</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>72</Steel>
+							<ComponentIndustrial>2</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>24</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultStorageS</VaultDef>
@@ -812,6 +992,30 @@
 						<maxAmount>2</maxAmount>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<Steel>136</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>128</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>96</Steel>
+							<ComponentIndustrial>3</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>32</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultStorageM</VaultDef>
@@ -893,6 +1097,30 @@
 						<maxAmount>2</maxAmount>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<Steel>170</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>160</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>120</Steel>
+							<ComponentIndustrial>4</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>40</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultStorageL</VaultDef>
@@ -980,6 +1208,30 @@
 						<maxAmount>2</maxAmount>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<Steel>225</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>240</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>180</Steel>
+							<ComponentIndustrial>6</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>60</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultStorageXL</VaultDef>
@@ -995,6 +1247,8 @@
 					<li>(1,0,0)</li>
 					<li>(1,0,1)</li>
 				</PlatformItemPositions>
+				<TicksPerExpandVaultTimeBase>500</TicksPerExpandVaultTimeBase>
+				<TicksPerUpgradeFloorVaultTimeBase>500</TicksPerUpgradeFloorVaultTimeBase>
 			</li>
 		</modExtensions>
 	</ThingDef>
@@ -1053,6 +1307,18 @@
 						<upgradeDef>UVUpgradeStorageEfficiencyM</upgradeDef>
 					</li>
 				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<WoodLog>120</WoodLog>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<WoodLog>90</WoodLog>
+						</costList>
+					</li>
+				</CostForUpgrading>
 			</li>
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultStorageMedieval</VaultDef>
