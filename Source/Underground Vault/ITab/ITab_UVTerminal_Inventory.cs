@@ -47,6 +47,7 @@ namespace UndergroundVault
 	    {
 		    get
 		    {
+                building.InnerContainer.RemoveAll((Thing t) => t == null);
 			    return building.InnerContainer.ToList();
 		    }
 	    }
@@ -60,7 +61,7 @@ namespace UndergroundVault
                     SortedList = SortedList.Where((Thing t) => quickSearch.filter.Matches(t.LabelCap)).ToList();
                 if (isSettingsActive)
                     SortedList = SortedList.Where((Thing t) => settings.AllowedToAccept(t)).ToList();
-                SortedList = SortedList.OrderBy((Thing t) => t.def.label).ThenByDescending((Thing t) => t.stackCount).ToList();
+                SortedList = SortedList.OrderBy((Thing t) => t.def?.label ?? "").ThenByDescending((Thing t) => t.stackCount).ToList();
                 return SortedList;
             }
         }
