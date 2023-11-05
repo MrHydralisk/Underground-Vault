@@ -14,4 +14,17 @@
     </requiredCapacities>
   </WorkGiverDef>
   
+  <WorkGiverDef>
+    <defName>DeliverExpandUVTerminal</defName>
+    <label>deliver resources to expand vault</label>
+    <giverClass>UndergroundVault.WorkGiver_DeliverExpandUVTerminal</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver resources to expand vault</verb>
+    <gerund>delivering resources to expand vault</gerund>
+    <priorityInType>100</priorityInType>
+    <requiredCapacities>
+      <li>Manipulation</li>
+    </requiredCapacities>
+  </WorkGiverDef>
+  
 </Defs>

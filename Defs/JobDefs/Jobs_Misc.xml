@@ -6,5 +6,11 @@
     <driverClass>UndergroundVault.JobDriver_ManUVTerminal</driverClass>
     <reportString>operating.</reportString>
   </JobDef>
+
+  <JobDef>
+    <defName>DeliverExpandUVTerminal</defName>
+    <driverClass>UndergroundVault.JobDriver_DeliverExpandUVTerminal</driverClass>
+    <reportString>deliver resources to expand vault.</reportString>
+  </JobDef>
   
 </Defs>

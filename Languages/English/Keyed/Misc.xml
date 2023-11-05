@@ -30,6 +30,9 @@
     <UndergroundVault.Command.UpgradeFloorVault.Label>Upgrade Vault floor</UndergroundVault.Command.UpgradeFloorVault.Label>
     <UndergroundVault.Command.UpgradeFloorVault.Desc>Will optimize floor space</UndergroundVault.Command.UpgradeFloorVault.Desc>
     <UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to level {1}. Require in Vault:\n{2}</UndergroundVault.Command.UpgradeFloorVault.Option>
+
+    <UndergroundVault.Command.ConstructionThingsRemove.Label>Unload Construction Materials</UndergroundVault.Command.ConstructionThingsRemove.Label>
+    <UndergroundVault.Command.ConstructionThingsRemove.Desc>Will unload all left construction materials in Terminal</UndergroundVault.Command.ConstructionThingsRemove.Desc>
     
     <UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
@@ -56,6 +59,7 @@
     <UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>Floor scheduled for upgrade</UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>
     <UndergroundVault.Terminal.InspectString.Cremation>Cremating: {0}</UndergroundVault.Terminal.InspectString.Cremation>
     <UndergroundVault.Terminal.InspectString.SheduledCremation>{0} thing scheduled for cremation</UndergroundVault.Terminal.InspectString.SheduledCremation>
+    <UndergroundVault.Terminal.InspectString.ConstructionThings>Additional construction materials in Terminal: {0}</UndergroundVault.Terminal.InspectString.ConstructionThings>
     
     <UndergroundVault.Terminal.MeditationFocusCementery>Per each sarcophagus in Vault (current/max):\n{0} if empty ({1}/{2}),\n{3} for human corpse inside ({4}/{5}),\n{6} if meditator is related to the corpse inside (max {7})</UndergroundVault.Terminal.MeditationFocusCementery>
 

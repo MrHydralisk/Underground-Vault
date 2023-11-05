@@ -98,6 +98,8 @@
     <Compile Include="ITab\ITab_UVTerminalCryptosleep_Inventory.cs" />
     <Compile Include="ITab\ITab_UVTerminal_Inventory.cs" />
     <Compile Include="Jobs\CompMannableUVTerminal.cs" />
+    <Compile Include="Jobs\JobDriver_DeliverExpandUVTerminal.cs" />
+    <Compile Include="Jobs\WorkGiver_DeliverExpandUVTerminal.cs" />
     <Compile Include="OfLocal\JobDefOfLocal.cs" />
     <Compile Include="Jobs\WorkGiver_ManUVTerminal.cs" />
     <Compile Include="Extension\TerminalExtension.cs" />

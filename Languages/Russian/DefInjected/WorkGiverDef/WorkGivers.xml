@@ -4,5 +4,9 @@
   <ManUVTerminal.label>работать с терминалом.</ManUVTerminal.label>
   <ManUVTerminal.verb>работать с терминалом.</ManUVTerminal.verb>
   <ManUVTerminal.gerund>работает с терминалом.</ManUVTerminal.gerund>
+  
+  <DeliverExpandUVTerminal.label>доставляет материалы для расширения хранилища.</DeliverExpandUVTerminal.label>
+  <DeliverExpandUVTerminal.verb>доставлять материалы для расширения хранилища.</DeliverExpandUVTerminal.verb>
+  <DeliverExpandUVTerminal.gerund>доставляет материалы для расширения хранилища.</DeliverExpandUVTerminal.gerund>
 
 </LanguageData>

@@ -3,4 +3,6 @@
 
   <ManUVTerminal.reportString>работает с терминалом.</ManUVTerminal.reportString>
 
+  <DeliverExpandUVTerminal.reportString>доставляет материалы для расширения хранилища.</DeliverExpandUVTerminal.reportString>
+
 </LanguageData>

@@ -31,6 +31,9 @@
     <UndergroundVault.Command.UpgradeFloorVault.Desc>Проведёт оптимизацию пространства этажа</UndergroundVault.Command.UpgradeFloorVault.Desc>
     <UndergroundVault.Command.UpgradeFloorVault.Option>Улучшить этаж {0} до уровня {1}. Требуется в хранилище:\n{2}</UndergroundVault.Command.UpgradeFloorVault.Option>
 
+    <UndergroundVault.Command.ConstructionThingsRemove.Label>Выгрузить стоительные материалы</UndergroundVault.Command.ConstructionThingsRemove.Label>
+    <UndergroundVault.Command.ConstructionThingsRemove.Desc>Выгрузит все оставшиеся стоительные материалы из терминала</UndergroundVault.Command.ConstructionThingsRemove.Desc>
+
     <UndergroundVault.Command.disabledReason.PlatformFree>Грузовая платформа пуста</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Грузовая платформа заполнена</UndergroundVault.Command.disabledReason.PlatformNotFree>
     <UndergroundVault.Command.disabledReason.PlatformBusy>Грузовая платформа занята</UndergroundVault.Command.disabledReason.PlatformBusy>
@@ -56,6 +59,7 @@
     <UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>Этаж планируется оптимизировать</UndergroundVault.Terminal.InspectString.SheduledUpgradeFloor>
     <UndergroundVault.Terminal.InspectString.Cremation>Кремирование: {0}</UndergroundVault.Terminal.InspectString.Cremation>
     <UndergroundVault.Terminal.InspectString.SheduledCremation>{0} вещей планируется кремировать</UndergroundVault.Terminal.InspectString.SheduledCremation>
+    <UndergroundVault.Terminal.InspectString.ConstructionThings>Дополнительные строительные материалы в терминале: {0}</UndergroundVault.Terminal.InspectString.ConstructionThings>
 
     <UndergroundVault.Terminal.MeditationFocusCementery>За каждый саркофаг в хранилище (текущее/максимальное кол-во):\n{0} если пустой ({1}/{2}),\n{3} если занят телом человека ({4}/{5}),\n{6} медитирующий знает мертвеца внутри (макс. {7})</UndergroundVault.Terminal.MeditationFocusCementery>
 
