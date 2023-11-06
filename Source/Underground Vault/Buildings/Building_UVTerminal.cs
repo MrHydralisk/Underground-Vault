@@ -117,7 +117,7 @@ namespace UndergroundVault
 
         private int ticksTillExpandVaultTime;
         public bool isExpandVault = false;
-        public bool isCanExpandVault = false;
+        public bool isCanExpandVault = true;
         public bool isCostDoneExpandVault => CostLeftExpandVault.NullOrEmpty();
         public List<ThingDefCountClass> CostLeftExpandVault => CostLeftForConstruction(ExtUpgrade.CostForExpanding?.costList ?? new List<ThingDefCountClass>());
         public bool isVaultMaxFloor => (ExtTerminal.FloorMax > 0) && (UVVault.Floors.Count() >= ExtTerminal.FloorMax);
@@ -133,7 +133,7 @@ namespace UndergroundVault
 
         private int ticksTillUpgradeFloorVaultTime;
         public bool isUpgradeFloorVault = false;
-        public bool isCanUpgradeFloorVault = false;
+        public bool isCanUpgradeFloorVault = true;
         public bool isCostDoneUpgradeFloorVault => CostLeftUpgradeFloorVault.NullOrEmpty();
         public List<ThingDefCountClass> CostLeftUpgradeFloorVault => CostLeftForConstruction(ExtUpgrade.CostForUpgrading?.ElementAtOrDefault(upgradeLevel - 1)?.costList ?? new List<ThingDefCountClass>());
         private int upgradeLevel;
@@ -182,6 +182,8 @@ namespace UndergroundVault
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
+            if (ConstructionThings.NullOrEmpty())
+                ConstructionThings = new List<Thing>();
             if (!respawningAfterLoad)
             {
                 upgradesCached = new List<Thing>();
@@ -968,9 +970,9 @@ namespace UndergroundVault
             Scribe_Values.Look(ref ticksTillExpandVaultTime, "ticksTillExpandVaultTime");
             Scribe_Values.Look(ref ticksTillUpgradeFloorVaultTime, "ticksTillUpgradeFloorVaultTime");
             Scribe_Values.Look(ref isExpandVault, "isExpandVault");
-            Scribe_Values.Look(ref isCanExpandVault, "isCanExpandVault");
+            Scribe_Values.Look(ref isCanExpandVault, "isCanExpandVault", true);
             Scribe_Values.Look(ref isUpgradeFloorVault, "isUpgradeFloorVault");
-            Scribe_Values.Look(ref isCanUpgradeFloorVault, "isCanUpgradeFloorVault");
+            Scribe_Values.Look(ref isCanUpgradeFloorVault, "isCanUpgradeFloorVault", true);
             Scribe_Values.Look(ref upgradeLevel, "upgradeLevel");
         }
     }
