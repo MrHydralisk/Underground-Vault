@@ -47,8 +47,8 @@
 		<label>crematorium module</label>
 		<description>Upgrade module for underground vault terminal which vaporizes selected things with extremely high temperatures.</description>
 		<costList>
-			<Steel>55</Steel>
-			<ComponentIndustrial>2</ComponentIndustrial>
+			<Steel>75</Steel>
+			<ComponentIndustrial>6</ComponentIndustrial>
 		</costList>
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeCrematorium</texPath>
@@ -61,7 +61,7 @@
 		<description>Upgrade module for underground vault terminal which allows to drill deep-crust to create a new vault floor.</description>
 		<costList>
 			<Steel>115</Steel>
-			<ComponentIndustrial>2</ComponentIndustrial>
+			<ComponentIndustrial>8</ComponentIndustrial>
 		</costList>
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeDeepDrill</texPath>
@@ -73,8 +73,8 @@
 		<label>storage efficiency module</label>
 		<description>Upgrade module for underground vault terminal which allows to reorganize vault floor to increase it capacity.</description>
 		<costList>
-			<Steel>75</Steel>
-			<ComponentIndustrial>2</ComponentIndustrial>
+			<Steel>90</Steel>
+			<ComponentIndustrial>4</ComponentIndustrial>
 			<ComponentSpacer>1</ComponentSpacer>
 		</costList>
 		<graphicData>
@@ -88,9 +88,9 @@
 		<description>Upgrade module for underground vault terminal which allows terminal to work autonomously.</description>
 		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 		<costList>
-			<Steel>15</Steel>
-			<Plasteel>35</Plasteel>
-			<ComponentSpacer>2</ComponentSpacer>
+			<Steel>20</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentSpacer>8</ComponentSpacer>
 		</costList>
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeAI</texPath>
@@ -103,7 +103,7 @@
 		<description>Upgrade module for underground vault terminal which accelerates platform movement.</description>
 		<costList>
 			<Steel>75</Steel>
-			<ComponentIndustrial>4</ComponentIndustrial>
+			<ComponentIndustrial>12</ComponentIndustrial>
 		</costList>
 		<graphicData>
 			<texPath>Things/Building/UVUpgradePlatformSpeed</texPath>
