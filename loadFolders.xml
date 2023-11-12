@@ -3,6 +3,7 @@
   <v1.4>
     <li>/</li>
     <li>1.4</li>
-	<li IfModActive="vanillaexpanded.achievements">Mods/vanillaexpanded.achievements</li>
+    <li IfModActive="vanillaexpanded.achievements">Mods/vanillaexpanded.achievements</li>
+    <li IfModActive="LWM.DeepStorage">Mods/LWM.DeepStorage</li>
   </v1.4>
 </loadFolders>
