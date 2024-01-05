@@ -31,6 +31,10 @@ namespace UndergroundVault
             {
                 return false;
             }
+            if (CostLeftForConstruction(uVTerminal).All((ThingDefCountClass tdcc) => FindClosestConstructionMat(pawn, tdcc.thingDef) == null))
+            {
+                return false;
+            }    
             return true;
         }
 
@@ -40,9 +44,8 @@ namespace UndergroundVault
             return GenClosest.ClosestThingReachable(pawn.Position, pawn.Map, ThingRequest.ForDef(def), PathEndMode.ClosestTouch, TraverseParms.For(pawn), 9999f, validator);
         }
 
-        public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
+        private List<ThingDefCountClass> CostLeftForConstruction(Building_UVTerminal terminal)
         {
-            Building_UVTerminal terminal = t as Building_UVTerminal;
             List<ThingDefCountClass> costLeftForConstruction = new List<ThingDefCountClass>();
             if (terminal.isExpandVault && !terminal.isCanExpandVault && !terminal.isCostDoneExpandVault)
             {
@@ -74,7 +77,13 @@ namespace UndergroundVault
                     }
                 }
             }
-            foreach (ThingDefCountClass item in costLeftForConstruction)
+            return costLeftForConstruction;
+        }
+
+        public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
+        {
+            Building_UVTerminal terminal = t as Building_UVTerminal;            
+            foreach (ThingDefCountClass item in CostLeftForConstruction(terminal))
             {
                 Thing thing = FindClosestConstructionMat(pawn, item.thingDef);
                 if (thing != null)
