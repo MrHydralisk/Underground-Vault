@@ -31,7 +31,7 @@ namespace UndergroundVault_AchievementsExpanded
 
         public override bool Trigger(Building building)
         {
-            Log.Message(Key);
+            DebugWriter.Log(Key);
             if (building.Faction != Faction.OfPlayer || building.Map == null)
             {
                 return false;
