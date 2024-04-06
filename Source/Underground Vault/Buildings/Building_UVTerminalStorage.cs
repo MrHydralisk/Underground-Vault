@@ -52,6 +52,12 @@ namespace UndergroundVault
 
         bool IStorageGroupMember.DrawStorageTab => true;
 
+        public string GroupingLabel => def.building.groupingLabel;
+
+        public int GroupingOrder => def.building.groupingOrder;
+
+        public bool ShowRenameButton => base.Faction == Faction.OfPlayer;
+
         protected override bool PlatformThingsSorter(Thing thing)
         {
             return !(thing is Pawn || thing is Building || thing is Mote);

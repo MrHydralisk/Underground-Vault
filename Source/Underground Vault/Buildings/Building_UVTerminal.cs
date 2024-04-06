@@ -638,7 +638,7 @@ namespace UndergroundVault
                 defaultLabel = "UndergroundVault.Command.StoreInVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.StoreInVault.Desc".Translate(),
                 icon = TextureOfLocal.StoreIconTex,
-                disabled = !isVaultAvailable || isPlatformFree || !isPlatformHaveItems || CanAdd <= 0,
+                Disabled = !isVaultAvailable || isPlatformFree || !isPlatformHaveItems || CanAdd <= 0,
                 disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isPlatformFree ? "UndergroundVault.Command.disabledReason.PlatformFree".Translate() : !isPlatformHaveItems ? "UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore".Translate() : "UndergroundVault.Command.disabledReason.VaultFull".Translate(),
                 Order = 10f
             };
@@ -655,7 +655,7 @@ namespace UndergroundVault
                 defaultLabel = "UndergroundVault.Command.TakeFromVault.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.TakeFromVault.Desc".Translate(),
                 icon = TextureOfLocal.TakeIconTex,
-                disabled = !isVaultAvailable || IsVaultEmpty,
+                Disabled = !isVaultAvailable || IsVaultEmpty,
                 disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : "UndergroundVault.Command.disabledReason.VaultEmpty".Translate(),
                 Order = 10f
             };
@@ -700,17 +700,23 @@ namespace UndergroundVault
         {
             StringBuilder stringBuilder = new StringBuilder();
             List<ThingDefCountClass> list = frame.def.entityDefToBuild.CostListAdjusted(frame.Stuff);
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    ThingDefCountClass need = list[i];
+            //    int num = need.count;
+            //    foreach (ThingDefCountClass item in from needed in frame.MaterialsNeeded()
+            //                                        where needed.thingDef == need.thingDef
+            //                                        select needed)
+            //    {
+            //        num -= item.count;
+            //    }
+            //    stringBuilder.AppendLine((string)(need.thingDef.LabelCap + ": ") + num + " / " + need.count);
+            //}
             for (int i = 0; i < list.Count; i++)
             {
-                ThingDefCountClass need = list[i];
-                int num = need.count;
-                foreach (ThingDefCountClass item in from needed in frame.MaterialsNeeded()
-                                                    where needed.thingDef == need.thingDef
-                                                    select needed)
-                {
-                    num -= item.count;
-                }
-                stringBuilder.AppendLine((string)(need.thingDef.LabelCap + ": ") + num + " / " + need.count);
+                ThingDefCountClass thingDefCountClass = list[i];
+                int num = thingDefCountClass.count - frame.ThingCountNeeded(thingDefCountClass.thingDef);
+                stringBuilder.AppendLine($"{thingDefCountClass.thingDef.LabelCap}: {num} / {thingDefCountClass.count}");
             }
             stringBuilder.Append("WorkLeft".Translate() + ": " + frame.WorkLeft.ToStringWorkAmount());
             return stringBuilder.ToString();
@@ -750,7 +756,7 @@ namespace UndergroundVault
                     defaultLabel = "UndergroundVault.Command.ExpandVault.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.ExpandVault.Desc".Translate(string.Join(", ", ExtUpgrade.CostForExpanding?.costList?.Select(x => x.LabelCap) ?? new List<string>() { "" }).ToStringSafe()),
                     icon = TextureOfLocal.UpgradeDDIconTex,
-                    disabled = !isVaultAvailable || isVaultMaxFloor || isExpandVault,
+                    Disabled = !isVaultAvailable || isVaultMaxFloor || isExpandVault,
                     disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isVaultMaxFloor ? "UndergroundVault.Command.disabledReason.ExpandingVaultMax".Translate() : "UndergroundVault.Command.disabledReason.ExpandingVault".Translate(),
                     Order = 20f
                 };
@@ -781,7 +787,7 @@ namespace UndergroundVault
                     defaultLabel = "UndergroundVault.Command.UpgradeFloorVault.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.UpgradeFloorVault.Desc".Translate(),
                     icon = TextureOfLocal.UpgradeSEIconTex,
-                    disabled = !isVaultAvailable || isUpgradeFloorVault || !UVVault.Floors.Any(x => x < HaveUpgrade(new List<ThingDef>() { ThingDefOfLocal.UVUpgradeStorageEfficiency, ThingDefOfLocal.UVUpgradeStorageEfficiencyM }) + 1),
+                    Disabled = !isVaultAvailable || isUpgradeFloorVault || !UVVault.Floors.Any(x => x < HaveUpgrade(new List<ThingDef>() { ThingDefOfLocal.UVUpgradeStorageEfficiency, ThingDefOfLocal.UVUpgradeStorageEfficiencyM }) + 1),
                     disabledReason = !isVaultAvailable ? "Vault not Available".Translate() : isUpgradeFloorVault ? "UndergroundVault.Command.disabledReason.UpgradeFloorVault".Translate() : "UndergroundVault.Command.disabledReason.NoUpgradeFloorVault".Translate(),
                     Order = 20f
                 };

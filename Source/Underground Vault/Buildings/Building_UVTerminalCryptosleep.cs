@@ -74,7 +74,7 @@ namespace UndergroundVault
                 },
                 defaultLabel = des.Label,
                 defaultDesc = des.Desc,
-                disabled = !isPlatformHaveFree || platformMode == PlatformMode.Up,
+                Disabled = !isPlatformHaveFree || platformMode == PlatformMode.Up,
                 disabledReason = !isPlatformHaveFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformBusy".Translate()
             };
             ThingDef stuffDefRaw = des.StuffDefRaw;

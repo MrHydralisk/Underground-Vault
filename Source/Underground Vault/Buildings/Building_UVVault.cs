@@ -90,7 +90,7 @@ namespace UndergroundVault
                 defaultLabel = TerminalDef.label,
                 defaultDesc = TerminalDef.description,
                 icon = TerminalDef.uiIcon,
-                disabled = this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == TerminalDef)
+                Disabled = this.Map.thingGrid.ThingsListAtFast(this.Position).Any((Thing t) => t.def == TerminalDef)
             };
             yield return new Command_Action
             {
@@ -104,7 +104,7 @@ namespace UndergroundVault
                 defaultLabel = "UndergroundVault.Command.VaultDetonate.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.VaultDetonate.Desc".Translate(),
                 icon =TextureOfLocal.VaultDetonateIconTex,
-                disabled = isTerminalAvailable,
+                Disabled = isTerminalAvailable,
                 disabledReason = "UndergroundVault.Command.disabledReason.TerminalAvailable".Translate(),
                 Order = 30
             };

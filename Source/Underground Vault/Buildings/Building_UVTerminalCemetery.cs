@@ -133,7 +133,7 @@ namespace UndergroundVault
                 },
                 defaultLabel = des.Label,
                 defaultDesc = des.Desc,
-                disabled = !isPlatformHaveFree || platformMode == PlatformMode.Up || selectStuff.NullOrEmpty(),
+                Disabled = !isPlatformHaveFree || platformMode == PlatformMode.Up || selectStuff.NullOrEmpty(),
                 disabledReason = selectStuff.NullOrEmpty() ? "NoStuffsToBuildWith".Translate() : !isPlatformHaveFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformBusy".Translate()
             };
             ThingDef stuffDefRaw = des.StuffDefRaw;

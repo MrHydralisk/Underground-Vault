@@ -5,6 +5,7 @@
   <packageId>MrHydralisk.UndergroundVault</packageId>
   <supportedVersions>
     <li>1.4</li>
+		<li>1.5</li>
   </supportedVersions>
   <description>Deep underground vaults for keeping your items safe from hands and eyes of raiders.</description>
   <modDependencies>
