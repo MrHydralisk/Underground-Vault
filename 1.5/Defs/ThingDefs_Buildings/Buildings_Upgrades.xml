@@ -155,7 +155,7 @@
   
 	<ThingDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeDeepDrillM</defName>
-		<label>deep drill module</label>
+		<label>digging module</label>
 		<description>Upgrade module for underground vault terminal which allows to dig deep-crust to create a new vault floor.\n\nEach additional module reduces the construction time of floors.</description>
 		<costList>
 			<WoodLog>25</WoodLog>
@@ -228,8 +228,8 @@
 	
 	<ThingDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradePlatformEfficiencyU</defName>
-		<label>platform efficiency module</label>
-		<description>Upgrade module for underground vault terminal which increase platform capacity.\n\nIncrease platform capacity by amount of modules.</description>
+		<label>teleportation efficiency module</label>
+		<description>Upgrade module for underground vault terminal which increase teleportation capacity.\n\nIncrease amount of teleporting things by amount of modules.</description>
 		<costList>
 			<Steel>100</Steel>
 			<ComponentIndustrial>8</ComponentIndustrial>

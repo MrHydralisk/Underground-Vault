@@ -13,6 +13,9 @@
   <UVStorage.label>подземное хранилище</UVStorage.label>
   <UVStorage.description>Экспирементирование с хранением предметов в подземном хранилище.</UVStorage.description>
 
+  <UVStorageUltra.label>ультратехнологичное подземное хранилище</UVStorageUltra.label>
+  <UVStorageUltra.description>Экспирементирование с телепортацией для перемещения предметов в подземном хранилище.</UVStorageUltra.description>
+
   <UVCryptosleep.label>подземное хранилище криптосна</UVCryptosleep.label>
   <UVCryptosleep.description>Экспирементирование с хранением саркофагов криптосна в подземном хранилище.</UVCryptosleep.description>
 
