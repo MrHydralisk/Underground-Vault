@@ -76,6 +76,8 @@ Should have no compatibility issues with other mods.
 
 [Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=3021706489)
 
+[Discord](https://discord.gg/tKsBgzzTsG)
+
 Supported languages: English, Russian.
 
 ## Add/Remove
