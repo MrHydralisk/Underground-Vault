@@ -1459,6 +1459,7 @@
 				<priority>Important</priority>
 			</defaultStorageSettings>
 		</building>
+		<constructionSkillPrerequisite>16</constructionSkillPrerequisite>
 		<costList>
 			<Steel>600</Steel>
 			<Plasteel>360</Plasteel>
@@ -1606,6 +1607,7 @@
 				<priority>Important</priority>
 			</defaultStorageSettings>
 		</building>
+		<constructionSkillPrerequisite>16</constructionSkillPrerequisite>
 		<costList>
 			<Steel>50</Steel>
 			<Plasteel>25</Plasteel>
