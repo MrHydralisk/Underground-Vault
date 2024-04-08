@@ -54,7 +54,7 @@
 					<li>Morbid</li>
 				</focusTypes>
 				<offsets>
-					<li Class="UndergroundVault.FocusStrengthOffset_CementeryTerminal">
+					<li Class="UndergroundVault.FocusStrengthOffset_CemeteryTerminal">
 						<offsetPerBuilding>0.01</offsetPerBuilding>
 						<maxBuildings>16</maxBuildings>
 						<focusPerFullGrave>0.05</focusPerFullGrave>

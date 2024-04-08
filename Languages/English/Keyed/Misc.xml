@@ -61,7 +61,7 @@
     <UndergroundVault.Terminal.InspectString.ScheduledCremation>{0} thing scheduled for cremation</UndergroundVault.Terminal.InspectString.ScheduledCremation>
     <UndergroundVault.Terminal.InspectString.ConstructionThings>Additional construction materials in Terminal: {0}</UndergroundVault.Terminal.InspectString.ConstructionThings>
     
-    <UndergroundVault.Terminal.MeditationFocusCementery>Per each sarcophagus in Vault (current/max):\n{0} if empty ({1}/{2}),\n{3} for human corpse inside ({4}/{5}),\n{6} if meditator is related to the corpse inside (max {7})</UndergroundVault.Terminal.MeditationFocusCementery>
+    <UndergroundVault.Terminal.MeditationFocusCemetery>Per each sarcophagus in Vault (current/max):\n{0} if empty ({1}/{2}),\n{3} for human corpse inside ({4}/{5}),\n{6} if meditator is related to the corpse inside (max {7})</UndergroundVault.Terminal.MeditationFocusCemetery>
 
     <UndergroundVault.Tooltip.Tab.TakeFromVault>Schedule to take from Vault</UndergroundVault.Tooltip.Tab.TakeFromVault>
     <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Schedule to take multiple from Vault</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
