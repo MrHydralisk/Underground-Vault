@@ -72,9 +72,12 @@
     <Compile Include="Buildings\Building_UVCryptosleepCasket.cs" />
     <Compile Include="Buildings\Building_UVTerminalStorage.cs" />
     <Compile Include="Buildings\Building_UVTerminalCryptosleep.cs" />
+    <Compile Include="Buildings\Building_UVTerminalStorageTeleSub.cs" />
+    <Compile Include="Buildings\Building_UVTerminalStorageTele.cs" />
     <Compile Include="Buildings\Building_UVUpgrade.cs" />
     <Compile Include="Buildings\Building_UVVault.cs" />
     <Compile Include="BuildingUpgrades.cs" />
+    <Compile Include="Extension\UVUpgradeExtension.cs" />
     <Compile Include="FocusStrengthOffset_CementeryTerminal.cs" />
     <Compile Include="ITab\ITab_UVTerminalStorage_Inventory.cs" />
     <Compile Include="ITab\ITab_UVTerminalCryptosleep_Inventory.cs" />
@@ -91,7 +94,9 @@
     <Compile Include="Buildings\Building_UVTerminalCemetery.cs" />
     <Compile Include="ITab\ITab_UVTerminalCemetery_Inventory.cs" />
     <Compile Include="Jobs\JobDriver_ManUVTerminal.cs" />
-    <Compile Include="PlaceWorker_UVUpgrade.cs" />
+    <Compile Include="PlaceWorkers\PlaceWorker_UVTerminalStorageUltraSub.cs" />
+    <Compile Include="PlaceWorkers\PlaceWorker_UVTerminalStorageUltra.cs" />
+    <Compile Include="PlaceWorkers\PlaceWorker_UVUpgrade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OfLocal\TextureOfLocal.cs" />
     <Compile Include="OfLocal\ThingDefOfLocal.cs" />

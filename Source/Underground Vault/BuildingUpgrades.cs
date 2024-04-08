@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -13,6 +14,8 @@ namespace UndergroundVault
         public string uiIconPath = "UI/Misc/BadTexture";
         public ThingDef upgradeDef;
         public int maxAmount = 1;
+
+        public UVUpgradeTypes upgradeType => upgradeDef.GetModExtension<UVUpgradeExtension>()?.upgradeType ?? UVUpgradeTypes.PlatformSpeed;
 
         private Texture2D uiIconCached;
         public Texture2D uiIcon

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-  <name>Underground Vault</name>
-  <author>MrHydralisk</author>
-  <packageId>MrHydralisk.UndergroundVault</packageId>
-  <supportedVersions>
-    <li>1.4</li>
+	<name>Underground Vault</name>
+	<author>MrHydralisk</author>
+	<packageId>MrHydralisk.UndergroundVault</packageId>
+	<supportedVersions>
+		<li>1.4</li>
 		<li>1.5</li>
-  </supportedVersions>
-  <description>Deep underground vaults for keeping your items safe from hands and eyes of raiders.</description>
-  <modDependencies>
-  </modDependencies>
-  <loadAfter>
-    <li>Ludeon.RimWorld</li>
-    <li>vanillaexpanded.achievements</li>
-  </loadAfter>
+	</supportedVersions>
+	<modIconPath IgnoreIfNoMatchingField="True">Icons/UVModIcon</modIconPath>
+	<description>Deep underground vaults for keeping your items safe from hands and eyes of raiders.</description>
+	<modDependencies>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>vanillaexpanded.achievements</li>
+	</loadAfter>
 </ModMetaData>

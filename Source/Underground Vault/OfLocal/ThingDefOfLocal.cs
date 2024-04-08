@@ -9,12 +9,7 @@ namespace UndergroundVault
         public static ThingDef UVSarcophagus;
         public static ThingDef UVCryptosleepCasket;
 
-        public static ThingDef UVUpgradeCrematorium;
-        public static ThingDef UVUpgradeDeepDrill;
-        public static ThingDef UVUpgradeStorageEfficiency;
-        public static ThingDef UVUpgradeAI;
-        public static ThingDef UVUpgradePlatformSpeed;
-        public static ThingDef UVUpgradeDeepDrillM;
-        public static ThingDef UVUpgradeStorageEfficiencyM;
+        public static ThingDef UVVaultStorageUltra;
+        public static ThingDef UVTerminalStorageUltra;
     }
 }

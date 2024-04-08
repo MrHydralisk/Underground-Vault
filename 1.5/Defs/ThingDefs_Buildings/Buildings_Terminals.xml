@@ -72,7 +72,15 @@
     
 	<ThingDef ParentName="UVTerminalCemetery">
 		<defName>UVTerminalCemeteryS</defName>
-		<description>Terminal for cemetery vault management and access point to it. Size S.</description>
+		<description>Terminal for cemetery vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside. Allow colonists to visit stored sarcophagus.\n\nTerminal operated manually and requires power to work. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultCemeteryS</ThingDef>
+		  <ThingDef>UVUpgradeCrematorium</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2B</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -92,7 +100,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>25500</WorkToBuild>
-			<MaxHitPoints>1600</MaxHitPoints>
+			<MaxHitPoints>650</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -174,7 +182,15 @@
 
 	<ThingDef ParentName="UVTerminalCemetery">
 		<defName>UVTerminalCemeteryM</defName>
-		<description>Terminal for cemetery vault management and access point to it. Size M.</description>
+		<description>Terminal for cemetery vault management and access point to it. Size M.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside. Allow colonists to visit stored sarcophagus.\n\nTerminal operated manually and requires power to work. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultCemeteryM</ThingDef>
+		  <ThingDef>UVUpgradeCrematorium</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2B</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -194,7 +210,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>32500</WorkToBuild>
-			<MaxHitPoints>1700</MaxHitPoints>
+			<MaxHitPoints>700</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -281,7 +297,15 @@
     
 	<ThingDef ParentName="UVTerminalCemetery">
 		<defName>UVTerminalCemeteryL</defName>
-		<description>Terminal for cemetery vault management and access point to it. Size L.</description>
+		<description>Terminal for cemetery vault management and access point to it. Size L.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside. Allow colonists to visit stored sarcophagus.\n\nTerminal operated manually and requires power to work. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultCemeteryL</ThingDef>
+		  <ThingDef>UVUpgradeCrematorium</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2B</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -301,7 +325,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>39500</WorkToBuild>
-			<MaxHitPoints>1800</MaxHitPoints>
+			<MaxHitPoints>750</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -390,7 +414,12 @@
 	<ThingDef ParentName="UVTerminalCemetery">
 		<defName>UVTerminalCemeteryMedieval</defName>
 		<label>medieval cemetery vault panel</label>
-		<description>Terminal for cemetery vault management and access point to it. Medieval type.</description>
+		<description>Terminal for cemetery vault management and access point to it. Medieval type.\n\nVault is located directly below it. Mobile platform can be lowered manually to store items inside.\n\nTerminal operated manually. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultCemeteryMedieval</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrillM</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiencyM</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminalM2x2</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -404,7 +433,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<size>(2,2)</size>
-		<interactionCellOffset>(1,0,-1)</interactionCellOffset>
+		<interactionCellOffset>(1,0,0)</interactionCellOffset>
 		<stuffCategories>
 			<li>Stony</li>
 		</stuffCategories>
@@ -416,7 +445,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>48750</WorkToBuild>
-			<MaxHitPoints>1000</MaxHitPoints>
+			<MaxHitPoints>300</MaxHitPoints>
 		</statBases>
 		<researchPrerequisites Inherit= "False">
 			<li>UVCemeteryMedieval</li>
@@ -494,7 +523,14 @@
   
 	<ThingDef ParentName="UVTerminalCryptosleep">
 		<defName>UVTerminalCryptosleepS</defName>
-		<description>Terminal for cryptosleep vault management and access point to it. Size S.</description>
+		<description>Terminal for cryptosleep vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Allows construction of cryptosleep casket on platform. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultCryptosleepS</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2B</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -514,7 +550,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>25500</WorkToBuild>
-			<MaxHitPoints>1600</MaxHitPoints>
+			<MaxHitPoints>650</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -592,7 +628,14 @@
   
 	<ThingDef ParentName="UVTerminalCryptosleep">
 		<defName>UVTerminalCryptosleepM</defName>
-		<description>Terminal for cryptosleep vault management and access point to it. Size M.</description>
+		<description>Terminal for cryptosleep vault management and access point to it. Size M.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Allows construction of cryptosleep casket on platform. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultCryptosleepM</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2B</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -612,7 +655,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>32500</WorkToBuild>
-			<MaxHitPoints>1700</MaxHitPoints>
+			<MaxHitPoints>700</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -695,7 +738,14 @@
   
 	<ThingDef ParentName="UVTerminalCryptosleep">
 		<defName>UVTerminalCryptosleepL</defName>
-		<description>Terminal for cryptosleep vault management and access point to it. Size L.</description>
+		<description>Terminal for cryptosleep vault management and access point to it. Size L.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Allows construction of cryptosleep casket on platform. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultCryptosleepL</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2B</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -715,7 +765,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>39500</WorkToBuild>
-			<MaxHitPoints>1800</MaxHitPoints>
+			<MaxHitPoints>750</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -827,7 +877,14 @@
 
 	<ThingDef ParentName="UVTerminalStorage">
 		<defName>UVTerminalStorageS</defName>
-		<description>Terminal for storage vault management and access point to it. Size S.</description>
+		<description>Terminal for storage vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultStorageS</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -847,7 +904,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>25500</WorkToBuild>
-			<MaxHitPoints>1600</MaxHitPoints>
+			<MaxHitPoints>650</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -930,7 +987,14 @@
 
 	<ThingDef ParentName="UVTerminalStorage">
 		<defName>UVTerminalStorageM</defName>
-		<description>Terminal for storage vault management and access point to it. Size M.</description>
+		<description>Terminal for storage vault management and access point to it. Size M.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultStorageM</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -950,7 +1014,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>32500</WorkToBuild>
-			<MaxHitPoints>1700</MaxHitPoints>
+			<MaxHitPoints>700</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -1035,7 +1099,14 @@
 
 	<ThingDef ParentName="UVTerminalStorage">
 		<defName>UVTerminalStorageL</defName>
-		<description>Terminal for storage vault management and access point to it. Size L.</description>
+		<description>Terminal for storage vault management and access point to it. Size L.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultStorageL</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1055,7 +1126,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>39500</WorkToBuild>
-			<MaxHitPoints>1800</MaxHitPoints>
+			<MaxHitPoints>750</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -1142,7 +1213,15 @@
 
 	<ThingDef ParentName="UVTerminalStorage">
 		<defName>UVTerminalStorageXL</defName>
-		<description>Terminal for storage vault management and access point to it. Size XL.</description>
+		<description>Terminal for storage vault management and access point to it. Size XL.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultStorageXL</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrill</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiency</ThingDef>
+		  <ThingDef>UVUpgradeAI</ThingDef>
+		  <ThingDef>UVUpgradePlatformSpeed</ThingDef>
+		  <ThingDef>UVUpgradePlatformEfficiency</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x3</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1162,7 +1241,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>59000</WorkToBuild>
-			<MaxHitPoints>2650</MaxHitPoints>
+			<MaxHitPoints>1125</MaxHitPoints>
 		</statBases>
 		<comps>
 			<li Class="CompProperties_Power">
@@ -1192,6 +1271,7 @@
 					<li>
 						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
+						<maxAmount>2</maxAmount>
 					</li>
 					<li>
 						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
@@ -1206,6 +1286,10 @@
 						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
+					</li>
+					<li>
+						<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
+						<upgradeDef>UVUpgradePlatformEfficiency</upgradeDef>
 					</li>
 				</AvailableUpgrades>
 				<CostForExpanding>		
@@ -1257,7 +1341,12 @@
 	<ThingDef ParentName="UVTerminalStorage">
 		<defName>UVTerminalStorageMedieval</defName>
 		<label>medieval storage vault panel</label>
-		<description>Terminal for storage vault management and access point to it. Medieval type.</description>
+		<description>Terminal for storage vault management and access point to it. Medieval type.\n\nVault is located directly below it. Mobile platform can be lowered manually to store items inside.\n\nTerminal operated manually. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultStorageMedieval</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrillM</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiencyM</ThingDef>
+		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminalM2x2</texPath>
 			<graphicClass>Graphic_Single</graphicClass>
@@ -1271,7 +1360,7 @@
 			<shaderType>CutoutComplex</shaderType>
 		</graphicData>
 		<size>(2,2)</size>
-		<interactionCellOffset>(1,0,-1)</interactionCellOffset>
+		<interactionCellOffset>(1,0,0)</interactionCellOffset>
 		<stuffCategories>
 			<li>Stony</li>
 		</stuffCategories>
@@ -1283,7 +1372,7 @@
 		</costList>
 		<statBases>
 			<WorkToBuild>48750</WorkToBuild>
-			<MaxHitPoints>1000</MaxHitPoints>
+			<MaxHitPoints>300</MaxHitPoints>
 		</statBases>
 		<researchPrerequisites Inherit= "False">
 			<li>UVStorageMedieval</li>
@@ -1334,6 +1423,225 @@
 					<li>(1,0,1)</li>
 				</PlatformItemPositions>
 				<FloorMax>40</FloorMax>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="UVTerminalStorage">
+		<defName>UVTerminalStorageUltra</defName>
+		<label>ultra storage vault panel</label>
+		<thingClass>UndergroundVault.Building_UVTerminalStorageTele</thingClass>
+		<description>Terminal for storage vault management and access point to it. Ultra type.\n\nVault is located directly below it. AI core controls process of things teleportation between surface and vault.\n\nTerminal operated by AI and requires power to work. Sub terminals can be constructed for establishing extra access points to vault. Additional upgrade modules can be installed.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVVaultStorageUltra</ThingDef>
+		  <ThingDef>UVTerminalStorageUltraSub</ThingDef>
+		  <ThingDef>UVUpgradeDeepDrillU</ThingDef>
+		  <ThingDef>UVUpgradeStorageEfficiencyU</ThingDef>
+		  <ThingDef>UVUpgradePlatformEfficiencyU</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Things/Building/UVTerminalU</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(7,7)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(5,5)</size>		
+		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
+		<designatorDropdown Inherit= "False"/>
+		<building Inherit= "False">
+			<maxItemsInCell>3</maxItemsInCell>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+			</defaultStorageSettings>
+		</building>
+		<costList>
+			<Steel>600</Steel>
+			<Plasteel>360</Plasteel>
+			<ComponentIndustrial>36</ComponentIndustrial>
+			<ComponentSpacer>8</ComponentSpacer>
+			<Gold>40</Gold>
+			<AIPersonaCore>1</AIPersonaCore>
+		</costList>
+		<placeWorkers>
+			<li>UndergroundVault.PlaceWorker_UVTerminalStorageUltra</li>
+		</placeWorkers>
+		<statBases>
+			<WorkToBuild>150000</WorkToBuild>
+			<MaxHitPoints>2400</MaxHitPoints>
+		</statBases>
+		<researchPrerequisites Inherit= "False">
+			<li>UVStorageUltra</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>3000</basePowerConsumption>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="UndergroundVault.BuildingUpgradesExtension">
+				<ConstructionOffset>
+					<li>(0,0,1)</li>
+					<li>(1,0,1)</li>
+					<li>(1,0,0)</li>
+					<li>(1,0,-1)</li>
+					<li>(0,0,-1)</li>
+					<li>(-1,0,-1)</li>
+					<li>(-1,0,0)</li>
+					<li>(-1,0,1)</li>
+				</ConstructionOffset>
+				<DrawOffset>
+					<li>(0,0,0.031)</li>
+					<li>(-0.359,0,-0.125)</li>
+					<li>(-0.219,0,0.234)</li>
+					<li>(-0.359,0,0.594)</li>
+					<li>(0,0,0.453)</li>
+					<li>(0.359,0,0.594)</li>
+					<li>(0.219,0,0.234)</li>
+					<li>(0.359,0,-0.125)</li>
+				</DrawOffset>
+				<AvailableUpgrades>
+					<li>
+						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+						<upgradeDef>UVUpgradeDeepDrillU</upgradeDef>
+						<maxAmount>3</maxAmount>
+					</li>
+					<li>
+						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+						<upgradeDef>UVUpgradeStorageEfficiencyU</upgradeDef>
+						<maxAmount>4</maxAmount>
+					</li>
+					<li>
+						<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
+						<upgradeDef>UVUpgradePlatformEfficiencyU</upgradeDef>
+						<maxAmount>3</maxAmount>
+					</li>
+				</AvailableUpgrades>
+				<CostForExpanding>		
+					<costList>
+						<Steel>315</Steel>
+					</costList>
+				</CostForExpanding>
+				<CostForUpgrading>
+					<li>
+						<costList>
+							<Steel>336</Steel>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>252</Steel>
+							<ComponentIndustrial>8</ComponentIndustrial>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Plasteel>84</Plasteel>
+							<ComponentSpacer>1</ComponentSpacer>
+						</costList>
+					</li>
+					<li>
+						<costList>
+							<Steel>126</Steel>
+							<Plasteel>68</Plasteel>
+							<ComponentSpacer>3</ComponentSpacer>
+						</costList>
+					</li>
+				</CostForUpgrading>
+			</li>
+			<li Class="UndergroundVault.TerminalExtension">
+				<VaultDef>UVVaultStorageUltra</VaultDef>
+				<PlatformCapacity>1</PlatformCapacity>
+				<TicksPerPlatformTravelTimeBase>60</TicksPerPlatformTravelTimeBase>
+				<TicksPerExpandVaultTimeBase>28000</TicksPerExpandVaultTimeBase>
+				<TicksPerUpgradeFloorVaultTimeBase>1750</TicksPerUpgradeFloorVaultTimeBase>
+				<PlatformItemPositions>
+					<li>(-1,0,-2)</li>
+					<li>(0,0,-2)</li>
+					<li>(1,0,-2)</li>
+					<li>(2,0,-1)</li>
+					<li>(2,0,0)</li>
+					<li>(2,0,1)</li>
+					<li>(1,0,2)</li>
+					<li>(0,0,2)</li>
+					<li>(-1,0,2)</li>
+					<li>(-2,0,1)</li>
+					<li>(-2,0,0)</li>
+					<li>(-2,0,-1)</li>
+				</PlatformItemPositions>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="UVTerminalStorage">
+		<defName>UVTerminalStorageUltraSub</defName>
+		<label>ultra storage vault sub panel</label>
+		<thingClass>UndergroundVault.Building_UVTerminalStorageTeleSub</thingClass>
+		<description>Sub terminal connected to existing terminal of ultra type for additional access point to it.</description>
+		<descriptionHyperlinks>
+		  <ThingDef>UVTerminalStorageUltra</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Things/Building/UVTerminalUS</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(3,4)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<rotatable>true</rotatable>
+		<size>(1,2)</size>
+		<designatorDropdown Inherit= "False"/>
+		<building Inherit= "False">
+			<maxItemsInCell>3</maxItemsInCell>
+			<defaultStorageSettings>
+				<priority>Important</priority>
+			</defaultStorageSettings>
+		</building>
+		<costList>
+			<Steel>50</Steel>
+			<Plasteel>25</Plasteel>
+			<ComponentIndustrial>3</ComponentIndustrial>
+			<ComponentSpacer>2</ComponentSpacer>
+		</costList>
+		<placeWorkers>
+			<li>UndergroundVault.PlaceWorker_UVTerminalStorageUltraSub</li>
+		</placeWorkers>
+		<statBases>
+			<WorkToBuild>10000</WorkToBuild>
+			<MaxHitPoints>250</MaxHitPoints>
+		</statBases>
+		<researchPrerequisites Inherit= "False">
+			<li>UVStorageUltra</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>400</basePowerConsumption>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="UndergroundVault.BuildingUpgradesExtension">
+				<ConstructionOffset />
+				<DrawOffset />
+				<AvailableUpgrades />
+				<CostForExpanding />
+				<CostForUpgrading />
+			</li>
+			<li Class="UndergroundVault.TerminalExtension">
+				<PlatformCapacity>1</PlatformCapacity>
+				<TicksPerPlatformTravelTimeBase>240</TicksPerPlatformTravelTimeBase>
+				<PlatformItemPositions>
+					<li>(0,0,0)</li>
+				</PlatformItemPositions>
 			</li>
 		</modExtensions>
 	</ThingDef>

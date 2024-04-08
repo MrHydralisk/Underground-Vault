@@ -8,6 +8,7 @@ using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using static HarmonyLib.Code;
 
 namespace UndergroundVault
 {
@@ -66,6 +67,16 @@ namespace UndergroundVault
             }
         }
 
+        protected IList<Thing> availableContainer
+        {
+            get
+            {
+                IList<Thing> SortedList = sortedContainer;
+                SortedList = SortedList.Where((Thing t) => !building.PlatformUndergroundThings.Any((Thing t1) => t1 == t) && !building.UVVault.PlatformUndergroundThings.Any((Thing t1) => t1 == t)).ToList();
+                return SortedList;
+            }
+        }
+
         public ITab_UVTerminal_Inventory() : base()
         {
             labelKey = "Contents";
@@ -87,19 +98,23 @@ namespace UndergroundVault
             Widgets.Label(rect2, " " + "UndergroundVault.Vault.InspectString.Capacity".Translate(building.InnerContainer.Count(), building.CanAdd, building.UVVault.Capacity));
             curY += 24f;
             curX = outRect.width - 24f + 17f;
-            if (Widgets.ButtonImage(new Rect(curX, curY, 24f, 24f), CaravanThingsTabUtility.SpecificTabButtonTex))
+            Rect rect1 = new Rect(curX, curY, 24f, 24f);
+            if (Widgets.ButtonImage(rect1, CaravanThingsTabUtility.SpecificTabButtonTex))
             {
                 isSettingsActive = !isSettingsActive;
             }
+            TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TypeFilter");
             curX += -3f - 24f;
-            if (Widgets.ButtonImage(new Rect(curX, curY, 24f, 24f), TextureOfLocal.TakeIconTex))
+            Rect rect6 = new Rect(curX, curY, 24f, 24f);
+            if (Widgets.ButtonImage(rect6, TextureOfLocal.TakeIconTex))
             {
-                Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Command.TakeFromVault.Label".Translate(), Mathf.Min(1, sortedContainer.Count()), sortedContainer.Count(), delegate (int x)
+                Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Command.TakeFromVault.Label".Translate(), Mathf.Min(1, availableContainer.Count()), availableContainer.Count(), delegate (int x)
                 {
-                    sortedContainer.Take(x).ToList().ForEach((Thing t) => building.MarkItemFromVault(t));
+                    availableContainer.Take(x).ToList().ForEach((Thing t) => building.MarkItemFromVault(t));
                 }
                     ));
             }
+            TooltipHandler.TipRegionByKey(rect6, "UndergroundVault.Tooltip.Tab.BatchTakeFromVault");
             float searchBarWidth = curX - 3f;
             Rect rect3 = new Rect(0, curY, searchBarWidth, 24f);
             quickSearch.OnGUI(rect3);

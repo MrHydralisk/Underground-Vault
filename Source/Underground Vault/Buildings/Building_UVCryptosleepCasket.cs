@@ -21,7 +21,7 @@ namespace UndergroundVault
             {
                 yield return gizmo;
             }
-            if (base.Faction == Faction.OfPlayer && innerContainer.Count > 0 && UVTerminal?.HaveUpgrade(ThingDefOfLocal.UVUpgradeAI) > 0)
+            if (base.Faction == Faction.OfPlayer && innerContainer.Count > 0 && UVTerminal?.HaveUpgrade(UVUpgradeTypes.AI) > 0)
             {
                 Command_Action command_Action = new Command_Action();
                 command_Action.action = EjectContents;

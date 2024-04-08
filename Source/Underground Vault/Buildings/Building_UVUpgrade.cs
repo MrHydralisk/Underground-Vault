@@ -19,6 +19,11 @@ namespace UndergroundVault
         Building_UVTerminal uvT => uvTCached ?? (uvTCached = this.Map.thingGrid.ThingsListAtFast(this.Position).FirstOrDefault((Thing t) => t is Building_UVTerminal) as Building_UVTerminal);
         Building_UVTerminal uvTCached;
 
+        public UVUpgradeExtension ExtUpgrade => extUpgradeCached ?? (extUpgradeCached = def.GetModExtension<UVUpgradeExtension>());
+        private UVUpgradeExtension extUpgradeCached;
+
+        public UVUpgradeTypes upgradeType => ExtUpgrade?.upgradeType ?? UVUpgradeTypes.PlatformSpeed;
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);

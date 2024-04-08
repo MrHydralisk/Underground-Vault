@@ -30,33 +30,35 @@ namespace UndergroundVault
         protected override void DoThingRow(Thing thing, float width, ref float curY)
         {
             Rect rect = new Rect(0f, curY, width, 28f);
+            Rect rect1 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
             if (building.PlatformUndergroundThings.Any((Thing t) => t == thing))
             {
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
+                if (Widgets.ButtonImage(rect1, TextureOfLocal.TakeIconTex))
                 {
                     building.UnMarkItemFromVault(thing);
                 }
-                Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), CaravanThingsTabUtility.AbandonButtonTex);
-                rect.width -= 24f;
+                Widgets.ButtonImage(rect1, CaravanThingsTabUtility.AbandonButtonTex);
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ClearScheduled");
             }
             else if (building.CremationThings.Any((Thing t) => t == thing))
             {
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.UpgradeCRIconTex))
+                if (Widgets.ButtonImage(rect1, TextureOfLocal.UpgradeCRIconTex))
                 {
                     building.UnMarkItemForCremation(thing);
                 }
-                Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), CaravanThingsTabUtility.AbandonButtonTex);
-                rect.width -= 24f;
+                Widgets.ButtonImage(rect1, CaravanThingsTabUtility.AbandonButtonTex);
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ClearScheduled");
             }
             else
             {
-
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
+                if (Widgets.ButtonImage(rect1, TextureOfLocal.TakeIconTex))
                 {
                     building.MarkItemFromVault(thing);
                 }
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TakeFromVault");
                 rect.width -= 24f;
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.UpgradeCRIconTex))
+                Rect rect2 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
+                if (Widgets.ButtonImage(rect2, TextureOfLocal.UpgradeCRIconTex))
                 {
                     string text = thing.LabelShortCap;
                     Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmRemoveItemDialog".Translate(text), delegate
@@ -64,8 +66,9 @@ namespace UndergroundVault
                         building.MarkItemForCremation(thing);
                     }));
                 }
-                rect.width -= 24f;
+                TooltipHandler.TipRegionByKey(rect2, "UndergroundVault.Tooltip.Tab.Cremation");
             }
+            rect.width -= 24f;
             Widgets.InfoCardButton(rect.width - 24f, curY, thing);
             rect.width -= 24f;
             Building_Casket bs = thing as Building_Casket;

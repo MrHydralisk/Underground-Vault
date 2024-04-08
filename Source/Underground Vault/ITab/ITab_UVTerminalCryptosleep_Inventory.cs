@@ -7,13 +7,13 @@ using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
 using Verse;
+using static HarmonyLib.Code;
 
 namespace UndergroundVault
 {
     [StaticConstructorOnStartup]
     public class ITab_UVTerminalCryptosleep_Inventory : ITab_UVTerminal_Inventory
     {
-
         private Building_UVTerminalCryptosleep building => base.SelThing as Building_UVTerminalCryptosleep;
 
         protected override IList<Thing> sortedContainer
@@ -30,23 +30,25 @@ namespace UndergroundVault
         protected override void DoThingRow(Thing thing, float width, ref float curY)
         {
             Rect rect = new Rect(0f, curY, width, 28f);
+            Rect rect1 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
             if (building.PlatformUndergroundThings.Any((Thing t) => t == thing))
             {
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
+                if (Widgets.ButtonImage(rect1, TextureOfLocal.TakeIconTex))
                 {
                     building.UnMarkItemFromVault(thing);
                 }
-                Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), CaravanThingsTabUtility.AbandonButtonTex);
-                rect.width -= 24f;
+                Widgets.ButtonImage(rect1, CaravanThingsTabUtility.AbandonButtonTex);
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ScheduledByOther");
             }
             else
             {
-                if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
+                if (Widgets.ButtonImage(rect1, TextureOfLocal.TakeIconTex))
                 {
                     building.MarkItemFromVault(thing);
                 }
-                rect.width -= 24f;
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ScheduledByOther");
             }
+            rect.width -= 24f;
             Widgets.InfoCardButton(rect.width - 24f, curY, thing);
             rect.width -= 24f;
             Building_Casket bs = thing as Building_Casket;

@@ -48,7 +48,11 @@ namespace UndergroundVault
                     mouseState = MouseMarking.UnMarking;
                 }
                 GUI.DrawTexture(rect1, CaravanThingsTabUtility.AbandonButtonTex);
-                rect.width -= 24f;
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ClearScheduled");
+            } else if (building.UVVault.PlatformUndergroundThings.Any((Thing t) => t == thing))
+            {
+                GUI.DrawTexture(rect1, CaravanThingsTabUtility.AbandonButtonTex);
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ScheduledByOther");
             }
             else
             {
@@ -58,8 +62,9 @@ namespace UndergroundVault
                     building.MarkItemFromVault(thing);
                     mouseState = MouseMarking.Marking;
                 }
-                rect.width -= 24f;
+                TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TakeFromVault");
             }
+            rect.width -= 24f;
             GUI.color = Color.white;
             Widgets.InfoCardButton(rect.width - 24f, curY, thing);
             rect.width -= 24f;

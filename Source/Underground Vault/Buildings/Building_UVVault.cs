@@ -30,6 +30,9 @@ namespace UndergroundVault
         public VaultExtension ExtVault => extVaultCached ?? (extVaultCached = def.GetModExtension<VaultExtension>());
         private VaultExtension extVaultCached;
 
+        public virtual List<Thing> PlatformUndergroundThings => platformUndergroundThingsCached ?? (platformUndergroundThingsCached = new List<Thing>());
+        private List<Thing> platformUndergroundThingsCached;
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -130,6 +133,7 @@ namespace UndergroundVault
             base.ExposeData();
             Scribe_Collections.Look(ref innerContainer, "innerContainer", LookMode.Deep);
             Scribe_Collections.Look(ref floors, "floors", LookMode.Value);
+            Scribe_Collections.Look(ref platformUndergroundThingsCached, "platformUndergroundThingsCached", LookMode.Reference);
         }
     }
 }

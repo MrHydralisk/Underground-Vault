@@ -24,7 +24,7 @@ namespace UndergroundVault
         {
             get
             {
-                return (int)(ticksPerCremationTimeBase / Mathf.Pow(2, HaveUpgrade(ThingDefOfLocal.UVUpgradeCrematorium)));
+                return (int)(ticksPerCremationTimeBase / Mathf.Pow(2, HaveUpgrade(UVUpgradeTypes.Crematorium)));
             }
         }
 
@@ -168,7 +168,7 @@ namespace UndergroundVault
             }
             if (CremationThings.Count() > 0)
             {
-                inspectStrings.Add("UndergroundVault.Terminal.InspectString.SheduledCremation".Translate(CremationThings.Count()));
+                inspectStrings.Add("UndergroundVault.Terminal.InspectString.ScheduledCremation".Translate(CremationThings.Count()));
             }
             return String.Join("\n", inspectStrings);
         }
