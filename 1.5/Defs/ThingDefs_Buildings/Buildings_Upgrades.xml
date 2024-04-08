@@ -231,8 +231,9 @@
 		<label>teleportation efficiency module</label>
 		<description>Upgrade module for underground vault terminal which increase teleportation capacity.\n\nIncrease amount of teleporting things by amount of modules.</description>
 		<costList>
-			<Steel>100</Steel>
-			<ComponentIndustrial>8</ComponentIndustrial>
+			<Steel>25</Steel>
+			<Plasteel>75</Plasteel>
+			<ComponentSpacer>2</ComponentSpacer>
 		</costList>
 		<graphicData>
 			<texPath>Things/Building/UVUpgradePlatformEfficiencyU</texPath>
