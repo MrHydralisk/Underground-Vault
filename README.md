@@ -13,62 +13,17 @@ Destruction of Vaults from outside is highly unlikely, even if Vault Terminal de
 
 Vault Terminals can be upgraded with additional modules.
 Vault can be expanded by constructing new floors or upgrading existing ones, which takes time and resources in Vault or Terminal platform or delivered by Pawns with delivery job.
-Medieval vaults limited by max 40 floors and overall slower work.
-Ultra vault using teleportation technology for fast work and allow construction of additional sub terminals.
 
 ### Underground Vaults
 
-#### Cementery underground vault
-Cemetery vault for storing sarcophagus.
-Type: S/M/L/Medieval
-Size: 3x2/4x2/5x2/2x2
-Platfrom capacity: 1/2/3/2
-Items per Vault floor: 3/4/5/2
-Upgrades slots: 4/4/4/2
-
-#### Storage underground vault
-Storage vault for storing items.
-Type: S/M/L/XL/Medieval/Ultra
-Size: 3x2/4x2/5x2/5x3/2x2/5x5
-Platfrom capacity: 2/4/6/9/4/1
-Items per Vault floor: 6/8/10/15/4/21
-Upgrades slots: 4/4/4/6/2/8
-
-#### Cryptosleep underground vault
-Cryptosleep vault for storing cryptosleep casket.
-Type: S/M/L
-Size: 3x2/4x2/5x2
-Platfrom capacity: 1/2/3
-Items per Vault floor: 3/4/5
-Upgrades slots: 4
+![Text](/Mod%20Page/Images/Content/UV1.png)
+![Text](/Mod%20Page/Images/Content/UV2.png)
+![Text](/Mod%20Page/Images/Content/UV4.png)
+![Text](/Mod%20Page/Images/Content/UV5.png)
 
 ### Upgrade Modules
 
-#### Crematorium module
-Upgrade module for underground vault terminal which vaporizes selected things with extremely high temperatures.
-Cost: 75 Steel, 6 Component.
-
-#### Deep drill module
-Upgrade module for underground vault terminal which allows to drill deep-crust to create a new vault floor.
-Cost: 115 Steel, 8 Component.
-Medieval Cost: 25 Wood, 50 Steel
-
-#### Storage efficiency module
-Upgrade module for underground vault terminal which allows to reorganize vault floor to increase it capacity.
-Cost: 90 Steel, 4 Component, 1 Advanced Component.
-Medieval Cost: 75 Wood, 15 Steel
-
-#### AI module
-Upgrade module for underground vault terminal which allows terminal to work autonomously.
-Cost: 20 Steel, 75 Plasteel, 8 Advanced Component.
-
-#### Platform speed module
-Upgrade module for underground vault terminal which accelerates platform movement.
-Cost: 75 Steel, 12 Component.
-
-#### Platform efficiency module
-Upgrade module for underground vault terminal which increase platform capacity.
-Cost: 100 Steel, 8 Component.
+![Text](/Mod%20Page/Images/Content/UV3.png)
 
 ## Mod Compatibility
 
