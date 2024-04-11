@@ -25,13 +25,15 @@ Vault can be expanded by constructing new floors or upgrading existing ones, whi
 
 ![Text](/Mod%20Page/Images/Content/UV3.png)
 
-## Mod Compatibility
-
-Should have no compatibility issues with other mods.
+## Links
 
 [Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=3021706489)
 
 [Discord](https://discord.gg/tKsBgzzTsG)
+
+## Mod Compatibility
+
+Should have no compatibility issues with other mods.
 
 Supported languages: English, Russian.
 
