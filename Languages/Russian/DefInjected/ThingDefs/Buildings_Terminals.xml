@@ -23,24 +23,31 @@
   <UVTerminalCryptosleepL.description>Терминал для управления хранилищем криптосна и доступа к нему. Размер L.\n\nХранилище расположено прямо под ним. Платформа может перемещаться по вертикальной шахте хранилища и взаимодействовать со складскими стелажами внутри.\n\nТерминал управляется вручную и требует энергию для работы. Позволяет строить саркофаги криптосна на платформе. Позволяет установить дополнительные модули улучшения.</UVTerminalCryptosleepL.description>
 
   <UVTerminalStorageS.label>терминал хранилища</UVTerminalStorageS.label>
+  <UVTerminalStorageS.building.groupingLabel>терминалы хранилища</UVTerminalStorageS.building.groupingLabel>
   <UVTerminalStorageS.description>Терминал для управления хранилищем и доступа к нему. Размер S.\n\nХранилище расположено прямо под ним. Платформа может перемещаться по вертикальной шахте хранилища и взаимодействовать со складскими стелажами внутри.\n\nТерминал управляется вручную и требует энергию для работы. Позволяет установить дополнительные модули улучшения.</UVTerminalStorageS.description>
 
   <UVTerminalStorageM.label>терминал хранилища</UVTerminalStorageM.label>
+  <UVTerminalStorageM.building.groupingLabel>терминалы хранилища</UVTerminalStorageM.building.groupingLabel>
   <UVTerminalStorageM.description>Терминал для управления хранилищем и доступа к нему. Размер M.\n\nХранилище расположено прямо под ним. Платформа может перемещаться по вертикальной шахте хранилища и взаимодействовать со складскими стелажами внутри.\n\nТерминал управляется вручную и требует энергию для работы. Позволяет установить дополнительные модули улучшения.</UVTerminalStorageM.description>
 
   <UVTerminalStorageL.label>терминал хранилища</UVTerminalStorageL.label>
+  <UVTerminalStorageL.building.groupingLabel>терминалы хранилища</UVTerminalStorageL.building.groupingLabel>
   <UVTerminalStorageL.description>Терминал для управления хранилищем и доступа к нему. Размер L.\n\nХранилище расположено прямо под ним. Платформа может перемещаться по вертикальной шахте хранилища и взаимодействовать со складскими стелажами внутри.\n\nТерминал управляется вручную и требует энергию для работы. Позволяет установить дополнительные модули улучшения.</UVTerminalStorageL.description>
 
   <UVTerminalStorageXL.label>терминал хранилища</UVTerminalStorageXL.label>
+  <UVTerminalStorageXL.building.groupingLabel>терминалы хранилища</UVTerminalStorageXL.building.groupingLabel>
   <UVTerminalStorageXL.description>Терминал для управления хранилищем и доступа к нему. Размер XL.\n\nХранилище расположено прямо под ним. Платформа может перемещаться по вертикальной шахте хранилища и взаимодействовать со складскими стелажами внутри.\n\nТерминал управляется вручную и требует энергию для работы. Позволяет установить дополнительные модули улучшения.</UVTerminalStorageXL.description>
 
   <UVTerminalStorageMedieval.label>средневековый терминал хранилища</UVTerminalStorageMedieval.label>
+  <UVTerminalStorageMedieval.building.groupingLabel>средневековые терминалы хранилища</UVTerminalStorageMedieval.building.groupingLabel>
   <UVTerminalStorageMedieval.description>Терминал для управления хранилищем и доступа к нему. Средневековый тип.\n\nХранилище расположено прямо под ним. Платформу можно вручную опустить для хранение предметов внутри.\n\nТерминал управляется вручную. Позволяет установить дополнительные модули улучшения.</UVTerminalStorageMedieval.description>
   
   <UVTerminalStorageUltra.label>ультратехнологичный терминал хранилища</UVTerminalStorageUltra.label>
+  <UVTerminalStorageUltra.building.groupingLabel>ультратехнологичные терминалы хранилища</UVTerminalStorageUltra.building.groupingLabel>
   <UVTerminalStorageUltra.description>Терминал для управления хранилищем и доступа к нему. Ультратехнологичный тип.\n\nХранилище расположено прямо под ним. Ядро ИИ управляет процессом телепортации вещей между поверхностью и хранилищем.\n\nТерминал управляется ИИ и требует энергию для работы. Возможно построить доп. терминалы для создания дополнительных точек доступа к хранилищу. Позволяет установить дополнительные модули улучшения.</UVTerminalStorageUltra.description>
   
   <UVTerminalStorageUltraSub.label>ультратехнологичный доп. терминал хранилища</UVTerminalStorageUltraSub.label>
+  <UVTerminalStorageUltraSub.building.groupingLabel>ультратехнологичные доп. терминалы хранилища</UVTerminalStorageUltraSub.building.groupingLabel>
   <UVTerminalStorageUltraSub.description>Дополнительный терминал связанный с существующим ультратехнологичный терминалом для дополнительной точки доступа к нему.</UVTerminalStorageUltraSub.description>
 
 </LanguageData>

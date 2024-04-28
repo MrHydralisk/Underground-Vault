@@ -858,6 +858,9 @@
 		<thingClass>UndergroundVault.Building_UVTerminalStorage</thingClass>
 		<designatorDropdown>UVTerminalStorage_SET</designatorDropdown>
 		<building>
+			<storageGroupTag>UVTerminal</storageGroupTag>
+			<groupingLabel>storage vault panels</groupingLabel>
+			<groupingOrder>130</groupingOrder>
 			<maxItemsInCell>3</maxItemsInCell>
 			<defaultStorageSettings>
 				<priority>Important</priority>
@@ -1453,12 +1456,6 @@
 		<size>(5,5)</size>		
 		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
 		<designatorDropdown Inherit= "False"/>
-		<building Inherit= "False">
-			<maxItemsInCell>3</maxItemsInCell>
-			<defaultStorageSettings>
-				<priority>Important</priority>
-			</defaultStorageSettings>
-		</building>
 		<constructionSkillPrerequisite>16</constructionSkillPrerequisite>
 		<costList>
 			<Steel>600</Steel>
@@ -1475,6 +1472,11 @@
 			<WorkToBuild>150000</WorkToBuild>
 			<MaxHitPoints>2400</MaxHitPoints>
 		</statBases>
+		<building>
+			<relatedBuildCommands>
+				<li>UVTerminalStorageUltraSub</li>
+			</relatedBuildCommands>
+		</building>
 		<researchPrerequisites Inherit= "False">
 			<li>UVStorageUltra</li>
 		</researchPrerequisites>
@@ -1601,12 +1603,6 @@
 		<rotatable>true</rotatable>
 		<size>(1,2)</size>
 		<designatorDropdown Inherit= "False"/>
-		<building Inherit= "False">
-			<maxItemsInCell>3</maxItemsInCell>
-			<defaultStorageSettings>
-				<priority>Important</priority>
-			</defaultStorageSettings>
-		</building>
 		<constructionSkillPrerequisite>16</constructionSkillPrerequisite>
 		<costList>
 			<Steel>50</Steel>
@@ -1621,6 +1617,11 @@
 			<WorkToBuild>10000</WorkToBuild>
 			<MaxHitPoints>250</MaxHitPoints>
 		</statBases>
+		<building>
+			<relatedBuildCommands>
+				<li>UVTerminalStorageUltra</li>
+			</relatedBuildCommands>
+		</building>
 		<researchPrerequisites Inherit= "False">
 			<li>UVStorageUltra</li>
 		</researchPrerequisites>
