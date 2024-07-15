@@ -19,6 +19,9 @@
   <UVUpgradePlatformEfficiency.label>модуль эффективности пространства платформы</UVUpgradePlatformEfficiency.label>
   <UVUpgradePlatformEfficiency.description>Модуль улучшения для терминала подземного хранилища, который позволяет увеличить максимальную вместимость грузовой плотформы.\n\nУвеличивает вместимость платформы на количество таких модулей.</UVUpgradePlatformEfficiency.description>
 
+  <UVUpgradeTradeBeacon.label>модуль торгового маяка</UVUpgradeTradeBeacon.label>
+  <UVUpgradeTradeBeacon.description>Модуль улучшения для терминала подземного хранилища, который позволяет продавать товары орбитальным торговцам.\n\nДобавляет возможность орбитальной торговли напрямую из хранилища.</UVUpgradeTradeBeacon.description>
+
   <UVUpgradeDeepDrillM.label>модуль копания</UVUpgradeDeepDrillM.label>
   <UVUpgradeDeepDrillM.description>Модуль улучшения для терминала подземного хранилища, который позволяет копать подземную породу для освобождения места под дополнительный этаж хранилища.\n\nКаждый дополнительный модуль снижает время строительства нового этажа.</UVUpgradeDeepDrillM.description>
 
@@ -33,5 +36,8 @@
 
   <UVUpgradePlatformEfficiencyU.label>модуль эффективности телепортации</UVUpgradePlatformEfficiencyU.label>
   <UVUpgradePlatformEfficiencyU.description>Модуль улучшения для терминала подземного хранилища, который позволяет увеличить максимальную мощность телепортации.\n\nУвеличивает количество телепортируемых предметов на количество таких модулей.</UVUpgradePlatformEfficiencyU.description>
+
+  <UVUpgradeTradeBeaconU.label>модуль торгового маяка</UVUpgradeTradeBeaconU.label>
+  <UVUpgradeTradeBeaconU.description>Модуль улучшения для терминала подземного хранилища, который позволяет продавать товары орбитальным торговцам.\n\nДобавляет возможность орбитальной торговли напрямую из хранилища.</UVUpgradeTradeBeaconU.description>
 
 </LanguageData>

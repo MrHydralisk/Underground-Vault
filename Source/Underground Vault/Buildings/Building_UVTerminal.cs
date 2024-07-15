@@ -151,6 +151,8 @@ namespace UndergroundVault
 
         protected virtual bool isScheduled => !PlatformSurfaceThings.NullOrEmpty() || !PlatformUndergroundThings.NullOrEmpty();
 
+        public virtual bool isTradeable => HaveUpgrade(UVUpgradeTypes.TradeBeacon) > 0;
+
         public List<ThingDefCountClass> AvailableThings
         {
             get

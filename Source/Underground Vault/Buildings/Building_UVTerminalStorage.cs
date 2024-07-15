@@ -7,7 +7,7 @@ using Verse;
 
 namespace UndergroundVault
 {
-    public class Building_UVTerminalStorage : Building_UVTerminal, ISlotGroupParent, IStoreSettingsParent, IHaulDestination, IStorageGroupMember
+    public class Building_UVTerminalStorage : Building_UVTerminal, ISlotGroupParent, IHaulDestination, IStorageGroupMember
     {
         protected override List<Thing> PlatformSlots => ExtTerminal.PlatformItemPositions.SelectMany((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).Where((Thing t) => PlatformThingsSorter(t))).ToList();
         public override bool isPlatformHaveFree => true;

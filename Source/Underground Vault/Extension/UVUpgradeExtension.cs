@@ -14,6 +14,7 @@ namespace UndergroundVault
         StorageEfficiency,
         AI,
         PlatformSpeed,
-        PlatformEfficiency
+        PlatformEfficiency,
+        TradeBeacon
     }
 }

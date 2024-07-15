@@ -951,6 +951,10 @@
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
+					<li>
+						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
+						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
+					</li>
 				</AvailableUpgrades>
 				<CostForExpanding>		
 					<costList>
@@ -1060,6 +1064,10 @@
 						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
+					</li>
+					<li>
+						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
+						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
 					</li>
 				</AvailableUpgrades>
 				<CostForExpanding>		
@@ -1172,6 +1180,10 @@
 						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
+					</li>
+					<li>
+						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
+						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
 					</li>
 				</AvailableUpgrades>
 				<CostForExpanding>		
@@ -1296,6 +1308,10 @@
 					<li>
 						<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformEfficiency</upgradeDef>
+					</li>
+					<li>
+						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
+						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
 					</li>
 				</AvailableUpgrades>
 				<CostForExpanding>		
@@ -1526,6 +1542,10 @@
 						<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformEfficiencyU</upgradeDef>
 						<maxAmount>3</maxAmount>
+					</li>
+					<li>
+						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
+						<upgradeDef>UVUpgradeTradeBeaconU</upgradeDef>
 					</li>
 				</AvailableUpgrades>
 				<CostForExpanding>		

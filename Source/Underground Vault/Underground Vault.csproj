@@ -79,6 +79,7 @@
     <Compile Include="BuildingUpgrades.cs" />
     <Compile Include="Extension\UVUpgradeExtension.cs" />
     <Compile Include="FocusStrengthOffset_CementeryTerminal.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="ITab\ITab_UVTerminalStorage_Inventory.cs" />
     <Compile Include="ITab\ITab_UVTerminalCryptosleep_Inventory.cs" />
     <Compile Include="ITab\ITab_UVTerminal_Floors.cs" />

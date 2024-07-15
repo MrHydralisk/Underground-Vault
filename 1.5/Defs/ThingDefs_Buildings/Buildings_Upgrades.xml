@@ -152,6 +152,24 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef ParentName="UVUpgradeBase">
+		<defName>UVUpgradeTradeBeacon</defName>
+		<label>trade beacon module</label>
+		<description>Upgrade module for underground vault terminal which allows sell goods to orbital traders.\n\nProvide orbital trading from vault itself.</description>
+		<costList>
+			<Steel>40</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<graphicData>
+			<texPath>Things/Building/UVUpgradeTradeBeacon</texPath>
+		</graphicData>
+		<modExtensions>
+			<li Class="UndergroundVault.UVUpgradeExtension">
+				<upgradeType>TradeBeacon</upgradeType>
+			</li>
+		</modExtensions>
+	</ThingDef>
   
 	<ThingDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeDeepDrillM</defName>
@@ -241,6 +259,24 @@
 		<modExtensions>
 			<li Class="UndergroundVault.UVUpgradeExtension">
 				<upgradeType>PlatformEfficiency</upgradeType>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="UVUpgradeBase">
+		<defName>UVUpgradeTradeBeaconU</defName>
+		<label>trade beacon module</label>
+		<description>Upgrade module for underground vault terminal which allows sell goods to orbital traders.\n\nProvide orbital trading from vault itself.</description>
+		<costList>
+			<Steel>100</Steel>
+			<ComponentSpacer>1</ComponentSpacer>
+		</costList>
+		<graphicData>
+			<texPath>Things/Building/UVUpgradeTradeBeaconU</texPath>
+		</graphicData>
+		<modExtensions>
+			<li Class="UndergroundVault.UVUpgradeExtension">
+				<upgradeType>TradeBeacon</upgradeType>
 			</li>
 		</modExtensions>
 	</ThingDef>
