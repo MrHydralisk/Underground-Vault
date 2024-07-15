@@ -65,6 +65,7 @@
 
     <UndergroundVault.Tooltip.Tab.TakeFromVault>Schedule to take from Vault</UndergroundVault.Tooltip.Tab.TakeFromVault>
     <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Schedule to take multiple from Vault</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
+    <UndergroundVault.Tooltip.Tab.TakeFromVaultX>Take {0}x from Vault</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
     <UndergroundVault.Tooltip.Tab.TypeFilter>Type filter</UndergroundVault.Tooltip.Tab.TypeFilter>
     <UndergroundVault.Tooltip.Tab.ClearScheduled>Clear Scheduled action</UndergroundVault.Tooltip.Tab.ClearScheduled>
     <UndergroundVault.Tooltip.Tab.ScheduledByOther>Scheduled by another Terminal</UndergroundVault.Tooltip.Tab.ScheduledByOther>

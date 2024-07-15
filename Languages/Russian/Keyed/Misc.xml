@@ -65,6 +65,7 @@
 
     <UndergroundVault.Tooltip.Tab.TakeFromVault>Забрать из хранилища</UndergroundVault.Tooltip.Tab.TakeFromVault>
     <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Забрать несколько из хранилища</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
+    <UndergroundVault.Tooltip.Tab.TakeFromVaultX>Забрать {0}x из хранилища</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
     <UndergroundVault.Tooltip.Tab.TypeFilter>Фильтр по типу</UndergroundVault.Tooltip.Tab.TypeFilter>
     <UndergroundVault.Tooltip.Tab.ClearScheduled>Отмена запланированного действия</UndergroundVault.Tooltip.Tab.ClearScheduled>
     <UndergroundVault.Tooltip.Tab.ScheduledByOther>Запланирован другим терминалом</UndergroundVault.Tooltip.Tab.ScheduledByOther>

@@ -108,7 +108,7 @@ namespace UndergroundVault
             Rect rect6 = new Rect(curX, curY, 24f, 24f);
             if (Widgets.ButtonImage(rect6, TextureOfLocal.TakeIconTex))
             {
-                Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Command.TakeFromVault.Label".Translate(), Mathf.Min(1, availableContainer.Count()), availableContainer.Count(), delegate (int x)
+                Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Tooltip.Tab.TakeFromVaultX".Translate(), Mathf.Min(1, availableContainer.Count()), availableContainer.Count(), delegate (int x)
                 {
                     availableContainer.Take(x).ToList().ForEach((Thing t) => building.MarkItemFromVault(t));
                 }
