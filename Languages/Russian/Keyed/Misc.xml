@@ -64,6 +64,7 @@
     <UndergroundVault.Terminal.MeditationFocusCementery>За каждый саркофаг в хранилище (текущее/максимальное кол-во):\n{0} если пустой ({1}/{2}),\n{3} если занят телом человека ({4}/{5}),\n{6} медитирующий знает мертвеца внутри (макс. {7})</UndergroundVault.Terminal.MeditationFocusCementery>
 
     <UndergroundVault.Tooltip.Tab.TakeFromVault>Забрать из хранилища</UndergroundVault.Tooltip.Tab.TakeFromVault>
+    <UndergroundVault.Tooltip.Tab.SplitTakeFromVault>Забрать часть из хранилища</UndergroundVault.Tooltip.Tab.SplitTakeFromVault>
     <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Забрать несколько из хранилища</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
     <UndergroundVault.Tooltip.Tab.TakeFromVaultX>Забрать {0}x из хранилища</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
     <UndergroundVault.Tooltip.Tab.TypeFilter>Фильтр по типу</UndergroundVault.Tooltip.Tab.TypeFilter>

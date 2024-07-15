@@ -63,6 +63,21 @@ namespace UndergroundVault
                     mouseState = MouseMarking.Marking;
                 }
                 TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TakeFromVault");
+                if (thing.stackCount > 1)
+                {
+                    rect.width -= 24f;
+                    Rect rect2 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
+                    if (Widgets.ButtonImage(rect2, TextureOfLocal.TakeCountIconTex))
+                    {
+                        Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Tooltip.Tab.TakeFromVaultX".Translate(), 1, thing.stackCount - 1, delegate (int x)
+                        {
+                            Thing newThing = thing.SplitOff(x);
+                            building.UVVault.AddItem(newThing);
+                            building.MarkItemFromVault(newThing);
+                        }));
+                    }
+                    TooltipHandler.TipRegionByKey(rect2, "UndergroundVault.Tooltip.Tab.SplitTakeFromVault");
+                }
             }
             rect.width -= 24f;
             GUI.color = Color.white;
@@ -75,15 +90,15 @@ namespace UndergroundVault
             }
             if (thing.def.DrawMatSingle != null && thing.def.DrawMatSingle.mainTexture != null)
             {
-                Rect rect2 = new Rect(4f, curY, 28f, 28f);
-                Widgets.ThingIcon(rect2, thing);
+                Rect rect3 = new Rect(4f, curY, 28f, 28f);
+                Widgets.ThingIcon(rect3, thing);
             }
             Text.Anchor = TextAnchor.MiddleLeft;
             GUI.color = ThingLabelColor;
-            Rect rect3 = new Rect(36f, curY, rect.width - 36f, rect.height);
+            Rect rect4 = new Rect(36f, curY, rect.width - 36f, rect.height);
             string text2 = thing.LabelCap;
             Text.WordWrap = false;
-            Widgets.Label(rect3, text2.StripTags().Truncate(rect3.width));
+            Widgets.Label(rect4, text2.StripTags().Truncate(rect4.width));
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;
             TooltipHandler.TipRegion(rect, text2);

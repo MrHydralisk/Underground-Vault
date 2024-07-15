@@ -64,6 +64,7 @@
     <UndergroundVault.Terminal.MeditationFocusCemetery>Per each sarcophagus in Vault (current/max):\n{0} if empty ({1}/{2}),\n{3} for human corpse inside ({4}/{5}),\n{6} if meditator is related to the corpse inside (max {7})</UndergroundVault.Terminal.MeditationFocusCemetery>
 
     <UndergroundVault.Tooltip.Tab.TakeFromVault>Schedule to take from Vault</UndergroundVault.Tooltip.Tab.TakeFromVault>
+    <UndergroundVault.Tooltip.Tab.SplitTakeFromVault>Schedule to take part from Vault</UndergroundVault.Tooltip.Tab.SplitTakeFromVault>
     <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Schedule to take multiple from Vault</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
     <UndergroundVault.Tooltip.Tab.TakeFromVaultX>Take {0}x from Vault</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
     <UndergroundVault.Tooltip.Tab.TypeFilter>Type filter</UndergroundVault.Tooltip.Tab.TypeFilter>
