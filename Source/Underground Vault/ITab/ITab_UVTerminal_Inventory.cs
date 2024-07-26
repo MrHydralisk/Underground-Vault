@@ -15,15 +15,15 @@ namespace UndergroundVault
     [StaticConstructorOnStartup]
     public class ITab_UVTerminal_Inventory : ITab_ContentsBase
     {
-        private Vector2 scrollPosition;
-        private float lastDrawnHeight;
+        protected Vector2 scrollPosition;
+        protected float lastDrawnHeight;
         private Building_UVTerminal building => base.SelThing as Building_UVTerminal;
 
         public QuickSearchWidget quickSearch = new QuickSearchWidget();
 
-        private ThingFilterUI.UIState thingFilterState = new ThingFilterUI.UIState();
-        private StorageSettings settings = new StorageSettings();
-        private bool isSettingsActive;
+        protected ThingFilterUI.UIState thingFilterState = new ThingFilterUI.UIState();
+        protected StorageSettings settings = new StorageSettings();
+        protected bool isSettingsActive;
 
         public override bool IsVisible
         {
@@ -111,8 +111,7 @@ namespace UndergroundVault
                 Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Tooltip.Tab.TakeFromVaultX".Translate(), Mathf.Min(1, availableContainer.Count()), availableContainer.Count(), delegate (int x)
                 {
                     availableContainer.Take(x).ToList().ForEach((Thing t) => building.MarkItemFromVault(t));
-                }
-                    ));
+                }));
             }
             TooltipHandler.TipRegionByKey(rect6, "UndergroundVault.Tooltip.Tab.BatchTakeFromVault");
             float searchBarWidth = curX - 3f;

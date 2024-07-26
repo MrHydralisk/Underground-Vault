@@ -9,6 +9,8 @@ namespace UndergroundVault
         public static readonly Texture2D StoreIconTex = ContentFinder<Texture2D>.Get("Icons/UVStore_Icon");
         public static readonly Texture2D TakeIconTex = ContentFinder<Texture2D>.Get("Icons/UVTake_Icon");
         public static readonly Texture2D TakeCountIconTex = ContentFinder<Texture2D>.Get("Icons/UVTakeSpecificCount_Icon");
+        public static readonly Texture2D ResourceCategorizedTex = ContentFinder<Texture2D>.Get("Icons/ResourceCategorized");
+        public static readonly Texture2D ResourceStacksTex = ContentFinder<Texture2D>.Get("Icons/ResourceStacks");
 
         public static readonly Texture2D VaultDetonateIconTex = ContentFinder<Texture2D>.Get("UI/Commands/Detonate");
 

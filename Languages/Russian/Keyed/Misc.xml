@@ -68,6 +68,7 @@
     <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Забрать несколько из хранилища</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
     <UndergroundVault.Tooltip.Tab.TakeFromVaultX>Забрать {0}x из хранилища</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
     <UndergroundVault.Tooltip.Tab.TypeFilter>Фильтр по типу</UndergroundVault.Tooltip.Tab.TypeFilter>
+    <UndergroundVault.Tooltip.Tab.ThingsDisplay>Тип отображения предметов</UndergroundVault.Tooltip.Tab.ThingsDisplay>
     <UndergroundVault.Tooltip.Tab.ClearScheduled>Отмена запланированного действия</UndergroundVault.Tooltip.Tab.ClearScheduled>
     <UndergroundVault.Tooltip.Tab.ScheduledByOther>Запланирован другим терминалом</UndergroundVault.Tooltip.Tab.ScheduledByOther>
     <UndergroundVault.Tooltip.Tab.Cremation>Кремировать</UndergroundVault.Tooltip.Tab.Cremation>
@@ -83,7 +84,8 @@
 
 
 
-    <UndergroundVault.Vault.InspectString.Capacity>Пространство {0} Используется / {1} Свободно / {2} Всего</UndergroundVault.Vault.InspectString.Capacity>
+    <UndergroundVault.Vault.InspectString.Capacity>Пространство хранилища: {0} Используется / {1} Свободно / {2} Всего</UndergroundVault.Vault.InspectString.Capacity>
+    <UndergroundVault.Vault.InspectString.CapacityShort>Пространство {0} И / {1} С / {2} В</UndergroundVault.Vault.InspectString.CapacityShort>
     <UndergroundVault.Vault.InspectString.Total>Этажи хранилища:</UndergroundVault.Vault.InspectString.Total>
     <UndergroundVault.Vault.InspectString.Floor>- Этажи уровня {0}: {1}</UndergroundVault.Vault.InspectString.Floor>
 

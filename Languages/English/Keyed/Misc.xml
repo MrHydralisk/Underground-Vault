@@ -68,6 +68,7 @@
     <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Schedule to take multiple from Vault</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
     <UndergroundVault.Tooltip.Tab.TakeFromVaultX>Take {0}x from Vault</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
     <UndergroundVault.Tooltip.Tab.TypeFilter>Type filter</UndergroundVault.Tooltip.Tab.TypeFilter>
+    <UndergroundVault.Tooltip.Tab.ThingsDisplay>Thing display type</UndergroundVault.Tooltip.Tab.ThingsDisplay>
     <UndergroundVault.Tooltip.Tab.ClearScheduled>Clear Scheduled action</UndergroundVault.Tooltip.Tab.ClearScheduled>
     <UndergroundVault.Tooltip.Tab.ScheduledByOther>Scheduled by another Terminal</UndergroundVault.Tooltip.Tab.ScheduledByOther>
     <UndergroundVault.Tooltip.Tab.Cremation>Schedule to cremate</UndergroundVault.Tooltip.Tab.Cremation>
@@ -84,6 +85,7 @@
 
     
     <UndergroundVault.Vault.InspectString.Capacity>Vault space {0} Used / {1} Free / {2} Total</UndergroundVault.Vault.InspectString.Capacity>
+    <UndergroundVault.Vault.InspectString.CapacityShort>Vault space {0} U / {1} F / {2} T</UndergroundVault.Vault.InspectString.CapacityShort>
     <UndergroundVault.Vault.InspectString.Total>Vault floors:</UndergroundVault.Vault.InspectString.Total>
     <UndergroundVault.Vault.InspectString.Floor>- Floors lvl {0}: {1}</UndergroundVault.Vault.InspectString.Floor>
 
