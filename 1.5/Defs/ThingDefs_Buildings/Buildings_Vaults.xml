@@ -17,6 +17,9 @@
 			<claimable>false</claimable>
 			<deconstructible>false</deconstructible>
 		</building>
+		<inspectorTabs>
+			<li>UndergroundVault.ITab_UVVault_Floors</li>
+		</inspectorTabs>
 	</ThingDef>
 
 

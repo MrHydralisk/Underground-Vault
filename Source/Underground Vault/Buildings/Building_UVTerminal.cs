@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using RimWorld;
 using RimWorld.Planet;
 using UnityEngine;
@@ -580,12 +578,22 @@ namespace UndergroundVault
 
         private void ExpandVault()
         {
+            if (DebugSettings.godMode)
+            {
+                AddFloor();
+                return;
+            }
             ticksTillExpandVaultTime = ticksPerExpandVaultTime / Mathf.Min(1, HaveUpgrade(UVUpgradeTypes.Drill)) + TicksPerPlatformTravelTime(UVVault.Floors.Count());
             isExpandVault = true;
             isCanExpandVault = false;
         }
         private void UpgradeFloorVault(int upgradeFloor = 0)
         {
+            if (DebugSettings.godMode)
+            {
+                UpgradeFloor();
+                return;
+            }
             ticksTillUpgradeFloorVaultTime = ticksPerUpgradeFloorVaultTime * Mathf.Min(1, upgradeLevel) + TicksPerPlatformTravelTime(upgradeFloor);
             isUpgradeFloorVault = true;
             isCanUpgradeFloorVault = false;
@@ -878,6 +886,20 @@ namespace UndergroundVault
                     defaultDesc = "UndergroundVault.Command.ConstructionThingsRemove.Desc".Translate(),
                     icon = ContentFinder<Texture2D>.Get("UI/Designators/Cancel"),
                     Order = 30
+                };
+            }
+            if (DebugSettings.ShowDevGizmos)
+            {
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        ticksTillExpandVaultTime = 0;
+                        ticksTillPlatformTravelTime = 0;
+                        ticksTillUpgradeFloorVaultTime = 0;
+                    },
+                    defaultLabel = "Dev: 0 the timers",
+                    defaultDesc = "Skip the timer"
                 };
             }
         }

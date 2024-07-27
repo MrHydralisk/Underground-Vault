@@ -61,7 +61,7 @@
     <UndergroundVault.Terminal.InspectString.ScheduledCremation>{0} вещей планируется кремировать</UndergroundVault.Terminal.InspectString.ScheduledCremation>
     <UndergroundVault.Terminal.InspectString.ConstructionThings>Дополнительные строительные материалы в терминале: {0}</UndergroundVault.Terminal.InspectString.ConstructionThings>
 
-    <UndergroundVault.Terminal.MeditationFocusCementery>За каждый саркофаг в хранилище (текущее/максимальное кол-во):\n{0} если пустой ({1}/{2}),\n{3} если занят телом человека ({4}/{5}),\n{6} медитирующий знает мертвеца внутри (макс. {7})</UndergroundVault.Terminal.MeditationFocusCementery>
+    <UndergroundVault.Terminal.MeditationFocusCemetery>За каждый саркофаг в хранилище (текущее/максимальное кол-во):\n{0} если пустой ({1}/{2}),\n{3} если занят телом человека ({4}/{5}),\n{6} медитирующий знает мертвеца внутри (макс. {7})</UndergroundVault.Terminal.MeditationFocusCemetery>
 
     <UndergroundVault.Tooltip.Tab.TakeFromVault>Забрать из хранилища</UndergroundVault.Tooltip.Tab.TakeFromVault>
     <UndergroundVault.Tooltip.Tab.SplitTakeFromVault>Забрать часть из хранилища</UndergroundVault.Tooltip.Tab.SplitTakeFromVault>
@@ -72,6 +72,10 @@
     <UndergroundVault.Tooltip.Tab.ClearScheduled>Отмена запланированного действия</UndergroundVault.Tooltip.Tab.ClearScheduled>
     <UndergroundVault.Tooltip.Tab.ScheduledByOther>Запланирован другим терминалом</UndergroundVault.Tooltip.Tab.ScheduledByOther>
     <UndergroundVault.Tooltip.Tab.Cremation>Кремировать</UndergroundVault.Tooltip.Tab.Cremation>
+    <UndergroundVault.Tooltip.Tab.Floor>{0} Этаж {1} Уровень</UndergroundVault.Tooltip.Tab.Floor>
+    <UndergroundVault.Tooltip.Tab.FloorShort>{0} Э {1} У</UndergroundVault.Tooltip.Tab.FloorShort>
+	
+    <UndergroundVaultTabFloors>Этажи</UndergroundVaultTabFloors>
     
     <UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>Может быть только одно</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>
     <UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>Требуется ультратехнологичный терминал хранилища</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>
@@ -84,6 +88,8 @@
 
 
 
+    <UndergroundVault.Vault.InspectString.Floors>Этажи хранилища {0}\n{1}</UndergroundVault.Vault.InspectString.Floors>
+    <UndergroundVault.Vault.InspectString.FloorsShort>Этажи хранилища {0}</UndergroundVault.Vault.InspectString.FloorsShort>    
     <UndergroundVault.Vault.InspectString.Capacity>Пространство хранилища: {0} Используется / {1} Свободно / {2} Всего</UndergroundVault.Vault.InspectString.Capacity>
     <UndergroundVault.Vault.InspectString.CapacityShort>Пространство {0} И / {1} С / {2} В</UndergroundVault.Vault.InspectString.CapacityShort>
     <UndergroundVault.Vault.InspectString.Total>Этажи хранилища:</UndergroundVault.Vault.InspectString.Total>

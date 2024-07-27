@@ -72,6 +72,10 @@
     <UndergroundVault.Tooltip.Tab.ClearScheduled>Clear Scheduled action</UndergroundVault.Tooltip.Tab.ClearScheduled>
     <UndergroundVault.Tooltip.Tab.ScheduledByOther>Scheduled by another Terminal</UndergroundVault.Tooltip.Tab.ScheduledByOther>
     <UndergroundVault.Tooltip.Tab.Cremation>Schedule to cremate</UndergroundVault.Tooltip.Tab.Cremation>
+    <UndergroundVault.Tooltip.Tab.Floor>{0} Floor {1} Level</UndergroundVault.Tooltip.Tab.Floor>
+    <UndergroundVault.Tooltip.Tab.FloorShort>{0} F {1} L</UndergroundVault.Tooltip.Tab.FloorShort>
+	
+    <UndergroundVaultTabFloors>Floors</UndergroundVaultTabFloors>
     
     <UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>Can only be one</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>
     <UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>Require ultra storage vault panel</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>
@@ -84,6 +88,8 @@
 
 
     
+    <UndergroundVault.Vault.InspectString.Floors>Vault floors {0}\n{1}</UndergroundVault.Vault.InspectString.Floors>
+    <UndergroundVault.Vault.InspectString.FloorsShort>Vault floors {0}</UndergroundVault.Vault.InspectString.FloorsShort>    
     <UndergroundVault.Vault.InspectString.Capacity>Vault space {0} Used / {1} Free / {2} Total</UndergroundVault.Vault.InspectString.Capacity>
     <UndergroundVault.Vault.InspectString.CapacityShort>Vault space {0} U / {1} F / {2} T</UndergroundVault.Vault.InspectString.CapacityShort>
     <UndergroundVault.Vault.InspectString.Total>Vault floors:</UndergroundVault.Vault.InspectString.Total>

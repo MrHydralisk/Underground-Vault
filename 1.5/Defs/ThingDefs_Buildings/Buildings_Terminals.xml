@@ -43,6 +43,7 @@
 		</building>
 		<inspectorTabs>
 			<li>UndergroundVault.ITab_UVTerminalCemetery_Inventory</li>
+			<li>UndergroundVault.ITab_UVTerminal_Floors</li>
 		</inspectorTabs>
 		<statBases>
 			<MeditationFocusStrength>0.10</MeditationFocusStrength>
@@ -513,6 +514,7 @@
 		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 		<inspectorTabs>
 			<li>UndergroundVault.ITab_UVTerminalCryptosleep_Inventory</li>
+			<li>UndergroundVault.ITab_UVTerminal_Floors</li>
 		</inspectorTabs>
 		<comps>
 		</comps>
@@ -869,6 +871,7 @@
 		<inspectorTabs>
 			<li>ITab_Storage</li>
 			<li>UndergroundVault.ITab_UVTerminalStorage_Inventory</li>
+			<li>UndergroundVault.ITab_UVTerminal_Floors</li>
 		</inspectorTabs>
 		<comps>
 		</comps>
