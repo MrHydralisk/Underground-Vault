@@ -1,19 +1,12 @@
-﻿using Mono.Unix.Native;
-using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using System.Linq;
 using Verse;
 
 namespace UndergroundVault
 {
     internal class Building_UVTerminalStorageTeleSub : Building_UVTerminalStorageTele
     {
-        public virtual Building_UVTerminal UVTerminal 
-        { 
+        public virtual Building_UVTerminal UVTerminal
+        {
             get
             {
                 if (uVTerminalCached == null || !uVTerminalCached.Spawned)
@@ -26,7 +19,7 @@ namespace UndergroundVault
                 }
                 return uVTerminalCached;
             }
-        } 
+        }
         protected Building_UVTerminal uVTerminalCached;
 
         public override bool PowerOn => base.PowerOn && (UVTerminal?.Spawned ?? false);

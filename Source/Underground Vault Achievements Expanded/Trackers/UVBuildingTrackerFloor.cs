@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using HarmonyLib;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
-using AchievementsExpanded;
 using UndergroundVault;
 using Verse;
-using RimWorld;
-using HarmonyLib;
 
 namespace UndergroundVault_AchievementsExpanded
 {
@@ -24,7 +19,7 @@ namespace UndergroundVault_AchievementsExpanded
         }
 
         public UVBuildingTrackerFloor(UVBuildingTrackerFloor reference)
-            : base((UVBuildingTracker) reference)
+            : base((UVBuildingTracker)reference)
         {
             CountFloors = reference.CountFloors;
             triggeredCountFloors = 0;

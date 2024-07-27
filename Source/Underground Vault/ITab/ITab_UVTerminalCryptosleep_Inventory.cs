@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
-using static HarmonyLib.Code;
 
 namespace UndergroundVault
 {
@@ -81,7 +77,7 @@ namespace UndergroundVault
                 }
             }
             Rect rect3 = new Rect(36f, curY, rect.width - 36f, rect.height);
-            string text2 = thing.LabelCap + " (" + (bs.HasAnyContents? bs.ContainedThing.LabelCap : "NothingLower".Translate().RawText) + ")";
+            string text2 = thing.LabelCap + " (" + (bs.HasAnyContents ? bs.ContainedThing.LabelCap : "NothingLower".Translate().RawText) + ")";
             Text.WordWrap = false;
             Widgets.Label(rect3, text2.StripTags().Truncate(rect3.width));
             Text.WordWrap = true;

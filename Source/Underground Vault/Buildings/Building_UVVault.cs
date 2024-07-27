@@ -1,7 +1,7 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -104,7 +104,7 @@ namespace UndergroundVault
                 },
                 defaultLabel = "UndergroundVault.Command.VaultDetonate.Label".Translate(),
                 defaultDesc = "UndergroundVault.Command.VaultDetonate.Desc".Translate(),
-                icon =TextureOfLocal.VaultDetonateIconTex,
+                icon = TextureOfLocal.VaultDetonateIconTex,
                 Disabled = isTerminalAvailable,
                 disabledReason = "UndergroundVault.Command.disabledReason.TerminalAvailable".Translate(),
                 Order = 30
@@ -120,7 +120,7 @@ namespace UndergroundVault
             {
                 if (floors.Any(x => x == i))
                 {
-                    inspectStrings.Add("UndergroundVault.Vault.InspectString.Floor".Translate(i, floors.Count(x => x == i)));                   
+                    inspectStrings.Add("UndergroundVault.Vault.InspectString.Floor".Translate(i, floors.Count(x => x == i)));
                 }
             }
             return String.Join("\n", inspectStrings);

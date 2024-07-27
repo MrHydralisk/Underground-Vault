@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using RimWorld;
+using RimWorld.Planet;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using RimWorld;
-using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -310,7 +310,7 @@ namespace UndergroundVault
         }
         public virtual void TakeFirstItemsFromVault(int amount)
         {
-            for(int i = 0; i < amount; i++)
+            for (int i = 0; i < amount; i++)
             {
                 TakeFirstItemFromVault();
             }
@@ -737,7 +737,7 @@ namespace UndergroundVault
                 icon = (isAutoAddFullToVault ? TexCommand.ForbidOff : TexCommand.ForbidOn),
                 isActive = () => isAutoAddFullToVault,
                 Order = 10f
-            };            
+            };
             if (HaveUpgrade(UVUpgradeTypes.Drill) > 0)
             {
                 yield return new Command_Action
@@ -906,13 +906,13 @@ namespace UndergroundVault
 
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
-            foreach(Thing t in Upgrades)
+            foreach (Thing t in Upgrades)
             {
                 t?.Destroy(mode);
             }
             base.Destroy(mode);
         }
-        
+
         public override string GetInspectString()
         {
             List<string> inspectStrings = new List<string>();

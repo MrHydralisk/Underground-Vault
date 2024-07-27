@@ -1,10 +1,4 @@
-﻿using Mono.Unix.Native;
-using RimWorld;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RimWorld;
 using Verse;
 
 namespace UndergroundVault
@@ -12,7 +6,7 @@ namespace UndergroundVault
     internal class Building_UVTerminalStorageTele : Building_UVTerminalStorage
     {
         public override bool Manned => true;
-        public override bool isCanWorkOn => false; 
+        public override bool isCanWorkOn => false;
 
         protected override int TicksPerPlatformTravelTime(int floor)
         {

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using RimWorld;
+﻿using RimWorld;
 using RimWorld.Planet;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
-using static HarmonyLib.Code;
 
 namespace UndergroundVault
 {
@@ -45,13 +41,13 @@ namespace UndergroundVault
         }
 
         public override IList<Thing> container
-	    {
-		    get
-		    {
+        {
+            get
+            {
                 building.InnerContainer.RemoveAll((Thing t) => t == null);
-			    return building.InnerContainer.ToList();
-		    }
-	    }
+                return building.InnerContainer.ToList();
+            }
+        }
 
         protected virtual IList<Thing> sortedContainer
         {

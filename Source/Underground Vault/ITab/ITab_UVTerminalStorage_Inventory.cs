@@ -1,8 +1,8 @@
-﻿using System;
+﻿using RimWorld;
+using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using RimWorld;
-using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -163,7 +163,8 @@ namespace UndergroundVault
                 }
                 GUI.DrawTexture(rect1, CaravanThingsTabUtility.AbandonButtonTex);
                 TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ClearScheduled");
-            } else if (building.UVVault.PlatformUndergroundThings.Any((Thing t) => t == thing))
+            }
+            else if (building.UVVault.PlatformUndergroundThings.Any((Thing t) => t == thing))
             {
                 GUI.DrawTexture(rect1, CaravanThingsTabUtility.AbandonButtonTex);
                 TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ScheduledByOther");

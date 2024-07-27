@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using HarmonyLib;
+using RimWorld;
+using System;
 using System.Reflection;
-using AchievementsExpanded;
 using UndergroundVault;
 using Verse;
-using RimWorld;
-using HarmonyLib;
 
 namespace UndergroundVault_AchievementsExpanded
 {
@@ -21,7 +16,7 @@ namespace UndergroundVault_AchievementsExpanded
         }
 
         public UVBuildingTracker(UVBuildingTracker reference)
-            : base((BuildingTracker) reference)
+            : base((BuildingTracker)reference)
         {
             designatorDropdownGroupDef = reference.designatorDropdownGroupDef;
         }

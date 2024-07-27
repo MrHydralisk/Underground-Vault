@@ -1,9 +1,7 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RimWorld;
 using Verse;
 using Verse.AI;
 
@@ -34,7 +32,7 @@ namespace UndergroundVault
             if (CostLeftForConstruction(uVTerminal).All((ThingDefCountClass tdcc) => FindClosestConstructionMat(pawn, tdcc.thingDef) == null))
             {
                 return false;
-            }    
+            }
             return true;
         }
 
@@ -82,7 +80,7 @@ namespace UndergroundVault
 
         public override Job JobOnThing(Pawn pawn, Thing t, bool forced = false)
         {
-            Building_UVTerminal terminal = t as Building_UVTerminal;            
+            Building_UVTerminal terminal = t as Building_UVTerminal;
             foreach (ThingDefCountClass item in CostLeftForConstruction(terminal))
             {
                 Thing thing = FindClosestConstructionMat(pawn, item.thingDef);
