@@ -16,9 +16,12 @@ namespace UndergroundVault
         {
             patchType = typeof(HarmonyPatches);
             Harmony val = new Harmony("rimworld.mrhydralisk.UVTradeBeacon");
-            val.Patch(AccessTools.Method(typeof(TradeUtility), "AllLaunchableThingsForTrade", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "TU_AllLaunchableThingsForTrade_Postfix", (Type[])null));
+            HarmonyMethod method1 = new HarmonyMethod(patchType, "TU_AllLaunchableThingsForTrade_Postfix", (Type[])null);
+            method1.after = new string[] { "com.SupesSolutions.MapWideTradeBeacon"};
+            val.Patch(AccessTools.Method(typeof(TradeUtility), "AllLaunchableThingsForTrade", (Type[])null, (Type[])null), postfix: method1);
             val.Patch(AccessTools.Method(typeof(TradeDeal), "InSellablePosition", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "TD_InSellablePosition_Postfix", (Type[])null));
             val.Patch(AccessTools.Method(typeof(TradeShip), "GiveSoldThingToTrader", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "TS_GiveSoldThingToTrader_Postfix", (Type[])null));
+            val.Patch(AccessTools.Method(typeof(Pawn_TraderTracker), "ColonyThingsWillingToBuy", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "PTT_ColonyThingsWillingToBuy_Postfix", (Type[])null));
         }
 
         public static void TU_AllLaunchableThingsForTrade_Postfix(ref IEnumerable<Thing> __result, Map map, ITrader trader = null)
@@ -60,6 +63,18 @@ namespace UndergroundVault
                     }
                 }
             }
+        }
+
+        public static void PTT_ColonyThingsWillingToBuy_Postfix(ref IEnumerable<Thing> __result, Pawn playerNegotiator)
+        {
+            List<Thing> returnThings = __result.ToList();
+            IEnumerable<Building_UVTerminal> terminals = playerNegotiator.Map.listerBuildings.AllBuildingsColonistOfClass<Building_UVTerminal>().Where((Building_UVTerminal b) => b.isTradeable);
+            foreach (Building_UVTerminal terminal in terminals)
+            {
+                returnThings.AddRange(terminal.InnerContainer.Where((Thing t) => !terminal.UVVault.PlatformUndergroundThings.Any((Thing t1) => t1 == t)));
+                Log.Message($"{terminal.LabelCap} {terminal.InnerContainer.Count()} {terminal.InnerContainer.Count((Thing t) => !t.Destroyed)}");
+            }
+            __result = returnThings.AsEnumerable();
         }
     }
 }
