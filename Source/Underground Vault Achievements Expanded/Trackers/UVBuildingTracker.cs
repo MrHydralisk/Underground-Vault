@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using AchievementsExpanded;
+using HarmonyLib;
 using RimWorld;
 using System;
 using System.Reflection;
@@ -10,6 +11,7 @@ namespace UndergroundVault_AchievementsExpanded
     public class UVBuildingTracker : BuildingTracker
     {
         public DesignatorDropdownGroupDef designatorDropdownGroupDef;
+        public string defName = "";
         public override string Key => "UVBuildingTracker";
         public UVBuildingTracker()
         {
@@ -19,6 +21,7 @@ namespace UndergroundVault_AchievementsExpanded
             : base((BuildingTracker)reference)
         {
             designatorDropdownGroupDef = reference.designatorDropdownGroupDef;
+            defName = reference.defName;
         }
 
         public override MethodInfo MethodHook => AccessTools.Method(typeof(Building_UVTerminal), "SpawnSetup", (Type[])null, (Type[])null);
@@ -31,7 +34,7 @@ namespace UndergroundVault_AchievementsExpanded
             {
                 return false;
             }
-            return (building is Building_UVTerminal uVTerminal) && (def == null || def == building.def) && (madeFrom == null || madeFrom == building.Stuff) && (designatorDropdownGroupDef == null || designatorDropdownGroupDef == building.def.designatorDropdown);
+            return (building is Building_UVTerminal uVTerminal) && (def == null || def == building.def) && (defName.NullOrEmpty() || (building.def?.defName.Contains(defName) ?? false)) && (madeFrom == null || madeFrom == building.Stuff) && (designatorDropdownGroupDef == null || designatorDropdownGroupDef == building.def.designatorDropdown);
         }
     }
 }

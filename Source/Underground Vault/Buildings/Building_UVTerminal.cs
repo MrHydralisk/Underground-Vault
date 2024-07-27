@@ -293,7 +293,6 @@ namespace UndergroundVault
 
         public void ANotify_AddItemToVault()
         {
-
         }
         public virtual void TakeItemFromVault(Thing thing)
         {
