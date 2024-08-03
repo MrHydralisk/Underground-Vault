@@ -17,7 +17,7 @@ namespace UndergroundVault
             patchType = typeof(HarmonyPatches);
             Harmony val = new Harmony("rimworld.mrhydralisk.UVTradeBeacon");
             HarmonyMethod method1 = new HarmonyMethod(patchType, "TU_AllLaunchableThingsForTrade_Postfix", (Type[])null);
-            method1.after = new string[] { "com.SupesSolutions.MapWideTradeBeacon"};
+            method1.after = new string[] { "com.SupesSolutions.MapWideTradeBeacon" };
             val.Patch(AccessTools.Method(typeof(TradeUtility), "AllLaunchableThingsForTrade", (Type[])null, (Type[])null), postfix: method1);
             val.Patch(AccessTools.Method(typeof(TradeDeal), "InSellablePosition", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "TD_InSellablePosition_Postfix", (Type[])null));
             val.Patch(AccessTools.Method(typeof(TradeShip), "GiveSoldThingToTrader", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "TS_GiveSoldThingToTrader_Postfix", (Type[])null));
@@ -31,7 +31,6 @@ namespace UndergroundVault
             foreach (Building_UVTerminal terminal in terminals)
             {
                 returnThings.AddRange(terminal.InnerContainer.Where((Thing t) => !terminal.UVVault.PlatformUndergroundThings.Any((Thing t1) => t1 == t)));
-                Log.Message($"{terminal.LabelCap} {terminal.InnerContainer.Count()} {terminal.InnerContainer.Count((Thing t) => !t.Destroyed)}");
             }
             __result = returnThings.AsEnumerable();
         }
@@ -45,20 +44,25 @@ namespace UndergroundVault
                 {
                     __result = true;
                 }
-            } 
+            }
         }
 
         public static void TS_GiveSoldThingToTrader_Postfix(Thing toGive, int countToGive, Pawn playerNegotiator)
         {
-            if (toGive.stackCount <= 0)
+            if (toGive != null)
             {
-                IEnumerable<Building_UVTerminal> terminals = playerNegotiator.Map.listerBuildings.AllBuildingsColonistOfClass<Building_UVTerminal>().Where((Building_UVTerminal b) => b.isTradeable); Thing thing = null;
+                IEnumerable<Building_UVTerminal> terminals = playerNegotiator.Map.listerBuildings.AllBuildingsColonistOfClass<Building_UVTerminal>().Where((Building_UVTerminal b) => b.isTradeable);
+                Thing thing = null;
                 foreach (Building_UVTerminal terminal in terminals)
                 {
                     thing = terminal.InnerContainer.FirstOrDefault((Thing t) => t == toGive);
-                    if (thing != null)
+                    if (thing != null && (countToGive == thing.stackCount || thing.stackCount <= 0))
                     {
                         terminal.InnerContainer.Remove(thing);
+                        if (!thing.Destroyed)
+                        {
+                            thing.Destroy();
+                        }
                         break;
                     }
                 }
@@ -72,7 +76,6 @@ namespace UndergroundVault
             foreach (Building_UVTerminal terminal in terminals)
             {
                 returnThings.AddRange(terminal.InnerContainer.Where((Thing t) => !terminal.UVVault.PlatformUndergroundThings.Any((Thing t1) => t1 == t)));
-                Log.Message($"{terminal.LabelCap} {terminal.InnerContainer.Count()} {terminal.InnerContainer.Count((Thing t) => !t.Destroyed)}");
             }
             __result = returnThings.AsEnumerable();
         }

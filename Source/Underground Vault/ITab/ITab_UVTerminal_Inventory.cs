@@ -44,7 +44,7 @@ namespace UndergroundVault
         {
             get
             {
-                building.InnerContainer.RemoveAll((Thing t) => t == null);
+                building.InnerContainer.RemoveAll((Thing t) => t == null || t.Destroyed);
                 return building.InnerContainer.ToList();
             }
         }
