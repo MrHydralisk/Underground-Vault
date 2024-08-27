@@ -109,6 +109,42 @@ namespace UndergroundVault
                 disabledReason = "UndergroundVault.Command.disabledReason.TerminalAvailable".Translate(),
                 Order = 30
             };
+            if (DebugSettings.ShowDevGizmos)
+            {
+                yield return new Command_Action
+                {
+                    action = delegate
+                    {
+                        Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmRemoveItemDialog".Translate(this.Label), delegate
+                        {
+                            for (int i = innerContainer.Count - 1; i >=0; i--)
+                            {
+                                string thingName = "Unknown";
+                                try
+                                {
+                                    Thing thing = innerContainer[i];
+                                    if (thing != null)
+                                    {
+                                        thingName = thing.LabelCap;
+                                    }
+                                    Thing thingTaken = TakeItem(thing);
+                                    GenPlace.TryPlaceThing(thingTaken, this.Position, this.Map, ThingPlaceMode.Near, null);
+                                }
+                                catch
+                                {
+                                    Log.Warning($"Failed to unload {thingName} thing from vault");
+                                }
+                            }
+                            this.DeSpawn();
+                        }));
+                    },
+                    defaultLabel = "Dev: Unload and Destroy",
+                    defaultDesc = "Instantly remove all things from vault and destroy vault",
+                    Disabled = isTerminalAvailable,
+                    disabledReason = "UndergroundVault.Command.disabledReason.TerminalAvailable".Translate(),
+                    Order = 30
+                };
+            }
         }
 
         public override string GetInspectString()
