@@ -14,15 +14,32 @@ namespace UndergroundVault
     {
         private Building_UVTerminalStorage building => base.SelThing as Building_UVTerminalStorage;
         private int lastTick;
+        private string lastQuickSearchFilter;
+        private int lastThingFilter;
 
         private List<ThingDefCountClass> CollectionContainer
         {
             get
             {
+                bool isChanged = false;
                 if (Find.TickManager.TicksGame != lastTick)
                 {
-                    UpdateCollectionContainer();
                     lastTick = Find.TickManager.TicksGame;
+                    isChanged = true;
+                }
+                else if (quickSearch.filter.Text != lastQuickSearchFilter)
+                {
+                    lastQuickSearchFilter = quickSearch.filter.Text;
+                    isChanged = true;
+                }
+                else if (settings.filter.AllowedDefCount != lastThingFilter)
+                {
+                    lastThingFilter = settings.filter.AllowedDefCount;
+                    isChanged = true;
+                }
+                if (isChanged)
+                {
+                    UpdateCollectionContainer();
                 }
                 return collectionContainerCached;
             }
@@ -111,8 +128,8 @@ namespace UndergroundVault
                 Find.WindowStack.ImmediateWindow(1431351846, rect6, WindowLayer.GameUI, delegate
                 {
                     Rect rect7 = new Rect(4f, 25, rect6.width - 8f, rect6.height - 29);
-                    ThingFilterUI.DoThingFilterConfigWindow(rect5, thingFilterState, settings.filter);
-                    if (Widgets.CloseButtonFor(rect7.AtZero()))
+                    ThingFilterUI.DoThingFilterConfigWindow(rect7, thingFilterState, settings.filter);
+                    if (Widgets.CloseButtonFor(rect6.AtZero()))
                     {
                         isSettingsActive = false;
                         SoundDefOf.TabClose.PlayOneShotOnCamera();
