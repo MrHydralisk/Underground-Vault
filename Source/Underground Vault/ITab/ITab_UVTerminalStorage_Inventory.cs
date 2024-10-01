@@ -13,8 +13,27 @@ namespace UndergroundVault
     public class ITab_UVTerminalStorage_Inventory : ITab_UVTerminal_Inventory
     {
         private Building_UVTerminalStorage building => base.SelThing as Building_UVTerminalStorage;
+        private int lastTick;
 
-        private List<ThingDefCountClass> CollectionContainer => availableContainer.GroupBy((Thing t) => t.def).Select(x => new ThingDefCountClass(x.Key, x.Sum((Thing t) => t.stackCount))).ToList();
+        private List<ThingDefCountClass> CollectionContainer
+        {
+            get
+            {
+                if (Find.TickManager.TicksGame != lastTick)
+                {
+                    UpdateCollectionContainer();
+                    lastTick = Find.TickManager.TicksGame;
+                }
+                return collectionContainerCached;
+            }
+        }
+        private List<ThingDefCountClass> collectionContainerCached;
+
+        private void UpdateCollectionContainer()
+        {
+            collectionContainerCached = availableContainer.GroupBy((Thing t) => t.def).Select(x => new ThingDefCountClass(x.Key, x.Sum((Thing t) => t.stackCount))).ToList();
+        }
+
         private enum MouseMarking
         {
             Idle,
@@ -36,6 +55,10 @@ namespace UndergroundVault
             if (Widgets.ButtonImage(rect1, isCollectionMode ? TextureOfLocal.ResourceCategorizedTex : TextureOfLocal.ResourceStacksTex))
             {
                 isCollectionMode = !isCollectionMode;
+                if (isCollectionMode)
+                {
+                    UpdateCollectionContainer();
+                }
             }
             TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TypeFilter");
             curX += -3f - 24f;
@@ -48,6 +71,7 @@ namespace UndergroundVault
             if (Widgets.ButtonImage(rect3, CaravanThingsTabUtility.SpecificTabButtonTex))
             {
                 isSettingsActive = !isSettingsActive;
+                UpdateCollectionContainer();
             }
             TooltipHandler.TipRegionByKey(rect3, "UndergroundVault.Tooltip.Tab.ThingsDisplay");
             if (!isCollectionMode)
@@ -59,6 +83,7 @@ namespace UndergroundVault
                     Find.WindowStack.Add(new Dialog_Slider("UndergroundVault.Tooltip.Tab.TakeFromVaultX".Translate(), Mathf.Min(1, availableContainer.Count()), availableContainer.Count(), delegate (int x)
                     {
                         availableContainer.Take(x).ToList().ForEach((Thing t) => building.MarkItemFromVault(t));
+                        UpdateCollectionContainer();
                     }));
                 }
                 TooltipHandler.TipRegionByKey(rect4, "UndergroundVault.Tooltip.Tab.BatchTakeFromVault");
@@ -160,6 +185,7 @@ namespace UndergroundVault
                 {
                     building.UnMarkItemFromVault(thing);
                     mouseState = MouseMarking.UnMarking;
+                    UpdateCollectionContainer();
                 }
                 GUI.DrawTexture(rect1, CaravanThingsTabUtility.AbandonButtonTex);
                 TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ClearScheduled");
@@ -176,6 +202,7 @@ namespace UndergroundVault
                 {
                     building.MarkItemFromVault(thing);
                     mouseState = MouseMarking.Marking;
+                    UpdateCollectionContainer();
                 }
                 TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TakeFromVault");
                 if (thing.stackCount > 1)
@@ -189,6 +216,7 @@ namespace UndergroundVault
                             Thing newThing = thing.SplitOff(x);
                             building.UVVault.AddItem(newThing);
                             building.MarkItemFromVault(newThing);
+                            UpdateCollectionContainer();
                         }));
                     }
                     TooltipHandler.TipRegionByKey(rect2, "UndergroundVault.Tooltip.Tab.SplitTakeFromVault");
@@ -220,6 +248,7 @@ namespace UndergroundVault
                 isCollectionMode = true;
                 settings.filter.SetDisallowAll();
                 settings.filter.SetAllow(thing.def, true);
+                UpdateCollectionContainer();
             }
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;
@@ -234,6 +263,7 @@ namespace UndergroundVault
             if (Widgets.ButtonImage(rect1, TextureOfLocal.TakeIconTex))
             {
                 building.MarkItemsFromVault(container.Where((Thing t) => t.def == tdcc.thingDef).ToList());
+                UpdateCollectionContainer();
             }
             TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TakeFromVault");
             rect.width -= 24f;
@@ -249,7 +279,6 @@ namespace UndergroundVault
                         while (left > 0 && available.Count() > 0)
                         {
                             Thing currentThing = available.FirstOrDefault();
-                            Log.Message($"{currentThing.LabelCap} {left}/{currentThing.stackCount}");
                             if (currentThing != null)
                             {
                                 int toTake = Math.Min(left, currentThing.stackCount);
@@ -268,6 +297,7 @@ namespace UndergroundVault
                             }
                             available.RemoveAt(0);
                         }
+                        UpdateCollectionContainer();
                     }));
                 }
                 TooltipHandler.TipRegionByKey(rect2, "UndergroundVault.Tooltip.Tab.SplitTakeFromVault");
@@ -298,6 +328,7 @@ namespace UndergroundVault
                 isCollectionMode = false;
                 settings.filter.SetDisallowAll();
                 settings.filter.SetAllow(tdcc.thingDef, true);
+                UpdateCollectionContainer();
             }
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;
