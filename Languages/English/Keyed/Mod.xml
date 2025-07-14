@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<UndergroundVault.Settings.Title>Underground Vault</UndergroundVault.Settings.Title>
+	
+	<UndergroundVault.Settings.TradeBeaconEnabled.Label>Enable Trade Beacon Module.</UndergroundVault.Settings.TradeBeaconEnabled.Label>
+	<UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>Disable, if you temporally doesn't want to see Vault items during trading, which can take time to load initially in giant vaults. For permament alternative just don't build Trade Beacon Module or deconstruct existing one, if you no longer want to use this function.</UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>
+	
+	<UndergroundVault.Settings.DevMode.Info>Show additional information for debug.</UndergroundVault.Settings.DevMode.Info>
+
+</LanguageData>
