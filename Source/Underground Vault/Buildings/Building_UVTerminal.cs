@@ -371,7 +371,7 @@ namespace UndergroundVault
 
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
             if (PowerOn)
@@ -629,13 +629,13 @@ namespace UndergroundVault
                             floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllInVault.Label".Translate(PlatformThings.Count().ToStringSafe()), delegate
                             {
                                 MarkItemsFromTerminal(PlatformThings);
-                            }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                            }, iconTex: TextureOfLocal.StoreIconTex, iconColor: Color.white));
                             if (PlatformFullThings.Count() > 0)
                             {
                                 floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.StoreAllFullInVault.Label".Translate(PlatformFullThings.Count().ToStringSafe()), delegate
                                 {
                                     MarkItemsFromTerminal(PlatformFullThings);
-                                }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                                }, iconTex: TextureOfLocal.StoreIconTex, iconColor: Color.white));
                             }
                         }
                         Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
@@ -679,14 +679,14 @@ namespace UndergroundVault
                         floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.ClearScheduled.SurfaceThings".Translate(), delegate
                         {
                             UnMarkItemsFromTerminal(PlatformSurfaceThings.ToList());
-                        }, itemIcon: TextureOfLocal.StoreIconTex, iconColor: Color.white));
+                        }, iconTex: TextureOfLocal.StoreIconTex, iconColor: Color.white));
                     }
                     if (PlatformUndergroundThings.Count() > 0)
                     {
                         floatMenuOptions.Add(new FloatMenuOption("UndergroundVault.Command.ClearScheduled.UndergroundThings".Translate(), delegate
                         {
                             UnMarkItemsFromVault(PlatformUndergroundThings.ToList());
-                        }, itemIcon: TextureOfLocal.TakeIconTex, iconColor: Color.white));
+                        }, iconTex: TextureOfLocal.TakeIconTex, iconColor: Color.white));
                     }
                     Find.WindowStack.Add(new FloatMenu(floatMenuOptions));
                 },
@@ -803,11 +803,11 @@ namespace UndergroundVault
                                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
                                     Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(td, false);
                                     des.DesignateSingleCell(this.Position + ExtUpgrade.ConstructionOffset[freeIndex]);
-                                }, itemIcon: bu.uiIcon, iconColor: Color.white);
+                                }, iconTex: bu.uiIcon, iconColor: Color.white);
                             }
                             else
                             {
-                                return new FloatMenuOption(td.LabelCap, null, itemIcon: bu.uiIcon, iconColor: Color.white);
+                                return new FloatMenuOption(td.LabelCap, null, iconTex: bu.uiIcon, iconColor: Color.white);
                             }
                         })
                             .ToList()));
@@ -857,7 +857,7 @@ namespace UndergroundVault
                                     }, iconThing: t, iconColor: Color.white);
                                 }
                             }
-                            return new FloatMenuOption("---", null, itemIcon: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
+                            return new FloatMenuOption("---", null, iconTex: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
                         })
                             .ToList()));
                     },

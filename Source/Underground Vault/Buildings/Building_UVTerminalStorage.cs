@@ -53,6 +53,8 @@ namespace UndergroundVault
 
         public int GroupingOrder => def.building.groupingOrder;
 
+        public bool HaulDestinationEnabled => true;
+
         public bool ShowRenameButton => base.Faction == Faction.OfPlayer;
 
         protected override bool PlatformThingsSorter(Thing thing)

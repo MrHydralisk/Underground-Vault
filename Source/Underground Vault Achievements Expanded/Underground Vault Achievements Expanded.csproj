@@ -62,7 +62,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="Underground Vault">
-      <HintPath>..\..\1.5\Assemblies\Underground Vault.dll</HintPath>
+      <HintPath>..\..\1.6\Assemblies\Underground Vault.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>
