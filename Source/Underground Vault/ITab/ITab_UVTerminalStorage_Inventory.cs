@@ -72,10 +72,7 @@ namespace UndergroundVault
             if (Widgets.ButtonImage(rect1, isCollectionMode ? TextureOfLocal.ResourceCategorizedTex : TextureOfLocal.ResourceStacksTex))
             {
                 isCollectionMode = !isCollectionMode;
-                if (isCollectionMode)
-                {
-                    UpdateCollectionContainer();
-                }
+                UpdateCollectionContainer();
             }
             TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.TypeFilter");
             curX += -3f - 24f;
@@ -133,6 +130,7 @@ namespace UndergroundVault
                     {
                         isSettingsActive = false;
                         SoundDefOf.TabClose.PlayOneShotOnCamera();
+                        UpdateCollectionContainer();
                     }
                 });
             }
