@@ -924,7 +924,7 @@ namespace UndergroundVault
             }
             if (ticksTillPlatformTravelTime > 0)
             {
-                inspectStrings.Add("UndergroundVault.Terminal.InspectString.PlatformMoving".Translate(ticksTillPlatformTravelTime.TicksToSeconds()));
+                inspectStrings.Add("UndergroundVault.Terminal.InspectString.PlatformMoving".Translate(ticksTillPlatformTravelTime.ToStringTicksToPeriodVerbose()));
             }
             if (PlatformSurfaceThings.Count() > 0)
             {
@@ -938,7 +938,7 @@ namespace UndergroundVault
             {
                 if (isCanExpandVault && ticksTillExpandVaultTime > 0)
                 {
-                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.ExpandVault".Translate(ticksTillExpandVaultTime.TicksToSeconds()));
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.ExpandVault".Translate(ticksTillExpandVaultTime.ToStringTicksToPeriodVerbose()));
                 }
                 else
                 {
@@ -953,7 +953,7 @@ namespace UndergroundVault
             {
                 if (isCanUpgradeFloorVault && ticksTillUpgradeFloorVaultTime > 0)
                 {
-                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.UpgradeFloor".Translate(ticksTillUpgradeFloorVaultTime.TicksToSeconds()));
+                    inspectStrings.Add("UndergroundVault.Terminal.InspectString.UpgradeFloor".Translate(ticksTillUpgradeFloorVaultTime.ToStringTicksToPeriodVerbose()));
                 }
                 else
                 {

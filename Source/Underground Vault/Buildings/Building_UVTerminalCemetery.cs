@@ -162,7 +162,7 @@ namespace UndergroundVault
             inspectStrings.Add(base.GetInspectString());
             if (ticksTillCremationTime > 0)
             {
-                inspectStrings.Add("UndergroundVault.Terminal.InspectString.Cremation".Translate(ticksTillCremationTime.TicksToSeconds()));
+                inspectStrings.Add("UndergroundVault.Terminal.InspectString.Cremation".Translate(ticksTillCremationTime.ToStringTicksToPeriodVerbose()));
             }
             if (CremationThings.Count() > 0)
             {
