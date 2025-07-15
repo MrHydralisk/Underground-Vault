@@ -59,7 +59,7 @@ namespace UndergroundVault
         }
         private MouseMarking mouseState = MouseMarking.Idle;
 
-        private bool isCollectionMode = false;
+        private bool isCollectionMode = true;
 
         protected override void FillTab()
         {
