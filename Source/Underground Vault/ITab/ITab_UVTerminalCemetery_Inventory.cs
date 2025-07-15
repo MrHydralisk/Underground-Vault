@@ -46,7 +46,7 @@ namespace UndergroundVault
                 Widgets.ButtonImage(rect1, CaravanThingsTabUtility.AbandonButtonTex);
                 TooltipHandler.TipRegionByKey(rect1, "UndergroundVault.Tooltip.Tab.ClearScheduled");
             }
-            else
+            else if (building.HaveUpgrade(UVUpgradeTypes.Crematorium) > 0)
             {
                 if (Widgets.ButtonImage(rect1, TextureOfLocal.TakeIconTex))
                 {
