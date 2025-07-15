@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-	<ThingDef Name="UVUpgradeBase" ParentName="BuildingBase" Abstract="True">
-		<thingClass>UndergroundVault.Building_UVUpgrade</thingClass>
+	<UndergroundVault.UVModuleDef Name="UVUpgradeBase" Abstract="True">
 		<graphicData>
 			<graphicClass>Graphic_Single</graphicClass>
 			<shaderType>CutoutComplex</shaderType>
@@ -14,35 +13,15 @@
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
 		</graphicData>
-		<size>(1,1)</size>
-		<pathCost>42</pathCost>
-		<castEdgeShadows>false</castEdgeShadows>
-		<useHitPoints>false</useHitPoints>
-		<fillPercent>0.1</fillPercent>
-		<tickerType>Never</tickerType>
-		<drawerType>RealtimeOnly</drawerType>
-		<canOverlapZones>false</canOverlapZones>
-		<selectable>false</selectable>
+		<uiIconPath>UI/Misc/BadTexture</uiIconPath>
 		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 		<statBases>
 			<WorkToBuild>2500</WorkToBuild>
 		</statBases>
-		<building>
-			<ai_chillDestination>false</ai_chillDestination>
-			<isEdifice>false</isEdifice>
-		</building>
-		<placeWorkers>
-			<li>UndergroundVault.PlaceWorker_UVUpgrade</li>
-		</placeWorkers>
 		<altitudeLayer>BuildingBelowTop</altitudeLayer>
-		<passability>PassThroughOnly</passability>
-		<clearBuildingArea>false</clearBuildingArea>
-		<blockWind>false</blockWind>
-		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-		<designationCategory>Misc</designationCategory>
-	</ThingDef>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeCrematorium</defName>
 		<label>crematorium module</label>
 		<description>Upgrade module for underground vault terminal which vaporizes selected things with extremely high temperatures.\n\nCan be used by cemetery vault. Will destroy body inside sarcophagus and sarcophagus itself (if made of flammable material).</description>
@@ -53,14 +32,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeCrematorium</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>Crematorium</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
+		<upgradeType>Crematorium</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeDeepDrill</defName>
 		<label>deep drill module</label>
 		<description>Upgrade module for underground vault terminal which allows to drill deep-crust to create a new vault floor.\n\nEach additional module reduces the construction time of floors.</description>
@@ -71,14 +47,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeDeepDrill</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>Drill</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+		<upgradeType>Drill</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeStorageEfficiency</defName>
 		<label>storage efficiency module</label>
 		<description>Upgrade module for underground vault terminal which allows to reorganize vault floor to increase it capacity.\n\nEach additional module increases the maximum floor level for the upgrade. Each floor upgrade increase it capacity by x2.</description>
@@ -90,14 +63,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeStorageEfficiency</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>StorageEfficiency</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+		<upgradeType>StorageEfficiency</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeAI</defName>
 		<label>AI module</label>
 		<description>Upgrade module for underground vault terminal which allows terminal to work autonomously.\n\nRemoves requirement of operator to work. Allows to self eject a colonist out of cryptosleep casket on platform.</description>
@@ -110,14 +80,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeAI</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>AI</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
+		<upgradeType>AI</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradePlatformSpeed</defName>
 		<label>platform speed module</label>
 		<description>Upgrade module for underground vault terminal which accelerates platform movement.\n\nEach additional module reduces time for platform movement between surface and vault by x2.</description>
@@ -128,14 +95,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradePlatformSpeed</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>PlatformSpeed</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
+		<upgradeType>PlatformSpeed</upgradeType>
+	</UndergroundVault.UVModuleDef>
 	
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradePlatformEfficiency</defName>
 		<label>platform efficiency module</label>
 		<description>Upgrade module for underground vault terminal which increase platform capacity.\n\nIncrease platform capacity by amount of modules.</description>
@@ -146,14 +110,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradePlatformEfficiency</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>PlatformEfficiency</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
+		<upgradeType>PlatformEfficiency</upgradeType>
+	</UndergroundVault.UVModuleDef>
 	
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeTradeBeacon</defName>
 		<label>trade beacon module</label>
 		<description>Upgrade module for underground vault terminal which allows sell goods to orbital traders.\n\nProvide orbital trading from vault itself.</description>
@@ -164,14 +125,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeTradeBeacon</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>TradeBeacon</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
+		<upgradeType>TradeBeacon</upgradeType>
+	</UndergroundVault.UVModuleDef>
   
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeDeepDrillM</defName>
 		<label>digging module</label>
 		<description>Upgrade module for underground vault terminal which allows to dig deep-crust to create a new vault floor.\n\nEach additional module reduces the construction time of floors.</description>
@@ -182,14 +140,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeDeepDrillM</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>Drill</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+		<upgradeType>Drill</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeStorageEfficiencyM</defName>
 		<label>storage efficiency module</label>
 		<description>Upgrade module for underground vault terminal which allows to reorganize vault floor to increase it capacity.\n\nEach additional module increases the maximum floor level for the upgrade. Each floor upgrade increase it capacity by x2.</description>
@@ -200,14 +155,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeStorageEfficiencyM</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>StorageEfficiency</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+		<upgradeType>StorageEfficiency</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeDeepDrillU</defName>
 		<label>deep drill module</label>
 		<description>Upgrade module for underground vault terminal which allows to drill deep-crust to create a new vault floor.\n\nEach additional module reduces the construction time of floors.</description>
@@ -218,14 +170,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeDeepDrillU</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>Drill</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
+		<upgradeType>Drill</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeStorageEfficiencyU</defName>
 		<label>storage efficiency module</label>
 		<description>Upgrade module for underground vault terminal which allows to reorganize vault floor to increase it capacity.\n\nEach additional module increases the maximum floor level for the upgrade. Each floor upgrade increase it capacity by x2.</description>
@@ -237,14 +186,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeStorageEfficiencyU</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>StorageEfficiency</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
+		<upgradeType>StorageEfficiency</upgradeType>
+	</UndergroundVault.UVModuleDef>
 	
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradePlatformEfficiencyU</defName>
 		<label>teleportation efficiency module</label>
 		<description>Upgrade module for underground vault terminal which increase teleportation capacity.\n\nIncrease amount of teleporting things by amount of modules.</description>
@@ -256,14 +202,11 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradePlatformEfficiencyU</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>PlatformEfficiency</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
+		<upgradeType>PlatformEfficiency</upgradeType>
+	</UndergroundVault.UVModuleDef>
 	
-	<ThingDef ParentName="UVUpgradeBase">
+	<UndergroundVault.UVModuleDef ParentName="UVUpgradeBase">
 		<defName>UVUpgradeTradeBeaconU</defName>
 		<label>trade beacon module</label>
 		<description>Upgrade module for underground vault terminal which allows sell goods to orbital traders.\n\nProvide orbital trading from vault itself.</description>
@@ -274,11 +217,8 @@
 		<graphicData>
 			<texPath>Things/Building/UVUpgradeTradeBeaconU</texPath>
 		</graphicData>
-		<modExtensions>
-			<li Class="UndergroundVault.UVUpgradeExtension">
-				<upgradeType>TradeBeacon</upgradeType>
-			</li>
-		</modExtensions>
-	</ThingDef>
+		<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
+		<upgradeType>TradeBeacon</upgradeType>
+	</UndergroundVault.UVModuleDef>
 
 </Defs>

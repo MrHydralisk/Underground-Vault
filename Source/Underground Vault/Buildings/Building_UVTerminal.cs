@@ -1,7 +1,9 @@
 ﻿using RimWorld;
 using RimWorld.Planet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -11,21 +13,22 @@ namespace UndergroundVault
 {
     public class Building_UVTerminal : Building
     {
-        protected List<Thing> Upgrades
-        {
-            get
-            {
-                for (int i = 0; i < upgradesCached.Count(); i++)
-                {
-                    if (upgradesCached[i] == null || upgradesCached[i].def.IsFrame || upgradesCached[i].def.IsBlueprint || !upgradesCached[i].Spawned)
-                    {
-                        upgradesCached[i] = this.Map.thingGrid.ThingsListAtFast(this.Position + ExtUpgrade.ConstructionOffset[i]).FirstOrDefault((Thing t) => ExtUpgrade.AvailableUpgrades.Any((BuildingUpgrades bu) => t.def == bu.upgradeDef) || t.def.IsFrame || t.def.IsBlueprint);
-                    }
-                }
-                return upgradesCached;
-            }
-        }
-        private List<Thing> upgradesCached;
+        protected List<UVModuleDef> Upgrades = new List<UVModuleDef>();
+        //protected List<Thing> Upgrades
+        //{
+        //    get
+        //    {
+        //        for (int i = 0; i < upgradesCached.Count(); i++)
+        //        {
+        //            if (upgradesCached[i] == null || upgradesCached[i].def.IsFrame || upgradesCached[i].def.IsBlueprint || !upgradesCached[i].Spawned)
+        //            {
+        //                upgradesCached[i] = this.Map.thingGrid.ThingsListAtFast(this.Position + ExtUpgrade.ConstructionOffset[i]).FirstOrDefault((Thing t) => ExtUpgrade.AvailableUpgrades.Any((BuildingUpgrades bu) => t.def == bu.upgradeDef) || t.def.IsFrame || t.def.IsBlueprint);
+        //            }
+        //        }
+        //        return upgradesCached;
+        //    }
+        //}
+        //private List<Thing> upgradesCached;
 
         public BuildingUpgradesExtension ExtUpgrade => extUpgradeCached ?? (extUpgradeCached = def.GetModExtension<BuildingUpgradesExtension>());
         private BuildingUpgradesExtension extUpgradeCached;
@@ -188,11 +191,11 @@ namespace UndergroundVault
                 ConstructionThings = new List<Thing>();
             if (!respawningAfterLoad)
             {
-                upgradesCached = new List<Thing>();
-                for (int i = 0; i < ExtUpgrade.DrawOffset.Count(); i++)
-                {
-                    upgradesCached.Add(null);
-                }
+                //upgradesCached = new List<Thing>();
+                //for (int i = 0; i < ExtUpgrade.DrawOffset.Count(); i++)
+                //{
+                //    upgradesCached.Add(null);
+                //}
                 if (!isVaultAvailable && VaultDef != null)
                 {
                     Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
@@ -202,10 +205,23 @@ namespace UndergroundVault
             }
         }
 
+        protected override void DrawAt(Vector3 drawLoc, bool flip = false)
+        {
+            base.DrawAt(drawLoc, flip);
+            drawLoc.y = Altitudes.AltitudeFor(def.altitudeLayer + 1);
+            for (int i = 0; i < Upgrades.Count(); i++)
+            {
+                Log.Message($"DrawAt {drawLoc} + {ExtUpgrade.ConstructionOffset[i].ToVector3()} + {ExtUpgrade.DrawOffset[i]} | {drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3()} | {drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset[i]}");
+                Graphic graphicSub = Upgrades[i].graphicData.Graphic/*.GetColoredVersion(parent.Graphic.Shader, parent.DrawColor, parent.DrawColorTwo)*/;
+                graphicSub.Draw(drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset[i], Rotation, this);
+                //Graphics.DrawMesh(Graphic.MeshAt(flip ? Rotation.Opposite : Rotation), Matrix4x4.TRS(drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3(), Rotation.AsQuat, new Vector3(1f, 1f, 1f)), Upgrades[i].DrawMatSingle, 0);
+            }
+        }
+
         public int HaveUpgrade(UVUpgradeTypes upgradeType)
         {
             int maxAmount = ExtUpgrade.AvailableUpgrades.FirstOrDefault((BuildingUpgrades bu) => bu.upgradeType == upgradeType)?.maxAmount ?? 0;
-            int currAmount = Upgrades.Count((Thing t) => t != null && t is Building_UVUpgrade uVUpgrade && uVUpgrade.upgradeType == upgradeType);
+            int currAmount = Upgrades.Count((UVModuleDef m) => m.upgradeType == upgradeType);
             return Mathf.Min(maxAmount, currAmount);
         }
 
@@ -786,8 +802,7 @@ namespace UndergroundVault
                     Order = 20f
                 };
             }
-            int freeIndex = Upgrades.FindIndex((Thing t) => t == null);
-            if (freeIndex > -1)
+            if (Upgrades.Count() < ExtUpgrade.ConstructionOffset.Count())
             {
                 yield return new Command_Action
                 {
@@ -795,19 +810,21 @@ namespace UndergroundVault
                     {
                         Find.WindowStack.Add(new FloatMenu(ExtUpgrade.AvailableUpgrades.Select(delegate (BuildingUpgrades bu)
                         {
-                            ThingDef td = bu.upgradeDef;
-                            if (Upgrades.Count((Thing t) => t != null && (t.def == bu.upgradeDef || t.def == bu.upgradeDef.frameDef || t.def == bu.upgradeDef.blueprintDef)) < bu.maxAmount)
+                            UVModuleDef md = bu.upgradeDef;
+                            if (Upgrades.Count((UVModuleDef m) => m != null && (m == bu.upgradeDef)) < bu.maxAmount)
                             {
-                                return new FloatMenuOption("UndergroundVault.Command.InstallUpgrade.Option".Translate(td.LabelCap, string.Join("\n", BuildingCost(td.CostList).Select((ThingDefCountClass tdcc) => tdcc.Label)).ToStringSafe(), td.constructionSkillPrerequisite), delegate
+                                return new FloatMenuOption("UndergroundVault.Command.InstallUpgrade.Option".Translate(md.LabelCap, string.Join("\n", BuildingCost(md.CostList).Select((ThingDefCountClass tdcc) => tdcc.Label)).ToStringSafe(), md.constructionSkillPrerequisite), delegate
                                 {
                                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                                    Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(td, false);
-                                    des.DesignateSingleCell(this.Position + ExtUpgrade.ConstructionOffset[freeIndex]);
+                                    //Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(md, false);
+                                    //des.DesignateSingleCell(this.Position + ExtUpgrade.ConstructionOffset[freeIndex]);
+                                    Log.Message($"Added {md.label}:\n{string.Join("\n", Upgrades.Select(m => m.label))}");
+                                    Upgrades.Add(md);
                                 }, iconTex: bu.uiIcon, iconColor: Color.white);
                             }
                             else
                             {
-                                return new FloatMenuOption(td.LabelCap, null, iconTex: bu.uiIcon, iconColor: Color.white);
+                                return new FloatMenuOption(md.LabelCap, null, iconTex: bu.uiIcon, iconColor: Color.white);
                             }
                         })
                             .ToList()));
@@ -824,42 +841,32 @@ namespace UndergroundVault
                 {
                     action = delegate
                     {
-                        Find.WindowStack.Add(new FloatMenu(Upgrades.Select(delegate (Thing t)
+                        List<FloatMenuOption> fmo = new List<FloatMenuOption>();
+                        for (int i = 0; i< ExtUpgrade.ConstructionOffset.Count(); i++)
                         {
-                            if (t != null)
+                            int index = i;
+                            if (Upgrades.ElementAtOrDefault(index) is UVModuleDef md && md != null)
                             {
-                                if (t.def.IsBlueprint)
+                                fmo.Add(new FloatMenuOption(md.LabelCap, delegate
                                 {
-                                    return new FloatMenuOption(t.LabelCap, delegate
+                                    if (DebugSettings.godMode || md.GetStatValueAbstract(StatDefOf.WorkToBuild) == 0f)
                                     {
-                                        t.Destroy(DestroyMode.Cancel);
-                                    }, iconThing: t, iconColor: Color.blue);
-                                }
-                                else if (t.def.IsFrame && t is Frame tFrame)
-                                {
-                                    return new FloatMenuOption("UndergroundVault.Command.InstallUpgrade.Option".Translate(t.LabelCap, FrameCost(tFrame).ToStringSafe(), t.def.constructionSkillPrerequisite), delegate
+                                        Log.Message($"Removed {md.label} at {index}:\n{string.Join("\n", Upgrades.Select(m => m.label))}");
+                                        Upgrades.RemoveAt(index);
+                                    }
+                                    else
                                     {
-                                        t.Destroy(DestroyMode.Cancel);
-                                    }, iconThing: t, iconColor: Color.gray);
-                                }
-                                else
-                                {
-                                    return new FloatMenuOption(t.LabelCap, delegate
-                                    {
-                                        if (DebugSettings.godMode || t.GetInnerIfMinified().GetStatValue(StatDefOf.WorkToBuild) == 0f)
-                                        {
-                                            t.Destroy(DestroyMode.Deconstruct);
-                                        }
-                                        else
-                                        {
-                                            this.Map.designationManager.AddDesignation(new Designation(t, DesignationDefOf.Deconstruct));
-                                        }
-                                    }, iconThing: t, iconColor: Color.white);
-                                }
+                                        Log.Message($"Removed {md.label} at {index}:\n{string.Join("\n", Upgrades.Select(m => m.label))}");
+                                        Upgrades.RemoveAt(index);
+                                    }
+                                }, iconTex: md.uiIcon, iconColor: Color.white));
                             }
-                            return new FloatMenuOption("---", null, iconTex: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white);
-                        })
-                            .ToList()));
+                            else
+                            {
+                                fmo.Add(new FloatMenuOption("---", null, iconTex: ContentFinder<Texture2D>.Get("UI/Misc/BadTexture"), iconColor: Color.white));
+                            }
+                        }
+                        Find.WindowStack.Add(new FloatMenu(fmo));
                     },
                     defaultLabel = "UndergroundVault.Command.UninstallUpgrade.Label".Translate(),
                     defaultDesc = "UndergroundVault.Command.UninstallUpgrade.Desc".Translate(),
@@ -905,14 +912,14 @@ namespace UndergroundVault
             }
         }
 
-        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
-        {
-            foreach (Thing t in Upgrades)
-            {
-                t?.Destroy(mode);
-            }
-            base.Destroy(mode);
-        }
+        //public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        //{
+        //    foreach (Thing t in Upgrades)
+        //    {
+        //        t?.Destroy(mode);
+        //    }
+        //    base.Destroy(mode);
+        //}
 
         public override string GetInspectString()
         {
@@ -974,7 +981,7 @@ namespace UndergroundVault
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_Collections.Look(ref upgradesCached, "upgradesCached", LookMode.Reference);
+            Scribe_Collections.Look(ref Upgrades, "Upgrades", LookMode.Def);
             Scribe_Collections.Look(ref PlatformContainer, "PlatformContainer", LookMode.Deep);
             Scribe_Collections.Look(ref PlatformSurfaceThingsCached, "PlatformSurfaceThingsCached", LookMode.Reference);
             Scribe_Collections.Look(ref platformUndergroundThingsCached, "platformUndergroundThingsCached", LookMode.Reference);

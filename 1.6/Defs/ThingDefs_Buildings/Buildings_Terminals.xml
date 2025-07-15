@@ -2,11 +2,12 @@
 <Defs>
 
 	<ThingDef Name="UVTerminalBase" ParentName="BuildingBase" Abstract="True">
+    <drawerType>MapMeshAndRealTime</drawerType>
 		<castEdgeShadows>true</castEdgeShadows>
 		<tickerType>Normal</tickerType>
 		<hasInteractionCell>True</hasInteractionCell>
 		<fillPercent>0.5</fillPercent>
-		<rotatable>false</rotatable>
+		<!-- <rotatable>false</rotatable> -->
 		<canOverlapZones>false</canOverlapZones>
 		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 		<designationCategory>Misc</designationCategory>
@@ -95,11 +96,11 @@
 		<description>Terminal for cemetery vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside. Allow colonists to visit stored sarcophagus.\n\nTerminal operated manually and requires power to work. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultCemeteryS</ThingDef>
-			<ThingDef>UVUpgradeCrematorium</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeCrematorium</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2B</texPath>
@@ -137,31 +138,26 @@
 					<li>(-1,0,0)</li>
 				</ConstructionOffset>
 				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
+					<li>(0.109,0,0.031)</li>
+					<li>(0.109,0,-0.344)</li>
+					<li>(-0.109,0,-0.344)</li>
+					<li>(-0.109,0,0.031)</li>
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeCrematorium</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
@@ -205,11 +201,11 @@
 		<description>Terminal for cemetery vault management and access point to it. Size M.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside. Allow colonists to visit stored sarcophagus.\n\nTerminal operated manually and requires power to work. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultCemeteryM</ThingDef>
-			<ThingDef>UVUpgradeCrematorium</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeCrematorium</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2B</texPath>
@@ -254,24 +250,19 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeCrematorium</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
@@ -320,11 +311,11 @@
 		<description>Terminal for cemetery vault management and access point to it. Size L.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside. Allow colonists to visit stored sarcophagus.\n\nTerminal operated manually and requires power to work. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultCemeteryL</ThingDef>
-			<ThingDef>UVUpgradeCrematorium</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeCrematorium</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2B</texPath>
@@ -369,24 +360,19 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeCrematorium_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeCrematorium</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
@@ -437,8 +423,8 @@
 		<description>Terminal for cemetery vault management and access point to it. Medieval type.\n\nVault is located directly below it. Mobile platform can be lowered manually to store items inside.\n\nTerminal operated manually. Allows construction of sarcophagus on platform. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultCemeteryMedieval</ThingDef>
-			<ThingDef>UVUpgradeDeepDrillM</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiencyM</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrillM</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiencyM</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminalM2x2</texPath>
@@ -482,11 +468,9 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrillM</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiencyM</upgradeDef>
 					</li>
 				</AvailableUpgrades>
@@ -547,10 +531,10 @@
 		<description>Terminal for cryptosleep vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Allows construction of cryptosleep casket on platform. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultCryptosleepS</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2B</texPath>
@@ -595,20 +579,16 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
@@ -652,10 +632,10 @@
 		<description>Terminal for cryptosleep vault management and access point to it. Size M.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Allows construction of cryptosleep casket on platform. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultCryptosleepM</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2B</texPath>
@@ -700,20 +680,16 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
@@ -762,10 +738,10 @@
 		<description>Terminal for cryptosleep vault management and access point to it. Size L.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Allows construction of cryptosleep casket on platform. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultCryptosleepL</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2B</texPath>
@@ -810,20 +786,16 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
@@ -905,10 +877,10 @@
 		<description>Terminal for storage vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultStorageS</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2</texPath>
@@ -953,25 +925,20 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
 						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
 					</li>
 				</AvailableUpgrades>
@@ -1019,10 +986,10 @@
 		<description>Terminal for storage vault management and access point to it. Size M.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultStorageM</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2</texPath>
@@ -1067,25 +1034,20 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
 						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
 					</li>
 				</AvailableUpgrades>
@@ -1135,10 +1097,10 @@
 		<description>Terminal for storage vault management and access point to it. Size L.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultStorageL</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2</texPath>
@@ -1183,25 +1145,20 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
 						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
 					</li>
 				</AvailableUpgrades>
@@ -1253,11 +1210,11 @@
 		<description>Terminal for storage vault management and access point to it. Size XL.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultStorageXL</ThingDef>
-			<ThingDef>UVUpgradeDeepDrill</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiency</ThingDef>
-			<ThingDef>UVUpgradeAI</ThingDef>
-			<ThingDef>UVUpgradePlatformSpeed</ThingDef>
-			<ThingDef>UVUpgradePlatformEfficiency</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrill</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiency</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeAI</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformSpeed</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformEfficiency</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x3</texPath>
@@ -1306,30 +1263,24 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiency</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeAI_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeAI</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformSpeed_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformSpeed</upgradeDef>
 						<maxAmount>2</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformEfficiency</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
 						<upgradeDef>UVUpgradeTradeBeacon</upgradeDef>
 					</li>
 				</AvailableUpgrades>
@@ -1385,8 +1336,8 @@
 		<description>Terminal for storage vault management and access point to it. Medieval type.\n\nVault is located directly below it. Mobile platform can be lowered manually to store items inside.\n\nTerminal operated manually. Additional upgrade modules can be installed.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultStorageMedieval</ThingDef>
-			<ThingDef>UVUpgradeDeepDrillM</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiencyM</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrillM</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiencyM</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminalM2x2</texPath>
@@ -1430,11 +1381,9 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrillM</upgradeDef>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiencyM</upgradeDef>
 					</li>
 				</AvailableUpgrades>
@@ -1476,9 +1425,9 @@
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultStorageUltra</ThingDef>
 			<ThingDef>UVTerminalStorageUltraSub</ThingDef>
-			<ThingDef>UVUpgradeDeepDrillU</ThingDef>
-			<ThingDef>UVUpgradeStorageEfficiencyU</ThingDef>
-			<ThingDef>UVUpgradePlatformEfficiencyU</ThingDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeDeepDrillU</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradeStorageEfficiencyU</UndergroundVault.UVModuleDef>
+			<UndergroundVault.UVModuleDef>UVUpgradePlatformEfficiencyU</UndergroundVault.UVModuleDef>
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminalU</texPath>
@@ -1548,22 +1497,18 @@
 				</DrawOffset>
 				<AvailableUpgrades>
 					<li>
-						<uiIconPath>Icons/UVUpgradeDeepDrill_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeDeepDrillU</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradeStorageEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradeStorageEfficiencyU</upgradeDef>
 						<maxAmount>4</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Icons/UVUpgradePlatformEfficiency_Icon</uiIconPath>
 						<upgradeDef>UVUpgradePlatformEfficiencyU</upgradeDef>
 						<maxAmount>3</maxAmount>
 					</li>
 					<li>
-						<uiIconPath>Things/Building/Misc/DropBeacon</uiIconPath>
 						<upgradeDef>UVUpgradeTradeBeaconU</upgradeDef>
 					</li>
 				</AvailableUpgrades>
