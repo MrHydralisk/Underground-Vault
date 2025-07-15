@@ -8,7 +8,7 @@ using Verse.Sound;
 
 namespace UndergroundVault
 {
-    public class Building_UVTerminalCemetery : Building_UVTerminalCryptosleep
+    public class Building_UVTerminalCemetery : Building_UVTerminalCryptosleep, IStoreSettingsParent
     {
         protected override List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && t.def == ThingDefOfLocal.UVSarcophagus).ToList();
         protected override List<Thing> PlatformFullThings => PlatformThings.Where((Thing t) => (t is Building_Casket bc) && bc.HasAnyContents).ToList();
@@ -28,8 +28,45 @@ namespace UndergroundVault
 
         private int ticksTillCremationTime;
         public bool isCremating;
+
+        public StorageSettings settings;
+
         protected override bool IsVaultEmpty => ((InnerContainer.Count() - (PlatformContainer.Count() + CremationThings.Count())) <= 0);
         protected override bool isHaveWorkOn => base.isHaveWorkOn || !CremationThings.NullOrEmpty();
+
+        public bool StorageTabVisible => true;
+
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            if (settings == null)
+            {
+                settings = new StorageSettings(this);
+                if (def.building.defaultStorageSettings != null)
+                {
+                    settings.CopyFrom(def.building.defaultStorageSettings);
+                }
+            }
+        }
+
+        public StorageSettings GetStoreSettings()
+        {
+            return settings;
+        }
+
+        public StorageSettings GetParentStoreSettings()
+        {
+            return def.building.fixedStorageSettings;
+        }
+
+        public void Notify_SettingsChanged()
+        {
+            foreach (Building_CorpseCasket casket in PlatformThings)
+            {
+                casket.GetStoreSettings().CopyFrom(settings);
+            }
+        }
+
         protected override void WorkTick(bool isNotSkip)
         {
             if ((ExtTerminal.isMultitask || isNotSkip) && !CremationThings.NullOrEmpty())
@@ -177,6 +214,7 @@ namespace UndergroundVault
             Scribe_Collections.Look(ref CremationThings, "CremationThings", LookMode.Reference);
             Scribe_Values.Look(ref ticksTillCremationTime, "ticksTillCremationTime");
             Scribe_Values.Look(ref isCremating, "isCremating");
+            Scribe_Deep.Look(ref settings, "settings", this);
         }
     }
 }

@@ -112,6 +112,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OfLocal\TextureOfLocal.cs" />
     <Compile Include="OfLocal\ThingDefOfLocal.cs" />
+    <Compile Include="Comp_UVSarcophagus.cs" />
     <Compile Include="UVSettings.cs" />
     <Compile Include="UVUtility.cs" />
     <Compile Include="UVMod.cs" />
