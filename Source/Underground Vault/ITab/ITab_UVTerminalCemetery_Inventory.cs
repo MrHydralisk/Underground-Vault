@@ -26,7 +26,7 @@ namespace UndergroundVault
 
         protected override void DoThingRow(Thing thing, float width, ref float curY)
         {
-            Rect rect = new Rect(0f, curY, width, 28f);
+            Rect rect = new Rect(0f, curY, width, rowHeight);
             Rect rect1 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
             if (building.PlatformUndergroundThings.Any((Thing t) => t == thing))
             {
@@ -81,7 +81,7 @@ namespace UndergroundVault
             }
             if (thing.def.DrawMatSingle != null && thing.def.DrawMatSingle.mainTexture != null)
             {
-                Rect rect2 = new Rect(4f, curY, 28f, 28f);
+                Rect rect2 = new Rect(4f, curY, rowHeight, rowHeight);
                 Widgets.ThingIcon(rect2, thing);
             }
             Text.Anchor = TextAnchor.MiddleLeft;
@@ -104,7 +104,7 @@ namespace UndergroundVault
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;
             TooltipHandler.TipRegion(rect, text2);
-            curY += 28f;
+            curY += rowHeight;
         }
     }
 }

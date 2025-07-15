@@ -12,6 +12,8 @@ namespace UndergroundVault
     {
         protected Vector2 scrollPosition;
         protected float lastDrawnHeight;
+        protected float scrollRectHeight;
+        protected virtual float rowHeight => 28;
         protected virtual Building_UVVault vault => base.SelThing as Building_UVVault;
         private IEnumerable<int> Floors => vault.Floors;
 
@@ -76,6 +78,7 @@ namespace UndergroundVault
             Rect rect = new Rect(0f, 0f, outRect.width - 16f, Mathf.Max(lastDrawnHeight, outRect.height));
             Text.Font = GameFont.Small;
             Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
+            scrollRectHeight = outRect.height;
             curY = 0;
             DoItemsLists(rect, ref curY);
             lastDrawnHeight = curY;
@@ -84,6 +87,8 @@ namespace UndergroundVault
 
         protected override void DoItemsLists(Rect inRect, ref float curY)
         {
+            float minHeight = scrollPosition.y - rowHeight * 8;
+            float maxHeight = scrollPosition.y + scrollRectHeight + rowHeight * 8;
             Widgets.BeginGroup(inRect);
             IList<int> list = Floors.ToList();
             bool flag = false;
@@ -91,7 +96,14 @@ namespace UndergroundVault
             for (int i = 0; i < list.Count; i++)
             {
                 flag = true;
-                DoThingRow(i, list[i], ref filled, inRect.width, ref curY);
+                if (curY > minHeight && curY < maxHeight)
+                {
+                    DoThingRow(i, list[i], ref filled, inRect.width, ref curY);
+                }
+                else
+                {
+                    curY += rowHeight;
+                }
             }
             if (!flag)
             {

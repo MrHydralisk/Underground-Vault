@@ -113,6 +113,7 @@ namespace UndergroundVault
             Rect rect = new Rect(0f, 0f, outRect.width - 16f, Mathf.Max(lastDrawnHeight, outRect.height));
             Text.Font = GameFont.Small;
             Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
+            scrollRectHeight = outRect.height;
             curY = 0;
             DoItemsLists(rect, ref curY);
             lastDrawnHeight = curY;
@@ -138,6 +139,8 @@ namespace UndergroundVault
 
         protected override void DoItemsLists(Rect inRect, ref float curY)
         {
+            float minHeight = scrollPosition.y - rowHeight;
+            float maxHeight = scrollPosition.y + scrollRectHeight +rowHeight;
             Widgets.BeginGroup(inRect);
             if (isCollectionMode)
             {
@@ -148,7 +151,14 @@ namespace UndergroundVault
                     if (t != null)
                     {
                         flag = true;
-                        DoCollectionRow(t, inRect.width, ref curY);
+                        if (curY > minHeight && curY < maxHeight)
+                        {
+                            DoCollectionRow(t, inRect.width, ref curY);
+                        }
+                        else
+                        {
+                            curY += rowHeight;
+                        }
                     }
                 }
                 if (!flag)
@@ -166,7 +176,14 @@ namespace UndergroundVault
                     if (t != null)
                     {
                         flag = true;
-                        DoThingRow(t, inRect.width, ref curY);
+                        if (curY > minHeight && curY < maxHeight)
+                        {
+                            DoThingRow(t, inRect.width, ref curY);
+                        }
+                        else
+                        {
+                            curY += rowHeight;
+                        }
                     }
                 }
                 if (!flag)
@@ -183,7 +200,7 @@ namespace UndergroundVault
             {
                 mouseState = MouseMarking.Idle;
             }
-            Rect rect = new Rect(0f, curY, width, 28f);
+            Rect rect = new Rect(0f, curY, width, rowHeight);
             Rect rect1 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
             if (Mouse.IsOver(rect1))
             {
@@ -248,7 +265,7 @@ namespace UndergroundVault
             }
             if (thing.def.DrawMatSingle != null && thing.def.DrawMatSingle.mainTexture != null)
             {
-                Rect rect3 = new Rect(4f, curY, 28f, 28f);
+                Rect rect3 = new Rect(4f, curY, rowHeight, rowHeight);
                 Widgets.ThingIcon(rect3, thing);
             }
             Text.Anchor = TextAnchor.MiddleLeft;
@@ -268,12 +285,12 @@ namespace UndergroundVault
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;
             TooltipHandler.TipRegion(rect, text2);
-            curY += 28f;
+            curY += rowHeight;
         }
 
         protected void DoCollectionRow(ThingDefCountClass tdcc, float width, ref float curY)
         {
-            Rect rect = new Rect(0f, curY, width, 28f);
+            Rect rect = new Rect(0f, curY, width, rowHeight);
             Rect rect1 = new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f);
             if (Widgets.ButtonImage(rect1, TextureOfLocal.TakeIconTex))
             {
@@ -328,7 +345,7 @@ namespace UndergroundVault
             }
             if (tdcc.thingDef.DrawMatSingle != null && tdcc.thingDef.DrawMatSingle.mainTexture != null)
             {
-                Rect rect3 = new Rect(4f, curY, 28f, 28f);
+                Rect rect3 = new Rect(4f, curY, rowHeight, rowHeight);
                 Widgets.ThingIcon(rect3, tdcc.thingDef);
             }
             Text.Anchor = TextAnchor.MiddleLeft;
@@ -348,7 +365,7 @@ namespace UndergroundVault
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;
             TooltipHandler.TipRegion(rect, text2);
-            curY += 28f;
+            curY += rowHeight;
         }
     }
 }

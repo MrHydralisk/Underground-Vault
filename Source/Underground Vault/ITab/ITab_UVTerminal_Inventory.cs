@@ -14,6 +14,8 @@ namespace UndergroundVault
         protected Vector2 scrollPosition;
         protected float lastDrawnHeight;
         private Building_UVTerminal building => base.SelThing as Building_UVTerminal;
+        protected float scrollRectHeight;
+        protected virtual float rowHeight => 28;
 
         public QuickSearchWidget quickSearch = new QuickSearchWidget();
 
@@ -121,6 +123,7 @@ namespace UndergroundVault
             Rect rect = new Rect(0f, 0f, outRect.width - 16f, Mathf.Max(lastDrawnHeight, outRect.height));
             Text.Font = GameFont.Small;
             Widgets.BeginScrollView(outRect, ref scrollPosition, rect);
+            scrollRectHeight = outRect.height;
             curY = 0;
             DoItemsLists(rect, ref curY);
             lastDrawnHeight = curY;
@@ -145,6 +148,8 @@ namespace UndergroundVault
 
         protected override void DoItemsLists(Rect inRect, ref float curY)
         {
+            float minHeight = scrollPosition.y - rowHeight;
+            float maxHeight = scrollPosition.y + scrollRectHeight  +rowHeight;
             Widgets.BeginGroup(inRect);
             IList<Thing> list = sortedContainer;
             bool flag = false;
@@ -154,7 +159,14 @@ namespace UndergroundVault
                 if (t != null)
                 {
                     flag = true;
-                    DoThingRow(t, inRect.width, ref curY);
+                    if (curY > minHeight && curY < maxHeight)
+                    {
+                        DoThingRow(t, inRect.width, ref curY);
+                    }
+                    else
+                    {
+                        curY += rowHeight;
+                    }
                 }
             }
             if (!flag)
@@ -166,7 +178,7 @@ namespace UndergroundVault
 
         protected virtual void DoThingRow(Thing thing, float width, ref float curY)
         {
-            Rect rect = new Rect(0f, curY, width, 28f);
+            Rect rect = new Rect(0f, curY, width, rowHeight);
             if (building.PlatformUndergroundThings.Any((Thing t) => t == thing))
             {
                 if (Widgets.ButtonImage(new Rect(rect.x + rect.width - 24f, rect.y + (rect.height - 24f) / 2f, 24f, 24f), TextureOfLocal.TakeIconTex))
@@ -194,7 +206,7 @@ namespace UndergroundVault
             }
             if (thing.def.DrawMatSingle != null && thing.def.DrawMatSingle.mainTexture != null)
             {
-                Rect rect2 = new Rect(4f, curY, 28f, 28f);
+                Rect rect2 = new Rect(4f, curY, rowHeight, rowHeight);
                 Widgets.ThingIcon(rect2, thing);
             }
             Text.Anchor = TextAnchor.MiddleLeft;
@@ -206,7 +218,7 @@ namespace UndergroundVault
             Text.WordWrap = true;
             Text.Anchor = TextAnchor.UpperLeft;
             TooltipHandler.TipRegion(rect, text2);
-            curY += 28f;
+            curY += rowHeight;
         }
     }
 }
