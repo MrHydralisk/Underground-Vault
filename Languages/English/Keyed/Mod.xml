@@ -6,6 +6,9 @@
 	<UndergroundVault.Settings.TradeBeaconEnabled.Label>Enable Trade Beacon Module.</UndergroundVault.Settings.TradeBeaconEnabled.Label>
 	<UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>Disable, if you temporally doesn't want to see Vault items during trading, which can take time to load initially in giant vaults. For permament alternative just don't build Trade Beacon Module or deconstruct existing one, if you no longer want to use this function.</UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>
 	
+	<UndergroundVault.Settings.CalculateVaultWealth.Label>Enable calculation of wealth within Vault.</UndergroundVault.Settings.CalculateVaultWealth.Label>
+	<UndergroundVault.Settings.CalculateVaultWealth.Tooltip>Allowing to keep items within Vault accountable in colony wealth. Beware of possible lag spikes, when amount of item stacks in Vault reaching giant values, that was not intended by Rimworld (for example, amount of item stacks in Vault is few times higher, than total amount of tiles on colony map).</UndergroundVault.Settings.CalculateVaultWealth.Tooltip>
+	
 	<UndergroundVault.Settings.DevMode.Info>Show additional information for debug.</UndergroundVault.Settings.DevMode.Info>
 
 </LanguageData>

@@ -22,6 +22,7 @@ namespace UndergroundVault
             val.Patch(AccessTools.Method(typeof(TradeDeal), "InSellablePosition", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "TD_InSellablePosition_Postfix", (Type[])null));
             val.Patch(AccessTools.Method(typeof(TradeShip), "GiveSoldThingToTrader", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "TS_GiveSoldThingToTrader_Postfix", (Type[])null));
             val.Patch(AccessTools.Method(typeof(Pawn_TraderTracker), "ColonyThingsWillingToBuy", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "PTT_ColonyThingsWillingToBuy_Postfix", (Type[])null));
+            val.Patch(AccessTools.Method(typeof(WealthWatcher), "CalculateWealthItems", (Type[])null, (Type[])null), postfix: new HarmonyMethod(patchType, "WW_CalculateWealthItems_Postfix", (Type[])null));
         }
 
         public static void TU_AllLaunchableThingsForTrade_Postfix(ref IEnumerable<Thing> __result, Map map, ITrader trader = null)
@@ -78,6 +79,21 @@ namespace UndergroundVault
                 returnThings.AddRange(terminal.InnerContainer.Where((Thing t) => !terminal.UVVault.PlatformUndergroundThings.Any((Thing t1) => t1 == t)));
             }
             __result = returnThings.AsEnumerable();
+        }
+
+        public static void WW_CalculateWealthItems_Postfix(ref float __result, WealthWatcher __instance)
+        {
+            if (UVMod.Settings.isCalculateVaultWealth)
+            {
+                Map map = AccessTools.Field(typeof(WealthWatcher), "map").GetValue(__instance) as Map;
+                IEnumerable<Building_UVVault> vaults = map.listerBuildings.AllBuildingsColonistOfClass<Building_UVVault>();
+                foreach (Building_UVVault vault in vaults)
+                {
+                    float loot = vault.InnerContainer.Sum((Thing t1) => t1.MarketValue * (float)t1.stackCount);
+                    Log.Message($"{vault.Label}: {loot}");
+                    __result += loot;
+                }
+            }
         }
     }
 }

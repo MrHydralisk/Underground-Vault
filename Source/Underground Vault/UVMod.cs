@@ -20,6 +20,7 @@ namespace UndergroundVault
             Listing_Standard options = new Listing_Standard();
             options.Begin(inRect);
             options.CheckboxLabeled("UndergroundVault.Settings.TradeBeaconEnabled.Label".Translate().RawText, ref Settings.isTradeBeaconEnabled, "UndergroundVault.Settings.TradeBeaconEnabled.Tooltip".Translate().RawText);
+            options.CheckboxLabeled("UndergroundVault.Settings.CalculateVaultWealth.Label".Translate().RawText, ref Settings.isCalculateVaultWealth, "UndergroundVault.Settings.CalculateVaultWealth.Tooltip".Translate().RawText);
             //if (Prefs.DevMode)
             //{
             //    options.GapLine();
