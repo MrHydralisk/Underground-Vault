@@ -2,7 +2,7 @@
 <Defs>
 
 	<ThingDef Name="UVTerminalBase" ParentName="BuildingBase" Abstract="True">
-    <drawerType>MapMeshAndRealTime</drawerType>
+		<drawerType>MapMeshAndRealTime</drawerType>
 		<castEdgeShadows>true</castEdgeShadows>
 		<tickerType>Normal</tickerType>
 		<hasInteractionCell>True</hasInteractionCell>
@@ -104,7 +104,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2B</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(5,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -209,7 +209,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2B</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(6,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -319,7 +319,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2B</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(7,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -538,7 +538,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2B</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(5,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -639,7 +639,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2B</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(6,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -745,7 +745,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2B</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(7,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -884,7 +884,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal1x2</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(5,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -993,7 +993,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal2x2</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(6,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -1104,7 +1104,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x2</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(7,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -1218,7 +1218,7 @@
 		</descriptionHyperlinks>
 		<graphicData>
 			<texPath>Things/Building/UVTerminal3x3</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(7,5)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
