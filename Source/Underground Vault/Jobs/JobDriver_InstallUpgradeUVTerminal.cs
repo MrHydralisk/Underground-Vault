@@ -20,12 +20,6 @@ namespace UndergroundVault
             return pawn.Reserve(job.targetA, job, 1, -1, null, errorOnFailed);
         }
 
-        //public bool TryGetBuildableRect(out CellRect rect)
-        //{
-        //    rect = uVUpgrade.OccupiedRect();
-        //    return true;
-        //}
-
         protected override IEnumerable<Toil> MakeNewToils()
         {
             yield return Toils_Goto.GotoBuild(UpgradeInd).FailOnDespawnedNullOrForbidden(UpgradeInd);
@@ -51,7 +45,7 @@ namespace UndergroundVault
                 if (actor.Faction == Faction.OfPlayer)
                 {
                     float statValue = actor.GetStatValue(StatDefOf.ConstructSuccessChance);
-                    if (!TutorSystem.TutorialMode && Rand.Value < 1f - Mathf.Pow(statValue, num / workToBuild))
+                    if (Rand.Value < 1f - Mathf.Pow(statValue, num / workToBuild))
                     {
                         uVUpgrade.Cancel();
                         ReadyForNextToil();

@@ -8,7 +8,7 @@ using Verse;
 namespace UndergroundVault
 {
     [StaticConstructorOnStartup]
-    public class Building_UVUpgrade : Building, IThingHolder, IConstructible
+    public class Building_UVUpgrade : Building, IThingHolder
     {
         public ThingOwner resourceContainer;
         public float workDone;
@@ -41,6 +41,20 @@ namespace UndergroundVault
             return moduleDef?.CostList;
         }
 
+        public List<ThingDefCountClass> LeftMaterialCost()
+        {
+            List<ThingDefCountClass> cost =new List<ThingDefCountClass>();
+            foreach (ThingDefCountClass item in TotalMaterialCost())
+            {
+                int amountLeft = item.count - resourceContainer.TotalStackCountOfDef(item.thingDef);
+                if (amountLeft > 0)
+                {
+                    cost.Add(new ThingDefCountClass(item.thingDef, amountLeft));
+                }
+            }
+            return cost;
+        }
+
         public bool IsCompleted()
         {
             foreach (ThingDefCountClass item in TotalMaterialCost())
@@ -51,23 +65,6 @@ namespace UndergroundVault
                 }
             }
             return true;
-        }
-
-        public int ThingCountNeeded(ThingDef stuff)
-        {
-            foreach (ThingDefCountClass item in TotalMaterialCost())
-            {
-                if (item.thingDef == stuff)
-                {
-                    return item.count - resourceContainer.TotalStackCountOfDef(item.thingDef);
-                }
-            }
-            return 0;
-        }
-
-        public ThingDef EntityToBuildStuff()
-        {
-            return base.Stuff;
         }
 
         public void Complete(Pawn worker = null)

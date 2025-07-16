@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Verse;
 using Verse.AI;
+using static UnityEngine.UI.GridLayoutGroup;
 
 namespace UndergroundVault
 {
@@ -24,6 +25,11 @@ namespace UndergroundVault
             }
             if (!(t is Building_UVUpgrade uVUpgrade))
             {
+                return null;
+            }
+            if (pawn.skills != null && pawn.skills.GetSkill(SkillDefOf.Construction).Level < uVUpgrade.moduleDef.constructionSkillPrerequisite)
+            {
+                JobFailReason.Is("SkillTooLowForConstruction".Translate().Formatted(SkillDefOf.Construction.LabelCap));
                 return null;
             }
             if (!uVUpgrade.IsCompleted())

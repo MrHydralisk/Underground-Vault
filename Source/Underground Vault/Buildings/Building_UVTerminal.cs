@@ -880,7 +880,7 @@ namespace UndergroundVault
                             else
                             if (UpgradesToInstal[i] is Building_UVUpgrade uvu && uvu != null)
                             {
-                                fmo.Add(new FloatMenuOption(uvu.moduleDef.LabelCap, delegate
+                                fmo.Add(new FloatMenuOption($"[{uvu.moduleDef.LabelCap}]", delegate
                                 {
                                     uvu.Cancel();
                                     Upgrades[index] = null;
