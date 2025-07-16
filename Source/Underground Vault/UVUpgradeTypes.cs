@@ -1,6 +1,4 @@
-﻿using Verse;
-
-namespace UndergroundVault
+﻿namespace UndergroundVault
 {
     public enum UVUpgradeTypes
     {

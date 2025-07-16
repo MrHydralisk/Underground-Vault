@@ -1,6 +1,7 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using Verse;
 using Verse.Sound;
 
@@ -73,7 +74,7 @@ namespace UndergroundVault
             {
                 worker.records.Increment(RecordDefOf.ThingsConstructed);
             }
-            uVTerminal.Upgrades[upgradeSlot] = moduleDef;
+            uVTerminal.Upgrades[upgradeSlot].def = moduleDef;
             uVTerminal.UpgradesToInstal[upgradeSlot] = null;
             uVTerminal.isBeingUpgraded = uVTerminal.UpgradesToInstal.Any(b => b != null);
             Destroy();
@@ -116,13 +117,54 @@ namespace UndergroundVault
 
         public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
         {
+            List<ThingDefCountClass> existing = new List<ThingDefCountClass>();
+            foreach (Thing item in resourceContainer)
+            {
+                ThingDefCountClass thingDCC = existing.FirstOrDefault(tdcc => tdcc.thingDef == item.def);
+                if (thingDCC == null)
+                {
+                    existing.Add(new ThingDefCountClass(item.def, item.stackCount));
+                }
+                else
+                {
+                    thingDCC.count += item.stackCount;
+                }
+            }
             if (mode > DestroyMode.KillFinalizeLeavingsOnly)
             {
-                resourceContainer.TryDropAll(Position, Map, ThingPlaceMode.Near);
+                DropSpawn(existing, Position, Map, mode);
             }
             uVTerminal.UpgradesToInstal[upgradeSlot] = null;
             uVTerminal.isBeingUpgraded = uVTerminal.UpgradesToInstal.Any(b => b != null);
             base.Destroy(mode);
+        }
+
+        public static void DropSpawn(List<ThingDefCountClass> items, IntVec3 position, Map map, DestroyMode mode = DestroyMode.Vanish)
+        {
+            foreach (ThingDefCountClass thingDCC in items)
+            {
+                switch (mode)
+                {
+                    case DestroyMode.Deconstruct:
+                        {
+                            thingDCC.count = Mathf.Min(GenMath.RoundRandom((float)thingDCC.count * 0.5f), thingDCC.count);
+                            break;
+                        }
+                    case DestroyMode.Cancel:
+                        {
+                            thingDCC.count = GenMath.RoundRandom((float)thingDCC.count * 1f);
+                            break;
+                        }
+                    case DestroyMode.FailConstruction:
+                        {
+                            thingDCC.count = Mathf.Max(GenMath.RoundRandom((float)thingDCC.count * 0.5f), 1);
+                            break;
+                        }
+                };
+                Thing item = ThingMaker.MakeThing(thingDCC.thingDef);
+                item.stackCount = thingDCC.count;
+                GenDrop.TryDropSpawn(item, position, map, ThingPlaceMode.Near, out _);
+            }
         }
 
         public override string GetInspectString()

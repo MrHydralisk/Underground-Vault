@@ -6,15 +6,6 @@ namespace UndergroundVault
     {
         public GraphicData graphicData;
 
-
-
-
-        //public int constructionSkillPrerequisite;
-        //public List<StatModifier> statBases;
-        //public List<ThingDefCountClass> costList;
-
-
-
         public UVUpgradeTypes upgradeType;
     }
 }
