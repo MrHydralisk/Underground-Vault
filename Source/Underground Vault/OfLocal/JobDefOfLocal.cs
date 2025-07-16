@@ -8,5 +8,6 @@ namespace UndergroundVault
     {
         public static JobDef ManUVTerminal;
         public static JobDef DeliverExpandUVTerminal;
+        public static JobDef InstallUpgradeUVTerminal;
     }
 }

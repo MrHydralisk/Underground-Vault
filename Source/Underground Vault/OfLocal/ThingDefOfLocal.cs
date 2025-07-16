@@ -8,6 +8,7 @@ namespace UndergroundVault
     {
         public static ThingDef UVSarcophagus;
         public static ThingDef UVCryptosleepCasket;
+        public static ThingDef UVUpgradeFrame;
 
         public static ThingDef UVVaultStorageUltra;
         public static ThingDef UVTerminalStorageUltra;

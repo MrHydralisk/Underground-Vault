@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<JobDef>
+		<defName>ManUVTerminal</defName>
+		<driverClass>UndergroundVault.JobDriver_ManUVTerminal</driverClass>
+		<reportString>operating.</reportString>
+	</JobDef>
+
+	<JobDef>
+		<defName>DeliverExpandUVTerminal</defName>
+		<driverClass>UndergroundVault.JobDriver_DeliverExpandUVTerminal</driverClass>
+		<reportString>deliver resources to expand vault.</reportString>
+	</JobDef>
+
+	<JobDef>
+		<defName>InstallUpgradeUVTerminal</defName>
+		<driverClass>UndergroundVault.JobDriver_InstallUpgradeUVTerminal</driverClass>
+		<reportString>installing module into TargetA.</reportString>
+		<allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+	</JobDef>
+  
+</Defs>

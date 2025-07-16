@@ -29,7 +29,7 @@ namespace UndergroundVault
             {
                 return false;
             }
-            if (CostLeftForConstruction(uVTerminal).All((ThingDefCountClass tdcc) => FindClosestConstructionMat(pawn, tdcc.thingDef) == null))
+            if (CostLeftForConstruction(uVTerminal).Any((ThingDefCountClass tdcc) => FindClosestConstructionMat(pawn, tdcc.thingDef) == null))
             {
                 return false;
             }

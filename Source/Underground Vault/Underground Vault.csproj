@@ -95,7 +95,10 @@
     <Compile Include="ITab\ITab_UVVault_Floors.cs" />
     <Compile Include="ITab\ITab_UVTerminal_Inventory.cs" />
     <Compile Include="Jobs\CompMannableUVTerminal.cs" />
+    <Compile Include="Jobs\JobDriver_InstallUpgradeUVTerminal.cs" />
     <Compile Include="Jobs\JobDriver_DeliverExpandUVTerminal.cs" />
+    <Compile Include="Jobs\WorkGiver_DeliverUpgradeUVTerminal.cs" />
+    <Compile Include="Jobs\WorkGiver_InstallUpgradeUVTerminal.cs" />
     <Compile Include="Jobs\WorkGiver_DeliverExpandUVTerminal.cs" />
     <Compile Include="OfLocal\JobDefOfLocal.cs" />
     <Compile Include="Jobs\WorkGiver_ManUVTerminal.cs" />

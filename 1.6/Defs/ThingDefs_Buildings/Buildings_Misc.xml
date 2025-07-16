@@ -216,4 +216,40 @@
 		<constructionSkillPrerequisite>8</constructionSkillPrerequisite>
 	</ThingDef>
 	
+	<ThingDef ParentName="BuildingBase">
+		<defName>UVUpgradeFrame</defName>
+		<label>upgrade module frame</label>
+		<description>Upgrade module for underground vault terminal.</description>
+		<thingClass>UndergroundVault.Building_UVUpgrade</thingClass>
+		<graphicData>
+			<texPath>Things/Building/BuildingFrame/Tile</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>0.6</drawSize>
+			<color>(0.5,0.5,0.5)</color>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(1,1)</size>
+		<pathCost>42</pathCost>
+		<castEdgeShadows>false</castEdgeShadows>
+		<useHitPoints>false</useHitPoints>
+		<fillPercent>0.1</fillPercent>
+		<tickerType>Never</tickerType>
+		<canOverlapZones>false</canOverlapZones>
+		<building>
+			<ai_chillDestination>false</ai_chillDestination>
+			<isEdifice>false</isEdifice>
+		</building>
+		<altitudeLayer>Blueprint</altitudeLayer>
+		<passability>PassThroughOnly</passability>
+		<clearBuildingArea>false</clearBuildingArea>
+		<blockWind>false</blockWind>
+		<terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+	</ThingDef>
+
+	
 </Defs>

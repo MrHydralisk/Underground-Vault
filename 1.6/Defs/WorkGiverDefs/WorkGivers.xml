@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<WorkGiverDef>
+		<defName>ManUVTerminal</defName>
+		<label>operate vault terminal</label>
+		<giverClass>UndergroundVault.WorkGiver_ManUVTerminal</giverClass>
+		<workType>Hauling</workType>
+		<verb>operate</verb>
+		<gerund>operating</gerund>
+		<priorityInType>100</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+  
+	<WorkGiverDef>
+		<defName>DeliverExpandUVTerminal</defName>
+		<label>deliver resources to expand vault</label>
+		<giverClass>UndergroundVault.WorkGiver_DeliverExpandUVTerminal</giverClass>
+		<workType>Hauling</workType>
+		<verb>deliver resources to expand vault</verb>
+		<gerund>delivering resources to expand vault</gerund>
+		<priorityInType>100</priorityInType>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>InstallUpgradeUVTerminal</defName>
+		<label>install module into Vault</label>
+		<giverClass>UndergroundVault.WorkGiver_InstallUpgradeUVTerminal</giverClass>
+		<workType>Construction</workType>
+		<priorityInType>80</priorityInType>
+		<verb>install</verb>
+		<gerund>installing</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<nonColonistsCanDo>true</nonColonistsCanDo>
+		<prioritizeSustains>true</prioritizeSustains>
+		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>ConstructDeliverUpgradeUVTerminal</defName>
+		<label>deliver resources to vault module</label>
+		<giverClass>UndergroundVault.WorkGiver_DeliverUpgradeUVTerminal</giverClass>
+		<workType>Construction</workType>
+		<priorityInType>70</priorityInType>
+		<verb>deliver to</verb>
+		<gerund>delivering to</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<nonColonistsCanDo>true</nonColonistsCanDo>
+		<prioritizeSustains>true</prioritizeSustains>
+		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
+	</WorkGiverDef>
+
+	<WorkGiverDef>
+		<defName>DeliverUpgradeUVTerminal</defName>
+		<label>deliver resources to vault module</label>
+		<giverClass>UndergroundVault.WorkGiver_DeliverUpgradeUVTerminal</giverClass>
+		<workType>Hauling</workType>
+		<priorityInType>10</priorityInType>
+		<verb>deliver to</verb>
+		<gerund>delivering to</gerund>
+		<requiredCapacities>
+			<li>Manipulation</li>
+		</requiredCapacities>
+		<nonColonistsCanDo>true</nonColonistsCanDo>
+		<prioritizeSustains>true</prioritizeSustains>
+		<equivalenceGroup>AssistInConstruction</equivalenceGroup>
+	</WorkGiverDef>
+  
+</Defs>
