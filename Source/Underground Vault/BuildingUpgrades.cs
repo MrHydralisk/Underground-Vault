@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using Verse;
 
 namespace UndergroundVault
 {
@@ -8,7 +7,7 @@ namespace UndergroundVault
         public UVModuleDef upgradeDef;
         public int maxAmount = 1;
 
-        public UVUpgradeTypes upgradeType => upgradeDef.GetModExtension<UVUpgradeExtension>()?.upgradeType ?? UVUpgradeTypes.PlatformSpeed;
+        public UVUpgradeTypes upgradeType => upgradeDef?.upgradeType ?? UVUpgradeTypes.PlatformSpeed;
 
         public Texture2D uiIcon => upgradeDef.uiIcon;
     }

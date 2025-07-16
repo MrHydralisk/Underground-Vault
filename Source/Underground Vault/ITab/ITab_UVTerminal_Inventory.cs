@@ -149,7 +149,7 @@ namespace UndergroundVault
         protected override void DoItemsLists(Rect inRect, ref float curY)
         {
             float minHeight = scrollPosition.y - rowHeight;
-            float maxHeight = scrollPosition.y + scrollRectHeight  +rowHeight;
+            float maxHeight = scrollPosition.y + scrollRectHeight + rowHeight;
             Widgets.BeginGroup(inRect);
             IList<Thing> list = sortedContainer;
             bool flag = false;

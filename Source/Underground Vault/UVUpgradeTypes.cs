@@ -2,11 +2,6 @@
 
 namespace UndergroundVault
 {
-    public class UVUpgradeExtension : DefModExtension
-    {
-        public UVUpgradeTypes upgradeType;
-    }
-
     public enum UVUpgradeTypes
     {
         Crematorium,

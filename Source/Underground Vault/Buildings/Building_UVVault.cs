@@ -117,7 +117,7 @@ namespace UndergroundVault
                     {
                         Find.WindowStack.Add(Dialog_MessageBox.CreateConfirmation("ConfirmRemoveItemDialog".Translate(this.Label), delegate
                         {
-                            for (int i = innerContainer.Count - 1; i >=0; i--)
+                            for (int i = innerContainer.Count - 1; i >= 0; i--)
                             {
                                 string thingName = "Unknown";
                                 try

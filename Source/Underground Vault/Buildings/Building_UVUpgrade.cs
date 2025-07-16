@@ -1,11 +1,7 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using UnityEngine;
 using Verse;
-using static UnityEngine.UI.GridLayoutGroup;
-using Verse.Noise;
 using Verse.Sound;
 
 namespace UndergroundVault
@@ -46,7 +42,7 @@ namespace UndergroundVault
 
         public List<ThingDefCountClass> LeftMaterialCost()
         {
-            List<ThingDefCountClass> cost =new List<ThingDefCountClass>();
+            List<ThingDefCountClass> cost = new List<ThingDefCountClass>();
             foreach (ThingDefCountClass item in TotalMaterialCost())
             {
                 int amountLeft = item.count - resourceContainer.TotalStackCountOfDef(item.thingDef);

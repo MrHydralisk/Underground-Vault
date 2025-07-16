@@ -1,14 +1,10 @@
 ﻿using RimWorld;
 using RimWorld.Planet;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Threading;
 using UnityEngine;
 using Verse;
-using Verse.Noise;
 using Verse.Sound;
 
 namespace UndergroundVault
@@ -858,7 +854,7 @@ namespace UndergroundVault
                     action = delegate
                     {
                         List<FloatMenuOption> fmo = new List<FloatMenuOption>();
-                        for (int i = 0; i< Upgrades.Count(); i++)
+                        for (int i = 0; i < Upgrades.Count(); i++)
                         {
                             int index = i;
                             if (Upgrades[i] is UVModuleDef md && md != null)
