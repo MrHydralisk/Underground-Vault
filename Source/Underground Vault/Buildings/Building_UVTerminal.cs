@@ -937,6 +937,15 @@ namespace UndergroundVault
             }
         }
 
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            foreach (Building_UVUpgrade uVUpgrade in UpgradesToInstal)
+            {
+                uVUpgrade?.Destroy(mode);
+            }
+            base.Destroy(mode);
+        }
+
         public override string GetInspectString()
         {
             List<string> inspectStrings = new List<string>();

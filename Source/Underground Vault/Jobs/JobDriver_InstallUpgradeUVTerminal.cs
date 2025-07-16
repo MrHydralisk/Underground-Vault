@@ -47,7 +47,7 @@ namespace UndergroundVault
                     float statValue = actor.GetStatValue(StatDefOf.ConstructSuccessChance);
                     if (Rand.Value < 1f - Mathf.Pow(statValue, num / workToBuild))
                     {
-                        uVUpgrade.Cancel();
+                        uVUpgrade.Cancel(actor);
                         ReadyForNextToil();
                         return;
                     }

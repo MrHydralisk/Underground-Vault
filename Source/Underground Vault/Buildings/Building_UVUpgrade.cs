@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
+using static UnityEngine.UI.GridLayoutGroup;
+using Verse.Noise;
+using Verse.Sound;
 
 namespace UndergroundVault
 {
@@ -80,11 +83,19 @@ namespace UndergroundVault
             Destroy();
         }
 
-        public void Cancel()
+        public void Cancel(Pawn worker = null)
         {
-            uVTerminal.UpgradesToInstal[upgradeSlot] = null;
-            uVTerminal.isBeingUpgraded = uVTerminal.UpgradesToInstal.Any(b => b != null);
-            Destroy(DestroyMode.FailConstruction);
+            if (worker != null)
+            {
+                MoteMaker.ThrowText(DrawPos, Map, "TextMote_ConstructionFail".Translate(), 6f);
+                Messages.Message("MessageConstructionFailed".Translate(moduleDef.LabelCap, worker.LabelShort, worker.Named("WORKER")), new TargetInfo(Position, Map), MessageTypeDefOf.NegativeEvent);
+                Destroy(DestroyMode.FailConstruction);
+            }
+            else
+            {
+                SoundDefOf.Building_Deconstructed.PlayOneShot(new TargetInfo(Position, Map));
+                Destroy(DestroyMode.Cancel);
+            }
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -105,6 +116,17 @@ namespace UndergroundVault
                     defaultDesc = "Complete module installation."
                 };
             }
+        }
+
+        public override void Destroy(DestroyMode mode = DestroyMode.Vanish)
+        {
+            if (mode > DestroyMode.KillFinalizeLeavingsOnly)
+            {
+                resourceContainer.TryDropAll(Position, Map, ThingPlaceMode.Near);
+            }
+            uVTerminal.UpgradesToInstal[upgradeSlot] = null;
+            uVTerminal.isBeingUpgraded = uVTerminal.UpgradesToInstal.Any(b => b != null);
+            base.Destroy(mode);
         }
 
         public override string GetInspectString()
