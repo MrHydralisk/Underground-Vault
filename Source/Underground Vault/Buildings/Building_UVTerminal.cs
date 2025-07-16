@@ -13,7 +13,7 @@ namespace UndergroundVault
 {
     public class Building_UVTerminal : Building
     {
-        protected List<UVModuleDef> Upgrades = new List<UVModuleDef>();
+        protected List<UVModuleDef> Upgrades;
         //protected List<Thing> Upgrades
         //{
         //    get
@@ -191,11 +191,11 @@ namespace UndergroundVault
                 ConstructionThings = new List<Thing>();
             if (!respawningAfterLoad)
             {
-                //upgradesCached = new List<Thing>();
-                //for (int i = 0; i < ExtUpgrade.DrawOffset.Count(); i++)
-                //{
-                //    upgradesCached.Add(null);
-                //}
+                Upgrades = new List<UVModuleDef>();
+                for (int i = 0; i < ExtUpgrade.ConstructionOffset.Count(); i++)
+                {
+                    Upgrades.Add(null);
+                }
                 if (!isVaultAvailable && VaultDef != null)
                 {
                     Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
@@ -211,17 +211,18 @@ namespace UndergroundVault
             drawLoc.y = Altitudes.AltitudeFor(def.altitudeLayer + 1);
             for (int i = 0; i < Upgrades.Count(); i++)
             {
-                Log.Message($"DrawAt {drawLoc} + {ExtUpgrade.ConstructionOffset[i].ToVector3()} + {ExtUpgrade.DrawOffset[i]} | {drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3()} | {drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset[i]}");
-                Graphic graphicSub = Upgrades[i].graphicData.Graphic/*.GetColoredVersion(parent.Graphic.Shader, parent.DrawColor, parent.DrawColorTwo)*/;
-                graphicSub.Draw(drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset[i], Rotation, this);
-                //Graphics.DrawMesh(Graphic.MeshAt(flip ? Rotation.Opposite : Rotation), Matrix4x4.TRS(drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3(), Rotation.AsQuat, new Vector3(1f, 1f, 1f)), Upgrades[i].DrawMatSingle, 0);
+                if (Upgrades[i] is UVModuleDef md && md != null)
+                {
+                    //Log.Message($"DrawAt {drawLoc} + {ExtUpgrade.ConstructionOffset[i].ToVector3()} + {ExtUpgrade.DrawOffset[i]} | {drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3()} | {drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset[i]}");
+                    md.graphicData.Graphic.Draw(drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset[i], Rotation, this);
+                }
             }
         }
 
         public int HaveUpgrade(UVUpgradeTypes upgradeType)
         {
             int maxAmount = ExtUpgrade.AvailableUpgrades.FirstOrDefault((BuildingUpgrades bu) => bu.upgradeType == upgradeType)?.maxAmount ?? 0;
-            int currAmount = Upgrades.Count((UVModuleDef m) => m.upgradeType == upgradeType);
+            int currAmount = Upgrades.Count((UVModuleDef m) => m != null && m.upgradeType == upgradeType);
             return Mathf.Min(maxAmount, currAmount);
         }
 
@@ -802,7 +803,8 @@ namespace UndergroundVault
                     Order = 20f
                 };
             }
-            if (Upgrades.Count() < ExtUpgrade.ConstructionOffset.Count())
+            int freeIndex = Upgrades.FindIndex((UVModuleDef m) => m == null);
+            if (freeIndex > -1)
             {
                 yield return new Command_Action
                 {
@@ -818,8 +820,8 @@ namespace UndergroundVault
                                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
                                     //Designator_Build des = BuildCopyCommandUtility.FindAllowedDesignator(md, false);
                                     //des.DesignateSingleCell(this.Position + ExtUpgrade.ConstructionOffset[freeIndex]);
-                                    Log.Message($"Added {md.label}:\n{string.Join("\n", Upgrades.Select(m => m.label))}");
-                                    Upgrades.Add(md);
+                                    Log.Message($"Added {md.label}:\n{string.Join("\n", Upgrades.Select(m => m?.label ?? "---"))}");
+                                    Upgrades[freeIndex] = md;
                                 }, iconTex: bu.uiIcon, iconColor: Color.white);
                             }
                             else
@@ -835,29 +837,29 @@ namespace UndergroundVault
                     Order = 30
                 };
             }
-            if (Upgrades.Count() > 0)
+            if (Upgrades.Count((UVModuleDef m) => m != null) > 0)
             {
                 yield return new Command_Action
                 {
                     action = delegate
                     {
                         List<FloatMenuOption> fmo = new List<FloatMenuOption>();
-                        for (int i = 0; i< ExtUpgrade.ConstructionOffset.Count(); i++)
+                        for (int i = 0; i< Upgrades.Count(); i++)
                         {
                             int index = i;
-                            if (Upgrades.ElementAtOrDefault(index) is UVModuleDef md && md != null)
+                            if (Upgrades[i] is UVModuleDef md && md != null)
                             {
                                 fmo.Add(new FloatMenuOption(md.LabelCap, delegate
                                 {
                                     if (DebugSettings.godMode || md.GetStatValueAbstract(StatDefOf.WorkToBuild) == 0f)
                                     {
-                                        Log.Message($"Removed {md.label} at {index}:\n{string.Join("\n", Upgrades.Select(m => m.label))}");
-                                        Upgrades.RemoveAt(index);
+                                        Log.Message($"Removed {md.label} at {index}:\n{string.Join("\n", Upgrades.Select(m => m?.label ?? "---"))}");
+                                        Upgrades[index] = null;
                                     }
                                     else
                                     {
-                                        Log.Message($"Removed {md.label} at {index}:\n{string.Join("\n", Upgrades.Select(m => m.label))}");
-                                        Upgrades.RemoveAt(index);
+                                        Log.Message($"Removed {md.label} at {index}:\n{string.Join("\n", Upgrades.Select(m => m?.label ?? "---"))}");
+                                        Upgrades[index] = null;
                                     }
                                 }, iconTex: md.uiIcon, iconColor: Color.white));
                             }
