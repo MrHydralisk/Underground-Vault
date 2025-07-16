@@ -813,7 +813,8 @@ namespace UndergroundVault
                         Find.WindowStack.Add(new FloatMenu(ExtUpgrade.AvailableUpgrades.Select(delegate (BuildingUpgrades bu)
                         {
                             UVModuleDef md = bu.upgradeDef;
-                            if (Upgrades.Count((UVModuleDef m) => m != null && (m == bu.upgradeDef)) < bu.maxAmount)
+                            int amount = Upgrades.Count((UVModuleDef m) => m != null && (m == bu.upgradeDef)) + UpgradesToInstal.Count((Building_UVUpgrade u) => u != null && (u.moduleDef == bu.upgradeDef));
+                            if (amount < bu.maxAmount)
                             {
                                 return new FloatMenuOption("UndergroundVault.Command.InstallUpgrade.Option".Translate(md.LabelCap, string.Join("\n", BuildingCost(md.CostList).Select((ThingDefCountClass tdcc) => tdcc.Label)).ToStringSafe(), md.constructionSkillPrerequisite), delegate
                                 {
