@@ -171,6 +171,18 @@ namespace UndergroundVault
             return costListLeft;
         }
 
+        public override void PostMake()
+        {
+            base.PostMake();
+            Upgrades = new List<UVModule>();
+            UpgradesToInstal = new List<Building_UVUpgrade>();
+            for (int i = 0; i < ExtUpgrade.ConstructionOffset.Count(); i++)
+            {
+                Upgrades.Add(new UVModule(i, null));
+                UpgradesToInstal.Add(null);
+            }
+        }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
@@ -178,13 +190,6 @@ namespace UndergroundVault
                 ConstructionThings = new List<Thing>();
             if (!respawningAfterLoad)
             {
-                Upgrades = new List<UVModule>();
-                UpgradesToInstal = new List<Building_UVUpgrade>();
-                for (int i = 0; i < ExtUpgrade.ConstructionOffset.Count(); i++)
-                {
-                    Upgrades.Add(new UVModule(i, null));
-                    UpgradesToInstal.Add(null);
-                }
                 if (!isVaultAvailable && VaultDef != null)
                 {
                     Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
