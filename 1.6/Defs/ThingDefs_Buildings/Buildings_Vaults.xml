@@ -4,7 +4,6 @@
 	<ThingDef Name="UVVaultBase" ParentName="BuildingBase" Abstract="True">
 		<thingClass>UndergroundVault.Building_UVVault</thingClass>
 		<altitudeLayer>Floor</altitudeLayer>
-		<rotatable>false</rotatable>
 		<destroyable>false</destroyable>
 		<useHitPoints>false</useHitPoints>
 		<tickerType>Normal</tickerType>

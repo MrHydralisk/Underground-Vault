@@ -192,7 +192,7 @@ namespace UndergroundVault
             {
                 if (!isVaultAvailable && VaultDef != null)
                 {
-                    Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map);
+                    Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map, this.Rotation);
                     t.SetStuffDirect(this.Stuff);
                     t.SetFactionDirect(this.Faction);
                 }
