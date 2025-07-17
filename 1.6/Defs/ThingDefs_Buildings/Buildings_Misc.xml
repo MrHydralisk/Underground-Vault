@@ -9,7 +9,7 @@
 		<containedPawnsSelectable>true</containedPawnsSelectable>
 		<graphicData>
 			<texPath>Things/Building/UVSarcophagusEmpty</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(3,4)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -32,7 +32,7 @@
 			<haulToContainerDuration>500</haulToContainerDuration>
 			<fullGraveGraphicData>
 				<texPath>Things/Building/UVSarcophagusFull</texPath>
-				<graphicClass>Graphic_Single</graphicClass>
+				<graphicClass>Graphic_Multi</graphicClass>
 				<drawSize>(3,4)</drawSize>
 			</fullGraveGraphicData>
 			<fixedStorageSettings>
@@ -151,7 +151,7 @@
 		<drawerType>MapMeshAndRealTime</drawerType>
 		<graphicData>
 			<texPath>Things/Building/UVShipCryptosleepCasket</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
+			<graphicClass>Graphic_Multi</graphicClass>
 			<drawSize>(1, 2)</drawSize>
 			<damageData>
 				<cornerTL>Damage/Corner</cornerTL>
@@ -200,9 +200,10 @@
 			<li Class="CompProperties_EmptyStateGraphic">
 				<graphicData>
 					<texPath>Things/Building/UVShipCryptosleepCasketOpenDoor</texPath>
-					<graphicClass>Graphic_Single</graphicClass>
+					<graphicClass>Graphic_Multi</graphicClass>
 					<drawSize>(1, 2)</drawSize>
 				</graphicData>
+				<alwaysDrawParent>true</alwaysDrawParent>
 			</li>
 		</comps>
 		<placeWorkers>
