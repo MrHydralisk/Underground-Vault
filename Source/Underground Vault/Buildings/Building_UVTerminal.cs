@@ -207,7 +207,7 @@ namespace UndergroundVault
             {
                 if (Upgrades[i].def is UVModuleDef md && md != null)
                 {
-                    md.graphicData.Graphic.Draw(drawLoc + ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset[i], Rotation, this);
+                    md.graphicData.Graphic.Draw(drawLoc + Rotation.AsQuat * ExtUpgrade.ConstructionOffset[i].ToVector3() + ExtUpgrade.DrawOffset(Rotation)[i], Rotation, this);
                 }
             }
         }
@@ -831,7 +831,7 @@ namespace UndergroundVault
                                         uVUpgrade.upgradeSlot = freeIndex;
                                         uVUpgrade.moduleDef = md;
                                         uVUpgrade.SetFactionDirect(Faction);
-                                        GenSpawn.Spawn(uVUpgrade, Position + ExtUpgrade.ConstructionOffset[freeIndex], Map);
+                                        GenSpawn.Spawn(uVUpgrade, Position + (Rotation.AsQuat * ExtUpgrade.ConstructionOffset[freeIndex].ToVector3()).ToIntVec3(), Map);
                                         UpgradesToInstal[freeIndex] = uVUpgrade;
                                         isBeingUpgraded = true;
                                     }

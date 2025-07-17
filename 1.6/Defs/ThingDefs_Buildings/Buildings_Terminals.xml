@@ -137,12 +137,30 @@
 					<li>(-1,0,1)</li>
 					<li>(-1,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
+				<DrawOffsetSouth>
+					<li>(-0.109,0,0.656)</li>
+					<li>(-0.109,0,1.031)</li>
+					<li>(0.109,0,1.031)</li>
+					<li>(0.109,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.234)</li>
+					<li>(-0.687,0,0.234)</li>
+					<li>(-0.687,0,0.453)</li>
+					<li>(-0.312,0,0.453)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
 					<li>(0.109,0,0.031)</li>
 					<li>(0.109,0,-0.344)</li>
 					<li>(-0.109,0,-0.344)</li>
 					<li>(-0.109,0,0.031)</li>
-				</DrawOffset>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,0.453)</li>
+					<li>(0.687,0,0.453)</li>
+					<li>(0.687,0,0.234)</li>
+					<li>(0.312,0,0.234)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeCrematorium</upgradeDef>
@@ -242,12 +260,30 @@
 					<li>(-1,0,1)</li>
 					<li>(-1,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(0.391,0,0.656)</li>
+					<li>(0.391,0,1.031)</li>
+					<li>(0.609,0,1.031)</li>
+					<li>(0.609,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.734)</li>
+					<li>(-0.687,0,0.734)</li>
+					<li>(-0.687,0,0.953)</li>
+					<li>(-0.312,0,0.953)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(-0.391,0,0.031)</li>
+					<li>(-0.391,0,-0.344)</li>
+					<li>(-0.609,0,-0.344)</li>
+					<li>(-0.609,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,-0.047)</li>
+					<li>(0.687,0,-0.047)</li>
+					<li>(0.687,0,-0.266)</li>
+					<li>(0.312,0,-0.266)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeCrematorium</upgradeDef>
@@ -352,12 +388,30 @@
 					<li>(-2,0,1)</li>
 					<li>(-2,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(-0.109,0,0.656)</li>
+					<li>(-0.109,0,1.031)</li>
+					<li>(0.109,0,1.031)</li>
+					<li>(0.109,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.234)</li>
+					<li>(-0.687,0,0.234)</li>
+					<li>(-0.687,0,0.453)</li>
+					<li>(-0.312,0,0.453)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(0.109,0,0.031)</li>
+					<li>(0.109,0,-0.344)</li>
+					<li>(-0.109,0,-0.344)</li>
+					<li>(-0.109,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,0.453)</li>
+					<li>(0.687,0,0.453)</li>
+					<li>(0.687,0,0.234)</li>
+					<li>(0.312,0,0.234)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeCrematorium</upgradeDef>
@@ -462,10 +516,22 @@
 					<li>(1,0,1)</li>
 					<li>(0,0,1)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.156,0,0.156)</li>
-					<li>(-0.156,0,0.156)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(0.344,0,0.344)</li>
+					<li>(0.656,0,0.344)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.344,0,0.344)</li>
+					<li>(-0.344,0,0.656)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(-0.344,0,-0.344)</li>
+					<li>(-0.656,0,-0.344)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.344,0,-0.344)</li>
+					<li>(0.344,0,-0.656)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrillM</upgradeDef>
@@ -571,12 +637,30 @@
 					<li>(-1,0,1)</li>
 					<li>(-1,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(-0.109,0,0.656)</li>
+					<li>(-0.109,0,1.031)</li>
+					<li>(0.109,0,1.031)</li>
+					<li>(0.109,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.234)</li>
+					<li>(-0.687,0,0.234)</li>
+					<li>(-0.687,0,0.453)</li>
+					<li>(-0.312,0,0.453)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(0.109,0,0.031)</li>
+					<li>(0.109,0,-0.344)</li>
+					<li>(-0.109,0,-0.344)</li>
+					<li>(-0.109,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,0.453)</li>
+					<li>(0.687,0,0.453)</li>
+					<li>(0.687,0,0.234)</li>
+					<li>(0.312,0,0.234)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -672,12 +756,30 @@
 					<li>(-1,0,1)</li>
 					<li>(-1,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(0.391,0,0.656)</li>
+					<li>(0.391,0,1.031)</li>
+					<li>(0.609,0,1.031)</li>
+					<li>(0.609,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.734)</li>
+					<li>(-0.687,0,0.734)</li>
+					<li>(-0.687,0,0.953)</li>
+					<li>(-0.312,0,0.953)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(-0.391,0,0.031)</li>
+					<li>(-0.391,0,-0.344)</li>
+					<li>(-0.609,0,-0.344)</li>
+					<li>(-0.609,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,-0.047)</li>
+					<li>(0.687,0,-0.047)</li>
+					<li>(0.687,0,-0.266)</li>
+					<li>(0.312,0,-0.266)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -778,12 +880,30 @@
 					<li>(-2,0,1)</li>
 					<li>(-2,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(-0.109,0,0.656)</li>
+					<li>(-0.109,0,1.031)</li>
+					<li>(0.109,0,1.031)</li>
+					<li>(0.109,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.234)</li>
+					<li>(-0.687,0,0.234)</li>
+					<li>(-0.687,0,0.453)</li>
+					<li>(-0.312,0,0.453)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(0.109,0,0.031)</li>
+					<li>(0.109,0,-0.344)</li>
+					<li>(-0.109,0,-0.344)</li>
+					<li>(-0.109,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,0.453)</li>
+					<li>(0.687,0,0.453)</li>
+					<li>(0.687,0,0.234)</li>
+					<li>(0.312,0,0.234)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -917,12 +1037,30 @@
 					<li>(-1,0,1)</li>
 					<li>(-1,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(-0.109,0,0.656)</li>
+					<li>(-0.109,0,1.031)</li>
+					<li>(0.109,0,1.031)</li>
+					<li>(0.109,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.234)</li>
+					<li>(-0.687,0,0.234)</li>
+					<li>(-0.687,0,0.453)</li>
+					<li>(-0.312,0,0.453)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(0.109,0,0.031)</li>
+					<li>(0.109,0,-0.344)</li>
+					<li>(-0.109,0,-0.344)</li>
+					<li>(-0.109,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,0.453)</li>
+					<li>(0.687,0,0.453)</li>
+					<li>(0.687,0,0.234)</li>
+					<li>(0.312,0,0.234)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -1026,12 +1164,30 @@
 					<li>(-1,0,1)</li>
 					<li>(-1,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(0.391,0,0.656)</li>
+					<li>(0.391,0,1.031)</li>
+					<li>(0.609,0,1.031)</li>
+					<li>(0.609,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.734)</li>
+					<li>(-0.687,0,0.734)</li>
+					<li>(-0.687,0,0.953)</li>
+					<li>(-0.312,0,0.953)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(-0.391,0,0.031)</li>
+					<li>(-0.391,0,-0.344)</li>
+					<li>(-0.609,0,-0.344)</li>
+					<li>(-0.609,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,-0.047)</li>
+					<li>(0.687,0,-0.047)</li>
+					<li>(0.687,0,-0.266)</li>
+					<li>(0.312,0,-0.266)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -1137,12 +1293,30 @@
 					<li>(-2,0,1)</li>
 					<li>(-2,0,0)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.109,0,0.531)</li>
-					<li>(0.109,0,0.156)</li>
-					<li>(-0.109,0,0.156)</li>
-					<li>(-0.109,0,0.531)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(-0.109,0,0.656)</li>
+					<li>(-0.109,0,1.031)</li>
+					<li>(0.109,0,1.031)</li>
+					<li>(0.109,0,0.656)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.312,0,0.234)</li>
+					<li>(-0.687,0,0.234)</li>
+					<li>(-0.687,0,0.453)</li>
+					<li>(-0.312,0,0.453)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(0.109,0,0.031)</li>
+					<li>(0.109,0,-0.344)</li>
+					<li>(-0.109,0,-0.344)</li>
+					<li>(-0.109,0,0.031)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.312,0,0.453)</li>
+					<li>(0.687,0,0.453)</li>
+					<li>(0.687,0,0.234)</li>
+					<li>(0.312,0,0.234)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -1253,14 +1427,38 @@
 					<li>(-2,0,0)</li>
 					<li>(-2,0,-1)</li>
 				</ConstructionOffset>
-				<DrawOffset>
+				<DrawOffsetSouth>
+					<li>(-0.109,0,0.094)</li>
+					<li>(-0.109,0,0.344)</li>
+					<li>(-0.109,0,0.594)</li>
+					<li>(0.109,0,0.594)</li>
+					<li>(0.109,0,0.344)</li>
+					<li>(0.109,0,0.094)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(0.266,0,0.234)</li>
+					<li>(0,0,0.234)</li>
+					<li>(-0.266,0,0.234)</li>
+					<li>(-0.266,0,0.453)</li>
+					<li>(0,0,0.453)</li>
+					<li>(0.266,0,0.453)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
 					<li>(0.109,0,0.594)</li>
 					<li>(0.109,0,0.344)</li>
 					<li>(0.109,0,0.094)</li>
 					<li>(-0.109,0,0.094)</li>
 					<li>(-0.109,0,0.344)</li>
 					<li>(-0.109,0,0.594)</li>
-				</DrawOffset>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(-0.266,0,0.453)</li>
+					<li>(0,0,0.453)</li>
+					<li>(0.266,0,0.453)</li>
+					<li>(0.266,0,0.234)</li>
+					<li>(0,0,0.234)</li>
+					<li>(-0.266,0,0.234)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrill</upgradeDef>
@@ -1375,10 +1573,22 @@
 					<li>(1,0,1)</li>
 					<li>(0,0,1)</li>
 				</ConstructionOffset>
-				<DrawOffset>
-					<li>(0.156,0,0.156)</li>
-					<li>(-0.156,0,0.156)</li>
-				</DrawOffset>
+				<DrawOffsetSouth>
+					<li>(0.344,0,0.344)</li>
+					<li>(0.656,0,0.344)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.344,0,0.344)</li>
+					<li>(-0.344,0,0.656)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
+					<li>(-0.344,0,-0.344)</li>
+					<li>(-0.656,0,-0.344)</li>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.344,0,-0.344)</li>
+					<li>(0.344,0,-0.656)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrillM</upgradeDef>
@@ -1439,6 +1649,7 @@
 				<cornerBL>Damage/Corner</cornerBL>
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
+			<drawRotated>false</drawRotated>
 		</graphicData>
 		<size>(5,5)</size>
 		<interactionCellOffset>(0,0,-2)</interactionCellOffset>
@@ -1485,7 +1696,27 @@
 					<li>(-1,0,0)</li>
 					<li>(-1,0,1)</li>
 				</ConstructionOffset>
-				<DrawOffset>
+				<DrawOffsetSouth>
+					<li>(0,0,0.453)</li>
+					<li>(0.359,0,0.594)</li>
+					<li>(0.219,0,0.234)</li>
+					<li>(0.359,0,-0.125)</li>
+					<li>(0,0,0.031)</li>
+					<li>(-0.359,0,-0.125)</li>
+					<li>(-0.219,0,0.234)</li>
+					<li>(-0.359,0,0.594)</li>
+				</DrawOffsetSouth>
+				<DrawOffsetEast>
+					<li>(-0.219,0,0.234)</li>
+					<li>(-0.359,0,0.594)</li>
+					<li>(0,0,0.453)</li>
+					<li>(0.359,0,0.594)</li>
+					<li>(0.219,0,0.234)</li>
+					<li>(0.359,0,-0.125)</li>
+					<li>(0,0,0.031)</li>
+					<li>(-0.359,0,-0.125)</li>
+				</DrawOffsetEast>
+				<DrawOffsetNorth>
 					<li>(0,0,0.031)</li>
 					<li>(-0.359,0,-0.125)</li>
 					<li>(-0.219,0,0.234)</li>
@@ -1494,7 +1725,17 @@
 					<li>(0.359,0,0.594)</li>
 					<li>(0.219,0,0.234)</li>
 					<li>(0.359,0,-0.125)</li>
-				</DrawOffset>
+				</DrawOffsetNorth>
+				<DrawOffsetWest>
+					<li>(0.219,0,0.234)</li>
+					<li>(0.359,0,-0.125)</li>
+					<li>(0,0,0.031)</li>
+					<li>(-0.359,0,-0.125)</li>
+					<li>(-0.219,0,0.234)</li>
+					<li>(-0.359,0,0.594)</li>
+					<li>(0,0,0.453)</li>
+					<li>(0.359,0,0.594)</li>
+				</DrawOffsetWest>
 				<AvailableUpgrades>
 					<li>
 						<upgradeDef>UVUpgradeDeepDrillU</upgradeDef>
@@ -1621,7 +1862,6 @@
 		<modExtensions>
 			<li Class="UndergroundVault.BuildingUpgradesExtension">
 				<ConstructionOffset/>
-				<DrawOffset/>
 				<AvailableUpgrades/>
 				<CostForExpanding/>
 				<CostForUpgrading/>

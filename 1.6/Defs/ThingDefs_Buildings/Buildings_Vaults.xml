@@ -370,6 +370,7 @@
 				<cornerBL>Damage/Corner</cornerBL>
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
+			<drawRotated>false</drawRotated>
 		</graphicData>
 		<size>(5,5)</size>
 		<modExtensions>
