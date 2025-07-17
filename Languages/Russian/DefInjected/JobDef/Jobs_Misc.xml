@@ -1,8 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ManUVTerminal.reportString>работает с терминалом.</ManUVTerminal.reportString>
+	<ManUVTerminal.reportString>работает с терминалом.</ManUVTerminal.reportString>
 
-  <DeliverExpandUVTerminal.reportString>доставляет материалы для расширения хранилища.</DeliverExpandUVTerminal.reportString>
+	<DeliverExpandUVTerminal.reportString>доставляет материалы для расширения хранилища.</DeliverExpandUVTerminal.reportString>
+  
+	<DeliverUpgradeUVTerminal.reportString>доставляет ресурсы к TargetA.</DeliverUpgradeUVTerminal.reportString>
+
+	<InstallUpgradeUVTerminal.reportString>устанавливает модуль в TargetA.</InstallUpgradeUVTerminal.reportString>
 
 </LanguageData>

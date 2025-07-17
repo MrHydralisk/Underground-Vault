@@ -1,43 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <UVVaultCemeteryS.label>подземное хранилище кладбища</UVVaultCemeteryS.label>
-  <UVVaultCemeteryS.description>Подземное хранилище кладбища для саркофагов. Размер S.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryS.description>
+	<UVVaultCemeteryS.label>подземное хранилище кладбища</UVVaultCemeteryS.label>
+	<UVVaultCemeteryS.description>Подземное хранилище кладбища для саркофагов. Размер S.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryS.description>
 
-  <UVVaultCemeteryM.label>подземное хранилище кладбища</UVVaultCemeteryM.label>
-  <UVVaultCemeteryM.description>Подземное хранилище кладбища для саркофагов. Размер M.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryM.description>
+	<UVVaultCemeteryM.label>подземное хранилище кладбища</UVVaultCemeteryM.label>
+	<UVVaultCemeteryM.description>Подземное хранилище кладбища для саркофагов. Размер M.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryM.description>
 
-  <UVVaultCemeteryL.label>подземное хранилище кладбища</UVVaultCemeteryL.label>
-  <UVVaultCemeteryL.description>Подземное хранилище кладбища для саркофагов. Размер L.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryL.description>
+	<UVVaultCemeteryL.label>подземное хранилище кладбища</UVVaultCemeteryL.label>
+	<UVVaultCemeteryL.description>Подземное хранилище кладбища для саркофагов. Размер L.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryL.description>
 
-  <UVVaultCemeteryMedieval.label>средневековое подземное хранилище кладбища</UVVaultCemeteryMedieval.label>
-  <UVVaultCemeteryMedieval.description>Подземное хранилище кладбища для саркофагов. Средневековый тип.\n\nПостроен из дешёвых материалов, что ограничивает максимальную глубину хранилища.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryMedieval.description>
+	<UVVaultCemeteryMedieval.label>средневековое подземное хранилище кладбища</UVVaultCemeteryMedieval.label>
+	<UVVaultCemeteryMedieval.description>Подземное хранилище кладбища для саркофагов. Средневековый тип.\n\nПостроен из дешёвых материалов, что ограничивает максимальную глубину хранилища.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCemeteryMedieval.description>
 
-  <UVVaultCryptosleepS.label>подземное хранилище криптосна</UVVaultCryptosleepS.label>
-  <UVVaultCryptosleepS.description>Подземное хранилище криптосна для саркофагов криптосна. Размер S.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCryptosleepS.description>
+	<UVVaultCryptosleepS.label>подземное хранилище криптосна</UVVaultCryptosleepS.label>
+	<UVVaultCryptosleepS.description>Подземное хранилище криптосна для саркофагов криптосна. Размер S.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCryptosleepS.description>
 
-  <UVVaultCryptosleepM.label>подземное хранилище криптосна</UVVaultCryptosleepM.label>
-  <UVVaultCryptosleepM.description>Подземное хранилище криптосна для саркофагов криптосна. Размер M.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCryptosleepM.description>
+	<UVVaultCryptosleepM.label>подземное хранилище криптосна</UVVaultCryptosleepM.label>
+	<UVVaultCryptosleepM.description>Подземное хранилище криптосна для саркофагов криптосна. Размер M.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCryptosleepM.description>
 
-  <UVVaultCryptosleepL.label>подземное хранилище криптосна</UVVaultCryptosleepL.label>
-  <UVVaultCryptosleepL.description>Подземное хранилище криптосна для саркофагов криптосна. Размер L.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCryptosleepL.description>
+	<UVVaultCryptosleepL.label>подземное хранилище криптосна</UVVaultCryptosleepL.label>
+	<UVVaultCryptosleepL.description>Подземное хранилище криптосна для саркофагов криптосна. Размер L.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultCryptosleepL.description>
 
-  <UVVaultStorageS.label>подземное хранилище</UVVaultStorageS.label>
-  <UVVaultStorageS.description>Подземное хранилище для предметов. Размер S.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageS.description>
+	<UVVaultStorageS.label>подземное хранилище</UVVaultStorageS.label>
+	<UVVaultStorageS.description>Подземное хранилище для предметов. Размер S.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageS.description>
 
-  <UVVaultStorageM.label>подземное хранилище</UVVaultStorageM.label>
-  <UVVaultStorageM.description>Подземное хранилище для предметов. Размер M.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageM.description>
+	<UVVaultStorageM.label>подземное хранилище</UVVaultStorageM.label>
+	<UVVaultStorageM.description>Подземное хранилище для предметов. Размер M.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageM.description>
 
-  <UVVaultStorageL.label>подземное хранилище</UVVaultStorageL.label>
-  <UVVaultStorageL.description>Подземное хранилище для предметов. Размер L.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageL.description>
+	<UVVaultStorageL.label>подземное хранилище</UVVaultStorageL.label>
+	<UVVaultStorageL.description>Подземное хранилище для предметов. Размер L.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageL.description>
 
-  <UVVaultStorageXL.label>подземное хранилище</UVVaultStorageXL.label>
-  <UVVaultStorageXL.description>Подземное хранилище для предметов. Размер XL.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageXL.description>
+	<UVVaultStorageXL.label>подземное хранилище</UVVaultStorageXL.label>
+	<UVVaultStorageXL.description>Подземное хранилище для предметов. Размер XL.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageXL.description>
 
-  <UVVaultStorageMedieval.label>средневековое подземное хранилище</UVVaultStorageMedieval.label>
-  <UVVaultStorageMedieval.description>Подземное хранилище для предметов. Средневековый тип.\n\nПостроен из дешёвых материалов, что ограничивает максимальную глубину хранилища.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageMedieval.description>
+	<UVVaultStorageMedieval.label>средневековое подземное хранилище</UVVaultStorageMedieval.label>
+	<UVVaultStorageMedieval.description>Подземное хранилище для предметов. Средневековый тип.\n\nПостроен из дешёвых материалов, что ограничивает максимальную глубину хранилища.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageMedieval.description>
 
-  <UVVaultStorageUltra.label>ультратехнологичное подземное хранилище</UVVaultStorageUltra.label>
-  <UVVaultStorageUltra.description>Подземное хранилище для предметов. Ультратехнологичный тип.\n\nВ отличии от других хранилищ, не имеет прямого доступа к содержимому с поверхности. Полагается на телепортирование предметов напрямую на/с поверхности.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageUltra.description>
+	<UVVaultStorageUltra.label>ультратехнологичное подземное хранилище</UVVaultStorageUltra.label>
+	<UVVaultStorageUltra.description>Подземное хранилище для предметов. Ультратехнологичный тип.\n\nВ отличии от других хранилищ, не имеет прямого доступа к содержимому с поверхности. Полагается на телепортирование предметов напрямую на/с поверхности.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultStorageUltra.description>
+  
+	<UVVaultShelfStorageS.label>подземное хранилище</UVVaultShelfStorageS.label>
+
+	<UVVaultShelfStorageS.description>Подземное хранилище для предметов в стеллаже. Размер S.\n\nПредметы внутри хранилища защищены от опасностей внешней среды. Окружающая порода не позволяет рейдерам узнать, что внутри хранилища.</UVVaultShelfStorageS.description>
 
 </LanguageData>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<UndergroundVault.Settings.Title>Underground Vault</UndergroundVault.Settings.Title>
+	
+	<UndergroundVault.Settings.TradeBeaconEnabled.Label>Активировать модуль торгового маяка.</UndergroundVault.Settings.TradeBeaconEnabled.Label>
+	<UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>Отключите, если временно не хотите видеть предметы из хранилища при торговле, т.к. это повышает время на открытие меню торговли особенно при огромных хранилищах. В качестве постоянной альтернативы просто не стройте модуль торгового маяка или разберите текущий, если вам больше не нужен его функционалю</UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>
+	
+	<UndergroundVault.Settings.CalculateVaultWealth.Label>Включить учёт предметов в хранилищах при подсчёте богатства.</UndergroundVault.Settings.CalculateVaultWealth.Label>
+	<UndergroundVault.Settings.CalculateVaultWealth.Tooltip>Позволяет предметам в хранилище учитываться в богатстве колонии. Будте осторожны из-за возможных притормаживаниях, когда количество вещей в хранилищах достигает огромных объёмов, которые не были задуманы Rimworld (например, когда количество скаков в хранилище превышает количество клеток карты колонии).</UndergroundVault.Settings.CalculateVaultWealth.Tooltip>
+	 
+	<UndergroundVault.Settings.DevMode.Info>Показывать дополнительную информацию для дебага.</UndergroundVault.Settings.DevMode.Info>
+
+</LanguageData>

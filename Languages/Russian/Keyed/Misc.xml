@@ -33,6 +33,10 @@
 
     <UndergroundVault.Command.ConstructionThingsRemove.Label>Выгрузить стоительные материалы</UndergroundVault.Command.ConstructionThingsRemove.Label>
     <UndergroundVault.Command.ConstructionThingsRemove.Desc>Выгрузит все оставшиеся стоительные материалы из терминала</UndergroundVault.Command.ConstructionThingsRemove.Desc>
+	
+	<UndergroundVault.Command.SetShelfStackToKeep.Title>Поддерживать кол-во стаков</UndergroundVault.Command.SetShelfStackToKeep.Title>
+	<UndergroundVault.Command.SetShelfStackToKeep.Tip>Перключить автоматический контроль хранилища</UndergroundVault.Command.SetShelfStackToKeep.Tip>
+	<UndergroundVault.Command.SetShelfStackToKeep.TipDesc>Определяет будет ли стеллаж автоматически поддерживать количество стаков за счёт перемещения из в/из хранилища. Когда включено, любой лишний стак превышающий порог {0} на этом стеллаже будет автоматически помещён в хранилище. В то время как, если количество стаков ниже порога {0}, дополнительные стаки будут перемещены из хранилища на поверхность стеллажа.\n\nВ текущий момент автоматический контроль хранилища {ONOFF}.</UndergroundVault.Command.SetShelfStackToKeep.TipDesc>
 
     <UndergroundVault.Command.disabledReason.PlatformFree>Грузовая платформа пуста</UndergroundVault.Command.disabledReason.PlatformFree>
     <UndergroundVault.Command.disabledReason.PlatformNotFree>Грузовая платформа заполнена</UndergroundVault.Command.disabledReason.PlatformNotFree>

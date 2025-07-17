@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <UVUpgradeCrematorium.label>модуль крематория</UVUpgradeCrematorium.label>
+  <UVUpgradeCrematorium.description>Модуль улучшения для терминала подземного хранилища, который сжигает выбранные вещи при чрезвычайно высоких температурах.\n\nМожет быть использован для хранилища кладбища. Уничтожит тело внутри саркофага и сам саркофаг (если сделан из сгораемых материалов).</UVUpgradeCrematorium.description>
+
+  <UVUpgradeDeepDrill.label>модуль буровой установки</UVUpgradeDeepDrill.label>
+  <UVUpgradeDeepDrill.description>Модуль улучшения для терминала подземного хранилища, который позволяет бурить подземную породу для освобождения места под дополнительный этаж хранилища.\n\nКаждый дополнительный модуль снижает время строительства нового этажа.</UVUpgradeDeepDrill.description>
+
+  <UVUpgradeStorageEfficiency.label>модуль эффективности складского пространства</UVUpgradeStorageEfficiency.label>
+  <UVUpgradeStorageEfficiency.description>Модуль улучшения для терминала подземного хранилища, который позволяет оптимизировать складское пространство.\n\nКаждый дополнительный модуль увеличивает максимальный уровень улучшения этажа. Каждое улучшение этажа увеличивает его вместимость в x2.</UVUpgradeStorageEfficiency.description>
+
+  <UVUpgradeAI.label>модуль ИИ</UVUpgradeAI.label>
+  <UVUpgradeAI.description>Модуль улучшения для терминала подземного хранилища, который позволяет терминалу работать самостоятельно.\n\nУбирает необходимость в управляющем операторе. Позволяет автоматически открывать саркофаги криптосна на платформе.</UVUpgradeAI.description>
+
+  <UVUpgradePlatformSpeed.label>модуль скорости платформы</UVUpgradePlatformSpeed.label>
+  <UVUpgradePlatformSpeed.description>Модуль улучшения для терминала подземного хранилища, который позволяет увеличить максимальную скорость грузовой плотформы.\n\nКаждый дополнительный модуль снижает время перемещения платформы между поверхностью и хранилищем в x2.</UVUpgradePlatformSpeed.description>
+
+  <UVUpgradePlatformEfficiency.label>модуль эффективности пространства платформы</UVUpgradePlatformEfficiency.label>
+  <UVUpgradePlatformEfficiency.description>Модуль улучшения для терминала подземного хранилища, который позволяет увеличить максимальную вместимость грузовой плотформы.\n\nУвеличивает вместимость платформы на количество таких модулей.</UVUpgradePlatformEfficiency.description>
+
+  <UVUpgradeTradeBeacon.label>модуль торгового маяка</UVUpgradeTradeBeacon.label>
+  <UVUpgradeTradeBeacon.description>Модуль улучшения для терминала подземного хранилища, который позволяет продавать товары орбитальным торговцам.\n\nДобавляет возможность орбитальной торговли напрямую из хранилища.</UVUpgradeTradeBeacon.description>
+
+  <UVUpgradeDeepDrillM.label>модуль копания</UVUpgradeDeepDrillM.label>
+  <UVUpgradeDeepDrillM.description>Модуль улучшения для терминала подземного хранилища, который позволяет копать подземную породу для освобождения места под дополнительный этаж хранилища.\n\nКаждый дополнительный модуль снижает время строительства нового этажа.</UVUpgradeDeepDrillM.description>
+
+  <UVUpgradeStorageEfficiencyM.label>модуль эффективности складского пространства</UVUpgradeStorageEfficiencyM.label>
+  <UVUpgradeStorageEfficiencyM.description>Модуль улучшения для терминала подземного хранилища, который позволяет оптимизировать складское пространство.\n\nКаждый дополнительный модуль увеличивает максимальный уровень улучшения этажа. Каждое улучшение этажа увеличивает его вместимость в x2.</UVUpgradeStorageEfficiencyM.description>
+
+  <UVUpgradeDeepDrillU.label>модуль буровой установки</UVUpgradeDeepDrillU.label>
+  <UVUpgradeDeepDrillU.description>Модуль улучшения для терминала подземного хранилища, который позволяет бурить подземную породу для освобождения места под дополнительный этаж хранилища.\n\nКаждый дополнительный модуль снижает время строительства нового этажа.</UVUpgradeDeepDrillU.description>
+
+  <UVUpgradeStorageEfficiencyU.label>модуль эффективности складского пространства</UVUpgradeStorageEfficiencyU.label>
+  <UVUpgradeStorageEfficiencyU.description>Модуль улучшения для терминала подземного хранилища, который позволяет оптимизировать складское пространство.\n\nКаждый дополнительный модуль увеличивает максимальный уровень улучшения этажа. Каждое улучшение этажа увеличивает его вместимость в x2.</UVUpgradeStorageEfficiencyU.description>
+
+  <UVUpgradePlatformEfficiencyU.label>модуль эффективности телепортации</UVUpgradePlatformEfficiencyU.label>
+  <UVUpgradePlatformEfficiencyU.description>Модуль улучшения для терминала подземного хранилища, который позволяет увеличить максимальную мощность телепортации.\n\nУвеличивает количество телепортируемых предметов на количество таких модулей.</UVUpgradePlatformEfficiencyU.description>
+
+  <UVUpgradeTradeBeaconU.label>модуль торгового маяка</UVUpgradeTradeBeaconU.label>
+  <UVUpgradeTradeBeaconU.description>Модуль улучшения для терминала подземного хранилища, который позволяет продавать товары орбитальным торговцам.\n\nДобавляет возможность орбитальной торговли напрямую из хранилища.</UVUpgradeTradeBeaconU.description>
+
+</LanguageData>

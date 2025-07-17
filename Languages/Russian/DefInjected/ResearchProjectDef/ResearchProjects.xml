@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <UVCemeteryMedieval.label>средневековое подземное хранилище кладбища</UVCemeteryMedieval.label>
-  <UVCemeteryMedieval.description>Экспирементирование с хранением саркофагов в глубоком погребе.</UVCemeteryMedieval.description>
+	<UVCemeteryMedieval.label>средневековое подземное хранилище кладбища</UVCemeteryMedieval.label>
+	<UVCemeteryMedieval.description>Экспирементирование с хранением саркофагов в глубоком погребе.</UVCemeteryMedieval.description>
 
-  <UVCemetery.label>подземное хранилище кладбища</UVCemetery.label>
-  <UVCemetery.description>Экспирементирование с хранением саркофагов в подземном хранилище.</UVCemetery.description>
+	<UVCemetery.label>подземное хранилище кладбища</UVCemetery.label>
+	<UVCemetery.description>Экспирементирование с хранением саркофагов в подземном хранилище.</UVCemetery.description>
 
-  <UVStorageMedieval.label>средневековое подземное хранилище</UVStorageMedieval.label>
-  <UVStorageMedieval.description>Экспирементирование с хранением предметов в глубоком погребе.</UVStorageMedieval.description>
+	<UVStorageMedieval.label>средневековое подземное хранилище</UVStorageMedieval.label>
+	<UVStorageMedieval.description>Экспирементирование с хранением предметов в глубоком погребе.</UVStorageMedieval.description>
 
-  <UVStorage.label>подземное хранилище</UVStorage.label>
-  <UVStorage.description>Экспирементирование с хранением предметов в подземном хранилище.</UVStorage.description>
+	<UVStorage.label>подземное хранилище</UVStorage.label>
+	<UVStorage.description>Экспирементирование с хранением предметов в подземном хранилище.</UVStorage.description>
 
-  <UVStorageUltra.label>ультратехнологичное подземное хранилище</UVStorageUltra.label>
-  <UVStorageUltra.description>Экспирементирование с телепортацией для перемещения предметов в подземном хранилище.</UVStorageUltra.description>
+	<UVStorageUltra.label>ультратехнологичное подземное хранилище</UVStorageUltra.label>
+	<UVStorageUltra.description>Экспирементирование с телепортацией для перемещения предметов в подземном хранилище.</UVStorageUltra.description>
 
-  <UVCryptosleep.label>подземное хранилище криптосна</UVCryptosleep.label>
-  <UVCryptosleep.description>Экспирементирование с хранением саркофагов криптосна в подземном хранилище.</UVCryptosleep.description>
+	<UVCryptosleep.label>подземное хранилище криптосна</UVCryptosleep.label>
+	<UVCryptosleep.description>Экспирементирование с хранением саркофагов криптосна в подземном хранилище.</UVCryptosleep.description>
+
+	<UVStorageShelf.label>стеллаж-хранилище</UVStorageShelf.label>
+	<UVStorageShelf.description>Экспериментирование с базовой системой автоматизации управления хранилищем для стеллажей содержащих предметы одного типа.</UVStorageShelf.description>
 
 </LanguageData>
