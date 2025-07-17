@@ -81,6 +81,7 @@
     <Compile Include="Buildings\Building_UVCryptosleepCasket.cs" />
     <Compile Include="Buildings\Building_UVTerminalStorage.cs" />
     <Compile Include="Buildings\Building_UVTerminalCryptosleep.cs" />
+    <Compile Include="Buildings\Building_UVShelf.cs" />
     <Compile Include="Buildings\Building_UVTerminalStorageTeleSub.cs" />
     <Compile Include="Buildings\Building_UVTerminalStorageTele.cs" />
     <Compile Include="Buildings\Building_UVUpgrade.cs" />

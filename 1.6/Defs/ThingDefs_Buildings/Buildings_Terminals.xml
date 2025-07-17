@@ -1878,7 +1878,7 @@
 	<ThingDef ParentName="UVTerminalStorage">
 		<defName>UVShelfS</defName>
 		<description>Terminal for storage vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
-		<!-- <thingClass>UndergroundVault.Building_UVTerminalStorageTeleSub</thingClass> -->
+		<thingClass>UndergroundVault.Building_UVShelf</thingClass>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultShelfStorageS</ThingDef>
 		</descriptionHyperlinks>
@@ -1902,7 +1902,12 @@
 		</costList>
 		<building>
 			<maxItemsInCell>5</maxItemsInCell>
+			<relatedBuildCommands>
+				<li>Shelf</li>
+				<li>ShelfSmall</li>
+			</relatedBuildCommands>
 		</building>
+		<designatorDropdown Inherit="False"/>
 		<statBases>
 			<WorkToBuild>2500</WorkToBuild>
 			<MaxHitPoints>100</MaxHitPoints>
@@ -1923,7 +1928,7 @@
 			<li Class="UndergroundVault.TerminalExtension">
 				<VaultDef>UVVaultShelfStorageS</VaultDef>
 				<PlatformCapacity>1</PlatformCapacity>
-				<TicksPerPlatformTravelTimeBase>250</TicksPerPlatformTravelTimeBase>
+				<TicksPerPlatformTravelTimeBase>240</TicksPerPlatformTravelTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
 				</PlatformItemPositions>
