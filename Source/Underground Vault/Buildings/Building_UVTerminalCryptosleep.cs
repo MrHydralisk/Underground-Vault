@@ -58,14 +58,7 @@ namespace UndergroundVault
                 {
                     IntVec3 pos = PlatformFreeSlot;
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                    if (pos.IsValid)
-                    {
-                        des.DesignateSingleCell(this.Position + pos);
-                    }
-                    else
-                    {
-                        des.DesignateSingleCell(this.Position);
-                    }
+                    GenConstruct.PlaceBlueprintForBuild(bd, this.Position + pos, this.Map, Rotation, Faction, null);
                 },
                 defaultLabel = des.Label,
                 defaultDesc = des.Desc,

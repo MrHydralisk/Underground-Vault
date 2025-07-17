@@ -152,22 +152,15 @@ namespace UndergroundVault
                             IntVec3 pos = PlatformFreeSlot;
                             SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
                             des.SetStuffDef(td);
-                            if (pos.IsValid)
-                            {
-                                des.DesignateSingleCell(this.Position + pos);
-                            }
-                            else
-                            {
-                                des.DesignateSingleCell(this.Position);
-                            }
+                            GenConstruct.PlaceBlueprintForBuild(bd, this.Position + pos, this.Map, Rotation, Faction, td);
                         }, shownItemForIcon: td);
                         floatMenuOption.tutorTag = "SelectStuff-" + bd.defName + "-" + td.defName;
                         return floatMenuOption;
                     })
                         .ToList()));
                 },
-                defaultLabel = des.Label,
-                defaultDesc = des.Desc,
+                defaultLabel = bd.label,
+                defaultDesc = bd.description,
                 Disabled = !isPlatformHaveFree || platformMode == PlatformMode.Up || selectStuff.NullOrEmpty(),
                 disabledReason = selectStuff.NullOrEmpty() ? "NoStuffsToBuildWith".Translate() : !isPlatformHaveFree ? "UndergroundVault.Command.disabledReason.PlatformNotFree".Translate() : "UndergroundVault.Command.disabledReason.PlatformBusy".Translate()
             };
