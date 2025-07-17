@@ -380,5 +380,33 @@
 			</li>
 		</modExtensions>
 	</ThingDef>
+	
+	<ThingDef ParentName="UVVaultBase">
+		<defName>UVVaultShelfStorageS</defName>
+		<label>storage underground vault</label>
+		<description>Storage underground vault for storing items. Size S.\n\nThings inside vault is safe from surrounding hazards. The surrounding soil preventing raiders from knowing what is inside the vault.</description>
+		<descriptionHyperlinks>
+			<ThingDef>UVShelfS</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Things/Building/UVVault1x1</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(1,1)</size>
+		<modExtensions>
+			<li Class="UndergroundVault.VaultExtension">
+				<TerminalDef>UVShelfS</TerminalDef>
+				<FloorSize>12</FloorSize>
+				<FloorBaseAmount>3</FloorBaseAmount>
+			</li>
+		</modExtensions>
+	</ThingDef>
 
 </Defs>

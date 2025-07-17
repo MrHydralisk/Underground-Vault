@@ -1828,7 +1828,6 @@
 				<cornerBR>Damage/Corner</cornerBR>
 			</damageData>
 		</graphicData>
-		<rotatable>true</rotatable>
 		<size>(1,2)</size>
 		<designatorDropdown Inherit="False"/>
 		<constructionSkillPrerequisite>16</constructionSkillPrerequisite>
@@ -1869,6 +1868,62 @@
 			<li Class="UndergroundVault.TerminalExtension">
 				<PlatformCapacity>1</PlatformCapacity>
 				<TicksPerPlatformTravelTimeBase>240</TicksPerPlatformTravelTimeBase>
+				<PlatformItemPositions>
+					<li>(0,0,0)</li>
+				</PlatformItemPositions>
+			</li>
+		</modExtensions>
+	</ThingDef>
+
+	<ThingDef ParentName="UVTerminalStorage">
+		<defName>UVShelfS</defName>
+		<description>Terminal for storage vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
+		<!-- <thingClass>UndergroundVault.Building_UVTerminalStorageTeleSub</thingClass> -->
+		<descriptionHyperlinks>
+			<ThingDef>UVVaultShelfStorageS</ThingDef>
+		</descriptionHyperlinks>
+		<graphicData>
+			<texPath>Things/Building/UVShelf1x1</texPath>
+			<graphicClass>Graphic_Multi</graphicClass>
+			<drawSize>(2,2)</drawSize>
+			<damageData>
+				<cornerTL>Damage/Corner</cornerTL>
+				<cornerTR>Damage/Corner</cornerTR>
+				<cornerBL>Damage/Corner</cornerBL>
+				<cornerBR>Damage/Corner</cornerBR>
+			</damageData>
+		</graphicData>
+		<size>(1,1)</size>
+		<hasInteractionCell>false</hasInteractionCell>
+		<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+		<costList>
+			<Steel>75</Steel>
+			<ComponentIndustrial>2</ComponentIndustrial>
+		</costList>
+		<building>
+			<maxItemsInCell>5</maxItemsInCell>
+		</building>
+		<statBases>
+			<WorkToBuild>2500</WorkToBuild>
+			<MaxHitPoints>100</MaxHitPoints>
+		</statBases>
+		<comps>
+			<li Class="CompProperties_Power">
+				<compClass>CompPowerTrader</compClass>
+				<basePowerConsumption>20</basePowerConsumption>
+			</li>
+		</comps>
+		<modExtensions>
+			<li Class="UndergroundVault.BuildingUpgradesExtension">
+				<ConstructionOffset/>
+				<AvailableUpgrades/>
+				<CostForExpanding/>
+				<CostForUpgrading/>
+			</li>
+			<li Class="UndergroundVault.TerminalExtension">
+				<VaultDef>UVVaultShelfStorageS</VaultDef>
+				<PlatformCapacity>1</PlatformCapacity>
+				<TicksPerPlatformTravelTimeBase>250</TicksPerPlatformTravelTimeBase>
 				<PlatformItemPositions>
 					<li>(0,0,0)</li>
 				</PlatformItemPositions>
