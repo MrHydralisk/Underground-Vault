@@ -1,15 +1,17 @@
 ﻿using RimWorld;
+using System.Collections.Generic;
 using System.Linq;
 using Verse;
 
 namespace UndergroundVault
 {
-    internal class Building_UVShelf : Building_UVTerminalStorage
+    public class Building_UVShelf : Building_UVTerminalStorage
     {
         public override bool Manned => true;
         public override bool isCanWorkOn => false;
 
-        public IntRange stackToKeepRange = new IntRange(1, 4);
+        public bool isAllowAutoKeep = true;
+        public int stackToKeep = 4;
 
         protected override int TicksPerPlatformTravelTime(int floor)
         {
@@ -34,18 +36,37 @@ namespace UndergroundVault
         protected override void WorkTick(bool isNotSkip)
         {
             base.WorkTick(isNotSkip);
-            if (Find.TickManager.TicksGame % 250 == 0 && (ExtTerminal.isMultitask || isNotSkip))
+            if (Find.TickManager.TicksGame % 250 == 0 && isAllowAutoKeep && (ExtTerminal.isMultitask || isNotSkip))
             {
                 int heldStacks = slotGroup.HeldThings.Count();
-                if (heldStacks < stackToKeepRange.min && !UVVault.InnerContainer.NullOrEmpty())
+                if (heldStacks < stackToKeep && !UVVault.InnerContainer.NullOrEmpty())
                 {
                     TakeFirstItemFromVault();
                 }
-                else if (heldStacks > stackToKeepRange.max && CanAdd > 0)
+                else if (heldStacks > stackToKeep && CanAdd > 0)
                 {
                     MarkItemFromTerminal(slotGroup.HeldThings.Last());
                 }
             }
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (Gizmo gizmo in base.GetGizmos())
+            {
+                yield return gizmo;
+            }
+            if (Faction == Faction.OfPlayer)
+            {
+                yield return new Gizmo_SetShelfStackToKeep(this);
+            }
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+            Scribe_Values.Look(ref isAllowAutoKeep, "isAllowAutoKeep", true);
+            Scribe_Values.Look(ref stackToKeep, "stackToKeep", 4);
         }
     }
 }

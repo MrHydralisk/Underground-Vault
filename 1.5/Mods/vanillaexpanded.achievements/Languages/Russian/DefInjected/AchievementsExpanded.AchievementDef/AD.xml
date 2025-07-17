@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  
+  <UVTerminalBuilt.label>Глубокое хранение</UVTerminalBuilt.label>
+  <UVTerminalBuilt.description>Постройте подземное хранилище</UVTerminalBuilt.description>
+  
+  <!-- <UVTerminal100Floors.label>Копать копать нору</UVTerminal100Floors.label> -->
+  <UVTerminal100Floors.description>Расширьте подземное хранилище до 100 этажа</UVTerminal100Floors.description>
+  
+  <UVTerminalRimazon.label>Склад Rimazon</UVTerminalRimazon.label>
+  <UVTerminalRimazon.description>Увеличьте вместимость подземного хранилища до 1000</UVTerminalRimazon.description>
+  
+  <UVTerminalStorageCollector.label>Коллекционер</UVTerminalStorageCollector.label>
+  <UVTerminalStorageCollector.description>Соберите 500 предметов в подземном хранилище</UVTerminalStorageCollector.description>
+  
+  <UVTerminalStorageHoarder.label>Синдром Плюшкина</UVTerminalStorageHoarder.label>
+  <UVTerminalStorageHoarder.description>Соберите 5000 предметов в подземном хранилище</UVTerminalStorageHoarder.description>
+  
+  <UVTerminalCemeteryBurialSite.label>Место захоронения</UVTerminalCemeteryBurialSite.label>
+  <UVTerminalCemeteryBurialSite.description>Соберите 100 саркофагов в подземном хранилище кладбища</UVTerminalCemeteryBurialSite.description>
+  
+  <UVTerminalCryptosleepArk.label>Ковчег</UVTerminalCryptosleepArk.label>
+  <UVTerminalCryptosleepArk.description>Соберите 100 саркофагов криптосна в подземном хранилище криптосна</UVTerminalCryptosleepArk.description>
+  
+</LanguageData>

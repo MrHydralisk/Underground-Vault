@@ -1,98 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
     
-    <UndergroundVault.Command.InstallUpgrade.Label>Install upgrade</UndergroundVault.Command.InstallUpgrade.Label>
-    <UndergroundVault.Command.InstallUpgrade.Desc>Will install upgrade module</UndergroundVault.Command.InstallUpgrade.Desc>
-    <UndergroundVault.Command.InstallUpgrade.Option>{0}:\n{1}\nSkill {2}</UndergroundVault.Command.InstallUpgrade.Option>
+	<UndergroundVault.Command.InstallUpgrade.Label>Install upgrade</UndergroundVault.Command.InstallUpgrade.Label>
+	<UndergroundVault.Command.InstallUpgrade.Desc>Will install upgrade module</UndergroundVault.Command.InstallUpgrade.Desc>
+	<UndergroundVault.Command.InstallUpgrade.Option>{0}:\n{1}\nSkill {2}</UndergroundVault.Command.InstallUpgrade.Option>
     
-    <UndergroundVault.Command.UninstallUpgrade.Label>Uninstall upgrade</UndergroundVault.Command.UninstallUpgrade.Label>
-    <UndergroundVault.Command.UninstallUpgrade.Desc>Will uninstall upgrade module</UndergroundVault.Command.UninstallUpgrade.Desc>
+	<UndergroundVault.Command.UninstallUpgrade.Label>Uninstall upgrade</UndergroundVault.Command.UninstallUpgrade.Label>
+	<UndergroundVault.Command.UninstallUpgrade.Desc>Will uninstall upgrade module</UndergroundVault.Command.UninstallUpgrade.Desc>
     
-    <UndergroundVault.Command.StoreInVault.Label>Store in Vault</UndergroundVault.Command.StoreInVault.Label>
-    <UndergroundVault.Command.StoreInVault.Desc>Will lower the cargo platform from the surface to the Vault</UndergroundVault.Command.StoreInVault.Desc>
-    <UndergroundVault.Command.StoreAllInVault.Label>Store all {0}</UndergroundVault.Command.StoreAllInVault.Label>
-    <UndergroundVault.Command.StoreAllFullInVault.Label>Store all full {0}</UndergroundVault.Command.StoreAllFullInVault.Label>
+	<UndergroundVault.Command.StoreInVault.Label>Store in Vault</UndergroundVault.Command.StoreInVault.Label>
+	<UndergroundVault.Command.StoreInVault.Desc>Will lower the cargo platform from the surface to the Vault</UndergroundVault.Command.StoreInVault.Desc>
+	<UndergroundVault.Command.StoreAllInVault.Label>Store all {0}</UndergroundVault.Command.StoreAllInVault.Label>
+	<UndergroundVault.Command.StoreAllFullInVault.Label>Store all full {0}</UndergroundVault.Command.StoreAllFullInVault.Label>
     
-    <UndergroundVault.Command.TakeFromVault.Label>Take from Vault</UndergroundVault.Command.TakeFromVault.Label>
-    <UndergroundVault.Command.TakeFromVault.Desc>Will raise the cargo platform from the Vault to the surface</UndergroundVault.Command.TakeFromVault.Desc>
+	<UndergroundVault.Command.TakeFromVault.Label>Take from Vault</UndergroundVault.Command.TakeFromVault.Label>
+	<UndergroundVault.Command.TakeFromVault.Desc>Will raise the cargo platform from the Vault to the surface</UndergroundVault.Command.TakeFromVault.Desc>
     
-    <UndergroundVault.Command.ClearScheduled.Label>Clear Scheduled actions</UndergroundVault.Command.ClearScheduled.Label>
-    <UndergroundVault.Command.ClearScheduled.Desc>Will clear Scheduled actions for items transportation between Vault and Terminal</UndergroundVault.Command.ClearScheduled.Desc>
-    <UndergroundVault.Command.ClearScheduled.SurfaceThings>To store in Vault</UndergroundVault.Command.ClearScheduled.SurfaceThings>
-    <UndergroundVault.Command.ClearScheduled.UndergroundThings>To take from Vault</UndergroundVault.Command.ClearScheduled.UndergroundThings>
+	<UndergroundVault.Command.ClearScheduled.Label>Clear Scheduled actions</UndergroundVault.Command.ClearScheduled.Label>
+	<UndergroundVault.Command.ClearScheduled.Desc>Will clear Scheduled actions for items transportation between Vault and Terminal</UndergroundVault.Command.ClearScheduled.Desc>
+	<UndergroundVault.Command.ClearScheduled.SurfaceThings>To store in Vault</UndergroundVault.Command.ClearScheduled.SurfaceThings>
+	<UndergroundVault.Command.ClearScheduled.UndergroundThings>To take from Vault</UndergroundVault.Command.ClearScheduled.UndergroundThings>
     
-    <UndergroundVault.Command.AutoStoreFullItems.Label>Auto Store in Vault</UndergroundVault.Command.AutoStoreFullItems.Label>
-    <UndergroundVault.Command.AutoStoreFullItems.Desc>Will automatically schedule full things to be stored in Vault</UndergroundVault.Command.AutoStoreFullItems.Desc>
+	<UndergroundVault.Command.AutoStoreFullItems.Label>Auto Store in Vault</UndergroundVault.Command.AutoStoreFullItems.Label>
+	<UndergroundVault.Command.AutoStoreFullItems.Desc>Will automatically schedule full things to be stored in Vault</UndergroundVault.Command.AutoStoreFullItems.Desc>
     
-    <UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>
-    <UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor. Require in Vault: {0}</UndergroundVault.Command.ExpandVault.Desc>
+	<UndergroundVault.Command.ExpandVault.Label>Expand Vault</UndergroundVault.Command.ExpandVault.Label>
+	<UndergroundVault.Command.ExpandVault.Desc>Will drill deeper underground for an additional Vault floor. Require in Vault: {0}</UndergroundVault.Command.ExpandVault.Desc>
     
-    <UndergroundVault.Command.UpgradeFloorVault.Label>Upgrade Vault floor</UndergroundVault.Command.UpgradeFloorVault.Label>
-    <UndergroundVault.Command.UpgradeFloorVault.Desc>Will optimize floor space</UndergroundVault.Command.UpgradeFloorVault.Desc>
-    <UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to level {1}. Require in Vault:\n{2}</UndergroundVault.Command.UpgradeFloorVault.Option>
+	<UndergroundVault.Command.UpgradeFloorVault.Label>Upgrade Vault floor</UndergroundVault.Command.UpgradeFloorVault.Label>
+	<UndergroundVault.Command.UpgradeFloorVault.Desc>Will optimize floor space</UndergroundVault.Command.UpgradeFloorVault.Desc>
+	<UndergroundVault.Command.UpgradeFloorVault.Option>Upgrade floor {0} to level {1}. Require in Vault:\n{2}</UndergroundVault.Command.UpgradeFloorVault.Option>
 
-    <UndergroundVault.Command.ConstructionThingsRemove.Label>Unload Construction Materials</UndergroundVault.Command.ConstructionThingsRemove.Label>
-    <UndergroundVault.Command.ConstructionThingsRemove.Desc>Will unload all left construction materials in Terminal</UndergroundVault.Command.ConstructionThingsRemove.Desc>
-    
-    <UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
-    <UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
-    <UndergroundVault.Command.disabledReason.PlatformBusy>Сargo platform busy</UndergroundVault.Command.disabledReason.PlatformBusy>
-    <UndergroundVault.Command.disabledReason.PlatformConstructing>Сargo platform busy with construction</UndergroundVault.Command.disabledReason.PlatformConstructing>
-    <UndergroundVault.Command.disabledReason.PlatformMoving>Сargo platform is moving</UndergroundVault.Command.disabledReason.PlatformMoving>
-    <UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>Nothing to store</UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>
-    <UndergroundVault.Command.disabledReason.ExpandingVault>Vault already expanding</UndergroundVault.Command.disabledReason.ExpandingVault>
-    <UndergroundVault.Command.disabledReason.ExpandingVaultMax>Vault already have maximum amount of floors</UndergroundVault.Command.disabledReason.ExpandingVaultMax>
-    <UndergroundVault.Command.disabledReason.UpgradeFloorVault>Vault floor already being optimized</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
-    <UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>No floors to optimize</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
-    <UndergroundVault.Command.disabledReason.VaultEmpty>Vault is empty</UndergroundVault.Command.disabledReason.VaultEmpty>
-    <UndergroundVault.Command.disabledReason.VaultFull>Vault is full</UndergroundVault.Command.disabledReason.VaultFull>
-
-
-
-    <UndergroundVault.Terminal.InspectString.PlatformMoving>Platform moving: {0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
-    <UndergroundVault.Terminal.InspectString.ScheduledStoreInVault>{0} thing scheduled to store in Vault</UndergroundVault.Terminal.InspectString.ScheduledStoreInVault>
-    <UndergroundVault.Terminal.InspectString.ScheduledTakeFromVault>{0} thing scheduled to take from Vault</UndergroundVault.Terminal.InspectString.ScheduledTakeFromVault>
-    <UndergroundVault.Terminal.InspectString.ExpandVault>Expanding Vault: {0}</UndergroundVault.Terminal.InspectString.ExpandVault>
-    <UndergroundVault.Terminal.InspectString.CostExpandVault>Require in Vault: {0}</UndergroundVault.Terminal.InspectString.CostExpandVault>
-    <UndergroundVault.Terminal.InspectString.ScheduledExpandVault>Floor scheduled to expand Vault</UndergroundVault.Terminal.InspectString.ScheduledExpandVault>
-    <UndergroundVault.Terminal.InspectString.UpgradeFloor>Upgrading Vault floor: {0}</UndergroundVault.Terminal.InspectString.UpgradeFloor>
-    <UndergroundVault.Terminal.InspectString.ScheduledUpgradeFloor>Floor scheduled for upgrade</UndergroundVault.Terminal.InspectString.ScheduledUpgradeFloor>
-    <UndergroundVault.Terminal.InspectString.Cremation>Cremating: {0}</UndergroundVault.Terminal.InspectString.Cremation>
-    <UndergroundVault.Terminal.InspectString.ScheduledCremation>{0} thing scheduled for cremation</UndergroundVault.Terminal.InspectString.ScheduledCremation>
-    <UndergroundVault.Terminal.InspectString.ConstructionThings>Additional construction materials in Terminal: {0}</UndergroundVault.Terminal.InspectString.ConstructionThings>
-    
-    <UndergroundVault.Terminal.MeditationFocusCemetery>Per each sarcophagus in Vault (current/max):\n{0} if empty ({1}/{2}),\n{3} for human corpse inside ({4}/{5}),\n{6} if meditator is related to the corpse inside (max {7})</UndergroundVault.Terminal.MeditationFocusCemetery>
-
-    <UndergroundVault.Tooltip.Tab.TakeFromVault>Schedule to take from Vault</UndergroundVault.Tooltip.Tab.TakeFromVault>
-    <UndergroundVault.Tooltip.Tab.SplitTakeFromVault>Schedule to take part from Vault</UndergroundVault.Tooltip.Tab.SplitTakeFromVault>
-    <UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Schedule to take multiple from Vault</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
-    <UndergroundVault.Tooltip.Tab.TakeFromVaultX>Take {0}x from Vault</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
-    <UndergroundVault.Tooltip.Tab.TypeFilter>Type filter</UndergroundVault.Tooltip.Tab.TypeFilter>
-    <UndergroundVault.Tooltip.Tab.ThingsDisplay>Thing display type</UndergroundVault.Tooltip.Tab.ThingsDisplay>
-    <UndergroundVault.Tooltip.Tab.ClearScheduled>Clear Scheduled action</UndergroundVault.Tooltip.Tab.ClearScheduled>
-    <UndergroundVault.Tooltip.Tab.ScheduledByOther>Scheduled by another Terminal</UndergroundVault.Tooltip.Tab.ScheduledByOther>
-    <UndergroundVault.Tooltip.Tab.Cremation>Schedule to cremate</UndergroundVault.Tooltip.Tab.Cremation>
-    <UndergroundVault.Tooltip.Tab.Floor>{0} Floor {1} Level</UndergroundVault.Tooltip.Tab.Floor>
-    <UndergroundVault.Tooltip.Tab.FloorShort>{0} F {1} L</UndergroundVault.Tooltip.Tab.FloorShort>
+	<UndergroundVault.Command.ConstructionThingsRemove.Label>Unload Construction Materials</UndergroundVault.Command.ConstructionThingsRemove.Label>
+	<UndergroundVault.Command.ConstructionThingsRemove.Desc>Will unload all left construction materials in Terminal</UndergroundVault.Command.ConstructionThingsRemove.Desc>
 	
-    <UndergroundVaultTabFloors>Floors</UndergroundVaultTabFloors>
+	<UndergroundVault.Command.SetShelfStackToKeep.Title>Stacks to Keep</UndergroundVault.Command.SetShelfStackToKeep.Title>
+	<UndergroundVault.Command.SetShelfStackToKeep.Tip>Toggle automatic storage control</UndergroundVault.Command.SetShelfStackToKeep.Tip>
+	<UndergroundVault.Command.SetShelfStackToKeep.TipDesc>This determines whether shelf will automatically store extra stacks in vault and take them out of the vault. If enabled, after stack on this shelf exceed {0} extra stack will be automatically stored in vault. In addition stack will be delivered to the shelf from vault, if amount of stacks below {0}.\n\nAutomatic storage control is currently {ONOFF}.</UndergroundVault.Command.SetShelfStackToKeep.TipDesc>
     
-    <UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>Can only be one</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>
-    <UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>Require ultra storage vault panel</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>
+	<UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
+	<UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>
+	<UndergroundVault.Command.disabledReason.PlatformBusy>Сargo platform busy</UndergroundVault.Command.disabledReason.PlatformBusy>
+	<UndergroundVault.Command.disabledReason.PlatformConstructing>Сargo platform busy with construction</UndergroundVault.Command.disabledReason.PlatformConstructing>
+	<UndergroundVault.Command.disabledReason.PlatformMoving>Сargo platform is moving</UndergroundVault.Command.disabledReason.PlatformMoving>
+	<UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>Nothing to store</UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>
+	<UndergroundVault.Command.disabledReason.ExpandingVault>Vault already expanding</UndergroundVault.Command.disabledReason.ExpandingVault>
+	<UndergroundVault.Command.disabledReason.ExpandingVaultMax>Vault already have maximum amount of floors</UndergroundVault.Command.disabledReason.ExpandingVaultMax>
+	<UndergroundVault.Command.disabledReason.UpgradeFloorVault>Vault floor already being optimized</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
+	<UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>No floors to optimize</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
+	<UndergroundVault.Command.disabledReason.VaultEmpty>Vault is empty</UndergroundVault.Command.disabledReason.VaultEmpty>
+	<UndergroundVault.Command.disabledReason.VaultFull>Vault is full</UndergroundVault.Command.disabledReason.VaultFull>
+
+
+
+	<UndergroundVault.Terminal.InspectString.PlatformMoving>Platform moving: {0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
+	<UndergroundVault.Terminal.InspectString.ScheduledStoreInVault>{0} thing scheduled to store in Vault</UndergroundVault.Terminal.InspectString.ScheduledStoreInVault>
+	<UndergroundVault.Terminal.InspectString.ScheduledTakeFromVault>{0} thing scheduled to take from Vault</UndergroundVault.Terminal.InspectString.ScheduledTakeFromVault>
+	<UndergroundVault.Terminal.InspectString.ExpandVault>Expanding Vault: {0}</UndergroundVault.Terminal.InspectString.ExpandVault>
+	<UndergroundVault.Terminal.InspectString.CostExpandVault>Require in Vault: {0}</UndergroundVault.Terminal.InspectString.CostExpandVault>
+	<UndergroundVault.Terminal.InspectString.ScheduledExpandVault>Floor scheduled to expand Vault</UndergroundVault.Terminal.InspectString.ScheduledExpandVault>
+	<UndergroundVault.Terminal.InspectString.UpgradeFloor>Upgrading Vault floor: {0}</UndergroundVault.Terminal.InspectString.UpgradeFloor>
+	<UndergroundVault.Terminal.InspectString.ScheduledUpgradeFloor>Floor scheduled for upgrade</UndergroundVault.Terminal.InspectString.ScheduledUpgradeFloor>
+	<UndergroundVault.Terminal.InspectString.Cremation>Cremating: {0}</UndergroundVault.Terminal.InspectString.Cremation>
+	<UndergroundVault.Terminal.InspectString.ScheduledCremation>{0} thing scheduled for cremation</UndergroundVault.Terminal.InspectString.ScheduledCremation>
+	<UndergroundVault.Terminal.InspectString.ConstructionThings>Additional construction materials in Terminal: {0}</UndergroundVault.Terminal.InspectString.ConstructionThings>
+    
+	<UndergroundVault.Terminal.MeditationFocusCemetery>Per each sarcophagus in Vault (current/max):\n{0} if empty ({1}/{2}),\n{3} for human corpse inside ({4}/{5}),\n{6} if meditator is related to the corpse inside (max {7})</UndergroundVault.Terminal.MeditationFocusCemetery>
+
+	<UndergroundVault.Tooltip.Tab.TakeFromVault>Schedule to take from Vault</UndergroundVault.Tooltip.Tab.TakeFromVault>
+	<UndergroundVault.Tooltip.Tab.SplitTakeFromVault>Schedule to take part from Vault</UndergroundVault.Tooltip.Tab.SplitTakeFromVault>
+	<UndergroundVault.Tooltip.Tab.BatchTakeFromVault>Schedule to take multiple from Vault</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
+	<UndergroundVault.Tooltip.Tab.TakeFromVaultX>Take {0}x from Vault</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
+	<UndergroundVault.Tooltip.Tab.TypeFilter>Type filter</UndergroundVault.Tooltip.Tab.TypeFilter>
+	<UndergroundVault.Tooltip.Tab.ThingsDisplay>Thing display type</UndergroundVault.Tooltip.Tab.ThingsDisplay>
+	<UndergroundVault.Tooltip.Tab.ClearScheduled>Clear Scheduled action</UndergroundVault.Tooltip.Tab.ClearScheduled>
+	<UndergroundVault.Tooltip.Tab.ScheduledByOther>Scheduled by another Terminal</UndergroundVault.Tooltip.Tab.ScheduledByOther>
+	<UndergroundVault.Tooltip.Tab.Cremation>Schedule to cremate</UndergroundVault.Tooltip.Tab.Cremation>
+	<UndergroundVault.Tooltip.Tab.Floor>{0} Floor {1} Level</UndergroundVault.Tooltip.Tab.Floor>
+	<UndergroundVault.Tooltip.Tab.FloorShort>{0} F {1} L</UndergroundVault.Tooltip.Tab.FloorShort>
+	
+	<UndergroundVaultTabFloors>Floors</UndergroundVaultTabFloors>
+    
+	<UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>Can only be one</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>
+	<UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>Require ultra storage vault panel</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>
 
     
 
-    <UndergroundVault.Command.VaultDetonate.Label>Detonate Vault</UndergroundVault.Command.VaultDetonate.Label>
-    <UndergroundVault.Command.VaultDetonate.Desc>Will detonate Vault with all it content</UndergroundVault.Command.VaultDetonate.Desc>
-    <UndergroundVault.Command.disabledReason.TerminalAvailable>Uninstall Terminal first</UndergroundVault.Command.disabledReason.TerminalAvailable>
+	<UndergroundVault.Command.VaultDetonate.Label>Detonate Vault</UndergroundVault.Command.VaultDetonate.Label>
+	<UndergroundVault.Command.VaultDetonate.Desc>Will detonate Vault with all it content</UndergroundVault.Command.VaultDetonate.Desc>
+	<UndergroundVault.Command.disabledReason.TerminalAvailable>Uninstall Terminal first</UndergroundVault.Command.disabledReason.TerminalAvailable>
 
 
     
-    <UndergroundVault.Vault.InspectString.Floors>Vault floors {0}\n{1}</UndergroundVault.Vault.InspectString.Floors>
-    <UndergroundVault.Vault.InspectString.FloorsShort>Vault floors {0}</UndergroundVault.Vault.InspectString.FloorsShort>    
-    <UndergroundVault.Vault.InspectString.Capacity>Vault space {0} Used / {1} Free / {2} Total</UndergroundVault.Vault.InspectString.Capacity>
-    <UndergroundVault.Vault.InspectString.CapacityShort>Vault space {0} U / {1} F / {2} T</UndergroundVault.Vault.InspectString.CapacityShort>
-    <UndergroundVault.Vault.InspectString.Total>Vault floors:</UndergroundVault.Vault.InspectString.Total>
-    <UndergroundVault.Vault.InspectString.Floor>- Floors lvl {0}: {1}</UndergroundVault.Vault.InspectString.Floor>
+	<UndergroundVault.Vault.InspectString.Floors>Vault floors {0}\n{1}</UndergroundVault.Vault.InspectString.Floors>
+	<UndergroundVault.Vault.InspectString.FloorsShort>Vault floors {0}</UndergroundVault.Vault.InspectString.FloorsShort>
+	<UndergroundVault.Vault.InspectString.Capacity>Vault space {0} Used / {1} Free / {2} Total</UndergroundVault.Vault.InspectString.Capacity>
+	<UndergroundVault.Vault.InspectString.CapacityShort>Vault space {0} U / {1} F / {2} T</UndergroundVault.Vault.InspectString.CapacityShort>
+	<UndergroundVault.Vault.InspectString.Total>Vault floors:</UndergroundVault.Vault.InspectString.Total>
+	<UndergroundVault.Vault.InspectString.Floor>- Floors lvl {0}: {1}</UndergroundVault.Vault.InspectString.Floor>
 
 </LanguageData>

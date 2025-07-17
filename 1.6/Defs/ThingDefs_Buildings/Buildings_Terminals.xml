@@ -1894,6 +1894,7 @@
 			</damageData>
 		</graphicData>
 		<size>(1,1)</size>
+		<uiIconScale>0.8</uiIconScale>
 		<hasInteractionCell>false</hasInteractionCell>
 		<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
 		<costList>
@@ -1902,6 +1903,40 @@
 		</costList>
 		<building>
 			<maxItemsInCell>5</maxItemsInCell>
+			<storageGroupTag>Shelf</storageGroupTag>
+			<fixedStorageSettings>
+				<filter>
+					<disallowNotEverStorable>true</disallowNotEverStorable>
+					<categories>
+						<li>Root</li>
+					</categories>
+					<disallowedCategories>
+						<li>Chunks</li>
+						<li>Plants</li>
+						<li>Buildings</li>
+					</disallowedCategories>
+					<disallowedThingDefs MayRequire="Ludeon.RimWorld.Biotech">
+						<li MayRequire="Ludeon.RimWorld.Biotech">Wastepack</li>
+					</disallowedThingDefs>
+					<specialFiltersToDisallow>
+						<li>AllowLargeCorpses</li>
+					</specialFiltersToDisallow>
+				</filter>
+			</fixedStorageSettings>
+			<defaultStorageSettings>
+				<priority>Preferred</priority>
+				<filter>
+					<categories>
+						<li>Foods</li>
+						<li>Manufactured</li>
+						<li>ResourcesRaw</li>
+						<li>Items</li>
+						<li>Weapons</li>
+						<li>Apparel</li>
+						<li>BodyParts</li>
+					</categories>
+				</filter>
+			</defaultStorageSettings>
 			<relatedBuildCommands>
 				<li>Shelf</li>
 				<li>ShelfSmall</li>

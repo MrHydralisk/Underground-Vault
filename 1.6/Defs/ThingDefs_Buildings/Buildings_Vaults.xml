@@ -403,7 +403,7 @@
 		<modExtensions>
 			<li Class="UndergroundVault.VaultExtension">
 				<TerminalDef>UVShelfS</TerminalDef>
-				<FloorSize>12</FloorSize>
+				<FloorSize>5</FloorSize>
 				<FloorBaseAmount>3</FloorBaseAmount>
 			</li>
 		</modExtensions>
