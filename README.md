@@ -8,7 +8,7 @@ If you have giant colony and have a lot of items, that not needed at that moment
 
 Mod adding new buildings Vault Terminals, that allowing your pawns to operate Underground Vaults under them. Vaults provide a big storage space, that safely hidden from any raiders activity. The disadvantage of Vault is that it takes long time to bring items from Vault to the surface for pawns usage afterwards. 
 
-Vaults located deep underground, which doesn't allow raiders to know about their existence (items inside not counted as part of colony wealth). 
+Vaults located deep underground, which doesn't allow raiders to know about their existence (items inside not counted as part of colony wealthm unless enabled in settings).  
 Destruction of Vaults from outside is highly unlikely, even if Vault Terminal destroyed. But Vault can be manually detonated via button, in case you want to free space or move vault. All items in Vault will be lost after detonation. 
 
 Vault Terminals can be upgraded with additional modules.
@@ -20,6 +20,7 @@ Vault can be expanded by constructing new floors or upgrading existing ones, whi
 ![Text](/Mod%20Page/Images/Content/UV2.png)
 ![Text](/Mod%20Page/Images/Content/UV4.png)
 ![Text](/Mod%20Page/Images/Content/UV5.png)
+![Text](/Mod%20Page/Images/Content/UV6.png)
 
 ### Upgrade Modules
 

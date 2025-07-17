@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Manifest>
   <identifier>MrHydralisk.UndergroundVault</identifier>
-  <version>1.7.0.0</version>
+  <version>2.0.0.0</version>
   <dependencies>
     <li>brrainz.harmony</li>
   </dependencies>
   <suggests>
     <li>MrHydralisk.VOEAdditionalOutposts</li>
     <li>MrHydralisk.VOEPowerGrid</li>
+    <li>MrHydralisk.AnomaliesExpected</li>
     <li>MrHydralisk.GlitterworldMedicineProduction</li>
   </suggests>
   <showCrossPromotions>true</showCrossPromotions>
