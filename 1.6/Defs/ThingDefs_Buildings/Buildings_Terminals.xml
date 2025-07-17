@@ -1877,7 +1877,8 @@
 
 	<ThingDef ParentName="UVTerminalStorage">
 		<defName>UVShelfS</defName>
-		<description>Terminal for storage vault management and access point to it. Size S.\n\nVault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nTerminal operated manually and requires power to work. Additional upgrade modules can be installed.</description>
+		<label>storage vault shelf</label>
+		<description>Shelf connected to a storage vault, used for management and access point to it. Size S.\n\nSmall vault is located directly below it. Mobile platform can move through vault shaft and interact with storage space inside.\n\nShelf features basic automatic storage control perfect for single item type and requires power to work. When automatic storage control enabled, any stacks exceeding threshold on this shelf will be automatically stored in the vault. Meanwhile, if the number of stacks falls below threshold, additional stacks will be retrieved from the vault and delivered to the shelf.</description>
 		<thingClass>UndergroundVault.Building_UVShelf</thingClass>
 		<descriptionHyperlinks>
 			<ThingDef>UVVaultShelfStorageS</ThingDef>
@@ -1894,13 +1895,16 @@
 			</damageData>
 		</graphicData>
 		<size>(1,1)</size>
-		<uiIconScale>0.8</uiIconScale>
+		<uiIconScale>0.5</uiIconScale>
 		<hasInteractionCell>false</hasInteractionCell>
 		<constructionSkillPrerequisite>7</constructionSkillPrerequisite>
 		<costList>
 			<Steel>75</Steel>
 			<ComponentIndustrial>2</ComponentIndustrial>
 		</costList>
+		<researchPrerequisites Inherit="False">
+			<li>UVStorageShelf</li>
+		</researchPrerequisites>
 		<building>
 			<maxItemsInCell>5</maxItemsInCell>
 			<storageGroupTag>Shelf</storageGroupTag>

@@ -36,7 +36,7 @@
 	
 	<UndergroundVault.Command.SetShelfStackToKeep.Title>Stacks to Keep</UndergroundVault.Command.SetShelfStackToKeep.Title>
 	<UndergroundVault.Command.SetShelfStackToKeep.Tip>Toggle automatic storage control</UndergroundVault.Command.SetShelfStackToKeep.Tip>
-	<UndergroundVault.Command.SetShelfStackToKeep.TipDesc>This determines whether shelf will automatically store extra stacks in vault and take them out of the vault. If enabled, after stack on this shelf exceed {0} extra stack will be automatically stored in vault. In addition stack will be delivered to the shelf from vault, if amount of stacks below {0}.\n\nAutomatic storage control is currently {ONOFF}.</UndergroundVault.Command.SetShelfStackToKeep.TipDesc>
+	<UndergroundVault.Command.SetShelfStackToKeep.TipDesc>This determines whether shelf automatically manages extra stacks by moving them to and from the vault. When enabled, any stacks exceeding {0} on this shelf will be automatically stored in the vault. Meanwhile, if the number of stacks falls below {0}, additional stacks will be retrieved from the vault and delivered to the shelf.\n\nAutomatic storage control is currently {ONOFF}.</UndergroundVault.Command.SetShelfStackToKeep.TipDesc>
     
 	<UndergroundVault.Command.disabledReason.PlatformFree>Сargo platform is empty</UndergroundVault.Command.disabledReason.PlatformFree>
 	<UndergroundVault.Command.disabledReason.PlatformNotFree>Сargo platform is filled</UndergroundVault.Command.disabledReason.PlatformNotFree>

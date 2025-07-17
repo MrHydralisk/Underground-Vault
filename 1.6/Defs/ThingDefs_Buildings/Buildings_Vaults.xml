@@ -384,7 +384,7 @@
 	<ThingDef ParentName="UVVaultBase">
 		<defName>UVVaultShelfStorageS</defName>
 		<label>storage underground vault</label>
-		<description>Storage underground vault for storing items. Size S.\n\nThings inside vault is safe from surrounding hazards. The surrounding soil preventing raiders from knowing what is inside the vault.</description>
+		<description>Storage underground vault for storing items under shelf. Size S.\n\nThings inside vault is safe from surrounding hazards. The surrounding soil preventing raiders from knowing what is inside the vault.</description>
 		<descriptionHyperlinks>
 			<ThingDef>UVShelfS</ThingDef>
 		</descriptionHyperlinks>

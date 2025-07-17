@@ -60,6 +60,21 @@
     <researchViewY>1.00</researchViewY>
     <tab>UVUndergroundVault</tab>
   </ResearchProjectDef>
+
+  <ResearchProjectDef>
+    <defName>UVStorageShelf</defName>
+    <label>Storage vault shelf</label>
+    <description>Experiment with basic automated storage control system for shelves dedicated to a single item type.</description>
+    <baseCost>1000</baseCost>
+    <techLevel>Industrial</techLevel>
+    <prerequisites>
+      <li>UVStorage</li>
+      <li>MicroelectronicsBasics</li>
+    </prerequisites>
+    <researchViewX>2.00</researchViewX>
+    <researchViewY>0.00</researchViewY>
+    <tab>UVUndergroundVault</tab>
+  </ResearchProjectDef>
   
   <ResearchProjectDef>
     <defName>UVStorageUltra</defName>
