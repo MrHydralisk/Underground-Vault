@@ -54,7 +54,8 @@ namespace UndergroundVault
         public List<Thing> PlatformContainer = new List<Thing>();
         protected PlatformMode platformMode = PlatformMode.None;
 
-        protected virtual List<Thing> PlatformSlots => ExtTerminal.PlatformItemPositions.Select((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).FirstOrDefault((Thing t) => PlatformThingsSorter(t))).ToList();
+        protected virtual List<Thing> PlatformSlots => platformPositions.Select((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(iv3).FirstOrDefault((Thing t) => PlatformThingsSorter(t))).ToList();
+        protected List<IntVec3> platformPositions;
         protected virtual List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && !(t is Filth)).ToList();
         protected virtual List<Thing> PlatformFullThings => PlatformThings.Where((Thing t) => t.stackCount == t.def.stackLimit).ToList();
 
@@ -187,13 +188,14 @@ namespace UndergroundVault
             base.SpawnSetup(map, respawningAfterLoad);
             if (ConstructionThings.NullOrEmpty())
                 ConstructionThings = new List<Thing>();
+            platformPositions = ExtTerminal.PlatformItemPositions.Select((IntVec3 iv3) => this.Position + (Rotation.AsQuat * iv3.ToVector3()).ToIntVec3()).ToList();
             if (!respawningAfterLoad)
             {
                 if (!isVaultAvailable && VaultDef != null)
                 {
-                    Thing t = GenSpawn.Spawn(VaultDef, this.Position, this.Map, this.Rotation);
-                    t.SetStuffDirect(this.Stuff);
+                    Thing t = ThingMaker.MakeThing(VaultDef, Stuff);
                     t.SetFactionDirect(this.Faction);
+                    GenSpawn.Spawn(VaultDef, this.Position, this.Map, this.Rotation);
                 }
             }
         }

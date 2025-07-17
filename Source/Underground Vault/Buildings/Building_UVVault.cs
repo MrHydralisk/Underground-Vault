@@ -86,7 +86,16 @@ namespace UndergroundVault
                 action = delegate
                 {
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                    Blueprint_Build bb = GenConstruct.PlaceBlueprintForBuild(TerminalDef, this.Position, this.Map, Rotation, this.Faction, this.Stuff);
+                    if (DebugSettings.godMode)
+                    {
+                        Thing t = GenSpawn.Spawn(TerminalDef, this.Position, this.Map, this.Rotation);
+                        t.SetStuffDirect(this.Stuff);
+                        t.SetFactionDirect(this.Faction);
+                    }
+                    else
+                    {
+                        GenConstruct.PlaceBlueprintForBuild(TerminalDef, this.Position, this.Map, Rotation, this.Faction, this.Stuff);
+                    }
                 },
                 defaultLabel = TerminalDef.label,
                 defaultDesc = TerminalDef.description,

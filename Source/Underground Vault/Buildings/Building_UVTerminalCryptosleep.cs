@@ -22,7 +22,7 @@ namespace UndergroundVault
                 int freeSpace = PlatformSlots.FirstIndexOf((Thing t) => t == null);
                 if (freeSpace > -1)
                 {
-                    return ExtTerminal.PlatformItemPositions[freeSpace];
+                    return platformPositions[freeSpace];
                 }
                 else
                     return IntVec3.Invalid;
@@ -34,12 +34,12 @@ namespace UndergroundVault
             IntVec3 pos = PlatformFreeSlot;
             if (pos.IsValid)
             {
-                GenSpawn.Spawn(thing, this.Position + pos, this.Map);
+                GenSpawn.Spawn(thing, pos, this.Map, Rotation);
                 return;
             }
             else
             {
-                GenSpawn.Spawn(thing, this.Position, this.Map);
+                GenSpawn.Spawn(thing, this.Position, this.Map, Rotation);
             }
         }
 
@@ -58,7 +58,15 @@ namespace UndergroundVault
                 {
                     IntVec3 pos = PlatformFreeSlot;
                     SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
-                    GenConstruct.PlaceBlueprintForBuild(bd, this.Position + pos, this.Map, Rotation, Faction, null);
+                    if (DebugSettings.godMode)
+                    {
+                        Thing t = GenSpawn.Spawn(bd, pos, this.Map, this.Rotation);
+                        t.SetFactionDirect(this.Faction);
+                    }
+                    else
+                    {
+                        GenConstruct.PlaceBlueprintForBuild(bd, pos, this.Map, Rotation, Faction, null);
+                    }
                 },
                 defaultLabel = des.Label,
                 defaultDesc = des.Desc,

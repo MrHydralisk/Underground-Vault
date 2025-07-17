@@ -152,7 +152,16 @@ namespace UndergroundVault
                             IntVec3 pos = PlatformFreeSlot;
                             SoundDefOf.Tick_Tiny.PlayOneShotOnCamera();
                             des.SetStuffDef(td);
-                            GenConstruct.PlaceBlueprintForBuild(bd, this.Position + pos, this.Map, Rotation, Faction, td);
+                            if (DebugSettings.godMode)
+                            {
+                                Thing t = ThingMaker.MakeThing(bd, td);
+                                t.SetFactionDirect(this.Faction);
+                                GenSpawn.Spawn(t, pos, this.Map, this.Rotation);
+                            }
+                            else
+                            {
+                                GenConstruct.PlaceBlueprintForBuild(bd, pos, this.Map, Rotation, Faction, td);
+                            }
                         }, shownItemForIcon: td);
                         floatMenuOption.tutorTag = "SelectStuff-" + bd.defName + "-" + td.defName;
                         return floatMenuOption;

@@ -9,7 +9,7 @@ namespace UndergroundVault
 {
     public class Building_UVTerminalStorage : Building_UVTerminal, ISlotGroupParent, IHaulDestination, IStorageGroupMember
     {
-        protected override List<Thing> PlatformSlots => ExtTerminal.PlatformItemPositions.SelectMany((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).Where((Thing t) => PlatformThingsSorter(t))).ToList();
+        protected override List<Thing> PlatformSlots => platformPositions.SelectMany((IntVec3 iv3) => this.Map.thingGrid.ThingsListAtFast(this.Position + iv3).Where((Thing t) => PlatformThingsSorter(t))).ToList();
         public override bool isPlatformHaveFree => true;
 
         private List<IntVec3> cachedOccupiedCells;
@@ -179,9 +179,9 @@ namespace UndergroundVault
             {
                 yield break;
             }
-            foreach (IntVec3 item in ExtTerminal.PlatformItemPositions)
+            foreach (IntVec3 pos in platformPositions)
             {
-                yield return this.Position + item;
+                yield return pos;
             }
         }
 
