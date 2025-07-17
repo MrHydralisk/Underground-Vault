@@ -59,14 +59,17 @@ namespace UndergroundVault
         {
             get
             {
-                if (platformPositionsCached.NullOrEmpty())
+                if (platformPositionsCached.NullOrEmpty() || Position != lastPosition)
                 {
                     platformPositionsCached = ExtTerminal.PlatformItemPositions.Select((IntVec3 iv3) => this.Position + (Rotation.AsQuat * iv3.ToVector3()).ToIntVec3()).ToList();
+                    lastPosition = Position;
                 }
                 return platformPositionsCached;
             }
         }
         protected List<IntVec3> platformPositionsCached;
+        private IntVec3 lastPosition;
+
         protected virtual List<Thing> PlatformThings => PlatformSlots.Where((Thing t) => t != null && !(t is Filth)).ToList();
         protected virtual List<Thing> PlatformFullThings => PlatformThings.Where((Thing t) => t.stackCount == t.def.stackLimit).ToList();
 
