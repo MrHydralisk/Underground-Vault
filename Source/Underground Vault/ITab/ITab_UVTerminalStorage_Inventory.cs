@@ -51,6 +51,12 @@ namespace UndergroundVault
             collectionContainerCached = availableContainer.GroupBy((Thing t) => t.def).Select(x => new ThingDefCountClass(x.Key, x.Sum((Thing t) => t.stackCount))).ToList();
         }
 
+        public override void OnOpen()
+        {
+            base.OnOpen();
+            UpdateCollectionContainer();
+        }
+
         private enum MouseMarking
         {
             Idle,
