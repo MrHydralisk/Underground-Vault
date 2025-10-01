@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<UndergroundVault.Settings.Title>地下保險庫</UndergroundVault.Settings.Title>
+
+	<UndergroundVault.Settings.TradeBeaconEnabled.Label>啟用貿易信標模組。</UndergroundVault.Settings.TradeBeaconEnabled.Label>
+	<UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>如果暫時不想在交易時看到倉庫物品，可以禁用，尤其是在大型倉庫初次載入時可能需要較長時間。若想永久禁用，只需不建造貿易信標模組或拆除已有模組。</UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>
+
+	<UndergroundVault.Settings.CalculateVaultWealth.Label>啟用倉庫財富計算。</UndergroundVault.Settings.CalculateVaultWealth.Label>
+	<UndergroundVault.Settings.CalculateVaultWealth.Tooltip>允許將倉庫內物品計入殖民地財富。注意：當倉庫內物品堆數量極大時，可能會導致卡頓，這並非 RimWorld 的設計初衷（例如，倉庫物品堆數量遠超殖民地地圖總格數）。</UndergroundVault.Settings.CalculateVaultWealth.Tooltip>
+
+	<UndergroundVault.Settings.DevMode.Info>顯示偵錯資訊。</UndergroundVault.Settings.DevMode.Info>
+</LanguageData>

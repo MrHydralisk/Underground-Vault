@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<UVCemeteryMedieval.label>中世纪地下墓地</UVCemeteryMedieval.label>
+	<UVCemeteryMedieval.description>尝试将石棺存放在深层地下保险库中。</UVCemeteryMedieval.description>
+
+	<UVCemetery.label>地下墓地</UVCemetery.label>
+	<UVCemetery.description>尝试将石棺存放在深层地下墓穴中。</UVCemetery.description>
+
+	<UVStorageMedieval.label>中世纪地下保险库</UVStorageMedieval.label>
+	<UVStorageMedieval.description>尝试将物品存放在深层地下保险库中。</UVStorageMedieval.description>
+
+	<UVStorage.label>地下保险库</UVStorage.label>
+	<UVStorage.description>尝试将物品存放在深层地下保险库中。</UVStorage.description>
+
+	<UVStorageUltra.label>超级地下保险库</UVStorageUltra.label>
+	<UVStorageUltra.description>尝试利用传送技术将物品运输到深层地下保险库。</UVStorageUltra.description>
+
+	<UVCryptosleep.label>地下加密睡眠舱</UVCryptosleep.label>
+	<UVCryptosleep.description>尝试将加密睡眠舱存放在深层地下保险库中。</UVCryptosleep.description>
+
+	<UVStorageShelf.label>保险库货架</UVStorageShelf.label>
+	<UVStorageShelf.description>尝试为专门存放单一物品类型的货架开发基础自动化储存控制系统。</UVStorageShelf.description>
+
+</LanguageData>

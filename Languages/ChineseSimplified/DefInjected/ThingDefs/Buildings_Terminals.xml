@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  
+  
+<UVTerminalCemeteryS.label>墓地保险库终端</UVTerminalCemeteryS.label>
+<UVTerminalCemeteryS.description>用于墓地保险库管理和访问的终端。尺寸 S。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。允许殖民者参观存放的石棺。\n\n终端需手动操作并需要电力。可在平台上建造石棺。可安装额外升级模块。</UVTerminalCemeteryS.description>
+
+<UVTerminalCemeteryM.label>墓地保险库终端</UVTerminalCemeteryM.label>
+<UVTerminalCemeteryM.description>用于墓地保险库管理和访问的终端。尺寸 M。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。允许殖民者参观存放的石棺。\n\n终端需手动操作并需要电力。可在平台上建造石棺。可安装额外升级模块。</UVTerminalCemeteryM.description>
+
+<UVTerminalCemeteryL.label>墓地保险库终端</UVTerminalCemeteryL.label>
+<UVTerminalCemeteryL.description>用于墓地保险库管理和访问的终端。尺寸 L。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。允许殖民者参观存放的石棺。\n\n终端需手动操作并需要电力。可在平台上建造石棺。可安装额外升级模块。</UVTerminalCemeteryL.description>
+
+<UVTerminalCemeteryMedieval.label>中世纪墓地保险库</UVTerminalCemeteryMedieval.label>
+<UVTerminalCemeteryMedieval.description>用于墓地保险库管理和访问的终端。中世纪类型。\n\n保险库位于其正下方。移动平台可手动降下以存放物品。\n\n终端需手动操作。可在平台上建造石棺。可安装额外升级模块。</UVTerminalCemeteryMedieval.description>
+
+<UVTerminalCryptosleepS.label>加密睡眠保险库终端</UVTerminalCryptosleepS.label>
+<UVTerminalCryptosleepS.description>用于加密睡眠保险库管理和访问的终端。尺寸 S。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n终端需手动操作并需要电力。可在平台上建造加密睡眠舱。可安装额外升级模块。</UVTerminalCryptosleepS.description>
+
+<UVTerminalCryptosleepM.label>加密睡眠保险库终端</UVTerminalCryptosleepM.label>
+<UVTerminalCryptosleepM.description>用于加密睡眠保险库管理和访问的终端。尺寸 M。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n终端需手动操作并需要电力。可在平台上建造加密睡眠舱。可安装额外升级模块。</UVTerminalCryptosleepM.description>
+
+<UVTerminalCryptosleepL.label>加密睡眠保险库终端</UVTerminalCryptosleepL.label>
+<UVTerminalCryptosleepL.description>用于加密睡眠保险库管理和访问的终端。尺寸 L。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n终端需手动操作并需要电力。可在平台上建造加密睡眠舱。可安装额外升级模块。</UVTerminalCryptosleepL.description>
+
+<UVTerminalStorageS.label>储藏保险库</UVTerminalStorageS.label>
+<UVTerminalStorageS.building.groupingLabel>储藏保险库</UVTerminalStorageS.building.groupingLabel>
+<UVTerminalStorageS.description>用于储藏保险库管理和访问的终端。尺寸 S。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n终端需手动操作并需要电力。可安装额外升级模块。</UVTerminalStorageS.description>
+
+<UVTerminalStorageM.label>储藏保险库</UVTerminalStorageM.label>
+<UVTerminalStorageM.building.groupingLabel>储藏保险库</UVTerminalStorageM.building.groupingLabel>
+<UVTerminalStorageM.description>用于储藏保险库管理和访问的终端。尺寸 M。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n终端需手动操作并需要电力。可安装额外升级模块。</UVTerminalStorageM.description>
+
+<UVTerminalStorageL.label>储藏保险库</UVTerminalStorageL.label>
+<UVTerminalStorageL.building.groupingLabel>储藏保险库</UVTerminalStorageL.building.groupingLabel>
+<UVTerminalStorageL.description>用于储藏保险库管理和访问的终端。尺寸 L。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n终端需手动操作并需要电力。可安装额外升级模块。</UVTerminalStorageL.description>
+
+<UVTerminalStorageXL.label>储藏保险库</UVTerminalStorageXL.label>
+<UVTerminalStorageXL.building.groupingLabel>储藏保险库</UVTerminalStorageXL.building.groupingLabel>
+<UVTerminalStorageXL.description>用于储藏保险库管理和访问的终端。尺寸 XL。\n\n保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n终端需手动操作并需要电力。可安装额外升级模块。</UVTerminalStorageXL.description>
+
+<UVTerminalStorageMedieval.label>中世纪保险库</UVTerminalStorageMedieval.label>
+<UVTerminalStorageMedieval.building.groupingLabel>中世纪保险库</UVTerminalStorageMedieval.building.groupingLabel>
+<UVTerminalStorageMedieval.description>用于储藏保险库管理和访问的终端。中世纪类型。\n\n保险库位于其正下方。移动平台可手动降下以存放物品。\n\n终端需手动操作。可安装额外升级模块。</UVTerminalStorageMedieval.description>
+
+<UVTerminalStorageUltra.label>超级地下保险库</UVTerminalStorageUltra.label>
+<UVTerminalStorageUltra.building.groupingLabel>超级地下保险库</UVTerminalStorageUltra.building.groupingLabel>
+<UVTerminalStorageUltra.description>用于储藏保险库管理和访问的终端。超级类型。\n\n保险库位于其正下方。AI核心控制物品在地表与保险库间的传送过程。\n\n终端由 AI 操作并需要电力。可建造子终端以建立额外的保险库访问点。可安装额外升级模块。</UVTerminalStorageUltra.description>
+
+<UVTerminalStorageUltraSub.label>超级地下保险库子</UVTerminalStorageUltraSub.label>
+<UVTerminalStorageUltraSub.building.groupingLabel>超级地下保险库子</UVTerminalStorageUltraSub.building.groupingLabel>
+<UVTerminalStorageUltraSub.description>连接到现有超级类型终端的子终端，用于额外的保险库访问点。</UVTerminalStorageUltraSub.description>
+
+<UVShelfS.label>储藏保险库货架</UVShelfS.label>
+<UVShelfS.description>连接到储藏保险库的货架，用于管理和访问。尺寸 S。\n\n小型保险库位于其正下方。移动平台可通过保险库井道移动并与内部储藏空间互动。\n\n货架具备基础自动储存控制，适合单一物品类型，并需要电力。当自动储存控制启用时，货架上超过阈值的堆叠将自动存入保险库。若堆叠数量低于阈值，将从保险库取出额外堆叠并送至货架。</UVShelfS.description>
+<UVShelfS.building.groupingLabel>储藏保险库</UVShelfS.building.groupingLabel>
+</LanguageData>

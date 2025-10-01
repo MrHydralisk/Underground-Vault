@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+<UVSarcophagus.label>石棺</UVSarcophagus.label>
+<UVSarcophagus.description>用於安葬尊貴死者的裝飾性棺槨。</UVSarcophagus.description>
+
+<UVCryptosleepCasket.label>加密睡眠艙</UVCryptosleepCasket.label>
+<UVCryptosleepCasket.description>一種自供能的石棺，可讓人長時間處於休眠狀態。</UVCryptosleepCasket.description>
+
+<UVUpgradeFrame.label>升級模組框架</UVUpgradeFrame.label>
+<UVUpgradeFrame.description>地下保險庫終端的升級模組。</UVUpgradeFrame.description>
+</LanguageData>
