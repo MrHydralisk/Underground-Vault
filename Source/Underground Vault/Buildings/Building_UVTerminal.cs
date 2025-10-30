@@ -209,7 +209,7 @@ namespace UndergroundVault
                 {
                     Thing t = ThingMaker.MakeThing(VaultDef, Stuff);
                     t.SetFactionDirect(this.Faction);
-                    GenSpawn.Spawn(VaultDef, this.Position, this.Map, this.Rotation);
+                    GenSpawn.Spawn(t, this.Position, this.Map, this.Rotation);
                 }
             }
         }

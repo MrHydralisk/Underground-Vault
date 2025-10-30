@@ -36,7 +36,13 @@ Vault can be expanded by constructing new floors or upgrading existing ones, whi
 
 Should have no compatibility issues with other mods.
 
-Supported languages: English, Russian.
+Supported languages: 
+* English,
+* Russian,
+* Chinese (provided by legiorange),
+* Chinese (available on workshop by MZM_GOW),
+* Japanese (available on workshop by Proxyer),
+* Japanese (available on JP mod database site)
 
 ## Add/Remove
 
