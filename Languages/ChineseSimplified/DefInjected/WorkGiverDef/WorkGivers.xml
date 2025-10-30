@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<ManUVTerminal.label>操作保险库终端</ManUVTerminal.label>
+	<ManUVTerminal.verb>操作</ManUVTerminal.verb>
+	<ManUVTerminal.gerund>正在操作</ManUVTerminal.gerund>
+
+	<DeliverExpandUVTerminal.label>运送资源扩展保险库</DeliverExpandUVTerminal.label>
+	<DeliverExpandUVTerminal.verb>运送资源扩展保险库</DeliverExpandUVTerminal.verb>
+	<DeliverExpandUVTerminal.gerund>正在运送资源扩展保险库</DeliverExpandUVTerminal.gerund>
+
+	<InstallUpgradeUVTerminal.label>安装模块到保险库</InstallUpgradeUVTerminal.label>
+	<InstallUpgradeUVTerminal.verb>安装</InstallUpgradeUVTerminal.verb>
+	<InstallUpgradeUVTerminal.gerund>正在安装</InstallUpgradeUVTerminal.gerund>
+
+	<ConstructDeliverUpgradeUVTerminal.label>运送资源到保险库模块</ConstructDeliverUpgradeUVTerminal.label>
+	<ConstructDeliverUpgradeUVTerminal.verb>运送到</ConstructDeliverUpgradeUVTerminal.verb>
+	<ConstructDeliverUpgradeUVTerminal.gerund>正在运送到</ConstructDeliverUpgradeUVTerminal.gerund>
+
+	<DeliverUpgradeUVTerminal.label>运送资源到保险库模块</DeliverUpgradeUVTerminal.label>
+	<DeliverUpgradeUVTerminal.verb>运送到</DeliverUpgradeUVTerminal.verb>
+	<DeliverUpgradeUVTerminal.gerund>正在运送到</DeliverUpgradeUVTerminal.gerund>
+
+</LanguageData>

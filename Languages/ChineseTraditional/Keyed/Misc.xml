@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+	
+<UndergroundVault.Command.InstallUpgrade.Label>安裝升級</UndergroundVault.Command.InstallUpgrade.Label>
+<UndergroundVault.Command.InstallUpgrade.Desc>將安裝升級模組</UndergroundVault.Command.InstallUpgrade.Desc>
+<UndergroundVault.Command.InstallUpgrade.Option>{0}:\n{1}\n技能 {2}</UndergroundVault.Command.InstallUpgrade.Option>
+
+<UndergroundVault.Command.UninstallUpgrade.Label>卸載升級</UndergroundVault.Command.UninstallUpgrade.Label>
+<UndergroundVault.Command.UninstallUpgrade.Desc>將卸載升級模組</UndergroundVault.Command.UninstallUpgrade.Desc>
+
+<UndergroundVault.Command.StoreInVault.Label>存入保險庫</UndergroundVault.Command.StoreInVault.Label>
+<UndergroundVault.Command.StoreInVault.Desc>將把貨物平台從地面降到保險庫</UndergroundVault.Command.StoreInVault.Desc>
+<UndergroundVault.Command.StoreAllInVault.Label>儲存所有 {0}</UndergroundVault.Command.StoreAllInVault.Label>
+<UndergroundVault.Command.StoreAllFullInVault.Label>儲存所有滿的 {0}</UndergroundVault.Command.StoreAllFullInVault.Label>
+
+<UndergroundVault.Command.TakeFromVault.Label>從保險庫取出</UndergroundVault.Command.TakeFromVault.Label>
+<UndergroundVault.Command.TakeFromVault.Desc>將把貨物平台從保險庫升到地面</UndergroundVault.Command.TakeFromVault.Desc>
+
+<UndergroundVault.Command.ClearScheduled.Label>清除已安排的操作</UndergroundVault.Command.ClearScheduled.Label>
+<UndergroundVault.Command.ClearScheduled.Desc>將清除保險庫與終端之間物品運輸的已安排操作</UndergroundVault.Command.ClearScheduled.Desc>
+<UndergroundVault.Command.ClearScheduled.SurfaceThings>存入保險庫</UndergroundVault.Command.ClearScheduled.SurfaceThings>
+<UndergroundVault.Command.ClearScheduled.UndergroundThings>從保險庫取出</UndergroundVault.Command.ClearScheduled.UndergroundThings>
+
+<UndergroundVault.Command.AutoStoreFullItems.Label>自動存入保險庫</UndergroundVault.Command.AutoStoreFullItems.Label>
+<UndergroundVault.Command.AutoStoreFullItems.Desc>將自動安排滿的物品存入保險庫</UndergroundVault.Command.AutoStoreFullItems.Desc>
+
+<UndergroundVault.Command.ExpandVault.Label>擴建保險庫</UndergroundVault.Command.ExpandVault.Label>
+<UndergroundVault.Command.ExpandVault.Desc>將向地下更深處鑽探以增加保險庫樓層。保險庫內需：{0}</UndergroundVault.Command.ExpandVault.Desc>
+
+<UndergroundVault.Command.UpgradeFloorVault.Label>升級保險庫樓層</UndergroundVault.Command.UpgradeFloorVault.Label>
+<UndergroundVault.Command.UpgradeFloorVault.Desc>將優化樓層空間</UndergroundVault.Command.UpgradeFloorVault.Desc>
+<UndergroundVault.Command.UpgradeFloorVault.Option>將樓層 {0} 升級到等級 {1}。保險庫內需：\n{2}</UndergroundVault.Command.UpgradeFloorVault.Option>
+
+<UndergroundVault.Command.ConstructionThingsRemove.Label>卸載建築材料</UndergroundVault.Command.ConstructionThingsRemove.Label>
+<UndergroundVault.Command.ConstructionThingsRemove.Desc>將卸載終端內所有剩餘建築材料</UndergroundVault.Command.ConstructionThingsRemove.Desc>
+
+<UndergroundVault.Command.SetShelfStackToKeep.Title>保留堆疊數</UndergroundVault.Command.SetShelfStackToKeep.Title>
+<UndergroundVault.Command.SetShelfStackToKeep.Tip>切換自動儲存控制</UndergroundVault.Command.SetShelfStackToKeep.Tip>
+<UndergroundVault.Command.SetShelfStackToKeep.TipDesc>此選項決定貨架是否自動管理多餘堆疊，將其移入或取出保險庫。啟用後，貨架上超過 {0} 的堆疊將自動存入保險庫。當堆疊數低於 {0} 時，將從保險庫取出並補充到貨架。\n\n自動儲存控制目前為 {ONOFF}。</UndergroundVault.Command.SetShelfStackToKeep.TipDesc>
+
+<UndergroundVault.Command.disabledReason.PlatformFree>貨物平台為空</UndergroundVault.Command.disabledReason.PlatformFree>
+<UndergroundVault.Command.disabledReason.PlatformNotFree>貨物平台已滿</UndergroundVault.Command.disabledReason.PlatformNotFree>
+<UndergroundVault.Command.disabledReason.PlatformBusy>貨物平台忙碌中</UndergroundVault.Command.disabledReason.PlatformBusy>
+<UndergroundVault.Command.disabledReason.PlatformConstructing>貨物平台正在施工</UndergroundVault.Command.disabledReason.PlatformConstructing>
+<UndergroundVault.Command.disabledReason.PlatformMoving>貨物平台正在移動</UndergroundVault.Command.disabledReason.PlatformMoving>
+<UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>無可儲存物品</UndergroundVault.Command.disabledReason.PlatformHaveNothingToStore>
+<UndergroundVault.Command.disabledReason.ExpandingVault>保險庫正在擴建</UndergroundVault.Command.disabledReason.ExpandingVault>
+<UndergroundVault.Command.disabledReason.ExpandingVaultMax>保險庫已達最大樓層數</UndergroundVault.Command.disabledReason.ExpandingVaultMax>
+<UndergroundVault.Command.disabledReason.UpgradeFloorVault>保險庫樓層正在優化</UndergroundVault.Command.disabledReason.UpgradeFloorVault>
+<UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>無可優化樓層</UndergroundVault.Command.disabledReason.NoUpgradeFloorVault>
+<UndergroundVault.Command.disabledReason.VaultEmpty>保險庫為空</UndergroundVault.Command.disabledReason.VaultEmpty>
+<UndergroundVault.Command.disabledReason.VaultFull>保險庫已滿</UndergroundVault.Command.disabledReason.VaultFull>
+
+
+
+<UndergroundVault.Terminal.InspectString.PlatformMoving>平台移動中：{0}</UndergroundVault.Terminal.InspectString.PlatformMoving>
+<UndergroundVault.Terminal.InspectString.ScheduledStoreInVault>已安排 {0} 個物品存入保險庫</UndergroundVault.Terminal.InspectString.ScheduledStoreInVault>
+<UndergroundVault.Terminal.InspectString.ScheduledTakeFromVault>已安排 {0} 個物品從保險庫取出</UndergroundVault.Terminal.InspectString.ScheduledTakeFromVault>
+<UndergroundVault.Terminal.InspectString.ExpandVault>保險庫擴建中：{0}</UndergroundVault.Terminal.InspectString.ExpandVault>
+<UndergroundVault.Terminal.InspectString.CostExpandVault>保險庫內需：{0}</UndergroundVault.Terminal.InspectString.CostExpandVault>
+<UndergroundVault.Terminal.InspectString.ScheduledExpandVault>已安排樓層擴建保險庫</UndergroundVault.Terminal.InspectString.ScheduledExpandVault>
+<UndergroundVault.Terminal.InspectString.UpgradeFloor>保險庫樓層升級中：{0}</UndergroundVault.Terminal.InspectString.UpgradeFloor>
+<UndergroundVault.Terminal.InspectString.ScheduledUpgradeFloor>已安排樓層升級</UndergroundVault.Terminal.InspectString.ScheduledUpgradeFloor>
+<UndergroundVault.Terminal.InspectString.Cremation>火化中：{0}</UndergroundVault.Terminal.InspectString.Cremation>
+<UndergroundVault.Terminal.InspectString.ScheduledCremation>已安排 {0} 個物品火化</UndergroundVault.Terminal.InspectString.ScheduledCremation>
+<UndergroundVault.Terminal.InspectString.ConstructionThings>終端內額外建築材料：{0}</UndergroundVault.Terminal.InspectString.ConstructionThings>
+
+<UndergroundVault.Terminal.MeditationFocusCemetery>每個保險庫石棺（目前/最大）：\n空時 {0} ({1}/{2})，\n內有人類屍體時 {3} ({4}/{5})，\n冥想者與屍體有關係時 {6}（最多 {7}）</UndergroundVault.Terminal.MeditationFocusCemetery>
+
+<UndergroundVault.Tooltip.Tab.TakeFromVault>安排從保險庫取出</UndergroundVault.Tooltip.Tab.TakeFromVault>
+<UndergroundVault.Tooltip.Tab.SplitTakeFromVault>安排部分從保險庫取出</UndergroundVault.Tooltip.Tab.SplitTakeFromVault>
+<UndergroundVault.Tooltip.Tab.BatchTakeFromVault>安排批量從保險庫取出</UndergroundVault.Tooltip.Tab.BatchTakeFromVault>
+<UndergroundVault.Tooltip.Tab.TakeFromVaultX>取出 {0} 個從保險庫</UndergroundVault.Tooltip.Tab.TakeFromVaultX>
+<UndergroundVault.Tooltip.Tab.TypeFilter>類型篩選</UndergroundVault.Tooltip.Tab.TypeFilter>
+<UndergroundVault.Tooltip.Tab.ThingsDisplay>物品顯示類型</UndergroundVault.Tooltip.Tab.ThingsDisplay>
+<UndergroundVault.Tooltip.Tab.ClearScheduled>清除已安排操作</UndergroundVault.Tooltip.Tab.ClearScheduled>
+<UndergroundVault.Tooltip.Tab.ScheduledByOther>由其他終端安排</UndergroundVault.Tooltip.Tab.ScheduledByOther>
+<UndergroundVault.Tooltip.Tab.Cremation>安排火化</UndergroundVault.Tooltip.Tab.Cremation>
+<UndergroundVault.Tooltip.Tab.Floor>{0} 樓層 {1} 等級</UndergroundVault.Tooltip.Tab.Floor>
+<UndergroundVault.Tooltip.Tab.FloorShort>{0} 層 {1} 級</UndergroundVault.Tooltip.Tab.FloorShort>
+
+<UndergroundVaultTabFloors>樓層</UndergroundVaultTabFloors>
+
+<UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>只能有一個</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltra>
+<UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>需要超級儲存保險庫</UndergroundVault.Terminal.PlaceWorker.UVTerminalStorageUltraSub>
+
+
+
+<UndergroundVault.Command.VaultDetonate.Label>引爆保險庫</UndergroundVault.Command.VaultDetonate.Label>
+<UndergroundVault.Command.VaultDetonate.Desc>將引爆保險庫及其所有內容</UndergroundVault.Command.VaultDetonate.Desc>
+<UndergroundVault.Command.disabledReason.TerminalAvailable>請先卸載終端</UndergroundVault.Command.disabledReason.TerminalAvailable>
+
+
+
+<UndergroundVault.Vault.InspectString.Floors>保險庫樓層 {0}\n{1}</UndergroundVault.Vault.InspectString.Floors>
+<UndergroundVault.Vault.InspectString.FloorsShort>保險庫樓層 {0}</UndergroundVault.Vault.InspectString.FloorsShort>
+<UndergroundVault.Vault.InspectString.Capacity>保險庫空間 {0} 已用 / {1} 空閒 / {2} 總計</UndergroundVault.Vault.InspectString.Capacity>
+<UndergroundVault.Vault.InspectString.CapacityShort>保險庫空間 {0} 用 / {1} 空 / {2} 總</UndergroundVault.Vault.InspectString.CapacityShort>
+<UndergroundVault.Vault.InspectString.Total>保險庫樓層：</UndergroundVault.Vault.InspectString.Total>
+<UndergroundVault.Vault.InspectString.Floor>- 樓層等級 {0}：{1}</UndergroundVault.Vault.InspectString.Floor>
+</LanguageData>

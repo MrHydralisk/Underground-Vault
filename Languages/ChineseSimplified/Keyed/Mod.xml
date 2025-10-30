@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+	<UndergroundVault.Settings.Title>地下保险库</UndergroundVault.Settings.Title>
+	
+	<UndergroundVault.Settings.TradeBeaconEnabled.Label>启用贸易信标模块。</UndergroundVault.Settings.TradeBeaconEnabled.Label>
+	<UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>如果暂时不想在交易时看到仓库物品，可以禁用，尤其是在大型仓库初次加载时可能需要较长时间。若想永久禁用，只需不建造贸易信标模块或拆除已有模块。</UndergroundVault.Settings.TradeBeaconEnabled.Tooltip>
+	
+	<UndergroundVault.Settings.CalculateVaultWealth.Label>启用仓库财富计算。</UndergroundVault.Settings.CalculateVaultWealth.Label>
+	<UndergroundVault.Settings.CalculateVaultWealth.Tooltip>允许将仓库内物品计入殖民地财富。注意：当仓库内物品堆数量极大时，可能会导致卡顿，这并非RimWorld的设计初衷（例如，仓库物品堆数量远超殖民地地图总格数）。</UndergroundVault.Settings.CalculateVaultWealth.Tooltip>
+	
+	<UndergroundVault.Settings.DevMode.Info>显示调试信息。</UndergroundVault.Settings.DevMode.Info>
+
+</LanguageData>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <UVTerminalCemeteryS.label>墓地保險庫終端</UVTerminalCemeteryS.label>
+<UVTerminalCemeteryS.description>用於墓地保險庫管理和訪問的終端。尺寸 S。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。允許殖民者參觀存放的石棺。\n\n終端需手動操作並需要電力。可在平台上建造石棺。可安裝額外升級模組。</UVTerminalCemeteryS.description>
+
+<UVTerminalCemeteryM.label>墓地保險庫終端</UVTerminalCemeteryM.label>
+<UVTerminalCemeteryM.description>用於墓地保險庫管理和訪問的終端。尺寸 M。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。允許殖民者參觀存放的石棺。\n\n終端需手動操作並需要電力。可在平台上建造石棺。可安裝額外升級模組。</UVTerminalCemeteryM.description>
+
+<UVTerminalCemeteryL.label>墓地保險庫終端</UVTerminalCemeteryL.label>
+<UVTerminalCemeteryL.description>用於墓地保險庫管理和訪問的終端。尺寸 L。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。允許殖民者參觀存放的石棺。\n\n終端需手動操作並需要電力。可在平台上建造石棺。可安裝額外升級模組。</UVTerminalCemeteryL.description>
+
+<UVTerminalCemeteryMedieval.label>中世紀墓地保險庫</UVTerminalCemeteryMedieval.label>
+<UVTerminalCemeteryMedieval.description>用於墓地保險庫管理和訪問的終端。中世紀類型。\n\n保險庫位於其正下方。移動平台可手動降下以存放物品。\n\n終端需手動操作。可在平台上建造石棺。可安裝額外升級模組。</UVTerminalCemeteryMedieval.description>
+
+<UVTerminalCryptosleepS.label>加密睡眠保險庫終端</UVTerminalCryptosleepS.label>
+<UVTerminalCryptosleepS.description>用於加密睡眠保險庫管理和訪問的終端。尺寸 S。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n終端需手動操作並需要電力。可在平台上建造加密睡眠艙。可安裝額外升級模組。</UVTerminalCryptosleepS.description>
+
+<UVTerminalCryptosleepM.label>加密睡眠保險庫終端</UVTerminalCryptosleepM.label>
+<UVTerminalCryptosleepM.description>用於加密睡眠保險庫管理和訪問的終端。尺寸 M。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n終端需手動操作並需要電力。可在平台上建造加密睡眠艙。可安裝額外升級模組。</UVTerminalCryptosleepM.description>
+
+<UVTerminalCryptosleepL.label>加密睡眠保險庫終端</UVTerminalCryptosleepL.label>
+<UVTerminalCryptosleepL.description>用於加密睡眠保險庫管理和訪問的終端。尺寸 L。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n終端需手動操作並需要電力。可在平台上建造加密睡眠艙。可安裝額外升級模組。</UVTerminalCryptosleepL.description>
+
+<UVTerminalStorageS.label>儲藏保險庫</UVTerminalStorageS.label>
+<UVTerminalStorageS.building.groupingLabel>儲藏保險庫</UVTerminalStorageS.building.groupingLabel>
+<UVTerminalStorageS.description>用於儲藏保險庫管理和訪問的終端。尺寸 S。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n終端需手動操作並需要電力。可安裝額外升級模組。</UVTerminalStorageS.description>
+
+<UVTerminalStorageM.label>儲藏保險庫</UVTerminalStorageM.label>
+<UVTerminalStorageM.building.groupingLabel>儲藏保險庫</UVTerminalStorageM.building.groupingLabel>
+<UVTerminalStorageM.description>用於儲藏保險庫管理和訪問的終端。尺寸 M。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n終端需手動操作並需要電力。可安裝額外升級模組。</UVTerminalStorageM.description>
+
+<UVTerminalStorageL.label>儲藏保險庫</UVTerminalStorageL.label>
+<UVTerminalStorageL.building.groupingLabel>儲藏保險庫</UVTerminalStorageL.building.groupingLabel>
+<UVTerminalStorageL.description>用於儲藏保險庫管理和訪問的終端。尺寸 L。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n終端需手動操作並需要電力。可安裝額外升級模組。</UVTerminalStorageL.description>
+
+<UVTerminalStorageXL.label>儲藏保險庫</UVTerminalStorageXL.label>
+<UVTerminalStorageXL.building.groupingLabel>儲藏保險庫</UVTerminalStorageXL.building.groupingLabel>
+<UVTerminalStorageXL.description>用於儲藏保險庫管理和訪問的終端。尺寸 XL。\n\n保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n終端需手動操作並需要電力。可安裝額外升級模組。</UVTerminalStorageXL.description>
+
+<UVTerminalStorageMedieval.label>中世紀保險庫</UVTerminalStorageMedieval.label>
+<UVTerminalStorageMedieval.building.groupingLabel>中世紀保險庫</UVTerminalStorageMedieval.building.groupingLabel>
+<UVTerminalStorageMedieval.description>用於儲藏保險庫管理和訪問的終端。中世紀類型。\n\n保險庫位於其正下方。移動平台可手動降下以存放物品。\n\n終端需手動操作。可安裝額外升級模組。</UVTerminalStorageMedieval.description>
+
+<UVTerminalStorageUltra.label>超級地下保險庫</UVTerminalStorageUltra.label>
+<UVTerminalStorageUltra.building.groupingLabel>超級地下保險庫</UVTerminalStorageUltra.building.groupingLabel>
+<UVTerminalStorageUltra.description>用於儲藏保險庫管理和訪問的終端。超級類型。\n\n保險庫位於其正下方。AI 核心控制物品在地表與保險庫間的傳送過程。\n\n終端由 AI 操作並需要電力。可建造子終端以建立額外的保險庫訪問點。可安裝額外升級模組。</UVTerminalStorageUltra.description>
+
+<UVTerminalStorageUltraSub.label>超級地下保險庫子終端</UVTerminalStorageUltraSub.label>
+<UVTerminalStorageUltraSub.building.groupingLabel>超級地下保險庫子終端</UVTerminalStorageUltraSub.building.groupingLabel>
+<UVTerminalStorageUltraSub.description>連接到現有超級類型終端的子終端，用於額外的保險庫訪問點。</UVTerminalStorageUltraSub.description>
+
+<UVShelfS.label>儲藏保險庫貨架</UVShelfS.label>
+<UVShelfS.description>連接到儲藏保險庫的貨架，用於管理和訪問。尺寸 S。\n\n小型保險庫位於其正下方。移動平台可透過保險庫井道移動並與內部儲藏空間互動。\n\n貨架具備基礎自動儲存控制，適合單一物品類型，並需要電力。當自動儲存控制啟用時，貨架上超過閾值的堆疊將自動存入保險庫。若堆疊數量低於閾值，將從保險庫取出額外堆疊並送至貨架。</UVShelfS.description>
+<UVShelfS.building.groupingLabel>儲藏保險庫</UVShelfS.building.groupingLabel>
+</LanguageData>

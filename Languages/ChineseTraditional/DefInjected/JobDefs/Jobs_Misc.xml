@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<ManUVTerminal.reportString>操作中。</ManUVTerminal.reportString>
+
+	<DeliverExpandUVTerminal.reportString>運送資源以擴展保險庫。</DeliverExpandUVTerminal.reportString>
+  
+	<DeliverUpgradeUVTerminal.reportString>運送資源到目標A。</DeliverUpgradeUVTerminal.reportString>
+
+	<InstallUpgradeUVTerminal.reportString>正在將模組安裝到目標A。</InstallUpgradeUVTerminal.reportString>
+
+</Defs>
